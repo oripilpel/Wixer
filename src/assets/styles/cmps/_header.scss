@@ -12,6 +12,19 @@
     box-shadow: 0 0px 8px 0 #00000036;
     z-index: 5;
 
+    .logo {
+        font-size: 40px;
+        font-family: courgette;
+
+        a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #1e8fe0;
+            text-decoration: none;
+        }
+    }
+
     .links {
         height: 100%;
         .link {
@@ -27,7 +40,8 @@
             color: #293241;
         }
     }
-}
-img {
-    mix-blend-mode: darken;
+    
+    // img {
+    //     mix-blend-mode: darken;
+    // }
 }
