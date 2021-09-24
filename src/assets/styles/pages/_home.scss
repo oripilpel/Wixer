@@ -1,5 +1,11 @@
 .home {
-    & .top {
+    .top {
         border: 1px solid black;
+        height: 100vh;
+        text-align: center;
+    }
+
+    .hero {
+        height: 400px;
     }
 }

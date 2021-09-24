@@ -4,7 +4,7 @@ export function Home() {
     return (
         <section className="home">
             <div className="top">
-                <img src={Hero} />
+                <img className="hero" src={Hero} />
             </div>
         </section>
     )
