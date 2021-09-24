@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { useDrag, useDrop } from "react-dnd";
-import { SECTION, SIDEBAR_ITEM, COMPONENT, SIDEBAR_ITEM_LAYOUT, INNERSECTION, COLUMN } from "../constants.js";
+import { SECTION, SIDEBAR_ITEM, COMPONENT, SIDEBAR_ITEM_COLUMN, SIDEBAR_ITEM_INNERSECTION, INNERSECTION, COLUMN } from "../constants.js";
 import { DropZone } from "./DropZone";
 import Column from "./Column";
 import { InnerSection } from "./InnerSection.jsx";
@@ -104,13 +104,13 @@ export function Section({ data, cmps, handleDrop, path, moveSection, moveColumn,
       />
     );
   };
-
+  const hasOnlyColumns = (data.cmps.every(cmp => cmp.type === COLUMN))
 
 
   return (
     <div ref={ref} style={{ ...style, opacity }} className={`base draggable section`}>
       {data.id}
-      <div className="columns">
+      <div className={(hasOnlyColumns) ? 'columns' : 'innersections flex direction-column'}>
         {data.cmps.map((child, index) => {
           const currentPath = `${path}-${index}`;
           return (
@@ -120,9 +120,9 @@ export function Section({ data, cmps, handleDrop, path, moveSection, moveColumn,
                   path: currentPath,
                   childrenCount: data.cmps.length,
                 }}
-                accept={[SIDEBAR_ITEM, COMPONENT, SECTION, COLUMN, SIDEBAR_ITEM_LAYOUT]}
+                accept={(hasOnlyColumns) ? [SIDEBAR_ITEM, COMPONENT, COLUMN, SIDEBAR_ITEM_COLUMN] : [SIDEBAR_ITEM, COMPONENT, INNERSECTION, SIDEBAR_ITEM_INNERSECTION]}
                 onDrop={handleDrop}
-                className="horizontalDrag"
+                className={(hasOnlyColumns) ? 'horizontalDrag' : ''}
               />
               {(child.type === COLUMN) && renderColumn(child, currentPath) || renderInnerSection(child, currentPath)}
             </React.Fragment>
@@ -135,9 +135,9 @@ export function Section({ data, cmps, handleDrop, path, moveSection, moveColumn,
             path: `${path}-${data.cmps.length}`,
             childrenCount: data.cmps.length
           }}
-          accept={[SIDEBAR_ITEM, COMPONENT, SECTION, COLUMN, SIDEBAR_ITEM_LAYOUT]}
+          accept={(hasOnlyColumns) ? [SIDEBAR_ITEM, COMPONENT, COLUMN, SIDEBAR_ITEM_COLUMN] : [SIDEBAR_ITEM, COMPONENT, INNERSECTION, SIDEBAR_ITEM_INNERSECTION]}
           onDrop={handleDrop}
-          className="horizontalDrag"
+          className={(hasOnlyColumns) ? 'horizontalDrag' : ''}
           isLast
         />
       </div>

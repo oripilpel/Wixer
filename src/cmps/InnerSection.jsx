@@ -42,7 +42,7 @@ export function InnerSection({ data, components, handleDrop, path, moveSection, 
         item: {
             type: INNERSECTION,
             id: data.id,
-            children: data.children,
+            cmps: data.cmps,
             path
         },
         collect: monitor => ({
@@ -72,10 +72,10 @@ export function InnerSection({ data, components, handleDrop, path, moveSection, 
     };
 
     return (
-        <div ref={ref} style={{ ...style, opacity }} className={`base draggable section`}>
+        <div ref={ref} style={{ ...style, opacity }} className={`base draggable innersection`}>
             {data.id}
             <div className="columns">
-                {data.children.map((column, index) => {
+                {data.cmps.map((column, index) => {
                     const currentPath = `${path}-${index}`;
 
                     return (
@@ -83,7 +83,7 @@ export function InnerSection({ data, components, handleDrop, path, moveSection, 
                             <DropZone
                                 data={{
                                     path: currentPath,
-                                    childrenCount: data.children.length,
+                                    childrenCount: data.cmps.length,
                                 }}
                                 accept={[SIDEBAR_ITEM, COMPONENT, COLUMN]}
                                 onDrop={handleDrop}
@@ -95,8 +95,8 @@ export function InnerSection({ data, components, handleDrop, path, moveSection, 
                 })}
                 <DropZone
                     data={{
-                        path: `${path}-${data.children.length}`,
-                        childrenCount: data.children.length
+                        path: `${path}-${data.cmps.length}`,
+                        childrenCount: data.cmps.length
                     }}
                     accept={[SIDEBAR_ITEM, COMPONENT, COLUMN]}
                     onDrop={handleDrop}

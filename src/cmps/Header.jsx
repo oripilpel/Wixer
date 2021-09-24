@@ -5,7 +5,6 @@ import { NavLink } from 'react-router-dom';
 export class Header extends React.Component {
     render() {
         const { pathname } = this.props.location
-        console.log(pathname === "/editor");
         return (
             <header className={`header flex align-center justify-between ${pathname === "/editor" && "min"}`}>
 

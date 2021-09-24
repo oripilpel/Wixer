@@ -17,14 +17,16 @@ export const remove = (arr, index) => [
   ...arr.slice(index + 1)
 ];
 
-export const insert = (arr, index, newItem) => [
-  // part of the array before the specified index
-  ...arr.slice(0, index),
-  // inserted item
-  newItem,
-  // part of the array after the specified index
-  ...arr.slice(index)
-];
+export const insert = (arr, index, newItem) => {
+  return [
+    // part of the array before the specified index
+    ...arr.slice(0, index),
+    // inserted item
+    newItem,
+    // part of the array after the specified index
+    ...arr.slice(index)
+  ]
+};
 
 export const reorderChildren = (children, splitDropZonePath, splitItemPath) => {
   if (splitDropZonePath.length === 1) {
@@ -206,7 +208,6 @@ export const handleMoveSidebarInnerSectionIntoParent = (
   layout,
   splitDropZonePath,
 ) => {
-
   switch (splitDropZonePath.length) {
 
     case 1:
