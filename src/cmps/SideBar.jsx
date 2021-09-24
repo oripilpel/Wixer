@@ -28,7 +28,7 @@ export function SideBar({ sideBarItems, selected, update }) {
                 <>
                 <StyledEngineProvider injectFirst>
                     <div>{JSON.stringify(selected)}</div>
-                    {selected.type === 'text' && <TextEdit style={selected.style} onUpdate={onUpdate}/>}
+                    {selected.type === 'component' && selected.component.type === 'text' && <TextEdit style={selected.component.style} onUpdate={onUpdate}/>}
                     {selected.type === 'column' && <ColumnSectionEdit style={selected.style} onUpdate={onUpdate}/>}
                 </StyledEngineProvider>
                 </>
