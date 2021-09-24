@@ -70,7 +70,7 @@ export function layoutReducer(state = initialState, action) {
             return { ...state }
         case 'UPDATE_COMPONENT':
             const { comp, field, value } = action;
-            const newLayout = { ...state };
+            const newLayout = JSON.parse(JSON.stringify(state))//{ ...state };
             const { path } = comp;
             switch (comp.path.length) {
                 case 1:
@@ -86,8 +86,9 @@ export function layoutReducer(state = initialState, action) {
                     newLayout.cmps[path[0]].cmps[path[1]].cmps[path[2]].cmps[path[3]][field] = value;
                     break;
             }
-            console.log('new layout:', { ...state, cmps: { ...newLayout.cmps } });
-            return { ...state, cmps: [ ...newLayout.cmps ] };
+            // console.log('new layout:', newLayout);
+            // return { ...state, cmps: [ ...newLayout.cmps ] };
+            return newLayout;
         case 'SET_SELECTED':
             return { ...state, selected: action.selected };
         default:
