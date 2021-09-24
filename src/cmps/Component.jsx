@@ -1,8 +1,10 @@
 import React, { useRef } from "react";
 import { useDrag } from "react-dnd";
 import { COMPONENT } from "../constants";
+import { translateStyle } from "../helpers";
 import { Image } from "./Image";
 import { Text } from "./Text";
+import { Video } from "./Video";
 
 const Component = ({ data, path, updateComponent, select, selected }) => {
   const ref = useRef(null);
@@ -22,7 +24,8 @@ const Component = ({ data, path, updateComponent, select, selected }) => {
 
   const KeysToComponentMap = {
     text: Text,
-    image: Image
+    image: Image,
+    video: Video
   };
 
   const onSelect = (ev) => {
@@ -43,7 +46,7 @@ const Component = ({ data, path, updateComponent, select, selected }) => {
           id: component.id,
           key: component.id,
           data: component.data,
-          style: component.style,
+          style: translateStyle({...component.style}),
           update
         },
       );
