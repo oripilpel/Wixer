@@ -8,13 +8,8 @@ import { InnerSection } from "./InnerSection.jsx";
 const style = {};
 export function Section({ data, cmps, handleDrop, path, updateComponent, onSelect, selected }) {
   const ref = useRef(null);
-  const [{ handlerId }, drop] = useDrop({
+  const [, drop] = useDrop({
     accept: SECTION,
-    collect(monitor) {
-      return {
-        handlerId: monitor.getHandlerId(),
-      };
-    }
   });
   const [{ isDragging }, drag] = useDrag({
     type: SECTION,
@@ -80,7 +75,7 @@ export function Section({ data, cmps, handleDrop, path, updateComponent, onSelec
                   path: currentPath,
                   childrenCount: data.cmps.length,
                 }}
-                accept={(hasOnlyColumns) ? [SIDEBAR_ITEM, COMPONENT, COLUMN, SIDEBAR_ITEM_COLUMN] : [ INNERSECTION, SIDEBAR_ITEM_INNERSECTION]}
+                accept={(hasOnlyColumns) ? [SIDEBAR_ITEM, COMPONENT, COLUMN, SIDEBAR_ITEM_COLUMN] : [INNERSECTION, SIDEBAR_ITEM_INNERSECTION]}
                 onDrop={handleDrop}
                 className={(hasOnlyColumns) ? 'horizontalDrag' : ''}
               />
@@ -95,7 +90,7 @@ export function Section({ data, cmps, handleDrop, path, updateComponent, onSelec
             path: `${path}-${data.cmps.length}`,
             childrenCount: data.cmps.length
           }}
-          accept={(hasOnlyColumns) ? [SIDEBAR_ITEM, COMPONENT, COLUMN, SIDEBAR_ITEM_COLUMN] : [ INNERSECTION, SIDEBAR_ITEM_INNERSECTION]}
+          accept={(hasOnlyColumns) ? [SIDEBAR_ITEM, COMPONENT, COLUMN, SIDEBAR_ITEM_COLUMN] : [INNERSECTION, SIDEBAR_ITEM_INNERSECTION]}
           onDrop={handleDrop}
           className={(hasOnlyColumns) ? 'horizontalDrag' : ''}
           isLast

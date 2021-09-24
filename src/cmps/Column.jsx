@@ -7,13 +7,8 @@ import Component from "./Component";
 
 const Column = ({ data, cmps, handleDrop, path, updateComponent, onSelect, selected }) => {
   const ref = useRef(null);
-  const [{ handlerId }, drop] = useDrop({
+  const [, drop] = useDrop({
     accept: COLUMN,
-    collect(monitor) {
-      return {
-        handlerId: monitor.getHandlerId(),
-      };
-    }
   });
 
   const [{ isDragging }, drag] = useDrag({
@@ -30,7 +25,6 @@ const Column = ({ data, cmps, handleDrop, path, updateComponent, onSelect, selec
   });
 
   const renderComponent = (component, currentPath) => {
-    const compPath = currentPath.split('-');
     return (
       <Component
         key={component.id}

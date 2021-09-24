@@ -1,12 +1,9 @@
 import { connect } from 'react-redux';
-import { useState } from 'react';
-import { StyledEngineProvider } from '@mui/styled-engine';
-import { ColumnSectionEdit } from './ColumnSectionEdit';
-import { ImageEdit } from './ImageEdit';
-import { SideBarItem } from './SideBarItem';
-import { TextEdit } from './TextEdit';
-import { VideoEdit } from './VideoEdit';
-// import { saveWap } from '../store/layout.actions';
+import { StyledEngineProvider } from "@mui/styled-engine";
+import { useState } from "react";
+import { COMPONENT } from "../constants";
+import { EditComponent } from "./EditComponent";
+import { SideBarItem } from "./SideBarItem";
 
 function _SideBar({ sideBarItems, selected, update, cmps, style, _id, saveWap }) {
     const [isEdit, setIsEdit] = useState(false);
@@ -35,10 +32,10 @@ function _SideBar({ sideBarItems, selected, update, cmps, style, _id, saveWap })
                 <>
                     <StyledEngineProvider injectFirst>
                         <div>{JSON.stringify(selected)}</div>
-                        {selected.type === 'column' && <ColumnSectionEdit style={selected.style} onUpdate={onUpdate} />}
-                        {selected.type === 'component' && selected.component.type === 'text' && <TextEdit style={selected.component.style} onUpdate={onUpdate} />}
-                        {selected.type === 'component' && selected.component.type === 'image' && <ImageEdit style={selected.component.style} onUpdate={onUpdate} />}
-                        {selected.type === 'component' && selected.component.type === 'video' && <VideoEdit data={selected.component.data} style={selected.component.style} onUpdate={onUpdate} />}
+                        <EditComponent
+                            type={(selected.type === COMPONENT) ? selected.component.type : selected.type}
+                            style={(selected.type === COMPONENT) ? selected.component.style : selected.style}
+                            onUpdate={onUpdate} />
                     </StyledEngineProvider>
                 </>
             )}
