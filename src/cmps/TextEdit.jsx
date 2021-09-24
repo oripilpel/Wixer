@@ -1,10 +1,9 @@
 export function TextEdit({ style, onUpdate }) {
-    console.log('stlye:', style)
     const { fontSize, color, fontFamily } = style
     function onChange({ target }) {
         const { name, value } = target;
         const newStyle = { ...style, [name]: value };
-        onUpdate(newStyle);
+        onUpdate('style', newStyle);
     }
     return (
         <div className="text-edit">

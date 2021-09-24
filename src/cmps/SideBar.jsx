@@ -1,6 +1,7 @@
 import { StyledEngineProvider } from "@mui/styled-engine";
 import { useState } from "react";
 import { ColumnSectionEdit } from "./ColumnSectionEdit";
+import { ImageEdit } from "./ImageEdit";
 import { SideBarItem } from "./SideBarItem";
 import { TextEdit } from "./TextEdit";
 
@@ -12,8 +13,8 @@ export function SideBar({ sideBarItems, selected, update }) {
     const onEditClick = () => {
         setIsEdit(true);
     }
-    const onUpdate = (style) => {
-        update(selected, 'style', style);
+    const onUpdate = (field ,data) => {
+        update(selected, field, data);
     }
     return (
         <div className="side-bar">
@@ -28,8 +29,9 @@ export function SideBar({ sideBarItems, selected, update }) {
                 <>
                 <StyledEngineProvider injectFirst>
                     <div>{JSON.stringify(selected)}</div>
-                    {selected.type === 'component' && selected.component.type === 'text' && <TextEdit style={selected.component.style} onUpdate={onUpdate}/>}
                     {selected.type === 'column' && <ColumnSectionEdit style={selected.style} onUpdate={onUpdate}/>}
+                    {selected.type === 'component' && selected.component.type === 'text' && <TextEdit style={selected.component.style} onUpdate={onUpdate}/>}
+                    {selected.type === 'component' && selected.component.type === 'image' && <ImageEdit style={selected.component.style} onUpdate={onUpdate}/>}
                 </StyledEngineProvider>
                 </>
             )}

@@ -1,26 +1,24 @@
-import { MarginEdit } from "./MarginEdit";
-import { PaddingEdit } from "./PaddingEdit";
 import { uploadImg } from '../services/cloudinary-service';
 import { ImageUpload } from "./ImageUpload";
-import { WidthEdit } from "./WidthEdit";
-export function ColumnSectionEdit({ style, onUpdate }) {
-    debugger
+import { MarginEdit } from './MarginEdit';
+import { PaddingEdit } from './PaddingEdit';
+import { WidthEdit } from './WidthEdit';
+
+export function ImageEdit({ data, style, onUpdate }) {
+    const { paddingTop, paddingRight, paddingBottom, paddingLeft, marginTop, marginRight, marginBottom, marginLeft, width } = style;
+    const onUploadImage = (url) => {
+        onUpdate('data', { url });
+    }
     const onChange = ({ target }) => {
         const { name, value } = target;
         const newStyle = { ...style };
         newStyle[name] = value;
         onUpdate('style', newStyle);
     }
-    const onUploadImage = (url) => {
-        const newStyle = { ...style };
-        newStyle['backgroundImage'] = `url(${url})`;
-        onUpdate(newStyle);
-    }
-    const { flexGrow, paddingTop, paddingRight, paddingBottom, paddingLeft, marginTop, marginRight, marginBottom, marginLeft } = style;
     return (
-        <div className="column-section-edit">
-            <ImageUpload label="Upload background image" onUpload={(ev) => uploadImg(ev).then(url => onUploadImage(url))} />
-            <WidthEdit name="flexGrow" value={flexGrow} onChange={onChange} min={0} max={12}/>
+        <>
+            <ImageUpload label="Upload image" onUpload={(ev) => uploadImg(ev).then(url => onUploadImage(url))} />
+            <WidthEdit name="width" value={width || 100} onChange={onChange} />
             <PaddingEdit
                 paddingTop={paddingTop}
                 paddingRight={paddingRight}
@@ -33,7 +31,6 @@ export function ColumnSectionEdit({ style, onUpdate }) {
                 marginBottom={marginBottom}
                 marginLeft={marginLeft}
                 onChange={onChange} />
-
-        </div>
+        </>
     )
 }
