@@ -121,20 +121,13 @@ export const handleMoveSidebarColumnIntoParent = (
         cmps: [_generateColumn()]
       };
       return addChildToChildren(layout, splitDropZonePath, newLayoutStructure);
-    case 2:
+    default:
       return addChildToChildren(layout, splitDropZonePath, _generateColumn());
   }
 }
 
-export const handleAddColumDataToRow = (layout, srcPath) => {
-  let parentPath = srcPath;
-  if (srcPath.length >= 2) parentPath = srcPath.slice(0, srcPath.length - 1)
+export const handleAddColumDataToRow = (layout) => {
   const layoutCopy = [...layout];
-  const COLUMN_STRUCTURE = {
-    type: COLUMN,
-    id: shortid.generate(),
-    cmps: []
-  };
   return layoutCopy.filter(section => {
     return section.cmps.length
   })
@@ -160,14 +153,15 @@ export const handleMoveToDifferentParent = (
   };
 
   switch (splitDropZonePath.length) {
-    case 1: {
+    case 1:
       // moving column outside into new row made on the fly
-      if (item.type === COLUMN) {
+      if (item.type === COLUMN || item.type === INNERSECTION) {
         newLayoutStructure = {
           ...SECTION_STRUCTURE,
           cmps: [item]
         };
-      } else {
+      }
+      else {
         // moving component outside into new row made on the fly
         newLayoutStructure = {
           ...SECTION_STRUCTURE,
@@ -175,8 +169,7 @@ export const handleMoveToDifferentParent = (
         };
       }
       break;
-    }
-    case 2: {
+    case 2:
       // moving component outside into a row which creates column
       if (item.type === COMPONENT) {
         newLayoutStructure = COLUMN_STRUCTURE;
@@ -186,15 +179,18 @@ export const handleMoveToDifferentParent = (
       }
 
       break;
-    }
-    default: {
+
+
+    case 3:
+      break;
+    default:
       newLayoutStructure = item;
-    }
+
   }
 
   let updatedLayout = layout;
   updatedLayout = removeChildFromChildren(updatedLayout, splitItemPath);
-  updatedLayout = handleAddColumDataToRow(updatedLayout, splitItemPath);
+  updatedLayout = handleAddColumDataToRow(updatedLayout);
   updatedLayout = addChildToChildren(
     updatedLayout,
     splitDropZonePath,

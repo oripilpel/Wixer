@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { useDrag, useDrop } from "react-dnd";
+import { useDrag } from "react-dnd";
 import { SIDEBAR_ITEM, COMPONENT, INNERSECTION, COLUMN } from "../constants.js";
 import { DropZone } from "./DropZone";
 import Column from "./Column";
@@ -7,14 +7,6 @@ import Column from "./Column";
 const style = { flex: '1' };
 export function InnerSection({ data, components, handleDrop, path, updateComponent, onSelect, selected }) {
     const ref = useRef(null);
-    const [{ handlerId }, drop] = useDrop({
-        accept: INNERSECTION,
-        collect(monitor) {
-            return {
-                handlerId: monitor.getHandlerId(),
-            };
-        }
-    });
     const [{ isDragging }, drag] = useDrag({
         type: INNERSECTION,
         item: {
@@ -30,7 +22,7 @@ export function InnerSection({ data, components, handleDrop, path, updateCompone
 
 
     const opacity = isDragging ? 0 : 1;
-    drag(drop(ref));
+    drag(ref);
 
     const renderColumn = (column, currentPath) => {
         return (

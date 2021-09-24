@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import { connect } from 'react-redux';
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
@@ -45,13 +45,13 @@ function _Editor({ cmps, selected, moveSidebarComponentIntoParent, moveSidebarCo
                 setSelected({ ...cmps[+path[0]], path: path })
         }
     }
-    const handleDrop = useCallback(
+    const handleDrop =
         (dropZone, item) => {
             const splitDropZonePath = dropZone.path.split("-");
             const pathToDropZone = splitDropZonePath.slice(0, -1).join("-");
 
             const newItem = { id: item.id, type: item.type, component: item.component };
-            if (item.type === COLUMN || item.type === SECTION) {
+            if (item.type === COLUMN || item.type === SECTION || item.type === INNERSECTION) {
                 newItem.cmps = item.cmps;
             }
 
@@ -64,6 +64,7 @@ function _Editor({ cmps, selected, moveSidebarComponentIntoParent, moveSidebarCo
                 moveSidebarInnerSectionIntoParent(splitDropZonePath);
                 return;
             }
+
 
 
             // sidebar into
@@ -109,7 +110,7 @@ function _Editor({ cmps, selected, moveSidebarComponentIntoParent, moveSidebarCo
             // 3. Move + Create
             moveToDifferentParent(splitDropZonePath, splitItemPath, newItem);
         }
-    );
+        ;
     const renderSection = (section, currentPath) => {
         return (
             <Section
@@ -161,7 +162,7 @@ function _Editor({ cmps, selected, moveSidebarComponentIntoParent, moveSidebarCo
                                         }}
                                         onDrop={handleDrop}
                                         path={currentPath}
-                                        accept={[SIDEBAR_ITEM, COMPONENT, SECTION, COLUMN, SIDEBAR_ITEM_COLUMN, SIDEBAR_ITEM_INNERSECTION]}
+                                        accept={[INNERSECTION, SIDEBAR_ITEM, COMPONENT, SECTION, COLUMN, SIDEBAR_ITEM_COLUMN, SIDEBAR_ITEM_INNERSECTION]}
                                     />
                                     {renderSection(section, currentPath)}
                                 </React.Fragment>

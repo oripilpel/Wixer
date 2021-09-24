@@ -1,9 +1,8 @@
 import { StyledEngineProvider } from "@mui/styled-engine";
 import { useState } from "react";
-import { ColumnSectionEdit } from "./ColumnSectionEdit";
-import { ImageEdit } from "./ImageEdit";
+import { COMPONENT } from "../constants";
+import { EditComponent } from "./EditComponent";
 import { SideBarItem } from "./SideBarItem";
-import { TextEdit } from "./TextEdit";
 
 export function SideBar({ sideBarItems, selected, update }) {
     const [isEdit, setIsEdit] = useState(false);
@@ -13,7 +12,7 @@ export function SideBar({ sideBarItems, selected, update }) {
     const onEditClick = () => {
         setIsEdit(true);
     }
-    const onUpdate = (field ,data) => {
+    const onUpdate = (field, data) => {
         update(selected, field, data);
     }
     return (
@@ -27,12 +26,13 @@ export function SideBar({ sideBarItems, selected, update }) {
             }
             {isEdit && selected && (
                 <>
-                <StyledEngineProvider injectFirst>
-                    <div>{JSON.stringify(selected)}</div>
-                    {selected.type === 'column' && <ColumnSectionEdit style={selected.style} onUpdate={onUpdate}/>}
-                    {selected.type === 'component' && selected.component.type === 'text' && <TextEdit style={selected.component.style} onUpdate={onUpdate}/>}
-                    {selected.type === 'component' && selected.component.type === 'image' && <ImageEdit style={selected.component.style} onUpdate={onUpdate}/>}
-                </StyledEngineProvider>
+                    <StyledEngineProvider injectFirst>
+                        <div>{JSON.stringify(selected)}</div>
+                        <EditComponent
+                            type={(selected.type === COMPONENT) ? selected.component.type : selected.type}
+                            style={(selected.type === COMPONENT) ? selected.component.style : selected.style}
+                            onUpdate={onUpdate} />
+                    </StyledEngineProvider>
                 </>
             )}
             {isEdit && !selected && <div>Nothing is selected</div>}
