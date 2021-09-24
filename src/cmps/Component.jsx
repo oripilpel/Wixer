@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { useDrag } from "react-dnd";
 import { COMPONENT } from "../constants";
+import { Image } from "./Image";
 import { Text } from "./Text";
 
 const Component = ({ data, path, updateComponent, select, selected }) => {
@@ -20,8 +21,8 @@ const Component = ({ data, path, updateComponent, select, selected }) => {
   const component = data.component;
 
   const KeysToComponentMap = {
-    text:Text,
-
+    text: Text,
+    image: Image
   };
 
   const onSelect = (ev) => {

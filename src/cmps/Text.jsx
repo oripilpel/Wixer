@@ -1,6 +1,7 @@
+import { translateStyle } from "../helpers";
+
 export function Text({ data, style, update }) {
-    const newStyle = { ...style };
-    newStyle.fontSize = `${newStyle.fontSize}px`;
+    const newStyle = translateStyle({ ...style });
     function onBodyChange({ target }) {
         update('data', { txt: target.innerText });
     }

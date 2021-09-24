@@ -80,7 +80,8 @@ export const SIDEBAR_ITEMS = [
     type: SIDEBAR_ITEM,
     component: {
       type: 'image',
-      data: { url: 'https://random.imagecdn.app/150/150' }
+      data: { url: 'https://random.imagecdn.app/150/150' },
+      style: {}
     }
   }
 ];

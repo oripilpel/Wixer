@@ -262,6 +262,8 @@ export const translateStyle = (style) => {
   if (style.marginRight) style.paddingRight = `${style.marginRight}px`;
   if (style.marginBottom) style.marginBottom = `${style.marginBottom}px`;
   if (style.marginLeft) style.marginLeft = `${style.marginLeft}px`;
+  if (style.fontSize) style.fontSize = `${style.fontSize}px`;
+  if (style.width) style.width = `${style.width}%`;
   return style;
 }
 
