@@ -71,8 +71,12 @@ export const SIDEBAR_ITEMS = [
     id: shortid.generate(),
     type: SIDEBAR_ITEM,
     component: {
-      type: 'phone',
-      content: 'Some phone'
+      type: 'video',
+      data: { videoId: 'VvU27gvAK40' },
+      style: {
+        width: 100,
+        height: 100,
+      }
     }
   },
   {
