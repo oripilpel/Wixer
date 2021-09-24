@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect } from "react";
 import { connect } from 'react-redux';
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
@@ -8,6 +8,7 @@ import shortid from "shortid";
 import { Section } from "../cmps/Section";
 import { SideBar } from "../cmps/SideBar";
 import {
+    loadWap,
     moveSidebarComponentIntoParent,
     moveSidebarColumnIntoParent,
     moveSidebarInnerSectionIntoParent,
@@ -17,8 +18,11 @@ import {
     setSelected
 } from '../store/layout.actions'
 
-function _Editor({ cmps, selected, moveSidebarComponentIntoParent, moveSidebarColumnIntoParent, moveSidebarInnerSectionIntoParent, moveWithinParent, moveToDifferentParent, updateComponent, setSelected }) {
-
+function _Editor({ match, cmps, selected, moveSidebarComponentIntoParent, moveSidebarColumnIntoParent, moveSidebarInnerSectionIntoParent, moveWithinParent, moveToDifferentParent, updateComponent, setSelected }) {
+    useEffect(() => {
+        // const id = match.params.wapId;
+        // if (id) loadWap(id);
+    },[]);
     const onUpdateComponent = (comp, field, value) => {
         updateComponent(comp, field, value);
     }
@@ -192,6 +196,7 @@ function mapStateToProps(state) {
     }
 }
 const mapDispatchToProps = {
+    // loadWap,
     moveSidebarComponentIntoParent,
     moveSidebarColumnIntoParent,
     moveSidebarInnerSectionIntoParent,

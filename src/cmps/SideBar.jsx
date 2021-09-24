@@ -1,12 +1,14 @@
-import { StyledEngineProvider } from "@mui/styled-engine";
-import { useState } from "react";
-import { ColumnSectionEdit } from "./ColumnSectionEdit";
-import { ImageEdit } from "./ImageEdit";
-import { SideBarItem } from "./SideBarItem";
-import { TextEdit } from "./TextEdit";
-import { VideoEdit } from "./VideoEdit";
+import { connect } from 'react-redux';
+import { useState } from 'react';
+import { StyledEngineProvider } from '@mui/styled-engine';
+import { ColumnSectionEdit } from './ColumnSectionEdit';
+import { ImageEdit } from './ImageEdit';
+import { SideBarItem } from './SideBarItem';
+import { TextEdit } from './TextEdit';
+import { VideoEdit } from './VideoEdit';
+// import { saveWap } from '../store/layout.actions';
 
-export function SideBar({ sideBarItems, selected, update }) {
+function _SideBar({ sideBarItems, selected, update, cmps, style, _id, saveWap }) {
     const [isEdit, setIsEdit] = useState(false);
     const onAddClick = () => {
         setIsEdit(false);
@@ -16,6 +18,9 @@ export function SideBar({ sideBarItems, selected, update }) {
     }
     const onUpdate = (field, data) => {
         update(selected, field, data);
+    }
+    const onSave = () => {
+        // saveWap({ _id, cmps, style })
     }
     return (
         <div className="side-bar">
@@ -37,7 +42,22 @@ export function SideBar({ sideBarItems, selected, update }) {
                     </StyledEngineProvider>
                 </>
             )}
+            <button onClick={onSave}>Save</button>
             {isEdit && !selected && <div>Nothing is selected</div>}
         </div>
     )
 }
+
+function mapStateToProps(state) {
+    return {
+        cmps: state.layoutModule.cmps,
+        style: state.layoutModule.style,
+        _id: state.layoutModule._id
+    }
+}
+
+const mapDispatchToProps = {
+    // saveWap
+}
+
+export const SideBar = connect(mapStateToProps, mapDispatchToProps)(_SideBar);

@@ -17,6 +17,7 @@ function App() {
         <Route component={Header} />
         <Switch>
           <Route path="/templates" component={Templates} />
+          <Route path="/editor/:wapId" component={Editor}/>
           <Route path="/editor" component={Editor} />
           <Route path="/about" component={About} />
           <Route path="/" component={Home} />

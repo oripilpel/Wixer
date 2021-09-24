@@ -8,6 +8,7 @@ import {
 } from "../helpers";
 
 const initialState = {
+    _id: null,
     selected: null,
     cmps: [],
     style: {}
@@ -15,6 +16,12 @@ const initialState = {
 
 export function layoutReducer(state = initialState, action) {
     switch (action.type) {
+        case 'SET_WAP':
+            return {
+                ...state,
+                cmps: action.cmps,
+                style: action.style
+            }
         case 'MOVE_SIDEBAR_COMPONENT_INTO_PARENT':
             return {
                 ...state,
