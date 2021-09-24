@@ -2,7 +2,7 @@ import React, { useCallback, useState } from "react";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import update from 'immutability-helper';
-import { SIDEBAR_ITEMS, SIDEBAR_ITEM, COMPONENT, COLUMN, SECTION, SIDEBAR_ITEM_LAYOUT, INNERSECTION } from "../constants";
+import { SIDEBAR_ITEMS, SIDEBAR_ITEM, COMPONENT, COLUMN, SECTION, SIDEBAR_ITEM_COLUMN, SIDEBAR_ITEM_INNERSECTION, INNERSECTION } from "../constants";
 import { SideBarItem } from "../cmps/SideBarItem";
 import { DropZone } from "../cmps/DropZone";
 import shortid from "shortid";
@@ -198,28 +198,28 @@ export function Editor() {
                 newItem.cmps = item.cmps;
             }
 
-            if (item.type === SIDEBAR_ITEM_LAYOUT) {
-                if (item.component.type === COLUMN) {
-
-                    setLayout({
-                        ...layout,
-                        cmps: handleMoveSidebarColumnIntoParent(
-                            layout.cmps,
-                            splitDropZonePath
-                        )
-                    }
-                    );
-                    return;
-                } else {
-                    setLayout(
-                        handleMoveSidebarInnerSectionIntoParent(
-                            layout,
-                            splitDropZonePath
-                        )
+            if (item.type === SIDEBAR_ITEM_COLUMN) {
+                // if (item.component.type === COLUMN) {
+                setLayout({
+                    ...layout,
+                    cmps: handleMoveSidebarColumnIntoParent(
+                        layout.cmps,
+                        splitDropZonePath
                     )
-                }
-                return
+                });
+                return;
             }
+            if (item.type === SIDEBAR_ITEM_INNERSECTION) {
+                setLayout({
+                    ...layout,
+                    cmps: handleMoveSidebarInnerSectionIntoParent(
+                        layout.cmps,
+                        splitDropZonePath
+                    )
+                })
+                return;
+            }
+
 
             // sidebar into
             if (item.type === SIDEBAR_ITEM) {
@@ -359,7 +359,7 @@ export function Editor() {
                                         }}
                                         onDrop={handleDrop}
                                         path={currentPath}
-                                        accept={[SIDEBAR_ITEM, COMPONENT, SECTION, COLUMN, SIDEBAR_ITEM_LAYOUT]}
+                                        accept={[SIDEBAR_ITEM, COMPONENT, SECTION, COLUMN, SIDEBAR_ITEM_COLUMN, SIDEBAR_ITEM_INNERSECTION]}
                                     />
                                     {renderSection(section, currentPath)}
                                 </React.Fragment>
@@ -371,7 +371,7 @@ export function Editor() {
                                 childrenCount: layout.length
 
                             }}
-                            accept={[SIDEBAR_ITEM, COMPONENT, SECTION, COLUMN, SIDEBAR_ITEM_LAYOUT]}
+                            accept={[SIDEBAR_ITEM, COMPONENT, SECTION, COLUMN, SIDEBAR_ITEM_COLUMN, SIDEBAR_ITEM_INNERSECTION]}
                             onDrop={handleDrop}
                             isLast
                         />
