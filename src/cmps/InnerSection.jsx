@@ -5,7 +5,7 @@ import { DropZone } from "./DropZone";
 import Column from "./Column";
 
 const style = { flex: '1' };
-export function InnerSection({ data, components, handleDrop, path, moveSection, moveColumn, updateComponent, onSelect, selected }) {
+export function InnerSection({ data, components, handleDrop, path, updateComponent, onSelect, selected }) {
     const ref = useRef(null);
     const [{ handlerId }, drop] = useDrop({
         accept: INNERSECTION,
@@ -13,29 +13,7 @@ export function InnerSection({ data, components, handleDrop, path, moveSection, 
             return {
                 handlerId: monitor.getHandlerId(),
             };
-        },
-        hover(item, monitor) {
-            if (!ref.current) {
-                return;
-            }
-            const dragIndex = item.path;
-            const hoverIndex = path;
-            if (dragIndex === hoverIndex) {
-                return;
-            }
-            const hoverBoundingRect = ref.current?.getBoundingClientRect();
-            const hoverMiddleY = (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
-            const clientOffset = monitor.getClientOffset();
-            const hoverClientY = clientOffset.y - hoverBoundingRect.top;
-            if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) {
-                return;
-            }
-            if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
-                return;
-            }
-            moveSection(dragIndex, hoverIndex);
-            item.path = hoverIndex;
-        },
+        }
     });
     const [{ isDragging }, drag] = useDrag({
         type: INNERSECTION,
@@ -62,7 +40,6 @@ export function InnerSection({ data, components, handleDrop, path, moveSection, 
                 components={components}
                 handleDrop={handleDrop}
                 path={currentPath}
-                moveColumn={moveColumn}
                 updateComponent={updateComponent}
                 onSelect={onSelect}
                 selected={selected}

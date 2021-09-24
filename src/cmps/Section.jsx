@@ -6,7 +6,7 @@ import Column from "./Column";
 import { InnerSection } from "./InnerSection.jsx";
 
 const style = {};
-export function Section({ data, cmps, handleDrop, path, moveSection, moveColumn, updateComponent, onSelect, selected }) {
+export function Section({ data, cmps, handleDrop, path, updateComponent, onSelect, selected }) {
   const ref = useRef(null);
   const [{ handlerId }, drop] = useDrop({
     accept: SECTION,
@@ -14,44 +14,7 @@ export function Section({ data, cmps, handleDrop, path, moveSection, moveColumn,
       return {
         handlerId: monitor.getHandlerId(),
       };
-    },
-    // hover(item, monitor) {
-    //   if (!ref.current) {
-    //     return;
-    //   }
-    //   const dragIndex = item.path;
-    //   const hoverIndex = path;
-    //   // Don't replace items with themselves
-    //   if (dragIndex === hoverIndex) {
-    //     return;
-    //   }
-    //   // Determine rectangle on screen
-    //   const hoverBoundingRect = ref.current?.getBoundingClientRect();
-    //   // Get vertical middle
-    //   const hoverMiddleY = (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
-    //   // Determine mouse position
-    //   const clientOffset = monitor.getClientOffset();
-    //   // Get pixels to the top
-    //   const hoverClientY = clientOffset.y - hoverBoundingRect.top;
-    //   // Only perform the move when the mouse has crossed half of the items height
-    //   // When dragging downwards, only move when the cursor is below 50%
-    //   // When dragging upwards, only move when the cursor is above 50%
-    //   // Dragging downwards
-    //   if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) {
-    //     return;
-    //   }
-    //   // Dragging upwards
-    //   if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
-    //     return;
-    //   }
-    //   // Time to actually perform the action
-    //   moveSection(dragIndex, hoverIndex);
-    //   // Note: we're mutating the monitor item here!
-    //   // Generally it's better to avoid mutations,
-    //   // but it's good here for the sake of performance
-    //   // to avoid expensive index searches.
-    //   item.path = hoverIndex;
-    // },
+    }
   });
   const [{ isDragging }, drag] = useDrag({
     type: SECTION,
@@ -78,7 +41,6 @@ export function Section({ data, cmps, handleDrop, path, moveSection, moveColumn,
         cmps={column.cmps}
         handleDrop={handleDrop}
         path={currentPath}
-        moveColumn={moveColumn}
         updateComponent={updateComponent}
         onSelect={onSelect}
         selected={selected}
@@ -95,8 +57,6 @@ export function Section({ data, cmps, handleDrop, path, moveSection, moveColumn,
         components={cmps}
         handleDrop={handleDrop}
         path={currentPath}
-        moveColumn={moveColumn}
-        // moveinnerSection={moveinnerSection}
         updateComponent={updateComponent}
         onSelect={onSelect}
         selected={selected}
@@ -120,7 +80,7 @@ export function Section({ data, cmps, handleDrop, path, moveSection, moveColumn,
                   path: currentPath,
                   childrenCount: data.cmps.length,
                 }}
-                accept={(hasOnlyColumns) ? [SIDEBAR_ITEM, COMPONENT, COLUMN, SIDEBAR_ITEM_COLUMN] : [SIDEBAR_ITEM, COMPONENT, INNERSECTION, SIDEBAR_ITEM_INNERSECTION]}
+                accept={(hasOnlyColumns) ? [SIDEBAR_ITEM, COMPONENT, COLUMN, SIDEBAR_ITEM_COLUMN] : [ INNERSECTION, SIDEBAR_ITEM_INNERSECTION]}
                 onDrop={handleDrop}
                 className={(hasOnlyColumns) ? 'horizontalDrag' : ''}
               />
@@ -135,7 +95,7 @@ export function Section({ data, cmps, handleDrop, path, moveSection, moveColumn,
             path: `${path}-${data.cmps.length}`,
             childrenCount: data.cmps.length
           }}
-          accept={(hasOnlyColumns) ? [SIDEBAR_ITEM, COMPONENT, COLUMN, SIDEBAR_ITEM_COLUMN] : [SIDEBAR_ITEM, COMPONENT, INNERSECTION, SIDEBAR_ITEM_INNERSECTION]}
+          accept={(hasOnlyColumns) ? [SIDEBAR_ITEM, COMPONENT, COLUMN, SIDEBAR_ITEM_COLUMN] : [ INNERSECTION, SIDEBAR_ITEM_INNERSECTION]}
           onDrop={handleDrop}
           className={(hasOnlyColumns) ? 'horizontalDrag' : ''}
           isLast

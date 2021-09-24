@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback } from "react";
 import { connect } from 'react-redux';
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
@@ -17,7 +17,7 @@ import {
     setSelected
 } from '../store/layout.actions'
 
-function _Editor({ cmps, selected, style, moveSidebarComponentIntoParent, moveSidebarColumnIntoParent, moveSidebarInnerSectionIntoParent, moveWithinParent, moveToDifferentParent, updateComponent, setSelected }) {
+function _Editor({ cmps, selected, moveSidebarComponentIntoParent, moveSidebarColumnIntoParent, moveSidebarInnerSectionIntoParent, moveWithinParent, moveToDifferentParent, updateComponent, setSelected }) {
 
     const onUpdateComponent = (comp, field, value) => {
         updateComponent(comp, field, value);

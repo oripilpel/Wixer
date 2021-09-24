@@ -27,21 +27,15 @@ export function DropZone({ data, onDrop, isLast, className, accept = ACCEPTS }) 
       const splitItemPath = itemPath.split("-");
 
       // limit columns when dragging from one row to another row
-      // const dropZonePathRowIndex = splitDropZonePath[0];
-      // const itemPathRowIndex = splitItemPath[0];
-      // const diffRow = dropZonePathRowIndex !== itemPathRowIndex;
       if (
-        // diffRow &&
-        // splitDropZonePath.length === 2 &&
         data.childrenCount >= 4
       ) {
         return false;
       }
-
       // Invalid (Can't drop a parent element (row) into a child (column))
-      const parentDropInChild = splitItemPath.length < splitDropZonePath.length;
+      // const parentDropInChild = splitItemPath.length < splitDropZonePath.length;
 
-      if (parentDropInChild) return false;
+      // if (parentDropInChild) return false;
 
       // Current item can't possible move to it's own location
       if (itemPath === dropZonePath) return false;
