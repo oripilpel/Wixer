@@ -4,6 +4,7 @@ import { useState } from "react";
 import { COMPONENT } from "../constants";
 import { EditComponent } from "./EditComponent";
 import { SideBarItem } from "./SideBarItem";
+import { saveWap } from '../store/layout.actions'
 
 function _SideBar({ sideBarItems, selected, update, cmps, style, _id, saveWap }) {
     const [isEdit, setIsEdit] = useState(false);
@@ -17,7 +18,7 @@ function _SideBar({ sideBarItems, selected, update, cmps, style, _id, saveWap })
         update(selected, field, data);
     }
     const onSave = () => {
-        // saveWap({ _id, cmps, style })
+        saveWap({ _id, cmps, style })
     }
     return (
         <div className="side-bar">
@@ -54,7 +55,7 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = {
-    // saveWap
+    saveWap
 }
 
 export const SideBar = connect(mapStateToProps, mapDispatchToProps)(_SideBar);

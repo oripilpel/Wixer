@@ -1,21 +1,52 @@
 import { wapService } from "../services/wap.service";
 
-
-// export function saveWap(wap) {
-//     return async dispatch => {
+// export function saveWapSecond(wap) {
+//     return async (dispatch) => {
 //         try {
-//             const savedWap = await wapService.save(wap)
+//             const savedWap = await wapService.save(wap);
 //             return dispatch({
 //                 type: 'SET_WAP',
 //                 cmps: savedWap.cmps,
 //                 style: savedWap.style
-//             })
+//             });
 //         } catch (err) {
 //             console.log(err);
 //         }
 
 //     }
 // }
+
+export function loadWap(wapId) {
+    return async dispatch => {
+        try{
+            const loadedWap = await wapService.getById(wapId);
+            return dispatch({
+                type: 'SET_WAP',
+                cmps: loadedWap.cmps,
+                style: loadedWap.style,
+                _id: loadedWap._id
+            })
+        }catch(err) {
+
+        }
+    }
+}
+
+export function saveWap(wap) {
+    return async dispatch => {
+        try {
+            const savedWap = await wapService.save(wap)
+            return dispatch({
+                type: 'SET_WAP',
+                cmps: savedWap.cmps,
+                style: savedWap.style
+            })
+        } catch (err) {
+            console.log(err);
+        }
+
+    }
+}
 
 export function moveSidebarComponentIntoParent(splitDropZonePath, newItem) {
     return dispatch => dispatch({

@@ -18,10 +18,10 @@ import {
     setSelected
 } from '../store/layout.actions'
 
-function _Editor({ match, cmps, selected, moveSidebarComponentIntoParent, moveSidebarColumnIntoParent, moveSidebarInnerSectionIntoParent, moveWithinParent, moveToDifferentParent, updateComponent, setSelected }) {
+function _Editor({ match, cmps, selected, moveSidebarComponentIntoParent, moveSidebarColumnIntoParent, moveSidebarInnerSectionIntoParent, moveWithinParent, moveToDifferentParent, updateComponent, setSelected, loadWap }) {
     useEffect(() => {
-        // const id = match.params.wapId;
-        // if (id) loadWap(id);
+        const id = match.params.wapId;
+        if (id) loadWap(id);
     },[]);
     const onUpdateComponent = (comp, field, value) => {
         updateComponent(comp, field, value);
@@ -189,7 +189,7 @@ function _Editor({ match, cmps, selected, moveSidebarComponentIntoParent, moveSi
     )
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state)  {
     return {
         cmps: state.layoutModule.cmps,
         selected: state.layoutModule.selected,
@@ -197,7 +197,7 @@ function mapStateToProps(state) {
     }
 }
 const mapDispatchToProps = {
-    // loadWap,
+    loadWap,
     moveSidebarComponentIntoParent,
     moveSidebarColumnIntoParent,
     moveSidebarInnerSectionIntoParent,
