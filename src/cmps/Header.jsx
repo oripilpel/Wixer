@@ -1,27 +1,26 @@
+import React from 'react';
 import Logo from '../assets/img/logo.png';
 import { NavLink } from 'react-router-dom';
 
-export function Header() {
-    return (
-        <header className="header flex align-center justify-between">
+export class Header extends React.Component {
+    render() {
+        const { pathname } = this.props.location
+        console.log(pathname === "/editor");
+        return (
+            <header className={`header flex align-center justify-between ${pathname === "/editor" && "min"}`}>
 
-            <div className="logo">
-                <NavLink to="/">
-                    <img src={Logo} height="40px" />
-                    Wixer
-                </NavLink>
-            </div>
-            <nav className="links flex">
-                <div className="link flex align-center">
-                    <NavLink to="/editor">Editor</NavLink>
+                <div className="logo">
+                    <NavLink to="/">
+                        <img src={Logo} height="40px" />
+                        Wixer
+                    </NavLink>
                 </div>
-                <div className="link flex align-center">
-                    <NavLink to="/templates">Templates</NavLink>
-                </div>
-                <div className="link flex align-center">
-                    <NavLink to="/about">About</NavLink>
-                </div>
-            </nav>
-        </header>
-    )
+                <nav className="links flex">
+                    <NavLink className="link flex align-center" to="/editor">Editor</NavLink>
+                    <NavLink className="link flex align-center" to="/templates">Templates</NavLink>
+                    <NavLink className="link flex align-center" to="/about">About</NavLink>
+                </nav>
+            </header>
+        )
+    }
 }

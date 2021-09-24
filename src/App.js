@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Header />
+        <Route component={Header} />
         <Switch>
           <Route path="/templates" component={Templates} />
           <Route path="/editor" component={Editor} />

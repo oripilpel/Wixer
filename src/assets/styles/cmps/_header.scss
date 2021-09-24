@@ -11,11 +11,17 @@
     height: 65px;
     box-shadow: 0 0px 8px 0 #00000036;
     z-index: 5;
+    transition: 0.5s;
 
     .logo {
         font-size: 40px;
         font-family: courgette;
+        transition: 0.5s;
 
+        img {
+            height: 40px;
+            transition: 0.5s;
+        }
         a {
             display: flex;
             align-items: center;
@@ -28,7 +34,6 @@
     .links {
         height: 100%;
         .link {
-            height: 100%;
             &:not(:last-child) {
                 margin-inline-end: 25px;
             }
@@ -38,9 +43,24 @@
             font-family: montserrat;
             cursor: pointer;
             color: #293241;
+
+            &:hover,
+            &.active {
+                box-shadow: inset 0px -3px 0px 0px #0b6fb7;
+                font-weight: bold;
+            }
         }
     }
-    
+
+    &.min {
+        height: 30px;
+        .logo {
+            font-size: 25px;
+            img {
+                height: 25px;
+            }
+        }
+    }
     // img {
     //     mix-blend-mode: darken;
     // }
