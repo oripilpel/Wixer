@@ -18,7 +18,7 @@ export function DropZone({ data, onDrop, isLast, className, accept = ACCEPTS }) 
 
       // sidebar items can always be dropped anywhere
       if (!itemPath) {
-        if (data.childrenCount >= 4) {
+        if (data.childrenCount >= 4 && splitDropZonePath.length !== 3) {
           return false;
         }
         return true;
@@ -27,9 +27,7 @@ export function DropZone({ data, onDrop, isLast, className, accept = ACCEPTS }) 
       const splitItemPath = itemPath.split("-");
 
       // limit columns when dragging from one row to another row
-      if (
-        data.childrenCount >= 4
-      ) {
+      if (data.childrenCount >= 4 && splitDropZonePath.length !== 3) {
         return false;
       }
       // Invalid (Can't drop a parent element (row) into a child (column))
