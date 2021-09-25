@@ -40,13 +40,18 @@ const Column = ({ data, handleDrop, path, updateComponent, onSelect, selected })
   const opacity = isDragging ? 0 : 1;
   drag(drop(ref));
 
+  const select = (ev) => {
+    ev.stopPropagation();
+    onSelect('column', path.split('-'));
+  }
+
   const style = translateStyle({ ...data.style });
   return (
     <div
       ref={ref}
       style={{ ...style, opacity }}
       className={`base draggable column ${selected && selected.id === data.id ? 'selected' : ''}`}
-      onClick={() => onSelect('column', path.split('-'))}
+      onClick={select}
     >
       {data.cmps.map((component, index) => {
         const currentPath = `${path}-${index}`;

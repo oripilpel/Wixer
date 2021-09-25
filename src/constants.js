@@ -220,5 +220,4 @@ export const SIDEBAR_ITEMS = [
       style: { backgroundColor: '#101010' }
     }
   },
-
 ];
