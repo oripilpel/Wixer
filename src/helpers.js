@@ -1,5 +1,5 @@
-import shortid from "shortid";
 import { SECTION, COLUMN, COMPONENT, INNERSECTION } from "./constants";
+import { utilService } from "./services/util.service";
 
 // a little function to help us with reordering the result
 export const reorder = (list, startIndex, endIndex) => {
@@ -117,7 +117,7 @@ export const handleMoveSidebarColumnIntoParent = (
     case 1:
       const newLayoutStructure = {
         type: SECTION,
-        id: shortid.generate(),
+        id: utilService.makeId(),
         cmps: [_generateColumn()]
       };
       return addChildToChildren(layout, splitDropZonePath, newLayoutStructure);
@@ -140,16 +140,17 @@ export const handleMoveToDifferentParent = (
   splitItemPath,
   item
 ) => {
+  debugger
   let newLayoutStructure;
   const COLUMN_STRUCTURE = {
     type: COLUMN,
-    id: shortid.generate(),
+    id: utilService.makeId(),
     cmps: [item]
   };
 
   const SECTION_STRUCTURE = {
     type: SECTION,
-    id: shortid.generate()
+    id: utilService.makeId()
   };
 
   switch (splitDropZonePath.length) {
@@ -182,6 +183,18 @@ export const handleMoveToDifferentParent = (
 
 
     case 3:
+      const dropCmp = layout[splitDropZonePath[0]].cmps[splitDropZonePath[1]].cmps
+      if (item.type === COLUMN) {
+        newLayoutStructure = item;
+      }
+      //moving component to inner section
+
+      else if (dropCmp.length && dropCmp[dropCmp.length - 1].type === COLUMN) {
+        newLayoutStructure = COLUMN_STRUCTURE;
+      }
+      else {
+        newLayoutStructure = item;
+      }
       break;
     default:
       newLayoutStructure = item;
@@ -209,11 +222,11 @@ export const handleMoveSidebarInnerSectionIntoParent = (
     case 1:
       const newLayoutStructure = {
         type: SECTION,
-        id: shortid.generate(),
+        id: utilService.makeId(),
         cmps: [_generateInnerSection()]
       };
       return addChildToChildren(layout, splitDropZonePath, newLayoutStructure);
-    case 2:
+    default:
       return addChildToChildren(layout, splitDropZonePath, _generateInnerSection());
   }
 }
@@ -228,7 +241,7 @@ export const handleMoveSidebarComponentIntoParent = (
     case 1: {
       newLayoutStructure = {
         type: SECTION,
-        id: shortid.generate(),
+        id: utilService.makeId(),
         cmps: [_generateColumn(item)]
       };
       break;
@@ -266,7 +279,7 @@ export const translateStyle = (style) => {
 const _generateColumn = (item = null) => {
   return {
     type: COLUMN,
-    id: shortid.generate(),
+    id: utilService.makeId(),
     cmps: item ? [item] : [],
     style: {
       padding: 10,
@@ -278,7 +291,7 @@ const _generateColumn = (item = null) => {
 const _generateInnerSection = (item = null) => {
   return {
     type: INNERSECTION,
-    id: shortid.generate(),
+    id: utilService.makeId(),
     cmps: [_generateColumn(), _generateColumn(), _generateColumn()],
     style: {
       padding: 10,

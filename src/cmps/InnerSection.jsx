@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { useDrag } from "react-dnd";
-import { SIDEBAR_ITEM, COMPONENT, INNERSECTION, COLUMN } from "../constants.js";
+import { SIDEBAR_ITEM, COMPONENT, INNERSECTION, COLUMN, SIDEBAR_COLUMN } from "../constants.js";
 import { DropZone } from "./DropZone";
 import Column from "./Column";
 
@@ -41,8 +41,8 @@ export function InnerSection({ data, components, handleDrop, path, updateCompone
     };
 
     return (
-        <div ref={ref} style={{ ...style, opacity }} className={`base draggable innersection`}>
-            {data.id}
+        <div ref={ref} style={{ ...style, opacity }} className="base draggable innersection">
+            {/* {data.id} */}
             <div className="columns">
                 {data.cmps.map((column, index) => {
                     const currentPath = `${path}-${index}`;
@@ -54,7 +54,7 @@ export function InnerSection({ data, components, handleDrop, path, updateCompone
                                     path: currentPath,
                                     childrenCount: data.cmps.length,
                                 }}
-                                accept={[SIDEBAR_ITEM, COMPONENT, COLUMN]}
+                                accept={[SIDEBAR_ITEM, COMPONENT, COLUMN, SIDEBAR_COLUMN]}
                                 onDrop={handleDrop}
                                 className="horizontalDrag"
                             />
@@ -67,7 +67,7 @@ export function InnerSection({ data, components, handleDrop, path, updateCompone
                         path: `${path}-${data.cmps.length}`,
                         childrenCount: data.cmps.length
                     }}
-                    accept={[SIDEBAR_ITEM, COMPONENT, COLUMN]}
+                    accept={[SIDEBAR_ITEM, COMPONENT, COLUMN, SIDEBAR_COLUMN]}
                     onDrop={handleDrop}
                     className="horizontalDrag"
                     isLast

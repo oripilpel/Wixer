@@ -5,7 +5,7 @@ export function Text({ data, style, update }) {
         update('data', { txt: target.innerText });
     }
     return (
-        <div className="text" contentEditable="true" onKeyUp={onBodyChange} suppressContentEditableWarning={true} style={style}>
+        <div className="text" contentEditable="true" onBlur={onBodyChange} suppressContentEditableWarning={true} style={style}>
             {data.txt}
         </div>
     )

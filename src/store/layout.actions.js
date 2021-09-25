@@ -1,5 +1,38 @@
 import { wapService } from "../services/wap.service";
 
+export function saveWap(wap) {
+    return async dispatch => {
+        try {
+            const savedWap = await wapService.save(wap)
+            return dispatch({
+                type: 'SET_WAP',
+                cmps: savedWap.cmps,
+                style: savedWap.style
+            })
+        }
+        catch (err) {
+            console.log(err);
+        }
+    }
+}
+
+export function loadWap(wapId) {
+    return async dispatch => {
+        try {
+            debugger
+            const wap = await wapService.loadWap(wapId)
+            console.log('loading from storage');
+            return dispatch({
+                type: 'SET_WAP',
+                cmps: wap.cmps,
+                style: wap.style
+            })
+        }
+        catch (err) {
+            console.log(err);
+        }
+    }
+}
 
 // export function saveWap(wap) {
 //     return async dispatch => {
@@ -65,10 +98,21 @@ export function updateComponent(comp, field, value) {
     });
 }
 
-export function setSelected(selected) {
+export function setSelected(cmps, type, path) {
+    const selected = wapService.selectComponent(cmps, type, path)
     return dispatch => dispatch({
         type: 'SET_SELECTED',
         selected
+    });
+}
+
+
+
+export function insert(index, newItem) {
+    return dispatch => dispatch({
+        type: 'INSERT_ITEM',
+        index,
+        newItem
     });
 }
 

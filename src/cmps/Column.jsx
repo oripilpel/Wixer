@@ -5,7 +5,7 @@ import { COLUMN, COMPONENT, SIDEBAR_ITEM } from "../constants";
 import { DropZone } from "./DropZone";
 import Component from "./Component";
 
-const Column = ({ data, cmps, handleDrop, path, updateComponent, onSelect, selected }) => {
+const Column = ({ data, handleDrop, path, updateComponent, onSelect, selected }) => {
   const ref = useRef(null);
   const [, drop] = useDrop({
     accept: COLUMN,
@@ -48,7 +48,6 @@ const Column = ({ data, cmps, handleDrop, path, updateComponent, onSelect, selec
       className={`base draggable column ${selected && selected.id === data.id ? 'selected' : ''}`}
       onClick={() => onSelect('column', path.split('-'))}
     >
-      {data.id}
       {data.cmps.map((component, index) => {
         const currentPath = `${path}-${index}`;
 

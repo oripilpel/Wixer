@@ -4,7 +4,8 @@ import {
     handleMoveToDifferentParent,
     handleMoveSidebarComponentIntoParent,
     handleMoveSidebarColumnIntoParent,
-    handleMoveSidebarInnerSectionIntoParent
+    handleMoveSidebarInnerSectionIntoParent,
+    insert
 } from "../helpers";
 
 const initialState = {
@@ -76,6 +77,7 @@ export function layoutReducer(state = initialState, action) {
         case 'MOVE_COLUMN':
             return { ...state }
         case 'UPDATE_COMPONENT':
+            debugger
             const { comp, field, value } = action;
             const newLayout = JSON.parse(JSON.stringify(state))
             const { path } = comp;
@@ -96,7 +98,14 @@ export function layoutReducer(state = initialState, action) {
             return newLayout;
         case 'SET_SELECTED':
             return { ...state, selected: action.selected };
+        case 'INSERT_ITEM':
+            const cmps = insert(state.cmps, action.index, action.newItem);
+            console.log('cmps', cmps);
+            return { ...state, cmps: cmps }
+
         default:
             return state;
     }
+
+
 }

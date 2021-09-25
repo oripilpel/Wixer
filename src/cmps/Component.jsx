@@ -5,6 +5,8 @@ import { translateStyle } from "../helpers";
 import { Image } from "./Image";
 import { Text } from "./Text";
 import { Video } from "./Video";
+import { Link } from "./Link";
+import { Nav } from "./Nav";
 
 const Component = ({ data, path, updateComponent, select, selected }) => {
   const ref = useRef(null);
@@ -25,11 +27,12 @@ const Component = ({ data, path, updateComponent, select, selected }) => {
   const KeysToComponentMap = {
     text: Text,
     image: Image,
-    video: Video
+    video: Video,
+    link: Link,
+    nav: Nav
   };
 
   const onSelect = (ev) => {
-    console.log('component', path.split('-'));
     ev.stopPropagation();
     select('component', path.split('-'));
   }
@@ -46,7 +49,7 @@ const Component = ({ data, path, updateComponent, select, selected }) => {
           id: component.id,
           key: component.id,
           data: component.data,
-          style: translateStyle({...component.style}),
+          style: translateStyle({ ...component.style }),
           update
         },
       );
@@ -56,13 +59,10 @@ const Component = ({ data, path, updateComponent, select, selected }) => {
   return (
     <div
       ref={ref}
-      style={{ opacity }}
+      style={{ opacity, width: 'fit-content' }}
       className="component draggable"
       onClick={onSelect}
     >
-      {/* <div>{data.id}</div> */}
-      {/* <div>{component.type}</div> */}
-      {/* <div>{component.content}</div> */}
       {renderer(component)}
     </div>
   );

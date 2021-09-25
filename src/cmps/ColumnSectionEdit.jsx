@@ -4,7 +4,6 @@ import { uploadImg } from '../services/cloudinary-service';
 import { ImageUpload } from "./ImageUpload";
 import { WidthEdit } from "./WidthEdit";
 export function ColumnSectionEdit({ style, onUpdate }) {
-    debugger
     const onChange = ({ target }) => {
         const { name, value } = target;
         const newStyle = { ...style };
@@ -20,7 +19,7 @@ export function ColumnSectionEdit({ style, onUpdate }) {
     return (
         <div className="column-section-edit">
             <ImageUpload label="Upload background image" onUpload={(ev) => uploadImg(ev).then(url => onUploadImage(url))} />
-            <WidthEdit name="flexGrow" value={flexGrow} onChange={onChange} min={0} max={12}/>
+            <WidthEdit name="flexGrow" value={flexGrow} onChange={onChange} min={0} max={12} />
             <PaddingEdit
                 paddingTop={paddingTop}
                 paddingRight={paddingRight}
