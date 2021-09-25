@@ -1,5 +1,5 @@
-import shortid from "shortid";
 import { SECTION, COLUMN, COMPONENT, INNERSECTION } from "./constants";
+import { utilService } from "./services/util.service";
 
 // a little function to help us with reordering the result
 export const reorder = (list, startIndex, endIndex) => {
@@ -17,14 +17,16 @@ export const remove = (arr, index) => [
   ...arr.slice(index + 1)
 ];
 
-export const insert = (arr, index, newItem) => [
-  // part of the array before the specified index
-  ...arr.slice(0, index),
-  // inserted item
-  newItem,
-  // part of the array after the specified index
-  ...arr.slice(index)
-];
+export const insert = (arr, index, newItem) => {
+  return [
+    // part of the array before the specified index
+    ...arr.slice(0, index),
+    // inserted item
+    newItem,
+    // part of the array after the specified index
+    ...arr.slice(index)
+  ]
+};
 
 export const reorderChildren = (children, splitDropZonePath, splitItemPath) => {
   if (splitDropZonePath.length === 1) {
@@ -115,24 +117,18 @@ export const handleMoveSidebarColumnIntoParent = (
     case 1:
       const newLayoutStructure = {
         type: SECTION,
-        id: shortid.generate(),
-        cmps: [_generateColumn()]
+        id: utilService.makeId(),
+        cmps: [_generateColumn()],
+        style: {}
       };
       return addChildToChildren(layout, splitDropZonePath, newLayoutStructure);
-    case 2:
+    default:
       return addChildToChildren(layout, splitDropZonePath, _generateColumn());
   }
 }
 
-export const handleAddColumDataToRow = (layout, srcPath) => {
-  let parentPath = srcPath;
-  if (srcPath.length >= 2) parentPath = srcPath.slice(0, srcPath.length - 1)
+export const handleAddColumDataToRow = (layout) => {
   const layoutCopy = [...layout];
-  const COLUMN_STRUCTURE = {
-    type: COLUMN,
-    id: shortid.generate(),
-    cmps: []
-  };
   return layoutCopy.filter(section => {
     return section.cmps.length
   })
@@ -148,24 +144,26 @@ export const handleMoveToDifferentParent = (
   let newLayoutStructure;
   const COLUMN_STRUCTURE = {
     type: COLUMN,
-    id: shortid.generate(),
+    id: utilService.makeId(),
     cmps: [item]
   };
 
   const SECTION_STRUCTURE = {
+    id: utilService.makeId(),
     type: SECTION,
-    id: shortid.generate()
+    style: {}
   };
 
   switch (splitDropZonePath.length) {
-    case 1: {
+    case 1:
       // moving column outside into new row made on the fly
-      if (item.type === COLUMN) {
+      if (item.type === COLUMN || item.type === INNERSECTION) {
         newLayoutStructure = {
           ...SECTION_STRUCTURE,
           cmps: [item]
         };
-      } else {
+      }
+      else {
         // moving component outside into new row made on the fly
         newLayoutStructure = {
           ...SECTION_STRUCTURE,
@@ -173,8 +171,7 @@ export const handleMoveToDifferentParent = (
         };
       }
       break;
-    }
-    case 2: {
+    case 2:
       // moving component outside into a row which creates column
       if (item.type === COMPONENT) {
         newLayoutStructure = COLUMN_STRUCTURE;
@@ -184,15 +181,30 @@ export const handleMoveToDifferentParent = (
       }
 
       break;
-    }
-    default: {
+
+
+    case 3:
+      const dropCmp = layout[splitDropZonePath[0]].cmps[splitDropZonePath[1]].cmps
+      if (item.type === COLUMN) {
+        newLayoutStructure = item;
+      }
+      //moving component to inner section
+
+      else if (dropCmp.length && dropCmp[dropCmp.length - 1].type === COLUMN) {
+        newLayoutStructure = COLUMN_STRUCTURE;
+      }
+      else {
+        newLayoutStructure = item;
+      }
+      break;
+    default:
       newLayoutStructure = item;
-    }
+
   }
 
   let updatedLayout = layout;
   updatedLayout = removeChildFromChildren(updatedLayout, splitItemPath);
-  updatedLayout = handleAddColumDataToRow(updatedLayout, splitItemPath);
+  updatedLayout = handleAddColumDataToRow(updatedLayout);
   updatedLayout = addChildToChildren(
     updatedLayout,
     splitDropZonePath,
@@ -206,17 +218,17 @@ export const handleMoveSidebarInnerSectionIntoParent = (
   layout,
   splitDropZonePath,
 ) => {
-
   switch (splitDropZonePath.length) {
 
     case 1:
       const newLayoutStructure = {
+        id: utilService.makeId(),
         type: SECTION,
-        id: shortid.generate(),
-        cmps: [_generateInnerSection()]
+        cmps: [_generateInnerSection()],
+        style: {}
       };
       return addChildToChildren(layout, splitDropZonePath, newLayoutStructure);
-    case 2:
+    default:
       return addChildToChildren(layout, splitDropZonePath, _generateInnerSection());
   }
 }
@@ -231,8 +243,9 @@ export const handleMoveSidebarComponentIntoParent = (
     case 1: {
       newLayoutStructure = {
         type: SECTION,
-        id: shortid.generate(),
-        cmps: [_generateColumn(item)]
+        id: utilService.makeId(),
+        cmps: [_generateColumn(item)],
+        style: {}
       };
       break;
     }
@@ -261,17 +274,23 @@ export const translateStyle = (style) => {
   if (style.marginRight) style.paddingRight = `${style.marginRight}px`;
   if (style.marginBottom) style.marginBottom = `${style.marginBottom}px`;
   if (style.marginLeft) style.marginLeft = `${style.marginLeft}px`;
+  if (style.fontSize) style.fontSize = `${style.fontSize}px`;
+  if (style.width) style.width = `${style.width}%`;
   return style;
 }
 
 const _generateColumn = (item = null) => {
   return {
     type: COLUMN,
-    id: shortid.generate(),
+    id: utilService.makeId(),
     cmps: item ? [item] : [],
     style: {
       padding: 10,
-      flexGrow: 1
+      flexGrow: 1,
+      flexDirection: 'column',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center'
     }
   }
 }
@@ -279,11 +298,14 @@ const _generateColumn = (item = null) => {
 const _generateInnerSection = (item = null) => {
   return {
     type: INNERSECTION,
-    id: shortid.generate(),
+    id: utilService.makeId(),
     cmps: [_generateColumn(), _generateColumn(), _generateColumn()],
     style: {
       padding: 10,
-      flexGrow: 1
+      flexGrow: 1,
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center'
     }
   }
 }

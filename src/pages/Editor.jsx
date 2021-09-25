@@ -1,258 +1,85 @@
-import React, { useCallback, useState } from "react";
+import React, { useEffect } from "react";
+import { connect } from 'react-redux';
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
-import update from 'immutability-helper';
-import { SIDEBAR_ITEMS, SIDEBAR_ITEM, COMPONENT, COLUMN, SECTION, SIDEBAR_ITEM_LAYOUT, INNERSECTION } from "../constants";
-import { SideBarItem } from "../cmps/SideBarItem";
+import { SIDEBAR_ITEMS, SIDEBAR_ITEM, COMPONENT, COLUMN, SECTION, SIDEBAR_COLUMN, SIDEBAR_INNERSECTION, INNERSECTION, SIDEBAR_SECTION } from "../constants";
 import { DropZone } from "../cmps/DropZone";
-import shortid from "shortid";
-import {
-    handleMoveWithinParent,
-    handleMoveToDifferentParent,
-    handleMoveSidebarComponentIntoParent,
-    handleMoveSidebarColumnIntoParent,
-    handleMoveSidebarInnerSectionIntoParent
-} from "../helpers";
 import { Section } from "../cmps/Section";
 import { SideBar } from "../cmps/SideBar";
+import {
+    insert,
+    loadWap,
+    moveSidebarComponentIntoParent,
+    moveSidebarColumnIntoParent,
+    moveSidebarInnerSectionIntoParent,
+    moveWithinParent,
+    moveToDifferentParent,
+    updateComponent,
+    setSelected,
+} from '../store/layout.actions'
+import { utilService } from "../services/util.service";
 
-export function Editor() {
-    const [layout, setLayout] = useState({
-        cmps: [],
-        style: {}
-    });
-    // const [components, setComponents] = useState([]);
-    const [selected, setSelected] = useState(null);
-    const moveSection = useCallback((dragIndex, hoverIndex) => {
-        const dragSection = layout.layout[dragIndex];
-        setLayout(update(layout, {
-            cmps: {
-                $splice: [
-                    [dragIndex, 1],
-                    [hoverIndex, 0, dragSection],
-                ],
-            }
-        }));
-    }, [layout]);
-    const moveColumn = useCallback((currPath, dragPath) => {
-        var currColumn;
-        var dragColumn;
-
-        switch (currPath.length) {
-            case 2:
-                currColumn = layout[currPath[0]].children[currPath[1]];
-            default:
-                currColumn = layout[currPath[0]].children[currPath[1]].children[currPath[2]];
-        }
-
-        switch (dragPath.length) {
-            case 2:
-                dragColumn = layout[dragPath[0]].children[dragPath[1]];
-            default:
-                dragColumn = layout[dragPath[0]].children[dragPath[1]].children[dragPath[2]];
-        }
-
-        if (currColumn.id === dragColumn.id) return
-
-        if (currPath[0] === dragPath[0] && currPath[1] === dragPath[1]) {
-            const newLayout = [...layout]
-            newLayout.splice()
-            // setLayout()
-        }
-
-        if (currPath[0] === dragPath[0]) {
-            setLayout(update(layout, {
-                cmps: {
-                    [currPath[0]]: {
-                        children: {
-                            $splice: [
-                                [currPath[1], 1],
-                                [dragPath[1], 0, currColumn],
-                            ],
-                        }
-                        // [dragPath[0]]: {
-                        //     $splice: [
-                        //         [dragPath[1], 0, currColumn],
-                        //     ],
-                        // }
-                    },
-                }
-                // [dragPath[0]]: {
-                //     children: {
-                //         $splice: [
-                //             [dragPath[1], 0, currColumn],
-                //         ],
-                //     }
-                //     // [currPath[0]]: {
-                //     //     $splice: [
-                //     //         [dragPath[1], 0, dragColumn],
-                //     //     ],
-                //     // }
-                // }
-            }));
-        } else {
-            setLayout(update(layout, {
-                cmps: {
-                    [currPath[0]]: {
-                        children: {
-                            $splice: [
-                                [currPath[1], 1],
-                            ],
-                        }
-                    },
-                    [dragPath[0]]: {
-                        children: {
-                            $splice: [[dragPath[1], 0, currColumn]],
-                        }
-                    }
-                }
-            }))
-        }
-        // setLayout(update(layout, {
-        //     [dragPath[0]]: {
-        //         children: {
-        //             $splice: [
-        //                 [dragPath[1], 0, currColumn],
-        //             ],
-        //         }
-        //         // [currPath[0]]: {
-        //         //     $splice: [
-        //         //         [dragPath[1], 0, dragColumn],
-        //         //     ],
-        //         // }
-        //     }
-        // }));
-        // setLayout(update(layout, {
-        //     [currPath[0]]: {
-        //         children: {
-        //             $splice: [
-        //                 [currPath[1], 1],
-        //                 [dragPath[1], 0, currColumn],
-        //             ],
-        //         }
-        //         // [dragPath[0]]: {
-        //         //     $splice: [
-        //         //         [dragPath[1], 0, currColumn],
-        //         //     ],
-        //         // }
-        //     },
-        //     [dragPath[0]]: {
-        //         children: {
-        //             $splice: [
-        //                 [dragPath[1], 0, currColumn],
-        //             ],
-        //         }
-        //     }
-        // }));
-    }, [layout]);
-    const updateComponent = (comp, field, value) => {
-        debugger
-        const path = comp.path
-        const newLayout = { ...layout }
-        switch (comp.path.length) {
-            case 1:
-                newLayout.cmps[path[0]][field] = value
-                break;
-            case 2:
-                newLayout.cmps[path[0]].cmps[path[1]][field] = value
-                break;
-            case 3:
-                newLayout.cmps[path[0]].cmps[path[1]].cmps[path[2]][field] = value
-                break;
-            default:
-                newLayout.cmps[path[0]].cmps[path[1]].cmps[path[2]].cmps[path[3]][field] = value
-                break;
-        }
-        setLayout(newLayout)
+function _Editor(
+    { match,
+        cmps,
+        selected,
+        moveSidebarComponentIntoParent,
+        moveSidebarColumnIntoParent,
+        moveSidebarInnerSectionIntoParent,
+        moveWithinParent,
+        moveToDifferentParent,
+        updateComponent,
+        setSelected,
+        insert,
+        loadWap
+    }) {
+    useEffect(() => {
+        const id = match.params.wapId;
+        if (id) loadWap(id);
+    }, []);
+    const onUpdateComponent = (comp, field, value) => {
+        updateComponent(comp, field, value);
     }
-    const onSelect = (type, path) => {
-        switch (type) {
-            case COMPONENT:
-                if (path.length === 3) {
-                    setSelected({ ...layout.cmps[+path[0]].cmps[+path[1]].cmps[+path[2]], path: path });
-                } else {
-                    setSelected({ ...layout.cmps[+path[0]].cmps[+path[1]].cmps[+path[2]].cmps[+path[3]], path: path });
-                }
-                break;
-            case COLUMN:
-                if (path.length === 2) {
-                    setSelected({ ...layout.cmps[+path[0]].cmps[+path[1]], path: path });
-                } else {
-                    setSelected({ ...layout.cmps[+path[0]].cmps[+path[1]].cmps[+path[2]], path: path });
-                }
-                break;
-            case INNERSECTION:
-                setSelected({ ...layout.cmps[+path[0]].cmps[+path[1]], path: path });
-                break;
-            default:
-                setSelected({ ...layout.cmps[+path[0]], path: path })
-        }
-    }
-    const handleDrop = useCallback(
+
+    const handleDrop =
         (dropZone, item) => {
             const splitDropZonePath = dropZone.path.split("-");
             const pathToDropZone = splitDropZonePath.slice(0, -1).join("-");
 
             const newItem = { id: item.id, type: item.type, component: item.component };
-            if (item.type === COLUMN || item.type === SECTION) {
+            if (item.type === COLUMN || item.type === SECTION || item.type === INNERSECTION) {
                 newItem.cmps = item.cmps;
             }
 
-            if (item.type === SIDEBAR_ITEM_LAYOUT) {
-                if (item.component.type === COLUMN) {
+            if (item.type === SIDEBAR_COLUMN) {
+                moveSidebarColumnIntoParent(splitDropZonePath);
+                return;
+            }
 
-                    setLayout({
-                        ...layout,
-                        cmps: handleMoveSidebarColumnIntoParent(
-                            layout.cmps,
-                            splitDropZonePath
-                        )
-                    }
-                    );
-                    return;
-                } else {
-                    setLayout(
-                        handleMoveSidebarInnerSectionIntoParent(
-                            layout,
-                            splitDropZonePath
-                        )
-                    )
-                }
+            if (item.type === SIDEBAR_INNERSECTION) {
+                moveSidebarInnerSectionIntoParent(splitDropZonePath);
+                return;
+            }
+            if (item.type === SIDEBAR_SECTION) {
+                insert(splitDropZonePath[0], item.component)
                 return
             }
+
 
             // sidebar into
             if (item.type === SIDEBAR_ITEM) {
                 // 1. Move sidebar item into page
                 const newComponent = {
-                    id: shortid.generate(),
+                    id: utilService.makeId(),
                     ...item.component
                 };
-
-
-                if (item.component.type === "innersection") {
-
-                }
 
                 const newItem = {
                     id: newComponent.id,
                     type: COMPONENT,
                     component: item.component
                 };
-                // setComponents({
-                //     ...components,
-                //     [newComponent.id]: newComponent
-                // });
-                setLayout(
-                    {
-                        ...layout,
-                        cmps: handleMoveSidebarComponentIntoParent(
-                            layout.cmps,
-                            splitDropZonePath,
-                            newItem
-                        )
-                    }
-                );
+                moveSidebarComponentIntoParent(splitDropZonePath, newItem);
                 return;
             }
 
@@ -264,60 +91,48 @@ export function Editor() {
             if (splitItemPath.length === splitDropZonePath.length) {
                 // 2.a. move within parent
                 if (pathToItem === pathToDropZone) {
-                    setLayout({
-                        ...layout,
-                        cmps: handleMoveWithinParent(layout.cmps, splitDropZonePath, splitItemPath)
-                    }
-                    );
+                    moveWithinParent(splitDropZonePath, splitItemPath);
                     return;
                 }
 
                 // 2.b. OR move different parent
                 // TODO FIX columns. item includes children
-                setLayout(
-                    {
-                        ...layout,
-                        cmps: handleMoveToDifferentParent(
-                            layout.cmps,
-                            splitDropZonePath,
-                            splitItemPath,
-                            newItem
-                        )
-
-                    }
-                );
+                moveToDifferentParent(splitDropZonePath, splitItemPath, newItem);
                 return;
             }
 
             // 3. Move + Create
-            setLayout(
-
-                {
-                    ...layout,
-                    cmps: handleMoveToDifferentParent(
-                        layout.cmps,
-                        splitDropZonePath,
-                        splitItemPath,
-                        newItem
-                    )
-
+            moveToDifferentParent(splitDropZonePath, splitItemPath, newItem);
+        }
+    const onSelect = (type, path) => {
+        switch (type) {
+            case COMPONENT:
+                if (path.length === 3) {
+                    setSelected({ ...cmps[path[0]].cmps[path[1]].cmps[path[2]], path: path });
+                } else {
+                    setSelected({ ...cmps[path[0]].cmps[path[1]].cmps[path[2]].cmps[path[3]], path: path });
                 }
-
-            );
-        },
-        [layout]
-    );
+            case COLUMN:
+                if (path.length === 2) {
+                    setSelected({ ...cmps[path[0]].cmps[path[1]], path: path });
+                } else {
+                    setSelected({ ...cmps[path[0]].cmps[path[1]].cmps[path[2]], path: path });
+                }
+            case INNERSECTION:
+                setSelected({ ...cmps[path[0]].cmps[path[1]], path: path });
+            default:
+                setSelected({ ...cmps[path[0]], path: path });
+        }
+    }
     const renderSection = (section, currentPath) => {
         return (
             <Section
                 key={section.id}
                 data={section}
                 handleDrop={handleDrop}
-                cmps={layout.cmps[currentPath]}
+                cmps={cmps[currentPath]}
                 path={currentPath}
-                moveSection={moveSection}
-                moveColumn={moveColumn}
-                updateComponent={updateComponent}
+                updateComponent={onUpdateComponent}
                 onSelect={onSelect}
                 selected={selected}
             />
@@ -329,25 +144,27 @@ export function Editor() {
 
         switch (path.length) {
             case 1:
-                return { ...layout.cmps[path[0]], path }
+                return { ...cmps[path[0]], path }
             case 2:
-                return { ...layout.cmps[path[0]].cmps[path[1]], path }
+                return { ...cmps[path[0]].cmps[path[1]], path }
             case 3:
-                return { ...layout.cmps[path[0]].cmps[path[1]].cmps[path[2]], path }
+                const currCmp = cmps[path[0]].cmps[path[1]].cmps[path[2]]
+                if (currCmp.type === COLUMN) {
+                    return { ...currCmp, path }
+                } else {
+                    return { ...currCmp.component, path }
+                }
             default:
-                return { ...layout.cmps[path[0]].cmps[path[1]].cmps[path[2]].cmps[path[3]], path }
+                return { ...cmps[path[0]].cmps[path[1]].cmps[path[2]].cmps[path[3]].component, path }
         }
-
     }
     return (
         <DndProvider backend={HTML5Backend}>
             <div className="editor">
-                <SideBar sideBarItems={SIDEBAR_ITEMS} selected={getSelected(selected)} update={updateComponent} />
-                {/* <SideBar sideBarItems={SIDEBAR_ITEMS} update={updateComponent} /> */}
+                <SideBar sideBarItems={SIDEBAR_ITEMS} selected={getSelected(selected)} update={onUpdateComponent} />
                 <div className="page-container">
                     <div className="page">
-                        {/* {JSON.stringify(layout.cmps)} */}
-                        {layout.cmps.map((section, index) => {
+                        {cmps.map((section, index) => {
                             const currentPath = `${index}`;
 
                             return (
@@ -355,11 +172,11 @@ export function Editor() {
                                     <DropZone
                                         data={{
                                             path: currentPath,
-                                            childrenCount: layout.length
+                                            childrenCount: cmps.length
                                         }}
                                         onDrop={handleDrop}
                                         path={currentPath}
-                                        accept={[SIDEBAR_ITEM, COMPONENT, SECTION, COLUMN, SIDEBAR_ITEM_LAYOUT]}
+                                        accept={[INNERSECTION, SIDEBAR_SECTION, SIDEBAR_ITEM, COMPONENT, SECTION, COLUMN, SIDEBAR_COLUMN, SIDEBAR_INNERSECTION]}
                                     />
                                     {renderSection(section, currentPath)}
                                 </React.Fragment>
@@ -367,11 +184,11 @@ export function Editor() {
                         })}
                         <DropZone
                             data={{
-                                path: `${layout.cmps.length}`,
-                                childrenCount: layout.length
+                                path: `${cmps.length}`,
+                                childrenCount: cmps.length
 
                             }}
-                            accept={[SIDEBAR_ITEM, COMPONENT, SECTION, COLUMN, SIDEBAR_ITEM_LAYOUT]}
+                            accept={[SIDEBAR_ITEM, SIDEBAR_SECTION, COMPONENT, SECTION, COLUMN, SIDEBAR_COLUMN, SIDEBAR_INNERSECTION]}
                             onDrop={handleDrop}
                             isLast
                         />
@@ -381,3 +198,24 @@ export function Editor() {
         </DndProvider>
     )
 }
+
+function mapStateToProps(state) {
+    return {
+        cmps: state.layoutModule.cmps,
+        selected: state.layoutModule.selected,
+        style: state.layoutModule.style
+    }
+}
+const mapDispatchToProps = {
+    loadWap,
+    moveSidebarComponentIntoParent,
+    moveSidebarColumnIntoParent,
+    moveSidebarInnerSectionIntoParent,
+    moveWithinParent,
+    moveToDifferentParent,
+    updateComponent,
+    setSelected,
+    insert,
+}
+
+export const Editor = connect(mapStateToProps, mapDispatchToProps)(_Editor);

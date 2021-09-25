@@ -1,10 +1,19 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useDrag } from "react-dnd";
 import { COMPONENT } from "../constants";
+import { translateStyle } from "../helpers";
+import { Image } from "./Image";
 import { Text } from "./Text";
+import { Video } from "./Video";
+import { Link } from "./Link";
+import { Nav } from "./Nav";
+import { Button } from "./Button";
+import { Actions } from "./Actions";
 
-const Component = ({ data, path, updateComponent, select }) => {
+const Component = ({ data, path, updateComponent, select, selected }) => {
   const ref = useRef(null);
+
+  const [actionVisible, setActionVisible] = useState(false)
 
   const [{ isDragging }, drag] = useDrag({
     type: COMPONENT,
@@ -20,7 +29,12 @@ const Component = ({ data, path, updateComponent, select }) => {
   const component = data.component;
 
   const KeysToComponentMap = {
-    text: Text
+    text: Text,
+    image: Image,
+    video: Video,
+    link: Link,
+    nav: Nav,
+    button: Button
   };
 
   const onSelect = (ev) => {
@@ -29,7 +43,7 @@ const Component = ({ data, path, updateComponent, select }) => {
   }
 
   const update = (field, value) => {
-    updateComponent(component.id, field, value);
+    updateComponent(selected, field, value);
   }
 
   const renderer = (component) => {
@@ -39,8 +53,8 @@ const Component = ({ data, path, updateComponent, select }) => {
         {
           id: component.id,
           key: component.id,
-          content: component.content,
-          style: component.style,
+          data: component.data,
+          style: translateStyle({ ...component.style }),
           update
         },
       );
@@ -50,14 +64,12 @@ const Component = ({ data, path, updateComponent, select }) => {
   return (
     <div
       ref={ref}
-      style={{ opacity }}
+      style={{ opacity, width: 'fit-content' }}
       className="component draggable"
       onClick={onSelect}
     >
-      <div>{data.id}</div>
-      <div>{component.type}</div>
-      <div>{component.content}</div>
       {renderer(component)}
+      <Actions path={path} isVisible={actionVisible}/>
     </div>
   );
 };
