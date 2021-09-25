@@ -15,10 +15,7 @@ export class Header extends React.Component {
 
     render() {
         const { pathname } = this.props.location
-<<<<<<< HEAD
         const { isMenuOpen } = this.state
-=======
->>>>>>> 3a6a69eef076028a0638969b176320b2620ad6a3
         return (
             <header className={`header flex align-center justify-between ${pathname.includes("editor") ? "min" : ""}`}>
 
