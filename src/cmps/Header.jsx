@@ -8,8 +8,7 @@ export class Header extends React.Component {
         isMenuOpen: false
     }
 
-    toggleMenu = () => {
-        let isMenuOpen = !this.state.isMenuOpen
+    toggleMenu = (isMenuOpen = !this.state.isMenuOpen) => {
         this.setState({ isMenuOpen })
     }
 
@@ -19,7 +18,7 @@ export class Header extends React.Component {
         return (
             <header className={`header flex align-center justify-between ${pathname.includes("editor") ? "min" : ""}`}>
 
-                <div className={`screen ${isMenuOpen ? "active" : ""}`} onClick={this.toggleMenu}></div>
+                <div className={`screen ${isMenuOpen ? "active" : ""}`} onClick={() => this.toggleMenu(false)}></div>
                 <div className="logo">
                     <NavLink to="/">
                         <img src={Logo} height="40px" />
@@ -28,11 +27,11 @@ export class Header extends React.Component {
                 </div>
 
                 <nav className={`links flex ${isMenuOpen ? "active" : ""}`}>
-                    <NavLink className="link flex align-center" onClick={this.toggleMenu} to="/editor">Editor</NavLink>
-                    <NavLink className="link flex align-center" onClick={this.toggleMenu} to="/templates">Templates</NavLink>
-                    <NavLink className="link flex align-center" onClick={this.toggleMenu} to="/about">About</NavLink>
+                    <NavLink className="link flex align-center" onClick={() => this.toggleMenu(false)} to="/editor">Editor</NavLink>
+                    <NavLink className="link flex align-center" onClick={() => this.toggleMenu(false)} to="/templates">Templates</NavLink>
+                    <NavLink className="link flex align-center" onClick={() => this.toggleMenu(false)} to="/about">About</NavLink>
                 </nav>
-                <div className={`hamb-icon ${isMenuOpen ? "active" : ""}`} onClick={this.toggleMenu}>
+                <div className={`hamb-icon ${isMenuOpen ? "active" : ""}`} onClick={() => this.toggleMenu()}>
                     <div></div>
                     <div></div>
                     <div></div>
