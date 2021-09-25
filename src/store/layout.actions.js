@@ -32,6 +32,13 @@ export function loadWap(wapId) {
     }
 }
 
+export function removeItem(splitItemPath) {
+    return dispatch => dispatch({
+        type: 'REMOVE_ITEM',
+        splitItemPath
+    })
+}
+
 export function moveSidebarComponentIntoParent(splitDropZonePath, newItem) {
     return dispatch => dispatch({
         type: 'MOVE_SIDEBAR_COMPONENT_INTO_PARENT',

@@ -1,13 +1,13 @@
-import { utilService } from "./services/util.service";
+import { utilService } from './services/util.service';
 
-export const SIDEBAR_SECTION = "sidebarSection"
-export const SIDEBAR_INNERSECTION = "sidebarInnersection"
-export const SIDEBAR_COLUMN = "sidebarColumn"
-export const SIDEBAR_ITEM = "sidebarItem";
-export const SECTION = "section";
-export const INNERSECTION = "innersection";
-export const COLUMN = "column";
-export const COMPONENT = "component";
+export const SIDEBAR_SECTION = 'sidebarSection'
+export const SIDEBAR_INNERSECTION = 'sidebarInnersection'
+export const SIDEBAR_COLUMN = 'sidebarColumn'
+export const SIDEBAR_ITEM = 'sidebarItem';
+export const SECTION = 'section';
+export const INNERSECTION = 'innersection';
+export const COLUMN = 'column';
+export const COMPONENT = 'component';
 
 export const SIDEBAR_ITEMS = [
   {
@@ -220,4 +220,212 @@ export const SIDEBAR_ITEMS = [
       style: { backgroundColor: '#101010' }
     }
   },
+  {
+    id: utilService.makeId(),
+    type: SIDEBAR_SECTION,
+    component: {
+      type: SECTION,
+      cmps: [
+        {
+          type: 'innersection',
+          id: utilService.makeId(),
+          cmps: [
+            {
+              type: 'column',
+              id: 'gBiDzgP62L',
+              cmps: [
+                {
+                  id: 'nSZb4hMgFy',
+                  type: 'component',
+                  component: {
+                    type: 'image',
+                    data: {
+                      url: 'http://res.cloudinary.com/dq6ymh7ev/image/upload/v1632573662/pfq3wsiqojei5zoo32sw.png'
+                    },
+                    style: {
+                      width: 100
+                    }
+                  }
+                }
+              ],
+              style: {
+                padding: 10,
+                flexGrow: 1,
+                flexDirection: 'column',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }
+            },
+            {
+              type: 'column',
+              id: utilService.makeId(),
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: 'component',
+                  component: {
+                    type: 'text',
+                    data: {
+                      txt: '*9996'
+                    },
+                    style: {
+                      fontSize: 16,
+                      color: '#ffffff',
+                      fontFamily: 'Arial'
+                    }
+                  }
+                }
+              ],
+              style: {
+                padding: 10,
+                flexGrow: 1,
+                flexDirection: 'column',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }
+            },
+            {
+              type: 'column',
+              id: utilService.makeId(),
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: 'component',
+                  component: {
+                    type: 'image',
+                    data: {
+                      url: 'http://res.cloudinary.com/dq6ymh7ev/image/upload/v1632575338/xxybpycbkwa6y375vc8o.svg'
+                    },
+                    style: {
+                      width: 100
+                    }
+                  }
+                }
+              ],
+              style: {
+                padding: 10,
+                flexGrow: 1,
+                flexDirection: 'column',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }
+            },
+            {
+              type: 'column',
+              id: utilService.makeId(),
+              cmps: [],
+              style: {
+                padding: 10,
+                flexGrow: 5,
+                flexDirection: 'column',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }
+            },
+            {
+              type: 'column',
+              id: utilService.makeId(),
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: 'component',
+                  component: {
+                    type: 'text',
+                    data: {
+                      txt: 'Israel'
+                    },
+                    style: {
+                      fontSize: 16,
+                      color: '#ffffff',
+                      fontFamily: 'Arial'
+                    }
+                  }
+                }
+              ],
+              style: {
+                padding: 10,
+                flexGrow: 1,
+                flexDirection: 'column',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }
+            },
+            {
+              type: 'column',
+              id: utilService.makeId(),
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: 'component',
+                  component: {
+                    type: 'text',
+                    data: {
+                      txt: 'Services'
+                    },
+                    style: {
+                      fontSize: 16,
+                      color: '#ffffff',
+                      fontFamily: 'Arial'
+                    }
+                  }
+                }
+              ],
+              style: {
+                padding: 10,
+                flexGrow: 1,
+                flexDirection: 'column',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }
+            },
+            {
+              type: 'column',
+              id: utilService.makeId(),
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: 'component',
+                  component: {
+                    type: 'text',
+                    data: {
+                      txt: 'Models'
+                    },
+                    style: {
+                      fontSize: 16,
+                      color: '#ffffff',
+                      fontFamily: 'Arial'
+                    }
+                  }
+                }
+              ],
+              style: {
+                padding: 10,
+                flexGrow: 1,
+                flexDirection: 'column',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }
+            }
+          ],
+          style: {
+            padding: 10,
+            flexGrow: 1,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center'
+          }
+        }
+      ],
+      style: {
+        backgroundColor: '#000000'
+      }
+    }
+  }
 ];
