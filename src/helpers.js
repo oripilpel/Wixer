@@ -140,7 +140,6 @@ export const handleMoveToDifferentParent = (
   splitItemPath,
   item
 ) => {
-  debugger
   let newLayoutStructure;
   const COLUMN_STRUCTURE = {
     type: COLUMN,
@@ -236,6 +235,7 @@ export const handleMoveSidebarComponentIntoParent = (
   splitDropZonePath,
   item
 ) => {
+  debugger
   let newLayoutStructure;
   switch (splitDropZonePath.length) {
     case 1: {

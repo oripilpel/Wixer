@@ -7,6 +7,7 @@ import { Text } from "./Text";
 import { Video } from "./Video";
 import { Link } from "./Link";
 import { Nav } from "./Nav";
+import { Button } from "./Button";
 
 const Component = ({ data, path, updateComponent, select, selected }) => {
   const ref = useRef(null);
@@ -29,7 +30,8 @@ const Component = ({ data, path, updateComponent, select, selected }) => {
     image: Image,
     video: Video,
     link: Link,
-    nav: Nav
+    nav: Nav,
+    button: Button
   };
 
   const onSelect = (ev) => {

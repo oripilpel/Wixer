@@ -54,7 +54,7 @@ export function InnerSection({ data, components, handleDrop, path, updateCompone
                                     path: currentPath,
                                     childrenCount: data.cmps.length,
                                 }}
-                                accept={[SIDEBAR_ITEM, COMPONENT, COLUMN, SIDEBAR_COLUMN]}
+                                accept={[ COLUMN, SIDEBAR_COLUMN]}
                                 onDrop={handleDrop}
                                 className="horizontalDrag"
                             />
@@ -67,7 +67,7 @@ export function InnerSection({ data, components, handleDrop, path, updateCompone
                         path: `${path}-${data.cmps.length}`,
                         childrenCount: data.cmps.length
                     }}
-                    accept={[SIDEBAR_ITEM, COMPONENT, COLUMN, SIDEBAR_COLUMN]}
+                    accept={[ COLUMN, SIDEBAR_COLUMN]}
                     onDrop={handleDrop}
                     className="horizontalDrag"
                     isLast
