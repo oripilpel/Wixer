@@ -105,24 +105,24 @@ function _Editor(
             moveToDifferentParent(splitDropZonePath, splitItemPath, newItem);
         }
     const onSelect = (type, path) => {
-                switch (type) {
-                    case COMPONENT:
-                        if (path.length === 3) {
-                            setSelected({ ...cmps[path[0]].cmps[path[1]].cmps[path[2]], path: path });
-                        } else {
-                            setSelected({ ...cmps[path[0]].cmps[path[1]].cmps[path[2]].cmps[path[3]], path: path });
-                        }
-                    case COLUMN:
-                        if (path.length === 2) {
-                            setSelected({ ...cmps[path[0]].cmps[path[1]], path: path });
-                        } else {
-                            setSelected({ ...cmps[path[0]].cmps[path[1]].cmps[path[2]], path: path });
-                        }
-                    case INNERSECTION:
-                        setSelected({ ...cmps[path[0]].cmps[path[1]], path: path });
-                    default:
-                        setSelected({ ...cmps[path[0]], path: path });
+        switch (type) {
+            case COMPONENT:
+                if (path.length === 3) {
+                    setSelected({ ...cmps[path[0]].cmps[path[1]].cmps[path[2]], path: path });
+                } else {
+                    setSelected({ ...cmps[path[0]].cmps[path[1]].cmps[path[2]].cmps[path[3]], path: path });
                 }
+            case COLUMN:
+                if (path.length === 2) {
+                    setSelected({ ...cmps[path[0]].cmps[path[1]], path: path });
+                } else {
+                    setSelected({ ...cmps[path[0]].cmps[path[1]].cmps[path[2]], path: path });
+                }
+            case INNERSECTION:
+                setSelected({ ...cmps[path[0]].cmps[path[1]], path: path });
+            default:
+                setSelected({ ...cmps[path[0]], path: path });
+        }
     }
     const renderSection = (section, currentPath) => {
         return (
@@ -148,9 +148,14 @@ function _Editor(
             case 2:
                 return { ...cmps[path[0]].cmps[path[1]], path }
             case 3:
-                return { ...cmps[path[0]].cmps[path[1]].cmps[path[2]], path }
+                const currCmp = cmps[path[0]].cmps[path[1]].cmps[path[2]]
+                if (currCmp.type === COLUMN) {
+                    return { ...currCmp, path }
+                } else {
+                    return { ...currCmp.component, path }
+                }
             default:
-                return { ...cmps[path[0]].cmps[path[1]].cmps[path[2]].cmps[path[3]], path }
+                return { ...cmps[path[0]].cmps[path[1]].cmps[path[2]].cmps[path[3]].component, path }
         }
     }
     return (

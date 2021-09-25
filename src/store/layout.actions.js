@@ -19,9 +19,7 @@ export function saveWap(wap) {
 export function loadWap(wapId) {
     return async dispatch => {
         try {
-            debugger
             const wap = await wapService.loadWap(wapId)
-            console.log('loading from storage');
             return dispatch({
                 type: 'SET_WAP',
                 cmps: wap.cmps,
@@ -33,7 +31,6 @@ export function loadWap(wapId) {
         }
     }
 }
-
 
 export function moveSidebarComponentIntoParent(splitDropZonePath, newItem) {
     return dispatch => dispatch({
@@ -89,8 +86,6 @@ export function setSelected(selected) {
         selected
     });
 }
-
-
 
 export function insert(index, newItem) {
     return dispatch => dispatch({
