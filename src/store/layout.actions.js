@@ -34,21 +34,6 @@ export function loadWap(wapId) {
     }
 }
 
-// export function saveWap(wap) {
-//     return async dispatch => {
-//         try {
-//             const savedWap = await wapService.save(wap)
-//             return dispatch({
-//                 type: 'SET_WAP',
-//                 cmps: savedWap.cmps,
-//                 style: savedWap.style
-//             })
-//         } catch (err) {
-//             console.log(err);
-//         }
-
-//     }
-// }
 
 export function moveSidebarComponentIntoParent(splitDropZonePath, newItem) {
     return dispatch => dispatch({

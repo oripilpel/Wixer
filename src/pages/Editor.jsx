@@ -30,7 +30,8 @@ function _Editor(
         moveToDifferentParent,
         updateComponent,
         setSelected,
-        insert
+        insert,
+        loadWap
     }) {
     useEffect(() => {
         const id = match.params.wapId;

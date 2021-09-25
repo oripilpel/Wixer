@@ -55,7 +55,7 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = {
-    saveWap,
+    saveWap
 }
 
 export const SideBar = connect(mapStateToProps, mapDispatchToProps)(_SideBar);
