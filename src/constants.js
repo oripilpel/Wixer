@@ -98,7 +98,7 @@ export const SIDEBAR_ITEMS = [
         {
           type: COLUMN,
           id: utilService.makeId(),
-          style: { flexGrow: 1 },
+          style: { flexGrow: 0 },
           cmps: [
             {
               id: utilService.makeId(),
@@ -117,97 +117,104 @@ export const SIDEBAR_ITEMS = [
           ]
         },
         {
-          type: COLUMN,
           id: utilService.makeId(),
-          style: {
-            flexGrow: 0,
-            display: 'flex',
-            alignItems: 'flex-end'
-          },
-          cmps: [{
-            id: utilService.makeId(),
-            type: COMPONENT,
-            component: {
-              type: 'text',
-              data: { txt: 'Home' },
+          type: INNERSECTION,
+          style: { alignItems: 'flex-end' },
+          cmps: [
+            {
+              type: COLUMN,
+              id: utilService.makeId(),
               style: {
-                fontSize: 16,
-                color: '#fff',
-                fontFamily: 'montserrat',
-                backgroundColor: '#101010'
-              }
-            }
-          }]
-        },
-        {
-          type: COLUMN,
-          id: utilService.makeId(),
-          style: {
-            flexGrow: 0,
-            display: 'flex',
-            alignItems: 'flex-end'
-          },
-          cmps: [{
-            id: utilService.makeId(),
-            type: COMPONENT,
-            component: {
-              type: 'text',
-              data: { txt: 'About' },
+                flexGrow: 0,
+                display: 'flex',
+                alignItems: 'flex-end'
+              },
+              cmps: [{
+                id: utilService.makeId(),
+                type: COMPONENT,
+                component: {
+                  type: 'text',
+                  data: { txt: 'Home' },
+                  style: {
+                    fontSize: 16,
+                    color: '#fff',
+                    fontFamily: 'montserrat',
+                    backgroundColor: '#101010'
+                  }
+                }
+              }]
+            },
+            {
+              type: COLUMN,
+              id: utilService.makeId(),
               style: {
-                fontSize: 16,
-                color: '#fff',
-                fontFamily: 'montserrat',
-                backgroundColor: '#101010'
-              }
-            }
-          }]
-        },
-        {
-          type: COLUMN,
-          id: utilService.makeId(),
-          style: {
-            flexGrow: 0,
-            display: 'flex',
-            alignItems: 'flex-end'
-          },
-          cmps: [{
-            id: utilService.makeId(),
-            type: COMPONENT,
-            component: {
-              type: 'text',
-              data: { txt: 'News' },
+                flexGrow: 0,
+                display: 'flex',
+                alignItems: 'flex-end'
+              },
+              cmps: [{
+                id: utilService.makeId(),
+                type: COMPONENT,
+                component: {
+                  type: 'text',
+                  data: { txt: 'About' },
+                  style: {
+                    fontSize: 16,
+                    color: '#fff',
+                    fontFamily: 'montserrat',
+                    backgroundColor: '#101010'
+                  }
+                }
+              }]
+            },
+            {
+              type: COLUMN,
+              id: utilService.makeId(),
               style: {
-                fontSize: 16,
-                color: '#fff',
-                fontFamily: 'montserrat',
-                backgroundColor: '#101010'
-              }
-            }
-          }]
-        },
-        {
-          type: COLUMN,
-          id: utilService.makeId(),
-          style: {
-            flexGrow: 0,
-            display: 'flex',
-            alignItems: 'flex-end'
-          },
-          cmps: [{
-            id: utilService.makeId(),
-            type: COMPONENT,
-            component: {
-              type: 'text',
-              data: { txt: 'Blog' },
+                flexGrow: 0,
+                display: 'flex',
+                alignItems: 'flex-end'
+              },
+              cmps: [{
+                id: utilService.makeId(),
+                type: COMPONENT,
+                component: {
+                  type: 'text',
+                  data: { txt: 'News' },
+                  style: {
+                    fontSize: 16,
+                    color: '#fff',
+                    fontFamily: 'montserrat',
+                    backgroundColor: '#101010'
+                  }
+                }
+              }]
+            },
+            {
+              type: COLUMN,
+              id: utilService.makeId(),
               style: {
-                fontSize: 16,
-                color: '#fff',
-                fontFamily: 'montserrat',
-                backgroundColor: '#101010'
-              }
-            }
-          }]
-        },
+                flexGrow: 0,
+                display: 'flex',
+                alignItems: 'flex-end'
+              },
+              cmps: [{
+                id: utilService.makeId(),
+                type: COMPONENT,
+                component: {
+                  type: 'text',
+                  data: { txt: 'Blog' },
+                  style: {
+                    fontSize: 16,
+                    color: '#fff',
+                    fontFamily: 'montserrat',
+                    backgroundColor: '#101010'
+                  }
+                }
+              }]
+            },
+          ]
+        }
 
       ],
       style: { backgroundColor: '#101010' }
