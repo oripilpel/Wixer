@@ -1,6 +1,6 @@
 export function About() {
     return (
-        <section className="about">
+        <section className="about main-layout">
             <div>
                 About page
             </div>

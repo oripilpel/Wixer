@@ -1,0 +1,41 @@
+.home-templates {
+    min-height: 500px;
+    padding-block-start: 60px;
+    h2 {
+        text-align: center;
+        font-size: 1.8rem;
+    }
+    .cover {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        background: #00000060;
+        font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+        width: 100%;
+        height: 100%;
+        z-index: 4;
+        opacity: 0;
+        transition: 0.4s;
+        .actions {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            gap: 50px;
+            a {
+                font-size: 1.7rem;
+                text-decoration: none;
+                color: white;
+            }
+        }
+        &:hover {
+            opacity: 1;
+            cursor: pointer;
+        }
+    }
+}
