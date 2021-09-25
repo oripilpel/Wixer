@@ -118,7 +118,8 @@ export const handleMoveSidebarColumnIntoParent = (
       const newLayoutStructure = {
         type: SECTION,
         id: utilService.makeId(),
-        cmps: [_generateColumn()]
+        cmps: [_generateColumn()],
+        style: {}
       };
       return addChildToChildren(layout, splitDropZonePath, newLayoutStructure);
     default:
@@ -149,8 +150,9 @@ export const handleMoveToDifferentParent = (
   };
 
   const SECTION_STRUCTURE = {
+    id: utilService.makeId(),
     type: SECTION,
-    id: utilService.makeId()
+    style: {}
   };
 
   switch (splitDropZonePath.length) {
@@ -221,9 +223,10 @@ export const handleMoveSidebarInnerSectionIntoParent = (
 
     case 1:
       const newLayoutStructure = {
-        type: SECTION,
         id: utilService.makeId(),
-        cmps: [_generateInnerSection()]
+        type: SECTION,
+        cmps: [_generateInnerSection()],
+        style: {}
       };
       return addChildToChildren(layout, splitDropZonePath, newLayoutStructure);
     default:
@@ -242,7 +245,8 @@ export const handleMoveSidebarComponentIntoParent = (
       newLayoutStructure = {
         type: SECTION,
         id: utilService.makeId(),
-        cmps: [_generateColumn(item)]
+        cmps: [_generateColumn(item)],
+        style: {}
       };
       break;
     }

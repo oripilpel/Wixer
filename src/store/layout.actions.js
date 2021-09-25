@@ -83,8 +83,7 @@ export function updateComponent(comp, field, value) {
     });
 }
 
-export function setSelected(cmps, type, path) {
-    const selected = wapService.selectComponent(cmps, type, path)
+export function setSelected(selected) {
     return dispatch => dispatch({
         type: 'SET_SELECTED',
         selected
