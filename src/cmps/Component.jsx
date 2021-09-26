@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useDrag } from "react-dnd";
 import { COMPONENT } from "../constants";
 import { translateStyle } from "../helpers";
@@ -8,9 +8,12 @@ import { Video } from "./Video";
 import { Link } from "./Link";
 import { Nav } from "./Nav";
 import { Button } from "./Button";
+import { Actions } from "./Actions";
 
 const Component = ({ data, path, updateComponent, select, selected }) => {
   const ref = useRef(null);
+
+  const [actionVisible, setActionVisible] = useState(false)
 
   const [{ isDragging }, drag] = useDrag({
     type: COMPONENT,
@@ -66,6 +69,7 @@ const Component = ({ data, path, updateComponent, select, selected }) => {
       onClick={onSelect}
     >
       {renderer(component)}
+      <Actions path={path} isVisible={actionVisible}/>
     </div>
   );
 };

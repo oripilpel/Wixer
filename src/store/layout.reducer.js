@@ -5,6 +5,7 @@ import {
     handleMoveSidebarComponentIntoParent,
     handleMoveSidebarColumnIntoParent,
     handleMoveSidebarInnerSectionIntoParent,
+    handleRemoveItemFromLayout,
     insert
 } from "../helpers";
 
@@ -22,6 +23,14 @@ export function layoutReducer(state = initialState, action) {
                 ...state,
                 cmps: action.cmps,
                 style: action.style
+            }
+        case 'REMOVE_ITEM':
+            return {
+                ...state,
+                cmps: handleRemoveItemFromLayout(
+                    [...state.cmps],
+                    action.splitItemPath
+                ),
             }
         case 'MOVE_SIDEBAR_COMPONENT_INTO_PARENT':
             return {

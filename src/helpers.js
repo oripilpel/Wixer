@@ -238,7 +238,6 @@ export const handleMoveSidebarComponentIntoParent = (
   splitDropZonePath,
   item
 ) => {
-  debugger
   let newLayoutStructure;
   switch (splitDropZonePath.length) {
     case 1: {
@@ -287,7 +286,11 @@ const _generateColumn = (item = null) => {
     cmps: item ? [item] : [],
     style: {
       padding: 10,
-      flexGrow: 0
+      flexGrow: 1,
+      flexDirection: 'column',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center'
     }
   }
 }
