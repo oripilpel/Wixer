@@ -1,8 +1,13 @@
+import Plus from '../assets/img/plus.png'
 export const templateService = {
     getAmountOfTemplates
 }
-
 const gTemplates = [
+    {
+        json: '',
+        img: Plus,
+        title: 'Start from scratch',
+    },
     {
         json: '00000',
         img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
