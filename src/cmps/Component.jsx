@@ -13,7 +13,7 @@ import { Actions } from "./Actions";
 const Component = ({ data, path, updateComponent, select, selected }) => {
   const ref = useRef(null);
 
-  const [actionVisible, setActionVisible] = useState(false)
+  const [actionsVisible, setActionsVisible] = useState(false)
 
   const [{ isDragging }, drag] = useDrag({
     type: COMPONENT,
@@ -69,7 +69,7 @@ const Component = ({ data, path, updateComponent, select, selected }) => {
       onClick={onSelect}
     >
       {renderer(component)}
-      <Actions path={path} isVisible={actionVisible}/>
+      <Actions path={path} isVisible={actionsVisible}/>
     </div>
   );
 };

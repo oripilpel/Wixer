@@ -40,7 +40,11 @@ export const reorderChildren = (children, splitDropZonePath, splitItemPath) => {
   const curIndex = Number(splitDropZonePath.slice(0, 1));
 
   // Update the specific node's children
-  const splitDropZoneChildrenPath = splitDropZonePath.slice(1);
+  let newSplitDropZoneChildrenPath = splitDropZonePath.slice(1);
+  newSplitDropZoneChildrenPath[newSplitDropZoneChildrenPath.length - 1] =
+    +splitDropZonePath[splitDropZonePath.length-1] > +splitItemPath[splitItemPath.length-1] ?
+      newSplitDropZoneChildrenPath[newSplitDropZoneChildrenPath.length - 1] - 1 : newSplitDropZoneChildrenPath[newSplitDropZoneChildrenPath.length - 1]
+  const splitDropZoneChildrenPath = newSplitDropZoneChildrenPath
   const splitItemChildrenPath = splitItemPath.slice(1);
   const nodeChildren = updatedChildren[curIndex];
   updatedChildren[curIndex] = {
