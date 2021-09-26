@@ -97,7 +97,7 @@ export function layoutReducer(state = initialState, action) {
                     newLayout.cmps[path[0]].cmps[path[1]][field] = value;
                     break;
                 case 3:
-                    if(comp.component) newLayout.cmps[path[0]].cmps[path[1]].cmps[path[2]].component[field] = value;
+                    if (comp.component) newLayout.cmps[path[0]].cmps[path[1]].cmps[path[2]].component[field] = value;
                     else newLayout.cmps[path[0]].cmps[path[1]].cmps[path[2]][field] = value;
                     break;
                 default:
@@ -109,7 +109,6 @@ export function layoutReducer(state = initialState, action) {
             return { ...state, selected: action.selected };
         case 'INSERT_ITEM':
             const cmps = insert(state.cmps, action.index, action.newItem);
-            console.log('cmps', cmps);
             return { ...state, cmps: cmps }
 
         default:

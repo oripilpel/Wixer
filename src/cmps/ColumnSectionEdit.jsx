@@ -3,6 +3,8 @@ import { PaddingEdit } from "./PaddingEdit";
 import { uploadImg } from '../services/cloudinary-service';
 import { ImageUpload } from "./ImageUpload";
 import { WidthEdit } from "./WidthEdit";
+import { Flex } from "./Flex";
+
 export function ColumnSectionEdit({ style, onUpdate }) {
     const onChange = ({ target }) => {
         const { name, value } = target;
@@ -67,6 +69,7 @@ export function ColumnSectionEdit({ style, onUpdate }) {
                 marginBottom={marginBottom}
                 marginLeft={marginLeft}
                 onChange={onChange} />
+            <Flex />
 
         </div>
     )

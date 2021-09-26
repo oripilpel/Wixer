@@ -306,10 +306,7 @@ const _generateInnerSection = (item = null) => {
     cmps: [_generateColumn(), _generateColumn(), _generateColumn()],
     style: {
       padding: 10,
-      flexGrow: 1,
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center'
+      flexGrow: 0
     }
   }
 }

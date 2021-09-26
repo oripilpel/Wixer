@@ -12,6 +12,8 @@ export function EditComponent({ type, style, onUpdate }) {
             return <TextEdit style={style} onUpdate={onUpdate} />
         case 'image':
             return <ImageEdit style={style} onUpdate={onUpdate} />
+        case 'btn':
+
     }
     return
 }
