@@ -91,6 +91,19 @@ export const SIDEBAR_ITEMS = [
   },
   {
     id: utilService.makeId(),
+    type: SIDEBAR_ITEM,
+    component: {
+      type: 'button',
+      data: { txt: 'Click to Change' },
+      style: {
+        borderColor: '#FF5722',
+        borderRadius: '5px',
+        color: '#FF5722'
+      }
+    }
+  },
+  {
+    id: utilService.makeId(),
     type: SIDEBAR_SECTION,
     component: {
       type: SECTION,

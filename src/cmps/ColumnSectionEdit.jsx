@@ -3,6 +3,8 @@ import { PaddingEdit } from "./PaddingEdit";
 import { uploadImg } from '../services/cloudinary-service';
 import { ImageUpload } from "./ImageUpload";
 import { WidthEdit } from "./WidthEdit";
+import { Flex } from "./Flex";
+
 export function ColumnSectionEdit({ style, onUpdate }) {
     const onChange = ({ target }) => {
         const { name, value } = target;
@@ -20,7 +22,7 @@ export function ColumnSectionEdit({ style, onUpdate }) {
         <div className="column-section-edit">
             <div>
                 <label htmlFor="background-color">Background color</label>
-                <input type="color" name="backgroundColor" id="background-color" value={backgroundColor || '#ffffff'} onChange={onChange}/>
+                <input type="color" name="backgroundColor" id="background-color" value={backgroundColor || '#ffffff'} onChange={onChange} />
             </div>
             <ImageUpload label="Upload background image" onUpload={(ev) => uploadImg(ev).then(url => onUploadImage(url))} />
             <WidthEdit name="flexGrow" value={flexGrow} onChange={onChange} min={0} max={12} />
@@ -36,6 +38,7 @@ export function ColumnSectionEdit({ style, onUpdate }) {
                 marginBottom={marginBottom}
                 marginLeft={marginLeft}
                 onChange={onChange} />
+            <Flex />
 
         </div>
     )

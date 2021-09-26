@@ -1,10 +1,10 @@
 import React, { useRef } from "react";
 import { useDrag } from "react-dnd";
-import { SIDEBAR_ITEM, COMPONENT, INNERSECTION, COLUMN, SIDEBAR_COLUMN } from "../constants.js";
+import { INNERSECTION, COLUMN, SIDEBAR_COLUMN } from "../constants.js";
 import { DropZone } from "./DropZone";
 import Column from "./Column";
 
-const style = { flex: '1' };
+const style = {};
 export function InnerSection({ data, components, handleDrop, path, updateComponent, onSelect, selected }) {
     const ref = useRef(null);
     const [{ isDragging }, drag] = useDrag({
@@ -54,7 +54,7 @@ export function InnerSection({ data, components, handleDrop, path, updateCompone
                                     path: currentPath,
                                     childrenCount: data.cmps.length,
                                 }}
-                                accept={[ COLUMN, SIDEBAR_COLUMN]}
+                                accept={[COLUMN, SIDEBAR_COLUMN]}
                                 onDrop={handleDrop}
                                 className="horizontalDrag"
                             />
@@ -67,7 +67,7 @@ export function InnerSection({ data, components, handleDrop, path, updateCompone
                         path: `${path}-${data.cmps.length}`,
                         childrenCount: data.cmps.length
                     }}
-                    accept={[ COLUMN, SIDEBAR_COLUMN]}
+                    accept={[COLUMN, SIDEBAR_COLUMN]}
                     onDrop={handleDrop}
                     className="horizontalDrag"
                     isLast

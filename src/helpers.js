@@ -287,7 +287,7 @@ const _generateColumn = (item = null) => {
     cmps: item ? [item] : [],
     style: {
       padding: 10,
-      flexGrow: 1
+      flexGrow: 0
     }
   }
 }
@@ -299,7 +299,7 @@ const _generateInnerSection = (item = null) => {
     cmps: [_generateColumn(), _generateColumn(), _generateColumn()],
     style: {
       padding: 10,
-      flexGrow: 1
+      flexGrow: 0
     }
   }
 }

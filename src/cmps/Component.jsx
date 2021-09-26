@@ -31,7 +31,7 @@ const Component = ({ data, path, updateComponent, select, selected }) => {
     video: Video,
     link: Link,
     nav: Nav,
-    button: Button
+    button: Button,
   };
 
   const onSelect = (ev) => {
