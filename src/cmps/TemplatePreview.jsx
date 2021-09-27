@@ -3,11 +3,11 @@ import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 
 export function TemplatePreview({ template, idx, cols }) {
-
     return (
-        <ImageListItem className="template-preview" sx={{ my: 3, mr: ((idx + 1) % cols) ? 3 : 0 }}>
-            <img
-                src={`${template.img}${template.json ? "?w=164&h=164&fit=crop&auto=format" : ""}`}
+        <ImageListItem className="template-preview">
+            < img
+                src={`${template.img}${template.json ? "?w=164&h=164&fit=crop&auto=format" : ""}`
+                }
                 srcSet={`${template.img}${template.json ? "?w=164&h=164&fit=crop&auto=format&dpr=2 2x" : ""}`}
                 alt={template.title}
                 loading="lazy"
@@ -23,6 +23,6 @@ export function TemplatePreview({ template, idx, cols }) {
             <ImageListItemBar
                 title={template.title}
             />
-        </ImageListItem>
+        </ImageListItem >
     )
 }
