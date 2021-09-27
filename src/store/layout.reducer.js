@@ -6,7 +6,8 @@ import {
     handleMoveSidebarColumnIntoParent,
     handleMoveSidebarInnerSectionIntoParent,
     handleRemoveItemFromLayout,
-    insert
+    insert,
+    duplicate
 } from "../helpers";
 
 const initialState = {
@@ -31,6 +32,14 @@ export function layoutReducer(state = initialState, action) {
                     [...state.cmps],
                     action.splitItemPath
                 ),
+            }
+        case 'DUPLICATE_ITEM':
+            return {
+                ...state,
+                cmps: duplicate(
+                    state.cmps,
+                    action.splitItemPath
+                )
             }
         case 'MOVE_SIDEBAR_COMPONENT_INTO_PARENT':
             return {

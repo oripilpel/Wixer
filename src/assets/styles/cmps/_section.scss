@@ -1,6 +1,7 @@
 .section {
     border: 1px solid $sectionBorderColor;
     padding: 0;
+    position: relative;
 
     .columns {
         display: flex;

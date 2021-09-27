@@ -1,12 +1,16 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useDrag, useDrop } from "react-dnd";
 import { SECTION, SIDEBAR_ITEM, COMPONENT, SIDEBAR_COLUMN, SIDEBAR_INNERSECTION, INNERSECTION, COLUMN } from "../constants.js";
 import { DropZone } from "./DropZone";
 import Column from "./Column";
 import { InnerSection } from "./InnerSection.jsx";
+import { Actions } from "./Actions.jsx";
 
 export function Section({ data, cmps, handleDrop, path, updateComponent, onSelect, selected }) {
   const ref = useRef(null);
+
+  const [actionsVisible, setActionsVisible] = useState(false);
+
   const [, drop] = useDrop({
     accept: SECTION,
   });
@@ -65,8 +69,14 @@ export function Section({ data, cmps, handleDrop, path, updateComponent, onSelec
     onSelect('section', path.split('-'));
   }
   return (
-    <div ref={ref} style={{ ...data.style, opacity }} className="base draggable section" onClick={select}>
-      <div  className={(hasOnlyInnersections) ? 'innersections flex direction-column' : 'columns flex'}>
+    <div
+      ref={ref}
+      style={{ ...data.style, opacity }}
+      className="base draggable section"
+      onClick={select}
+      onMouseEnter={() => setActionsVisible(true)}
+      onMouseLeave={() => setActionsVisible(false)}>
+      <div className={(hasOnlyInnersections) ? 'innersections flex direction-column' : 'columns flex'}>
         {data.cmps.map((child, index) => {
           const currentPath = `${path}-${index}`;
           return (
@@ -76,7 +86,7 @@ export function Section({ data, cmps, handleDrop, path, updateComponent, onSelec
                   path: currentPath,
                   childrenCount: data.cmps.length,
                 }}
-                accept={ [INNERSECTION, SIDEBAR_INNERSECTION,SIDEBAR_ITEM, COMPONENT, COLUMN, SIDEBAR_COLUMN]}
+                accept={[INNERSECTION, SIDEBAR_INNERSECTION, SIDEBAR_ITEM, COMPONENT, COLUMN, SIDEBAR_COLUMN]}
                 onDrop={handleDrop}
                 className={(hasOnlyInnersections) ? '' : 'horizontalDrag'}
               />
@@ -91,11 +101,12 @@ export function Section({ data, cmps, handleDrop, path, updateComponent, onSelec
             path: `${path}-${data.cmps.length}`,
             childrenCount: data.cmps.length
           }}
-          accept={  [INNERSECTION, SIDEBAR_INNERSECTION,SIDEBAR_ITEM, COMPONENT, COLUMN, SIDEBAR_COLUMN]}
+          accept={[INNERSECTION, SIDEBAR_INNERSECTION, SIDEBAR_ITEM, COMPONENT, COLUMN, SIDEBAR_COLUMN]}
           onDrop={handleDrop}
           className={(hasOnlyInnersections) ? '' : 'horizontalDrag'}
           isLast
         />
+        {actionsVisible && <Actions path={path} />}
       </div>
     </div>
   );

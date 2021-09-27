@@ -1,18 +1,26 @@
 import { connect } from 'react-redux';
-import { removeItem } from '../store/layout.actions';
+import { removeItem, duplicateItem } from '../store/layout.actions';
 
-function _Actions({ path, removeItem }) {
+function _Actions({ path, removeItem, duplicateItem }) {
     const onRemove = (ev) => {
         ev.stopPropagation();
-        removeItem(path.split('-'))
+        removeItem(path.split('-'));
+    }
+    const onDuplicate = (ev) => {
+        ev.stopPropagation();
+        duplicateItem(path.split('-'));
     }
     return (
-        <i className="fas fa-trash-alt" onClick={onRemove}></i>
+        <div className="actions">
+            <i className="far fa-clone" onClick={onDuplicate}></i>
+            <i className="fas fa-trash-alt" onClick={onRemove}></i>
+        </div>
     )
 }
 
 const mapDispatchToProps = {
-    removeItem
+    removeItem,
+    duplicateItem
 }
 
 export const Actions = connect(null, mapDispatchToProps)(_Actions);

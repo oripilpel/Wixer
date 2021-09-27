@@ -13,7 +13,7 @@ import { Actions } from "./Actions";
 const Component = ({ data, path, updateComponent, select, selected }) => {
   const ref = useRef(null);
 
-  const [actionsVisible, setActionsVisible] = useState(false)
+  const [actionsVisible, setActionsVisible] = useState(false);
 
   const [{ isDragging }, drag] = useDrag({
     type: COMPONENT,
@@ -67,9 +67,11 @@ const Component = ({ data, path, updateComponent, select, selected }) => {
       style={{ opacity, width: 'fit-content' }}
       className="component draggable"
       onClick={onSelect}
+      onMouseEnter={() => setActionsVisible(true)}
+      onMouseLeave={() => setActionsVisible(false)}
     >
       {renderer(component)}
-      <Actions path={path} isVisible={actionsVisible}/>
+      {actionsVisible && <Actions path={path} />}
     </div>
   );
 };
