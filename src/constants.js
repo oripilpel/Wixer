@@ -282,6 +282,12 @@ export const SIDEBAR_ITEMS_SECTIONS = [
         {
           type: INNERSECTION,
           id: utilService.makeId(),
+          style: {
+            padding: 10,
+            flexGrow: 1,
+            background: 'transparent',
+            display: 'flex'
+          },
           cmps: [
             {
               type: COLUMN,
@@ -390,13 +396,8 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                 alignItems: 'center'
               }
             }
-          ],
-          style: {
-            padding: 10,
-            flexGrow: 1,
-            background: 'transparent',
-            display: 'flex'
-          }
+          ]
+
         }
       ],
       style: { backgroundColor: '#faf8f1' }
@@ -715,6 +716,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
     name: 'footer',
     component: {
       type: SECTION,
+      id: utilService.makeId(),
       style: {
         justifyContent: 'center',
         alignItems: 'center',
@@ -726,8 +728,10 @@ export const SIDEBAR_ITEMS_SECTIONS = [
           id: utilService.makeId(),
           type: INNERSECTION,
           style: {
-            width: 870,
-            alignSelf: 'center'
+            maxWidth: 870,
+            alignSelf: 'center',
+            gap: '20px',
+            justifyContent: 'space-around'
           },
           cmps: [
             {
@@ -978,7 +982,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     type: 'button',
                     data: {
                       txt: 'Order Online',
-                      hoverColor: 'black'
+                      hoverColor: '#534835'
                     },
                     style: {
                       fontSize: '16',
@@ -1004,10 +1008,8 @@ export const SIDEBAR_ITEMS_SECTIONS = [
             }
           ],
           style: {
-            padding: 10,
-            flexGrow: 0,
-            background: 'transparent'
-          }
+            flexGrow: 1,
+          },
         }
       ],
       style: { backgroundColor: '#FAF8F1' }
@@ -1021,6 +1023,8 @@ export const SIDEBAR_ITEMS_SECTIONS = [
       id: utilService.makeId(),
       type: SECTION,
       style: {
+        alignItems: 'center',
+        justifyContent: 'center',
         backgroundImage: 'url(https://static.wixstatic.com/media/46dc18_129ba04ade8a4cf3962ccb05b35e57c7~mv2.jpg/v1/fill/w_980,h_880,al_c,q_85,usm_0.66_1.00_0.01/46dc18_129ba04ade8a4cf3962ccb05b35e57c7~mv2.webp)',
       },
       cmps: [
@@ -1037,8 +1041,6 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                 alignItems: 'center',
                 backgroundColor: 'rgb(250, 248, 241)',
                 maxWidth: '600px',
-                left: '50%',
-                transform: 'translate(-50%, 0px)',
                 margin: '60px 0',
                 padding: '50px 60px',
                 display: 'flex',

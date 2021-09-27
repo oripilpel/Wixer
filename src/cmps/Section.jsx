@@ -77,11 +77,9 @@ export function Section({ data, cmps, handleDrop, path, updateComponent, onSelec
       className="base draggable section"
       onClick={select}
       onMouseEnter={() => {
-        // debugger;
         setActionsVisible(true)
       }}
       onMouseLeave={() => {
-        // debugger;
         setActionsVisible(false)
       }}>
       {/* <div className={(hasOnlyInnersections) ? 'innersections flex direction-column' : 'columns flex'}> */}

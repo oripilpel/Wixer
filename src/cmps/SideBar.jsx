@@ -33,7 +33,7 @@ function _SideBar({ selected, update, cmps, style, _id, saveWap }) {
             </Tabs> */}
             <button onClick={onAddClick}>Add</button>
             <button onClick={onEditClick}>Edit</button>
-            <Link to="/publish">Publish</Link>
+            <Link to={`/publish/${_id}`}>Publish</Link>
             {!isEdit && <SidebarAddComponent />}
             {isEdit && selected && (
                 <>

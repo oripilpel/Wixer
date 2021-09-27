@@ -9,6 +9,8 @@ import { translateStyle } from '../services/wap.service';
 export function InnerSection({ data, components, handleDrop, path, updateComponent, onSelect, selected }) {
     const ref = useRef(null);
 
+    console.log('data', data)
+
     const [actionsVisible, setActionsVisible] = useState(false);
 
     const [{ isDragging }, drag] = useDrag({
@@ -51,15 +53,14 @@ export function InnerSection({ data, components, handleDrop, path, updateCompone
         );
     };
 
-    // const style = translateStyle({ ...data.style });
-    // console.log('style after',style,'style before',data.style);
+    const style = translateStyle({ ...data.style });
 
     return (
         <div
             ref={ref}
-            style={{ ...data.style, opacity }}
+            style={{ ...style, opacity }}
             onClick={select}
-            className="base draggable innersection"
+            className="base draggable innersection flex"
             onMouseEnter={() => setActionsVisible(true)}
             onMouseLeave={() => setActionsVisible(false)}>
             {/* {data.id} */}
