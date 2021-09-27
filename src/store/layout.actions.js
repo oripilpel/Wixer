@@ -1,4 +1,4 @@
-import { wapService } from "../services/wap.service";
+import { wapService } from "../services/waps.service";
 
 export function saveWap(wap) {
     return async dispatch => {

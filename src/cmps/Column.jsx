@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { useDrag, useDrop } from "react-dnd";
-import { translateStyle } from '../helpers';
+import { translateStyle } from '../services/wap.service';
 import { COLUMN, COMPONENT, SIDEBAR_ITEM } from "../constants";
 import { DropZone } from "./DropZone";
 import Component from "./Component";
@@ -9,7 +9,6 @@ import { Actions } from "./Actions";
 const Column = ({ data, handleDrop, path, updateComponent, onSelect, selected }) => {
   const ref = useRef(null);
 
-  console.log('column data', data);
 
   const [actionsVisible, setActionsVisible] = useState(false);
 
@@ -23,6 +22,7 @@ const Column = ({ data, handleDrop, path, updateComponent, onSelect, selected })
       type: COLUMN,
       id: data.id,
       cmps: data.cmps,
+      style: data.style,
       path
     },
     collect: (monitor) => ({

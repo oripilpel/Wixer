@@ -1,4 +1,4 @@
-import { translateStyle } from "../helpers";
+import { translateStyle } from "../services/wap.service";
 
 export function Text({ data, style, update }) {
     function onBodyChange({ target }) {
