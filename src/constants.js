@@ -1,3 +1,4 @@
+import { positions } from '@mui/system';
 import { utilService } from './services/util.service';
 
 export const SIDEBAR_SECTION = 'sidebarSection'
@@ -392,13 +393,13 @@ export const SIDEBAR_ITEMS_SECTIONS = [
           ],
           style: {
             padding: 10,
-            flexGrow: 0,
-            background: 'transparent'
-
+            flexGrow: 1,
+            background: 'transparent',
+            display: 'flex'
           }
         }
       ],
-      style: { backgroundColor: '#FaF8f1' }
+      style: { backgroundColor: '#faf8f1' }
     }
   },
   {
