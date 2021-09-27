@@ -649,7 +649,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                 style: {
                   fontSize: 48,
                   color: 'rgb(9,15,15)',
-                  fontFamily: 'Arial',
+                  fontFamily: 'forum, serif',
                   textAlign: 'center',
                 }
               }
@@ -665,7 +665,8 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                   paddingBottom: 40,
                   fontSize: 16,
                   color: 'rgb(9,15,15)',
-                  fontFamily: 'Arial'
+                  fontFamily: 'raleway, san-serif',
+                  textAlign: 'center',
                 }
               }
             },
@@ -676,10 +677,13 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                 type: 'button',
                 data: { txt: 'View Menu' },
                 style: {
-                  borderColor: '#7c6c50',
-                  backgroundColor: '#7c6c50',
-                  borderRadius: '0',
-                  color: 'rgb(250, 248, 241)'
+                  fontSize: '16',
+                  fontFamily: 'forum, serif',
+                  color: 'rgb(238, 236, 226)',
+                  backgroundColor: 'rgb(124, 108, 80)',
+                  border: 0,
+                  padding: '25px 65px',
+                  cursor: 'pointer'
                 }
               }
             }
@@ -741,7 +745,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     style: {
                       fontSize: 32,
                       color: 'rgb(250,248,241)',
-                      fontFamily: 'Arial'
+                      fontFamily: 'forum, serif',
                     }
                   }
                 },
@@ -754,7 +758,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     style: {
                       fontSize: 22,
                       color: 'rgb(250,248,241)',
-                      fontFamily: 'Arial'
+                      fontFamily: 'forum, serif',
                     }
                   }
                 },
@@ -767,7 +771,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     style: {
                       fontSize: 22,
                       color: 'rgb(250,248,241)',
-                      fontFamily: 'Arial'
+                      fontFamily: 'forum, serif',
                     }
                   }
                 },
@@ -789,7 +793,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     style: {
                       fontSize: 32,
                       color: 'rgb(250,248,241)',
-                      fontFamily: 'Arial'
+                      fontFamily: 'forum, serif',
                     }
                   }
                 },
@@ -802,7 +806,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     style: {
                       fontSize: 22,
                       color: 'rgb(250,248,241)',
-                      fontFamily: 'Arial'
+                      fontFamily: 'forum, serif',
                     }
                   }
                 },
@@ -815,7 +819,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     style: {
                       fontSize: 22,
                       color: 'rgb(250,248,241)',
-                      fontFamily: 'Arial'
+                      fontFamily: 'forum, serif',
                     }
                   }
                 },
@@ -837,7 +841,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     style: {
                       fontSize: 32,
                       color: 'rgb(250,248,241)',
-                      fontFamily: 'Arial'
+                      fontFamily: 'forum, serif',
                     }
                   }
                 },
@@ -850,7 +854,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     style: {
                       fontSize: 22,
                       color: 'rgb(250,248,241)',
-                      fontFamily: 'Arial'
+                      fontFamily: 'forum, serif',
                     }
                   }
                 },
@@ -863,7 +867,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     style: {
                       fontSize: 22,
                       color: 'rgb(250,248,241)',
-                      fontFamily: 'Arial'
+                      fontFamily: 'forum, serif',
                     }
                   }
                 },
@@ -901,7 +905,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     style: {
                       fontSize: '27',
                       color: '#000000',
-                      fontFamily: 'Arial',
+                      fontFamily: 'forum, serif',
                       letterSpacing: '0.35em'
                     }
                   }
@@ -925,7 +929,9 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                   type: COMPONENT,
                   component: {
                     style: {
-                      display: 'flex'
+                      display: 'flex',
+                      fontFamily: 'raleway, san-serif',
+                      fontSize: '16'
                     },
                     type: 'nav',
                     data: {
@@ -970,17 +976,18 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                   component: {
                     type: 'button',
                     data: {
-                      txt: 'Order Now',
+                      txt: 'Order Online',
                       hoverColor: 'black'
                     },
                     style: {
-                      backgroundColor: '#7C6C50',
-                      borderRadius: '5px',
-                      border: 'none',
+                      fontSize: '16',
+                      fontFamily: 'forum, serif',
+                      color: 'rgb(238, 236, 226)',
+                      backgroundColor: 'rgb(124, 108, 80)',
+                      border: 0,
                       height: 50,
                       width: 150,
-                      fontFamily: 'montserrat',
-                      transition: '.3s'
+                      cursor: 'pointer'
                     }
                   }
                 }
@@ -1025,6 +1032,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
               id: utilService.makeId(),
               type: COLUMN,
               style: {
+                position: 'relative',
                 alignItems: 'center',
                 backgroundColor: 'rgb(250, 248, 241)',
                 maxWidth: '600px',
@@ -1074,13 +1082,13 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     type: 'button',
                     data: { txt: 'About Lawrence' },
                     style: {
-                      fontSize: 16,
+                      fontSize: '16',
                       fontFamily: 'forum, serif',
-                      color: '#eeece2',
-                      backgroundColor: '#7c6c50',
-                      width: 240,
-                      height: 64,
+                      color: 'rgb(238, 236, 226)',
+                      backgroundColor: 'rgb(124, 108, 80)',
                       border: 0,
+                      padding: '25px 65px',
+                      cursor: 'pointer'
                     }
                   }
                 }
