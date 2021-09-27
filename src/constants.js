@@ -9,7 +9,7 @@ export const INNERSECTION = 'innersection';
 export const COLUMN = 'column';
 export const COMPONENT = 'component';
 
-export const SIDEBAR_ITEMS_BASIC =  [
+export const SIDEBAR_ITEMS_BASIC = [
   {
     id: utilService.makeId(),
     type: SIDEBAR_INNERSECTION,
@@ -1006,94 +1006,89 @@ export const SIDEBAR_ITEMS_SECTIONS = [
     }
   },
   {
+    id: utilService.makeId(),
     type: SIDEBAR_SECTION,
     name: 'berco',
-    id: utilService.makeId(),
     component: {
-      type: SECTION,
       id: utilService.makeId(),
+      type: SECTION,
       style: {
         backgroundImage: 'url(https://static.wixstatic.com/media/46dc18_129ba04ade8a4cf3962ccb05b35e57c7~mv2.jpg/v1/fill/w_980,h_880,al_c,q_85,usm_0.66_1.00_0.01/46dc18_129ba04ade8a4cf3962ccb05b35e57c7~mv2.webp)',
       },
-      cmps: [{
-        id: utilService.makeId(),
-        type: INNERSECTION,
-        style: {
-        },
-        cmps: [
-          {
-            id: utilService.makeId(),
-            type: COLUMN,
-            style: {
-              alignItems: 'center',
-              backgroundColor: 'rgb(250, 248, 241)',
-              maxWidth: '600px',
-              left: '50%',
-              transform: 'translate(-50%, 0px)',
-              margin: '60px 0',
-              padding: '50px 60px',
-              display: 'flex',
-              gap: '25px'
-            },
-            cmps: [
-              {
-                id: utilService.makeId(),
-                type: 'component',
-                component: {
-                  type: 'text',
-                  data: {
-                    txt: 'A Fresh and Seasonal Cuisine'
-                  },
-                  style: {
-                    fontSize: 48,
-                    color: '#000000',
-                    fontFamily: 'forum, serif',
-                    textAlign: 'center',
-                    maxWidth: '15ch'
-                  }
-                }
+      cmps: [
+        {
+          id: utilService.makeId(),
+          type: INNERSECTION,
+          style: {},
+          cmps: [
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                alignItems: 'center',
+                backgroundColor: 'rgb(250, 248, 241)',
+                maxWidth: '600px',
+                left: '50%',
+                transform: 'translate(-50%, 0px)',
+                margin: '60px 0',
+                padding: '50px 60px',
+                display: 'flex',
+                gap: '25px'
               },
-              {
-                id: utilService.makeId(),
-                type: 'component',
-                component: {
-                  type: 'text',
-                  data: {
-                    txt: `I'm a paragraph. Click here to add your own text and edit me. I’m a great place for you to tell a story and let your users know a little more about you.`
-                  },
-                  style: {
-                    maxWidth: '420px',
-                    fontSize: 16,
-                    color: '#000000',
-                    fontFamily: 'raleway, san-serif',
-                    textAlign: 'center',
-                    lineHeight: '1.5em'
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: 'A Fresh and Seasonal Cuisine' },
+                    style: {
+                      fontSize: 48,
+                      color: '#000000',
+                      fontFamily: 'forum, serif',
+                      textAlign: 'center',
+                      maxWidth: '15ch'
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: `I'm a paragraph. Click here to add your own text and edit me. I’m a great place for you to tell a story and let your users know a little more about you.` },
+                    style: {
+                      maxWidth: '420px',
+                      fontSize: 16,
+                      color: '#000000',
+                      fontFamily: 'raleway, san-serif',
+                      textAlign: 'center',
+                      lineHeight: '1.5em'
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'button',
+                    data: { txt: 'About Lawrence' },
+                    style: {
+                      fontSize: 16,
+                      fontFamily: 'forum, serif',
+                      color: '#eeece2',
+                      backgroundColor: '#7c6c50',
+                      width: 240,
+                      height: 64,
+                      border: 0,
+                    }
                   }
                 }
-              },
-              {
-                id: utilService.makeId(),
-                type: 'component',
-                component: {
-                  type: 'button',
-                  data: {
-                    txt: 'About Lawrence'
-                  },
-                  style: {
-                    fontSize: 16,
-                    fontFamily: 'forum, serif',
-                    color: '#eeece2',
-                    backgroundColor: '#7c6c50',
-                    width: 240,
-                    height: 64,
-                    border: 0,
-                  }
-                }
-              }
-            ]
-          }
-        ]
-      }]
+              ]
+            }
+          ]
+        }
+      ]
     }
   }
 ];
