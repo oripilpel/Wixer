@@ -93,10 +93,12 @@
                 border-block-end: 3px solid black;
             }
             &.active div:nth-child(1) {
-                top: 8px;
+                position: relative;
+                top: -2px;
             }
             &.active div:nth-child(3) {
-                top: -8px;
+                position: relative;
+                top: 2px;
             }
         }
     }
@@ -129,19 +131,13 @@
             transition: 0.7s;
         }
         &.active div:nth-child(1) {
-            position: relative;
-            top: 10px;
-            left: -2px;
-            transform: rotate(-45deg);
+            transform: translateY(10px) translateX(-2px) rotate(-45deg);
         }
         &.active div:nth-child(2) {
             opacity: 0;
         }
         &.active div:nth-child(3) {
-            position: relative;
-            top: -10px;
-            left: 2px;
-            transform: rotate(45deg);
+            transform: translateY(-10px) translateX(2px) rotate(45deg);
         }
         @media screen and (max-width: 720px) {
             display: flex;

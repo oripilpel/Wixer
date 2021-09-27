@@ -694,3 +694,42 @@ export const SIDEBAR_ITEMS = [
     }
   }
 ];
+
+
+// const template = {
+//   type: SIDEBAR_SECTION,
+//   id: utilService.makeId(),
+//   component: {
+//     type: SECTION,
+//     style: {},
+//     cmps: [{
+//       id: utilService.makeId(),
+//       type: INNERSECTION,
+//       style: {},
+//       cmps: [
+//         {
+//           id: utilService.makeId(),
+//           type: COLUMN,
+//           style: {},
+//           cmps: [
+//             {
+//               id: utilService.makeId(),
+//               type: 'component',
+//               component: {
+//                 type: 'text',
+//                 data: {
+//                   txt: 'Services'
+//                 },
+//                 style: {
+//                   fontSize: 16,
+//                   color: '#ffffff',
+//                   fontFamily: 'Arial'
+//                 }
+//               }
+//             }
+//           ]
+//         }
+//       ]
+//     }]
+//   }
+// }
