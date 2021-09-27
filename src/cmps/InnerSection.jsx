@@ -18,6 +18,7 @@ export function InnerSection({ data, components, handleDrop, path, updateCompone
             style: data.style,
             id: data.id,
             cmps: data.cmps,
+            style: data.style,
             path
         },
         collect: monitor => ({
