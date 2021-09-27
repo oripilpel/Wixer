@@ -17,7 +17,7 @@ const Component = ({ data, path, updateComponent, select, selected }) => {
 
   const [{ isDragging }, drag] = useDrag({
     type: COMPONENT,
-    item: { type: COMPONENT, id: data.id, path, component: data.component },
+    item: { type: COMPONENT, id: data.id, path, component: data.component, style: data.style},
     collect: monitor => ({
       isDragging: monitor.isDragging()
     })

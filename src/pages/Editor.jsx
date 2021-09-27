@@ -50,7 +50,7 @@ function _Editor(
             const splitDropZonePath = dropZone.path.split("-");
             const pathToDropZone = splitDropZonePath.slice(0, -1).join("-");
 
-            const newItem = { id: item.id, type: item.type, component: item.component };
+            const newItem = { id: item.id, type: item.type, component: item.component, style: item.style };
             if (item.type === COLUMN || item.type === SECTION || item.type === INNERSECTION) {
                 newItem.cmps = item.cmps;
             }

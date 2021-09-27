@@ -20,6 +20,7 @@ export function Section({ data, cmps, handleDrop, path, updateComponent, onSelec
       type: SECTION,
       id: data.id,
       children: data.children,
+      style: data.style,
       path
     },
     collect: monitor => ({

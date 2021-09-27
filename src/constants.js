@@ -1008,19 +1008,29 @@ export const SIDEBAR_ITEMS = [
     id: utilService.makeId(),
     component: {
       type: SECTION,
-      style: {},
+      id: utilService.makeId(),
+      style: {
+        backgroundImage: 'url(https://static.wixstatic.com/media/46dc18_129ba04ade8a4cf3962ccb05b35e57c7~mv2.jpg/v1/fill/w_980,h_880,al_c,q_85,usm_0.66_1.00_0.01/46dc18_129ba04ade8a4cf3962ccb05b35e57c7~mv2.webp)',
+      },
       cmps: [{
         id: utilService.makeId(),
         type: INNERSECTION,
-        style: {},
+        style: {
+        },
         cmps: [
           {
             id: utilService.makeId(),
             type: COLUMN,
             style: {
+              alignItems: 'center',
+              backgroundColor: 'rgb(250, 248, 241)',
+              maxWidth: '600px',
+              left: '50%',
+              transform: 'translate(-50%, 0px)',
+              margin: '60px 0',
+              padding: '50px 60px',
               display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center'
+              gap: '25px'
             },
             cmps: [
               {
@@ -1034,7 +1044,7 @@ export const SIDEBAR_ITEMS = [
                   style: {
                     fontSize: 48,
                     color: '#000000',
-                    fontFamily: 'Arial',
+                    fontFamily: 'forum, serif',
                     textAlign: 'center',
                     maxWidth: '15ch'
                   }
@@ -1052,7 +1062,7 @@ export const SIDEBAR_ITEMS = [
                     maxWidth: '420px',
                     fontSize: 16,
                     color: '#000000',
-                    fontFamily: 'Arial',
+                    fontFamily: 'raleway, san-serif',
                     textAlign: 'center',
                     lineHeight: '1.5em'
                   }
@@ -1068,11 +1078,12 @@ export const SIDEBAR_ITEMS = [
                   },
                   style: {
                     fontSize: 16,
+                    fontFamily: 'forum, serif',
                     color: '#eeece2',
-                    fontFamily: 'Arial',
                     backgroundColor: '#7c6c50',
-                    width: '260px',
-                    height: '64px',
+                    width: 240,
+                    height: 64,
+                    border: 0,
                   }
                 }
               }
