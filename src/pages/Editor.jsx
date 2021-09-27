@@ -112,14 +112,17 @@ function _Editor(
                 } else {
                     setSelected({ ...cmps[path[0]].cmps[path[1]].cmps[path[2]].cmps[path[3]], path: path });
                 }
+                break;
             case COLUMN:
                 if (path.length === 2) {
                     setSelected({ ...cmps[path[0]].cmps[path[1]], path: path });
                 } else {
                     setSelected({ ...cmps[path[0]].cmps[path[1]].cmps[path[2]], path: path });
                 }
+                break;
             case INNERSECTION:
                 setSelected({ ...cmps[path[0]].cmps[path[1]], path: path });
+                break;
             default:
                 setSelected({ ...cmps[path[0]], path: path });
         }

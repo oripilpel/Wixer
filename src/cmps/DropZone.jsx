@@ -70,6 +70,8 @@ export function DropZone({ data, onDrop, isLast, className, accept = ACCEPTS }) 
         className
       )}
       ref={drop}
+      style={{ position: (isActive) ? 'relative' : 'absolute' }}
+
     />
   );
 };
