@@ -4,7 +4,7 @@ import { ImageEdit } from "./ImageEdit"
 import { TextEdit } from "./TextEdit"
 import { ButtonEdit } from "./ButtonEdit"
 
-export function EditComponent({ type, style, onUpdate }) {
+export function SidebarEditComponent({ type, style, onUpdate }) {
     switch (type) {
         case COLUMN:
         case SECTION:
