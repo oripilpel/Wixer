@@ -440,6 +440,86 @@ export const SIDEBAR_ITEMS = [
         backgroundColor: '#000000'
       }
     }
+  },
+  {
+    type: SIDEBAR_SECTION,
+    name: 'berco',
+    id: utilService.makeId(),
+    component: {
+      type: SECTION,
+      style: {},
+      cmps: [{
+        id: utilService.makeId(),
+        type: INNERSECTION,
+        style: {},
+        cmps: [
+          {
+            id: utilService.makeId(),
+            type: COLUMN,
+            style: {
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center'
+            },
+            cmps: [
+              {
+                id: utilService.makeId(),
+                type: 'component',
+                component: {
+                  type: 'text',
+                  data: {
+                    txt: 'A Fresh and Seasonal Cuisine'
+                  },
+                  style: {
+                    fontSize: 48,
+                    color: '#000000',
+                    fontFamily: 'Arial',
+                    textAlign: 'center',
+                    maxWidth: '15ch'
+                  }
+                }
+              },
+              {
+                id: utilService.makeId(),
+                type: 'component',
+                component: {
+                  type: 'text',
+                  data: {
+                    txt: `I'm a paragraph. Click here to add your own text and edit me. I’m a great place for you to tell a story and let your users know a little more about you.`
+                  },
+                  style: {
+                    maxWidth: '420px',
+                    fontSize: 16,
+                    color: '#000000',
+                    fontFamily: 'Arial',
+                    textAlign: 'center',
+                    lineHeight: '1.5em'
+                  }
+                }
+              },
+              {
+                id: utilService.makeId(),
+                type: 'component',
+                component: {
+                  type: 'button',
+                  data: {
+                    txt: 'About Lawrence'
+                  },
+                  style: {
+                    fontSize: 16,
+                    color: '#eeece2',
+                    fontFamily: 'Arial',
+                    backgroundColor: '#7c6c50',
+                    width: '260px',
+                    height: '64px',
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }]
+    }
   }
 ];
 

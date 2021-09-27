@@ -1,4 +1,4 @@
-export function TextEdit({ style, onUpdate }) {
+export function ButtonEdit({ style, onUpdate }) {
     const { fontSize, color, fontFamily, textAlign } = style
     function onChange({ target }) {
         const { name, value } = target;
@@ -6,7 +6,7 @@ export function TextEdit({ style, onUpdate }) {
         onUpdate('style', newStyle);
     }
     return (
-        <div className="text-edit">
+        <div className="button-edit">
             <label htmlFor="font-size">Font Size:</label>
             <input type="range" name="fontSize" id="font-size" value={fontSize} min="16" max="100" onChange={onChange} />
             <label htmlFor="color">Color:</label>
@@ -18,7 +18,7 @@ export function TextEdit({ style, onUpdate }) {
                 <option value="montserrat">montserrat</option>
             </select>
             <label htmlFor="text-align">Font:</label>
-            <select name="textAlign" id="text-align" value={textAlign || 'left' } onChange={onChange}>
+            <select name="textAlign" id="text-align" value={textAlign || 'left'} onChange={onChange}>
                 <option value="left">Left</option>
                 <option value="center">Center</option>
                 <option value="right">Right</option>
