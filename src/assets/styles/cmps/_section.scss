@@ -1,7 +1,12 @@
 .section {
-    border: 1px solid $sectionBorderColor;
+    display: flex;
     padding: 0;
     position: relative;
+    background-size: cover;
+    
+    .debug & {
+        border: 1px solid $sectionBorderColor;
+    }
 
     .columns {
         display: flex;

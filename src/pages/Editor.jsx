@@ -33,10 +33,14 @@ function _Editor(
         insert,
         loadWap
     }) {
+
+    const debugMode = true;
+
     useEffect(() => {
         const id = match.params.wapId;
         if (id) loadWap(id);
     }, []);
+
     const onUpdateComponent = (comp, field, value) => {
         updateComponent(comp, field, value);
     }
@@ -163,7 +167,7 @@ function _Editor(
     }
     return (
         <DndProvider backend={HTML5Backend}>
-            <div className="editor">
+            <div className={`editor ${debugMode ? 'debug' : ''}`}>
                 <SideBar sideBarItems={SIDEBAR_ITEMS} selected={getSelected(selected)} update={onUpdateComponent} />
                 <div className="page-container">
                     <div className="page">
