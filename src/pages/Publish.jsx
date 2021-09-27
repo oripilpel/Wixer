@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { translateStyle } from "../services/wap.service";
 import { connect } from 'react-redux';
 
@@ -8,9 +8,9 @@ import { Text } from "../cmps/publish/Text";
 import { Video } from "../cmps/Video";
 import { Nav } from "../cmps/publish/Nav";
 import { Button } from "../cmps/Button";
+import { loadWap } from '../store/layout.actions'
 
-function _Publish({ cmps }) {
-    console.log('cmps', cmps)
+function _Publish({ match, cmps, loadWap }) {
     const KeysToComponentMap = {
         text: Text,
         image: Image,
@@ -18,6 +18,11 @@ function _Publish({ cmps }) {
         nav: Nav,
         button: Button,
     };
+
+    useEffect(() => {
+        const id = match.params.wapId;
+        if (id) loadWap(id);
+    }, []);
 
     const renderer = ({ component }) => {
         if (!component) return
@@ -37,7 +42,6 @@ function _Publish({ cmps }) {
 
     return (
         cmps.map(sec => {
-            console.log('sec', sec);
             return <div className="section" style={{ ...sec.style, display: 'flex', flexDirection: 'column' }}>
                 {sec.cmps.map(colOrIS => <div className={colOrIS.cmps[0].cmps ? 'inner-section flex' : 'col'} style={colOrIS.style}>
                     {colOrIS.cmps.map(colOrCmp => <div className={colOrCmp.cmps ? 'col flex direction-column' : 'cmp'} style={colOrCmp.style}>
@@ -56,5 +60,8 @@ function mapStateToProps(state) {
         cmps: state.layoutModule.cmps
     }
 }
+const mapDispatchToProps = {
+    loadWap
+}
 
-export const Publish = connect(mapStateToProps, null)(_Publish);
+export const Publish = connect(mapStateToProps, mapDispatchToProps)(_Publish)

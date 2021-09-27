@@ -21,6 +21,7 @@ function App() {
           <Route path="/editor/:wapId" component={Editor} />
           <Route path="/editor" component={Editor} />
           <Route path="/about" component={About} />
+          <Route path="/publish/:wapId" component={Publish} />
           <Route path="/publish" component={Publish} />
           <Route path="/" component={Home} />
         </Switch>
