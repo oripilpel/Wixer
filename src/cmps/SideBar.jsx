@@ -1,6 +1,6 @@
+import { useState, useEffect } from "react";
 import { connect } from 'react-redux';
 import { StyledEngineProvider } from "@mui/styled-engine";
-import { useState } from "react";
 import { COMPONENT } from "../constants";
 import { EditComponent } from "./EditComponent";
 import { SideBarItem } from "./SideBarItem";
@@ -8,6 +8,9 @@ import { saveWap } from '../store/layout.actions'
 
 function _SideBar({ sideBarItems, selected, update, cmps, style, _id, saveWap }) {
     const [isEdit, setIsEdit] = useState(false);
+    useEffect(() => {
+        if(selected) setIsEdit(true);
+    }, [selected]);
     const onAddClick = () => {
         setIsEdit(false);
     }
