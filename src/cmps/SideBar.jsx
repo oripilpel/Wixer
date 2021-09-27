@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { connect } from 'react-redux';
 import { StyledEngineProvider } from "@mui/styled-engine";
-import { COMPONENT, SIDEBAR_ITEMS_BASIC } from "../constants";
+import { COMPONENT } from "../constants";
 import { SidebarEditComponent } from "./SidebarEditComponent";
-import { SideBarItem } from "./SideBarItem";
 import { saveWap } from '../store/layout.actions'
 import { SidebarAddComponent } from "./SidebarAddComponent";
+import { Link } from "react-router-dom";
+
 
 function _SideBar({ selected, update, cmps, style, _id, saveWap }) {
     const [isEdit, setIsEdit] = useState(false);
@@ -32,6 +33,7 @@ function _SideBar({ selected, update, cmps, style, _id, saveWap }) {
             </Tabs> */}
             <button onClick={onAddClick}>Add</button>
             <button onClick={onEditClick}>Edit</button>
+            <Link to="/publish">Publish</Link>
             {!isEdit && <SidebarAddComponent />}
             {isEdit && selected && (
                 <>

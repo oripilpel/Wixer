@@ -27,6 +27,11 @@ export function InnerSection({ data, components, handleDrop, path, updateCompone
     });
 
 
+    const select = (ev) => {
+        ev.stopPropagation()
+        onSelect('innersection', path.split('-'))
+    }
+
     const opacity = isDragging ? 0 : 1;
     drag(ref);
 
@@ -46,47 +51,49 @@ export function InnerSection({ data, components, handleDrop, path, updateCompone
         );
     };
 
-    const style = translateStyle({ ...data.style });
+    // const style = translateStyle({ ...data.style });
+    // console.log('style after',style,'style before',data.style);
 
     return (
         <div
             ref={ref}
-            style={{ ...style, opacity }}
+            style={{ ...data.style, opacity }}
+            onClick={select}
             className="base draggable innersection"
             onMouseEnter={() => setActionsVisible(true)}
             onMouseLeave={() => setActionsVisible(false)}>
             {/* {data.id} */}
-            <div className="columns">
-                {data.cmps.map((column, index) => {
-                    const currentPath = `${path}-${index}`;
+            {/* <div className="columns"> */}
+            {data.cmps.map((column, index) => {
+                const currentPath = `${path}-${index}`;
 
-                    return (
-                        <React.Fragment key={column.id}>
-                            <DropZone
-                                data={{
-                                    path: currentPath,
-                                    childrenCount: data.cmps.length,
-                                }}
-                                accept={[COLUMN, SIDEBAR_COLUMN]}
-                                onDrop={handleDrop}
-                                className="horizontalDrag"
-                            />
-                            {renderColumn(column, currentPath)}
-                        </React.Fragment>
-                    );
-                })}
-                <DropZone
-                    data={{
-                        path: `${path}-${data.cmps.length}`,
-                        childrenCount: data.cmps.length
-                    }}
-                    accept={[COLUMN, SIDEBAR_COLUMN]}
-                    onDrop={handleDrop}
-                    className="horizontalDrag"
-                    isLast
-                />
-                {actionsVisible && <Actions path={path} />}
-            </div>
+                return (
+                    <React.Fragment key={column.id}>
+                        <DropZone
+                            data={{
+                                path: currentPath,
+                                childrenCount: data.cmps.length,
+                            }}
+                            accept={[COLUMN, SIDEBAR_COLUMN]}
+                            onDrop={handleDrop}
+                            className="horizontalDrag"
+                        />
+                        {renderColumn(column, currentPath)}
+                    </React.Fragment>
+                );
+            })}
+            <DropZone
+                data={{
+                    path: `${path}-${data.cmps.length}`,
+                    childrenCount: data.cmps.length
+                }}
+                accept={[COLUMN, SIDEBAR_COLUMN]}
+                onDrop={handleDrop}
+                className="horizontalDrag"
+                isLast
+            />
+            {actionsVisible && <Actions path={path} />}
+            {/* </div> */}
         </div>
     );
 };

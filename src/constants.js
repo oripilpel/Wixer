@@ -1,3 +1,4 @@
+import { positions } from '@mui/system';
 import { utilService } from './services/util.service';
 
 export const SIDEBAR_SECTION = 'sidebarSection'
@@ -9,7 +10,7 @@ export const INNERSECTION = 'innersection';
 export const COLUMN = 'column';
 export const COMPONENT = 'component';
 
-export const SIDEBAR_ITEMS_BASIC =  [
+export const SIDEBAR_ITEMS_BASIC = [
   {
     id: utilService.makeId(),
     type: SIDEBAR_INNERSECTION,
@@ -392,13 +393,13 @@ export const SIDEBAR_ITEMS_SECTIONS = [
           ],
           style: {
             padding: 10,
-            flexGrow: 0,
-            background: 'transparent'
-
+            flexGrow: 1,
+            background: 'transparent',
+            display: 'flex'
           }
         }
       ],
-      style: { backgroundColor: '#FaF8f1' }
+      style: { backgroundColor: '#faf8f1' }
     }
   },
   {
@@ -1033,7 +1034,8 @@ export const SIDEBAR_ITEMS_SECTIONS = [
               margin: '60px 0',
               padding: '50px 60px',
               display: 'flex',
-              gap: '25px'
+              gap: '25px',
+              position: 'relative'
             },
             cmps: [
               {

@@ -84,38 +84,38 @@ export function Section({ data, cmps, handleDrop, path, updateComponent, onSelec
         // debugger;
         setActionsVisible(false)
       }}>
-      <div className={(hasOnlyInnersections) ? 'innersections flex direction-column' : 'columns flex'}>
-        {data.cmps.map((child, index) => {
-          const currentPath = `${path}-${index}`;
-          return (
-            <React.Fragment key={child.id}>
-              <DropZone
-                data={{
-                  path: currentPath,
-                  childrenCount: data.cmps.length,
-                }}
-                accept={(hasOnlyInnersections) ? [INNERSECTION, SIDEBAR_INNERSECTION] : [COMPONENT, SIDEBAR_COLUMN, COLUMN]}
-                onDrop={handleDrop}
-                className={(hasOnlyInnersections) ? '' : 'horizontalDrag'}
-              />
-              {(child.type === COLUMN) && renderColumn(child, currentPath) || renderInnerSection(child, currentPath)}
-            </React.Fragment>
-          );
+      {/* <div className={(hasOnlyInnersections) ? 'innersections flex direction-column' : 'columns flex'}> */}
+      {data.cmps.map((child, index) => {
+        const currentPath = `${path}-${index}`;
+        return (
+          <React.Fragment key={child.id}>
+            <DropZone
+              data={{
+                path: currentPath,
+                childrenCount: data.cmps.length,
+              }}
+              accept={(hasOnlyInnersections) ? [INNERSECTION, SIDEBAR_INNERSECTION] : [COMPONENT, SIDEBAR_COLUMN, COLUMN]}
+              onDrop={handleDrop}
+              className={(hasOnlyInnersections) ? '' : 'horizontalDrag'}
+            />
+            {(child.type === COLUMN) && renderColumn(child, currentPath) || renderInnerSection(child, currentPath)}
+          </React.Fragment>
+        );
 
 
-        })}
-        <DropZone
-          data={{
-            path: `${path}-${data.cmps.length}`,
-            childrenCount: data.cmps.length
-          }}
-          accept={(hasOnlyInnersections) ? [INNERSECTION, SIDEBAR_INNERSECTION] : [COMPONENT, SIDEBAR_COLUMN, COLUMN]}
-          onDrop={handleDrop}
-          className={(hasOnlyInnersections) ? '' : 'horizontalDrag'}
-          isLast
-        />
-        {actionsVisible && <Actions path={path} />}
-      </div>
+      })}
+      <DropZone
+        data={{
+          path: `${path}-${data.cmps.length}`,
+          childrenCount: data.cmps.length
+        }}
+        accept={(hasOnlyInnersections) ? [INNERSECTION, SIDEBAR_INNERSECTION] : [COMPONENT, SIDEBAR_COLUMN, COLUMN]}
+        onDrop={handleDrop}
+        className={(hasOnlyInnersections) ? '' : 'horizontalDrag'}
+        isLast
+      />
+      {actionsVisible && <Actions path={path} />}
+      {/* </div> */}
     </div>
   );
 };

@@ -4,7 +4,6 @@ import { MarginEdit } from "./MarginEdit";
 import { PaddingEdit } from "./PaddingEdit";
 import { ImageUpload } from "./ImageUpload";
 import { WidthEdit } from "./WidthEdit";
-import { Flex } from "./Flex";
 import { Accordion, AccordionSummary, AccordionDetails } from './Accordion';
 
 export function ColumnSectionEdit({ style, onUpdate }) {
@@ -82,7 +81,6 @@ export function ColumnSectionEdit({ style, onUpdate }) {
                             <option value="flexEnd">Flex end</option>
                         </select>
                     </div>
-                    <Flex />
                 </AccordionDetails>
             </Accordion>
             <Accordion expanded={expanded === 'spacing'} onChange={handleChange('spacing')}>
