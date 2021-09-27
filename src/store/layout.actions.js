@@ -19,7 +19,8 @@ export function saveWap(wap) {
 export function loadWap(wapId) {
     return async dispatch => {
         try {
-            const wap = await wapService.loadWap(wapId)
+            const wap = await wapService.getById(wapId)
+            console.log(wap);
             return dispatch({
                 type: 'SET_WAP',
                 cmps: wap.cmps,
