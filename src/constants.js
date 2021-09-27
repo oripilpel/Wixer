@@ -491,7 +491,7 @@ export const SIDEBAR_ITEMS = [
               type: COMPONENT,
               component: {
                 type: 'text',
-                data: { txt: "I'm a paragraph. Click here to add your own text and edit me. I’m a great place for you to tell a story and let your users know a little more about you." },
+                data: { txt: "I'm a paragraph. Click here to add your own text and edit me. I'm a great place for you to tell a story and let your users know a little more about you." },
                 style: {
                   paddingTop: 40,
                   paddingBottom: 40,
@@ -703,6 +703,216 @@ export const SIDEBAR_ITEMS = [
           ]
         }
       ]
+    }
+  },
+  {
+    id: utilService.makeId(),
+    type: SIDEBAR_SECTION,
+    name: 'Header',
+    component: {
+      type: SECTION,
+      id: utilService.makeId(),
+      cmps: [
+        {
+          type: INNERSECTION,
+          id: utilService.makeId(),
+          cmps: [
+            {
+              type: COLUMN,
+              id: utilService.makeId(),
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: {
+                      txt: 'LAWRENCE'
+                    },
+                    style: {
+                      fontSize: '27',
+                      color: '#000000',
+                      fontFamily: 'Arial',
+                      letterSpacing: '0.35em'
+                    }
+                  }
+                }
+              ],
+              style: {
+                padding: 10,
+                flexGrow: 0,
+                flexDirection: 'column',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }
+            },
+            {
+              type: COLUMN,
+              id: utilService.makeId(),
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    style: {
+                      display: 'flex'
+                    },
+                    type: 'nav',
+                    data: {
+                      links: [
+                        {
+                          id: utilService.makeId(),
+                          txt: 'Reservation'
+                        },
+                        {
+                          id: utilService.makeId(),
+                          txt: 'Menu'
+                        },
+                        {
+                          id: utilService.makeId(),
+                          txt: 'About'
+                        },
+                        {
+                          id: utilService.makeId(),
+                          txt: 'Contact'
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              style: {
+                padding: 10,
+                flexGrow: 1,
+                flexDirection: 'column',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }
+            },
+            {
+              type: COLUMN,
+              id: utilService.makeId(),
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'button',
+                    data: {
+                      txt: 'Order Now',
+                      hoverClr: ''
+                    },
+                    style: {
+                      backgroundColor: '#7C6C50',
+                      borderRadius: '5px',
+                      border: 'none',
+                      height: '50px',
+                      minWidth: '150px',
+                      fontFamily: 'montserrat',
+                    }
+                  }
+                }
+              ],
+              style: {
+                padding: 10,
+                flexGrow: 0,
+                flexDirection: 'column',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }
+            }
+          ],
+          style: {
+            padding: 10,
+            flexGrow: 0,
+            background:'transparent'
+          }
+        }
+      ],
+      style: { backgroundColor: '#FAF8F1' }
+    }
+  },
+  {
+    type: SIDEBAR_SECTION,
+    name: 'berco',
+    id: utilService.makeId(),
+    component: {
+      type: SECTION,
+      style: {},
+      cmps: [{
+        id: utilService.makeId(),
+        type: INNERSECTION,
+        style: {},
+        cmps: [
+          {
+            id: utilService.makeId(),
+            type: COLUMN,
+            style: {
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center'
+            },
+            cmps: [
+              {
+                id: utilService.makeId(),
+                type: 'component',
+                component: {
+                  type: 'text',
+                  data: {
+                    txt: 'A Fresh and Seasonal Cuisine'
+                  },
+                  style: {
+                    fontSize: 48,
+                    color: '#000000',
+                    fontFamily: 'Arial',
+                    textAlign: 'center',
+                    maxWidth: '15ch'
+                  }
+                }
+              },
+              {
+                id: utilService.makeId(),
+                type: 'component',
+                component: {
+                  type: 'text',
+                  data: {
+                    txt: `I'm a paragraph. Click here to add your own text and edit me. I’m a great place for you to tell a story and let your users know a little more about you.`
+                  },
+                  style: {
+                    maxWidth: '420px',
+                    fontSize: 16,
+                    color: '#000000',
+                    fontFamily: 'Arial',
+                    textAlign: 'center',
+                    lineHeight: '1.5em'
+                  }
+                }
+              },
+              {
+                id: utilService.makeId(),
+                type: 'component',
+                component: {
+                  type: 'button',
+                  data: {
+                    txt: 'About Lawrence'
+                  },
+                  style: {
+                    fontSize: 16,
+                    color: '#eeece2',
+                    fontFamily: 'Arial',
+                    backgroundColor: '#7c6c50',
+                    width: '260px',
+                    height: '64px',
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }]
     }
   }
 ];

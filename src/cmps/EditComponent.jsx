@@ -2,6 +2,7 @@ import { COLUMN, SECTION } from "../constants"
 import { ColumnSectionEdit } from "./ColumnSectionEdit"
 import { ImageEdit } from "./ImageEdit"
 import { TextEdit } from "./TextEdit"
+import { ButtonEdit } from "./ButtonEdit"
 
 export function EditComponent({ type, style, onUpdate }) {
     switch (type) {
@@ -12,8 +13,9 @@ export function EditComponent({ type, style, onUpdate }) {
             return <TextEdit style={style} onUpdate={onUpdate} />
         case 'image':
             return <ImageEdit style={style} onUpdate={onUpdate} />
-        case 'btn':
-
+        case 'button':
+            return <ButtonEdit style={style} onUpdate={onUpdate} />
+        default:
+            return <></>
     }
-    return
 }
