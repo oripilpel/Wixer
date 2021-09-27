@@ -8,10 +8,12 @@ import Feature4 from '../../assets/img/feature4.png'
 
 export class HomeFeatures extends React.Component {
     render() {
+        const duration = 2000
+        const delay = 300
         return (
             <div className="home-features">
                 <div className="feature">
-                    <Fade left duration={2000} delay={300}>
+                    <Fade left duration={duration} delay={delay}>
                         <div className="feature-wrapper main-layout  flex align-center wrap justify-between" >
                             <img src={Feature3} />
                             <div className="content">
@@ -25,7 +27,7 @@ export class HomeFeatures extends React.Component {
                     </Fade>
                 </div>
                 <div className="feature">
-                    <Fade left duration={2000} delay={300}>
+                    <Fade left duration={duration} delay={delay}>
                         <div className="feature-wrapper main-layout  flex align-center wrap justify-between" >
                             <div className="content">
                                 <h3>Wixer editor</h3>
@@ -38,7 +40,7 @@ export class HomeFeatures extends React.Component {
                     </Fade>
                 </div>
                 <div className="feature">
-                    <Fade left duration={2000} delay={300}>
+                    <Fade left duration={duration} delay={delay}>
                         <div className="feature-wrapper main-layout  flex align-center wrap justify-between" >
                             <img src={Feature4} />
                             <div className="content">
@@ -51,7 +53,7 @@ export class HomeFeatures extends React.Component {
                     </Fade>
                 </div>
                 <div className="feature">
-                    <Fade left duration={2000} delay={300}>
+                    <Fade left duration={duration} delay={delay}>
                         <div className="feature-wrapper main-layout  flex align-center wrap justify-between" >
                             <div className="content">
                                 <h3>Suited for any of your needs</h3>
