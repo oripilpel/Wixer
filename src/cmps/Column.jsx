@@ -23,6 +23,7 @@ const Column = ({ data, handleDrop, path, updateComponent, onSelect, selected })
       type: COLUMN,
       id: data.id,
       cmps: data.cmps,
+      style: data.style,
       path
     },
     collect: (monitor) => ({
