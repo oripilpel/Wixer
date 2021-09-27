@@ -66,6 +66,7 @@ export function Section({ data, cmps, handleDrop, path, updateComponent, onSelec
 
   const select = (ev) => {
     ev.stopPropagation();
+    debugger;
     onSelect('section', path.split('-'));
   }
   return (
