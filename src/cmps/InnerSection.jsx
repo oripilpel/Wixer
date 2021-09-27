@@ -1,12 +1,16 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useDrag } from "react-dnd";
 import { INNERSECTION, COLUMN, SIDEBAR_COLUMN } from "../constants.js";
 import { DropZone } from "./DropZone";
 import Column from "./Column";
+import { Actions } from "./Actions.jsx";
+import { translateStyle } from "../helpers.js";
 
-const style = {};
 export function InnerSection({ data, components, handleDrop, path, updateComponent, onSelect, selected }) {
     const ref = useRef(null);
+
+    const [actionsVisible, setActionsVisible] = useState(false);
+
     const [{ isDragging }, drag] = useDrag({
         type: INNERSECTION,
         item: {
@@ -40,8 +44,15 @@ export function InnerSection({ data, components, handleDrop, path, updateCompone
         );
     };
 
+    const style = translateStyle({ ...data.style });
+
     return (
-        <div ref={ref} style={{ ...style, opacity }} className="base draggable innersection">
+        <div
+            ref={ref}
+            style={{ ...style, opacity }}
+            className="base draggable innersection"
+            onMouseEnter={() => setActionsVisible(true)}
+            onMouseLeave={() => setActionsVisible(false)}>
             {/* {data.id} */}
             <div className="columns">
                 {data.cmps.map((column, index) => {
@@ -72,6 +83,7 @@ export function InnerSection({ data, components, handleDrop, path, updateCompone
                     className="horizontalDrag"
                     isLast
                 />
+                {actionsVisible && <Actions path={path} />}
             </div>
         </div>
     );

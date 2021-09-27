@@ -27,6 +27,7 @@ const Component = ({ data, path, updateComponent, select, selected }) => {
   drag(ref);
 
   const component = data.component;
+  console.log('data:',data)
 
   const KeysToComponentMap = {
     text: Text,

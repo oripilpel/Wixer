@@ -307,7 +307,8 @@ export const translateStyle = (style) => {
   if (style.marginBottom) style.marginBottom = `${style.marginBottom}px`;
   if (style.marginLeft) style.marginLeft = `${style.marginLeft}px`;
   if (style.fontSize) style.fontSize = `${style.fontSize}px`;
-  if (style.width) style.width = `${style.width}%`;
+  if (style.width) style.width = `${style.width}px`;
+  if (style.height) style.height = `${style.height}px`
   return style;
 }
 
