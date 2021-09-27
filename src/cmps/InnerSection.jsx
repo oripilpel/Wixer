@@ -4,7 +4,7 @@ import { INNERSECTION, COLUMN, SIDEBAR_COLUMN } from "../constants.js";
 import { DropZone } from "./DropZone";
 import Column from "./Column";
 import { Actions } from "./Actions.jsx";
-import { translateStyle } from "../helpers.js";
+import { translateStyle } from '../services/wap.service';
 
 export function InnerSection({ data, components, handleDrop, path, updateComponent, onSelect, selected }) {
     const ref = useRef(null);
@@ -15,6 +15,7 @@ export function InnerSection({ data, components, handleDrop, path, updateCompone
         type: INNERSECTION,
         item: {
             type: INNERSECTION,
+            style: data.style,
             id: data.id,
             cmps: data.cmps,
             style: data.style,

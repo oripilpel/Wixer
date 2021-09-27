@@ -18,6 +18,7 @@ export function Section({ data, cmps, handleDrop, path, updateComponent, onSelec
     type: SECTION,
     item: {
       type: SECTION,
+      style: data.style,
       id: data.id,
       children: data.children,
       style: data.style,
@@ -93,7 +94,7 @@ export function Section({ data, cmps, handleDrop, path, updateComponent, onSelec
                   path: currentPath,
                   childrenCount: data.cmps.length,
                 }}
-                accept={[INNERSECTION, SIDEBAR_INNERSECTION, SIDEBAR_ITEM, COMPONENT, COLUMN, SIDEBAR_COLUMN]}
+                accept={(hasOnlyInnersections) ? [INNERSECTION, SIDEBAR_INNERSECTION] : [COMPONENT, SIDEBAR_COLUMN, COLUMN]}
                 onDrop={handleDrop}
                 className={(hasOnlyInnersections) ? '' : 'horizontalDrag'}
               />
@@ -108,7 +109,7 @@ export function Section({ data, cmps, handleDrop, path, updateComponent, onSelec
             path: `${path}-${data.cmps.length}`,
             childrenCount: data.cmps.length
           }}
-          accept={[INNERSECTION, SIDEBAR_INNERSECTION, SIDEBAR_ITEM, COMPONENT, COLUMN, SIDEBAR_COLUMN]}
+          accept={(hasOnlyInnersections) ? [INNERSECTION, SIDEBAR_INNERSECTION] : [COMPONENT, SIDEBAR_COLUMN, COLUMN]}
           onDrop={handleDrop}
           className={(hasOnlyInnersections) ? '' : 'horizontalDrag'}
           isLast

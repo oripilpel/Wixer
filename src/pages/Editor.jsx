@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from 'react-redux';
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
-import { SIDEBAR_ITEMS, SIDEBAR_ITEM, COMPONENT, COLUMN, SECTION, SIDEBAR_COLUMN, SIDEBAR_INNERSECTION, INNERSECTION, SIDEBAR_SECTION } from "../constants";
+import { SIDEBAR_ITEM, COMPONENT, COLUMN, SECTION, SIDEBAR_COLUMN, SIDEBAR_INNERSECTION, INNERSECTION, SIDEBAR_SECTION } from "../constants";
 import { DropZone } from "../cmps/DropZone";
 import { Section } from "../cmps/Section";
 import { SideBar } from "../cmps/SideBar";
@@ -168,7 +168,7 @@ function _Editor(
     return (
         <DndProvider backend={HTML5Backend}>
             <div className={`editor ${debugMode ? 'debug' : ''}`}>
-                <SideBar sideBarItems={SIDEBAR_ITEMS} selected={getSelected(selected)} update={onUpdateComponent} />
+                <SideBar selected={getSelected(selected)} update={onUpdateComponent} />
                 <div className="page-container">
                     <div className="page">
                         {cmps.map((section, index) => {

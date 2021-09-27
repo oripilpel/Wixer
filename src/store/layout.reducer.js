@@ -9,7 +9,7 @@ import {
     handleRemoveItemFromLayout,
     insert,
     duplicate
-} from "../helpers";
+} from "../services/wap.service";
 
 const initialState = {
     _id: null,

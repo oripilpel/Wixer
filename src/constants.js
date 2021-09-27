@@ -9,7 +9,7 @@ export const INNERSECTION = 'innersection';
 export const COLUMN = 'column';
 export const COMPONENT = 'component';
 
-export const SIDEBAR_ITEMS = [
+export const SIDEBAR_ITEMS_BASIC =  [
   {
     id: utilService.makeId(),
     type: SIDEBAR_INNERSECTION,
@@ -97,6 +97,24 @@ export const SIDEBAR_ITEMS = [
     id: utilService.makeId(),
     type: SIDEBAR_ITEM,
     component: {
+      type: 'button',
+      data: { txt: 'Click to Change' },
+      style: {
+        borderRadius: '5px',
+        border: 'none',
+        height: '50px',
+        minWidth: '150px',
+        fontFamily: 'montserrat',
+      }
+    }
+  },
+]
+
+export const SIDEBAR_ITEMS_SECTIONS = [
+  {
+    id: utilService.makeId(),
+    type: SIDEBAR_ITEM,
+    component: {
       style: { display: 'flex' },
       type: 'nav',
       data: {
@@ -118,21 +136,6 @@ export const SIDEBAR_ITEMS = [
             txt: 'Contact'
           },
         ]
-      }
-    }
-  },
-  {
-    id: utilService.makeId(),
-    type: SIDEBAR_ITEM,
-    component: {
-      type: 'button',
-      data: { txt: 'Click to Change' },
-      style: {
-        borderRadius: '5px',
-        border: 'none',
-        height: '50px',
-        minWidth: '150px',
-        fontFamily: 'montserrat',
       }
     }
   },

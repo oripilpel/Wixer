@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useDrag } from "react-dnd";
 import { COMPONENT } from "../constants";
-import { translateStyle } from "../helpers";
+import { translateStyle } from "../services/wap.service";
 import { Image } from "./Image";
 import { Text } from "./Text";
 import { Video } from "./Video";
@@ -17,7 +17,12 @@ const Component = ({ data, path, updateComponent, select, selected }) => {
 
   const [{ isDragging }, drag] = useDrag({
     type: COMPONENT,
-    item: { type: COMPONENT, id: data.id, path, component: data.component, style: data.style},
+    item: {
+      type: COMPONENT,
+      id: data.id, path,
+      style: data.style,
+      component: data.component
+    },
     collect: monitor => ({
       isDragging: monitor.isDragging()
     })
@@ -27,7 +32,6 @@ const Component = ({ data, path, updateComponent, select, selected }) => {
   drag(ref);
 
   const component = data.component;
-  console.log('data:',data)
 
   const KeysToComponentMap = {
     text: Text,
