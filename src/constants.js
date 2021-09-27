@@ -13,6 +13,7 @@ export const SIDEBAR_ITEMS = [
   {
     id: utilService.makeId(),
     type: SIDEBAR_INNERSECTION,
+    name: 'layout',
     component: {
       type: INNERSECTION,
       children: [],
@@ -22,6 +23,7 @@ export const SIDEBAR_ITEMS = [
   {
     id: utilService.makeId(),
     type: SIDEBAR_COLUMN,
+    name: 'layout',
     component: {
       type: COLUMN,
       children: [],
@@ -31,6 +33,7 @@ export const SIDEBAR_ITEMS = [
   {
     id: utilService.makeId(),
     type: SIDEBAR_ITEM,
+    name: 'text',
     component: {
       type: 'text',
       data: { txt: 'Some text' },
@@ -83,6 +86,7 @@ export const SIDEBAR_ITEMS = [
   {
     id: utilService.makeId(),
     type: SIDEBAR_ITEM,
+    name: 'image',
     component: {
       type: 'image',
       data: { url: 'https://random.imagecdn.app/150/150' },
@@ -93,12 +97,42 @@ export const SIDEBAR_ITEMS = [
     id: utilService.makeId(),
     type: SIDEBAR_ITEM,
     component: {
+      style: { display: 'flex' },
+      type: 'nav',
+      data: {
+        links: [
+          {
+            id: utilService.makeId(),
+            txt: 'Reservation'
+          },
+          {
+            id: utilService.makeId(),
+            txt: 'Menu'
+          },
+          {
+            id: utilService.makeId(),
+            txt: 'About'
+          },
+          {
+            id: utilService.makeId(),
+            txt: 'Contact'
+          },
+        ]
+      }
+    }
+  },
+  {
+    id: utilService.makeId(),
+    type: SIDEBAR_ITEM,
+    component: {
       type: 'button',
       data: { txt: 'Click to Change' },
       style: {
-        borderColor: '#FF5722',
         borderRadius: '5px',
-        color: '#FF5722'
+        border: 'none',
+        height: '50px',
+        minWidth: '150px',
+        fontFamily: 'montserrat',
       }
     }
   },
@@ -231,6 +265,137 @@ export const SIDEBAR_ITEMS = [
 
       ],
       style: { backgroundColor: '#101010' }
+    }
+  },
+  {
+    id: utilService.makeId(),
+    type: SIDEBAR_SECTION,
+    name: 'Header',
+    component: {
+      type: SECTION,
+      id: utilService.makeId(),
+      cmps: [
+        {
+          type: INNERSECTION,
+          id: utilService.makeId(),
+          cmps: [
+            {
+              type: COLUMN,
+              id: utilService.makeId(),
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: {
+                      txt: 'LAWRENCE'
+                    },
+                    style: {
+                      fontSize: '27',
+                      color: '#000000',
+                      fontFamily: 'Arial',
+                      letterSpacing: '0.35em'
+                    }
+                  }
+                }
+              ],
+              style: {
+                padding: 10,
+                flexGrow: 0,
+                flexDirection: 'column',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }
+            },
+            {
+              type: COLUMN,
+              id: utilService.makeId(),
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    style: {
+                      display: 'flex'
+                    },
+                    type: 'nav',
+                    data: {
+                      links: [
+                        {
+                          id: utilService.makeId(),
+                          txt: 'Reservation'
+                        },
+                        {
+                          id: utilService.makeId(),
+                          txt: 'Menu'
+                        },
+                        {
+                          id: utilService.makeId(),
+                          txt: 'About'
+                        },
+                        {
+                          id: utilService.makeId(),
+                          txt: 'Contact'
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              style: {
+                padding: 10,
+                flexGrow: 1,
+                flexDirection: 'column',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }
+            },
+            {
+              type: COLUMN,
+              id: utilService.makeId(),
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'button',
+                    data: {
+                      txt: 'Order Now',
+                      hoverClr: ''
+                    },
+                    style: {
+                      backgroundColor: '#7c6c50',
+                      borderRadius: '5px',
+                      border: 'none',
+                      height: '50px',
+                      minWidth: '150px',
+                      fontFamily: 'montserrat',
+                    }
+                  }
+                }
+              ],
+              style: {
+                padding: 10,
+                flexGrow: 0,
+                flexDirection: 'column',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }
+            }
+          ],
+          style: {
+            padding: 10,
+            flexGrow: 0,
+            background: 'transparent'
+
+          }
+        }
+      ],
+      style: { backgroundColor: '#FaF8f1' }
     }
   },
   {
@@ -553,7 +718,8 @@ export const SIDEBAR_ITEMS = [
           id: utilService.makeId(),
           type: INNERSECTION,
           style: {
-            width: 870
+            width: 870,
+            alignSelf: 'center'
           },
           cmps: [
             {
@@ -802,15 +968,16 @@ export const SIDEBAR_ITEMS = [
                     type: 'button',
                     data: {
                       txt: 'Order Now',
-                      hoverClr: ''
+                      hoverColor: 'black'
                     },
                     style: {
                       backgroundColor: '#7C6C50',
                       borderRadius: '5px',
                       border: 'none',
-                      height: '50px',
-                      minWidth: '150px',
+                      height: 50,
+                      width: 150,
                       fontFamily: 'montserrat',
+                      transition: '.3s'
                     }
                   }
                 }
@@ -828,7 +995,7 @@ export const SIDEBAR_ITEMS = [
           style: {
             padding: 10,
             flexGrow: 0,
-            background:'transparent'
+            background: 'transparent'
           }
         }
       ],
