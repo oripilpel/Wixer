@@ -28,6 +28,34 @@ export const insert = (arr, index, newItem) => {
   ]
 };
 
+export const duplicate = (layout, path) => {
+  let item;
+  let idx;
+  let newLayout = [...layout];
+  switch (path.length) {
+    case 1:
+      item = { ...newLayout[path[0]] };
+      item.id = utilService.makeId();
+      newLayout = insert(newLayout, path[0] + 1, item);
+      break;
+    case 2:
+      item = { ...newLayout[path[0]].cmps[path[1]] };
+      item.id = utilService.makeId();
+      idx = path[1] - 1;
+      idx = idx < 0 ? 0 : idx;
+      newLayout[path[0]].cmps = insert(newLayout[path[0]].cmps, idx, item);
+      break;
+    case 3:
+      item = { ...newLayout[path[0]].cmps[path[1]].cmps[path[2]] };
+      item.id = utilService.makeId();
+      idx = path[2] - 1;
+      idx = idx < 0 ? 0 : idx;
+      newLayout[path[0]].cmps[path[1]].cmps = insert(newLayout[path[0]].cmps[path[1]].cmps, idx, item);
+      break;
+  }
+  return newLayout;
+}
+
 export const reorderChildren = (children, splitDropZonePath, splitItemPath) => {
   if (splitDropZonePath.length === 1) {
     const dropZoneIndex = Number(splitDropZonePath[0]);
@@ -40,7 +68,11 @@ export const reorderChildren = (children, splitDropZonePath, splitItemPath) => {
   const curIndex = Number(splitDropZonePath.slice(0, 1));
 
   // Update the specific node's children
-  const splitDropZoneChildrenPath = splitDropZonePath.slice(1);
+  let newSplitDropZoneChildrenPath = splitDropZonePath.slice(1);
+  newSplitDropZoneChildrenPath[newSplitDropZoneChildrenPath.length - 1] =
+    +splitDropZonePath[splitDropZonePath.length - 1] > +splitItemPath[splitItemPath.length - 1] ?
+      newSplitDropZoneChildrenPath[newSplitDropZoneChildrenPath.length - 1] - 1 : newSplitDropZoneChildrenPath[newSplitDropZoneChildrenPath.length - 1]
+  const splitDropZoneChildrenPath = newSplitDropZoneChildrenPath
   const splitItemChildrenPath = splitItemPath.slice(1);
   const nodeChildren = updatedChildren[curIndex];
   updatedChildren[curIndex] = {

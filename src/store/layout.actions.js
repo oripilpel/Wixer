@@ -40,6 +40,14 @@ export function removeItem(splitItemPath) {
     })
 }
 
+export function  duplicateItem(splitItemPath) {
+    return dispatch => dispatch({
+        type: 'DUPLICATE_ITEM',
+        splitItemPath
+    })
+
+}
+
 export function moveSidebarComponentIntoParent(splitDropZonePath, newItem) {
     return dispatch => dispatch({
         type: 'MOVE_SIDEBAR_COMPONENT_INTO_PARENT',

@@ -3,7 +3,7 @@ import { TemplateList } from '../cmps/TemplateList';
 
 export function Templates() {
     return (
-        <section className="templates main-layout">
+        <section className="templates">
             <TemplateList />
         </section>
     )

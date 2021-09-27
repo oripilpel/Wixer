@@ -8,7 +8,7 @@ export function Home() {
         <section className="home">
             <HomeTop />
             <HomeFeatures />
-            <TemplateList numberOfTemplates={3} />
+            <TemplateList numberOfTemplates={3} moreTemplates={true}/>
         </section>
     )
 }
