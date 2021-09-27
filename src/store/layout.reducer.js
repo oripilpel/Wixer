@@ -109,7 +109,7 @@ export function layoutReducer(state = initialState, action) {
                     break;
                 case 3:
                     if (comp.type === COLUMN) newLayout.cmps[path[0]].cmps[path[1]].cmps[path[2]][field] = value;
-                    newLayout.cmps[path[0]].cmps[path[1]].cmps[path[2]].component[field] = value;
+                   else newLayout.cmps[path[0]].cmps[path[1]].cmps[path[2]].component[field] = value;
                     break;
                 default:
                     newLayout.cmps[path[0]].cmps[path[1]].cmps[path[2]].cmps[path[3]].component[field] = value;
