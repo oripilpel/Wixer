@@ -442,6 +442,400 @@ export const SIDEBAR_ITEMS = [
     }
   },
   {
+    id: utilService.makeId(),
+    type: SIDEBAR_SECTION,
+    component: {
+      type: SECTION,
+      style: {
+        backgroundImage: 'url(https://static.wixstatic.com/media/46dc18_0998a8ce1f34483cbe31aec42ff6108f~mv2.jpg/v1/fill/w_1068,h_808,al_c,q_85,usm_0.66_1.00_0.01/46dc18_0998a8ce1f34483cbe31aec42ff6108f~mv2.webp)',
+        height: 755
+      },
+      cmps: []
+    }
+  },
+  {
+    id: utilService.makeId(),
+    type: SIDEBAR_SECTION,
+    component: {
+      type: SECTION,
+      style: {
+        height: 960,
+        backgroundColor: '#faf8f1'
+      },
+      cmps: [
+        {
+          id: utilService.makeId(),
+          type: COLUMN,
+          style: {
+            flexGrow: 4,
+            alignItems: 'center',
+            justifyContent: 'center',
+          },
+          cmps: [
+            {
+              id: utilService.makeId(),
+              type: COMPONENT,
+              component: {
+                type: 'text',
+                data: { txt: 'Made With Love. Simply Delicious' },
+                style: {
+                  fontSize: 48,
+                  color: 'rgb(9,15,15)',
+                  fontFamily: 'Arial',
+                  textAlign: 'center',
+                }
+              }
+            },
+            {
+              id: utilService.makeId(),
+              type: COMPONENT,
+              component: {
+                type: 'text',
+                data: { txt: "I'm a paragraph. Click here to add your own text and edit me. I'm a great place for you to tell a story and let your users know a little more about you." },
+                style: {
+                  paddingTop: 40,
+                  paddingBottom: 40,
+                  fontSize: 16,
+                  color: 'rgb(9,15,15)',
+                  fontFamily: 'Arial'
+                }
+              }
+            },
+            {
+              id: utilService.makeId(),
+              type: COMPONENT,
+              component: {
+                type: 'button',
+                data: { txt: 'View Menu' },
+                style: {
+                  borderColor: '#7c6c50',
+                  backgroundColor: '#7c6c50',
+                  borderRadius: '0',
+                  color: 'rgb(250, 248, 241)'
+                }
+              }
+            }
+          ]
+        },
+        {
+          id: utilService.makeId(),
+          type: COLUMN,
+          style: {},
+          cmps: [
+            {
+              id: utilService.makeId(),
+              type: COMPONENT,
+              component: {
+                type: 'image',
+                data: { url: 'https://static.wixstatic.com/media/46dc18_3487b934a84548e090e13f5ce1bf08ad~mv2.jpg/v1/fill/w_450,h_800,al_c,q_80,usm_0.66_1.00_0.01/46dc18_3487b934a84548e090e13f5ce1bf08ad~mv2.webp' },
+                style: {}
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    id: utilService.makeId(),
+    type: SIDEBAR_SECTION,
+    name: 'footer',
+    component: {
+      type: SECTION,
+      style: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: 420,
+        backgroundColor: 'rgb(9,15,15)'
+      },
+      cmps: [
+        {
+          id: utilService.makeId(),
+          type: INNERSECTION,
+          style: {
+            width: 870
+          },
+          cmps: [
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                alignItems: 'flex-start'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: 'component',
+                  component: {
+                    type: 'text',
+                    data: { txt: 'Address' },
+                    style: {
+                      fontSize: 32,
+                      color: 'rgb(250,248,241)',
+                      fontFamily: 'Arial'
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: 'component',
+                  component: {
+                    type: 'text',
+                    data: { txt: '500 Terry Francois Street' },
+                    style: {
+                      fontSize: 22,
+                      color: 'rgb(250,248,241)',
+                      fontFamily: 'Arial'
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: 'component',
+                  component: {
+                    type: 'text',
+                    data: { txt: 'San Francisco, CA 94158' },
+                    style: {
+                      fontSize: 22,
+                      color: 'rgb(250,248,241)',
+                      fontFamily: 'Arial'
+                    }
+                  }
+                },
+              ]
+            },
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                alignItems: 'flex-start'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: 'component',
+                  component: {
+                    type: 'text',
+                    data: { txt: 'Opening Hours' },
+                    style: {
+                      fontSize: 32,
+                      color: 'rgb(250,248,241)',
+                      fontFamily: 'Arial'
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: 'component',
+                  component: {
+                    type: 'text',
+                    data: { txt: 'Mon - Fri: 11am - 10pm' },
+                    style: {
+                      fontSize: 22,
+                      color: 'rgb(250,248,241)',
+                      fontFamily: 'Arial'
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: 'component',
+                  component: {
+                    type: 'text',
+                    data: { txt: 'Sat - Sun: 11am - 12am' },
+                    style: {
+                      fontSize: 22,
+                      color: 'rgb(250,248,241)',
+                      fontFamily: 'Arial'
+                    }
+                  }
+                },
+              ]
+            },
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                alignItems: 'flex-start'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: 'component',
+                  component: {
+                    type: 'text',
+                    data: { txt: 'Contact Us' },
+                    style: {
+                      fontSize: 32,
+                      color: 'rgb(250,248,241)',
+                      fontFamily: 'Arial'
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: 'component',
+                  component: {
+                    type: 'text',
+                    data: { txt: 'info@mysite.com' },
+                    style: {
+                      fontSize: 22,
+                      color: 'rgb(250,248,241)',
+                      fontFamily: 'Arial'
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: 'component',
+                  component: {
+                    type: 'text',
+                    data: { txt: '123 456 6780' },
+                    style: {
+                      fontSize: 22,
+                      color: 'rgb(250,248,241)',
+                      fontFamily: 'Arial'
+                    }
+                  }
+                },
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    id: utilService.makeId(),
+    type: SIDEBAR_SECTION,
+    name: 'Header',
+    component: {
+      type: SECTION,
+      id: utilService.makeId(),
+      cmps: [
+        {
+          type: INNERSECTION,
+          id: utilService.makeId(),
+          cmps: [
+            {
+              type: COLUMN,
+              id: utilService.makeId(),
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: {
+                      txt: 'LAWRENCE'
+                    },
+                    style: {
+                      fontSize: '27',
+                      color: '#000000',
+                      fontFamily: 'Arial',
+                      letterSpacing: '0.35em'
+                    }
+                  }
+                }
+              ],
+              style: {
+                padding: 10,
+                flexGrow: 0,
+                flexDirection: 'column',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }
+            },
+            {
+              type: COLUMN,
+              id: utilService.makeId(),
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    style: {
+                      display: 'flex'
+                    },
+                    type: 'nav',
+                    data: {
+                      links: [
+                        {
+                          id: utilService.makeId(),
+                          txt: 'Reservation'
+                        },
+                        {
+                          id: utilService.makeId(),
+                          txt: 'Menu'
+                        },
+                        {
+                          id: utilService.makeId(),
+                          txt: 'About'
+                        },
+                        {
+                          id: utilService.makeId(),
+                          txt: 'Contact'
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              style: {
+                padding: 10,
+                flexGrow: 1,
+                flexDirection: 'column',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }
+            },
+            {
+              type: COLUMN,
+              id: utilService.makeId(),
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'button',
+                    data: {
+                      txt: 'Order Now',
+                      hoverClr: ''
+                    },
+                    style: {
+                      backgroundColor: '#7C6C50',
+                      borderRadius: '5px',
+                      border: 'none',
+                      height: '50px',
+                      minWidth: '150px',
+                      fontFamily: 'montserrat',
+                    }
+                  }
+                }
+              ],
+              style: {
+                padding: 10,
+                flexGrow: 0,
+                flexDirection: 'column',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }
+            }
+          ],
+          style: {
+            padding: 10,
+            flexGrow: 0,
+            background:'transparent'
+          }
+        }
+      ],
+      style: { backgroundColor: '#FAF8F1' }
+    }
+  },
+  {
     type: SIDEBAR_SECTION,
     name: 'berco',
     id: utilService.makeId(),

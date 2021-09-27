@@ -66,7 +66,6 @@ export function Section({ data, cmps, handleDrop, path, updateComponent, onSelec
 
   const select = (ev) => {
     ev.stopPropagation();
-    debugger;
     onSelect('section', path.split('-'));
   }
   return (
@@ -75,8 +74,14 @@ export function Section({ data, cmps, handleDrop, path, updateComponent, onSelec
       style={{ ...data.style, opacity }}
       className="base draggable section"
       onClick={select}
-      onMouseEnter={() => setActionsVisible(true)}
-      onMouseLeave={() => setActionsVisible(false)}>
+      onMouseEnter={() => {
+        // debugger;
+        setActionsVisible(true)
+      }}
+      onMouseLeave={() => {
+        // debugger;
+        setActionsVisible(false)
+      }}>
       <div className={(hasOnlyInnersections) ? 'innersections flex direction-column' : 'columns flex'}>
         {data.cmps.map((child, index) => {
           const currentPath = `${path}-${index}`;

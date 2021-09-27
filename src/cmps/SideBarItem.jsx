@@ -12,7 +12,7 @@ export function SideBarItem({ data, type }){
 
   return (
     <div className="side-bar-item" ref={drag} style={{ opacity }}>
-      {data.component.type}
+      {data.name || data.component.type}
     </div>
   );
 };

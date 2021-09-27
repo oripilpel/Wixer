@@ -1,0 +1,7 @@
+.innersection {
+    position: relative;
+
+    .debug & {
+        border: 1px solid $innerSectionBorderColor;
+    }
+}

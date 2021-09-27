@@ -9,6 +9,8 @@ import { Actions } from "./Actions";
 const Column = ({ data, handleDrop, path, updateComponent, onSelect, selected }) => {
   const ref = useRef(null);
 
+  console.log('column data', data);
+
   const [actionsVisible, setActionsVisible] = useState(false);
 
   const [, drop] = useDrop({
@@ -54,7 +56,7 @@ const Column = ({ data, handleDrop, path, updateComponent, onSelect, selected })
     <div
       ref={ref}
       style={{ ...style, opacity }}
-      className={`base draggable column ${selected && selected.id === data.id ? 'selected' : ''}`}
+      className={`base draggable column flex direction-column ${selected && selected.id === data.id ? 'selected' : ''}`}
       onClick={select}
       onMouseEnter={() => setActionsVisible(true)}
       onMouseLeave={() => setActionsVisible(false)}
