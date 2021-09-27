@@ -447,6 +447,18 @@ export const SIDEBAR_ITEMS = [
     component: {
       type: SECTION,
       style: {
+        backgroundImage: 'url(https://static.wixstatic.com/media/46dc18_0998a8ce1f34483cbe31aec42ff6108f~mv2.jpg/v1/fill/w_1068,h_808,al_c,q_85,usm_0.66_1.00_0.01/46dc18_0998a8ce1f34483cbe31aec42ff6108f~mv2.webp)',
+        height: 755
+      },
+      cmps: []
+    }
+  },
+  {
+    id: utilService.makeId(),
+    type: SIDEBAR_SECTION,
+    component: {
+      type: SECTION,
+      style: {
         height: 960,
         backgroundColor: '#faf8f1'
       },
