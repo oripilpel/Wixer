@@ -1,5 +1,6 @@
 export function Button({ style, data }) {
+
     return (
-        <button  style={style}>{data.txt}</button>
+        <button className="btn" style={style}>{data.txt}</button>
     )
 }

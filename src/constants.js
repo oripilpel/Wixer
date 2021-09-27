@@ -390,7 +390,7 @@ export const SIDEBAR_ITEMS = [
           style: {
             padding: 10,
             flexGrow: 0,
-            background:'transparent'
+            background: 'transparent'
 
           }
         }
@@ -718,7 +718,8 @@ export const SIDEBAR_ITEMS = [
           id: utilService.makeId(),
           type: INNERSECTION,
           style: {
-            width: 870
+            width: 870,
+            alignSelf: 'center'
           },
           cmps: [
             {
@@ -967,15 +968,16 @@ export const SIDEBAR_ITEMS = [
                     type: 'button',
                     data: {
                       txt: 'Order Now',
-                      hoverClr: ''
+                      hoverColor: 'black'
                     },
                     style: {
                       backgroundColor: '#7C6C50',
                       borderRadius: '5px',
                       border: 'none',
-                      height: '50px',
-                      minWidth: '150px',
+                      height: 50,
+                      width: 150,
                       fontFamily: 'montserrat',
+                      transition: '.3s'
                     }
                   }
                 }
@@ -993,7 +995,7 @@ export const SIDEBAR_ITEMS = [
           style: {
             padding: 10,
             flexGrow: 0,
-            background:'transparent'
+            background: 'transparent'
           }
         }
       ],

@@ -64,13 +64,17 @@ export function DropZone({ data, onDrop, isLast, className, accept = ACCEPTS }) 
 
   return (
     <div
+      style={{
+        position: (isActive) ? 'relative' : 'absolute',
+        top:(isActive)?0:-30,
+        left:0
+      }}
       className={classNames(
         "drop-zone",
         { active: isActive, isLast },
         className
       )}
       ref={drop}
-      style={{ position: (isActive) ? 'relative' : 'absolute' }}
 
     />
   );

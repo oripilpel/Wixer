@@ -2,7 +2,7 @@
     flex: 0 0 auto;
     height: 1px;
     
-    transition: 400ms all;
+    transition: width .3s;
 
     &:nth-of-type(2n) {
         display: none;
