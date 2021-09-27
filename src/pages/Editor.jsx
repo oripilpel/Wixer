@@ -38,6 +38,7 @@ function _Editor(
 
     useEffect(() => {
         const id = match.params.wapId;
+        console.log(id);
         if (id) loadWap(id);
     }, []);
 

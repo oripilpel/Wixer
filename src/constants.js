@@ -727,7 +727,9 @@ export const SIDEBAR_ITEMS_SECTIONS = [
           type: INNERSECTION,
           style: {
             width: 870,
-            alignSelf: 'center'
+            alignSelf: 'center',
+            display: 'flex',
+            justifyContent: 'space-between'
           },
           cmps: [
             {
