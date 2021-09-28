@@ -26,6 +26,10 @@
     .items {
         height: calc(100vh - 162px);
         overflow-y: auto;
+        overflow-x: clip;
+        .empty {
+            text-align: center;
+        }
     }
     .save-pub {
         display: flex;

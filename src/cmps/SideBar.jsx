@@ -45,7 +45,7 @@ function _SideBar({ selected, update, cmps, style, _id, saveWap }) {
                         </StyledEngineProvider>
                     </>
                 )}
-                {isEdit && !selected && <div>Nothing is selected</div>}
+                {isEdit && !selected && <div className="empty">Nothing is selected</div>}
             </div>
             <div className="save-pub">
                 <div className="save" onClick={onSave}>
