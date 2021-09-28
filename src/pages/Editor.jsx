@@ -34,7 +34,7 @@ function _Editor(
         loadWap
     }) {
 
-    const debugMode = false;
+    const debugMode = true;
 
     useEffect(() => {
         const id = match.params.wapId;
