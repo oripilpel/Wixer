@@ -8,7 +8,6 @@ import { saveWap } from '../store/layout.actions'
 import { SidebarAddComponent } from "./SidebarAddComponent";
 import { Link } from "react-router-dom";
 
-
 function _SideBar({ selected, update, cmps, style, _id, saveWap }) {
     const [isEdit, setIsEdit] = useState(false);
     useEffect(() => {
