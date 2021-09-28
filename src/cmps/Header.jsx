@@ -23,7 +23,7 @@ class _Header extends React.Component {
                 <div className={`screen ${isMenuOpen ? "active" : ""}`} onClick={() => this.toggleMenu(false)}></div>
                 <div className="logo">
                     <NavLink to="/">
-                        <img src={Logo} height="40px" />
+                        <img src={Logo} height="40px" alt="logo" />
                         Wixer
                     </NavLink>
                 </div>

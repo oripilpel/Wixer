@@ -1,4 +1,3 @@
-import { positions } from '@mui/system';
 import { utilService } from './services/util.service';
 
 export const SIDEBAR_SECTION = 'sidebarSection'
@@ -242,9 +241,7 @@ export const SIDEBAT_ITEMS_HEADER = [
           ],
           style: {
             flexGrow: 1,
-            maxWidth: '1060px',
             padding: '0 25px',
-            margin: 'auto'
           },
         }
       ],

@@ -34,7 +34,7 @@ export function ColumnSectionEdit({ style, onUpdate }) {
         marginLeft,
         backgroundColor,
         justifyContent,
-        alignItem
+        alignItem: alignItems
     } = style;
     return (
         <div className="column-section-edit">
@@ -67,18 +67,18 @@ export function ColumnSectionEdit({ style, onUpdate }) {
                         <label htmlFor="justify-content">Justify content</label>
                         <select name="justifyContent" id="justify-content" value={justifyContent} onChange={onChange}>
                             <option value="center">Center</option>
-                            <option value="flexStart">Flex start</option>
-                            <option value="flexEnd">Flex end</option>
-                            <option value="spaceBetween">Space between</option>
-                            <option value="spaceAround">Space Around</option>
+                            <option value="flex-start">Flex start</option>
+                            <option value="flex-end">Flex end</option>
+                            <option value="space-between">Space between</option>
+                            <option value="space-around">Space Around</option>
                         </select>
                     </div>
                     <div>
                         <label htmlFor="align-items">Align items</label>
-                        <select name="alignItems" id="align-items" value={justifyContent} onChange={onChange}>
+                        <select name="alignItems" id="align-items" value={alignItems} onChange={onChange}>
                             <option value="center">Center</option>
-                            <option value="flexStart">Flex start</option>
-                            <option value="flexEnd">Flex end</option>
+                            <option value="flex-start">Flex start</option>
+                            <option value="flex-end">Flex end</option>
                         </select>
                     </div>
                 </AccordionDetails>

@@ -96,10 +96,12 @@ export function layoutReducer(state = initialState, action) {
         case 'MOVE_COLUMN':
             return { ...state }
         case 'UPDATE_COMPONENT':
+            debugger
             const { comp, field, value } = action;
+            if (!comp || (!field && field !== 0) || !value) return
             const newLayout = JSON.parse(JSON.stringify(state))
             const { path } = comp;
-            switch (comp.path.length) {
+            switch (path.length) {
                 case 1:
                     newLayout.cmps[path[0]][field] = value;
                     break;
@@ -108,11 +110,11 @@ export function layoutReducer(state = initialState, action) {
                     break;
                 case 3:
                     if (comp.type === COLUMN) newLayout.cmps[path[0]].cmps[path[1]].cmps[path[2]][field] = value;
-                    else if (comp.type === 'nav') newLayout.cmps[path[0]].cmps[path[1]].cmps[path[2]].component.data[field].txt = value
+                    else if (comp.component && comp.component.type === 'nav') newLayout.cmps[path[0]].cmps[path[1]].cmps[path[2]].component.data.links[field].txt = value
                     else newLayout.cmps[path[0]].cmps[path[1]].cmps[path[2]].component[field] = value;
                     break;
                 default:
-                    if (comp.type === 'nav') { console.log('nav'); }
+                    if (comp.component.type === 'nav') { newLayout.cmps[path[0]].cmps[path[1]].cmps[path[2]].cmps[path[3]].component.data.links[field].txt = value }
                     else newLayout.cmps[path[0]].cmps[path[1]].cmps[path[2]].cmps[path[3]].component[field] = value;
                     break;
             }

@@ -5,7 +5,7 @@ export function Nav({ style, data, update }) {
             {data.links.map((link, idx) => {
                 return (
                     <p
-                    onMouseEnter={(ev)=>{console.log(ev,ev.target)}}
+                        onMouseEnter={(ev) => { console.log(ev, ev.target) }}
                         key={idx}
                         contentEditable={true}
                         suppressContentEditableWarning={true}

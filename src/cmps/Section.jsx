@@ -21,7 +21,6 @@ export function Section({ data, cmps, handleDrop, path, updateComponent, onSelec
       style: data.style,
       id: data.id,
       children: data.children,
-      style: data.style,
       path
     },
     collect: monitor => ({
@@ -92,11 +91,11 @@ export function Section({ data, cmps, handleDrop, path, updateComponent, onSelec
                 path: currentPath,
                 childrenCount: data.cmps.length,
               }}
-              accept={(hasOnlyInnersections) ? [INNERSECTION, SIDEBAR_INNERSECTION] : [COMPONENT, SIDEBAR_COLUMN, COLUMN]}
+              accept={(hasOnlyInnersections) ? [INNERSECTION, SIDEBAR_INNERSECTION] : [SIDEBAR_ITEM, COMPONENT, SIDEBAR_COLUMN, COLUMN]}
               onDrop={handleDrop}
               className={(hasOnlyInnersections) ? '' : 'horizontalDrag'}
             />
-            {(child.type === COLUMN) && renderColumn(child, currentPath) || renderInnerSection(child, currentPath)}
+            {(child.type === COLUMN) && (renderColumn(child, currentPath) || renderInnerSection(child, currentPath))}
           </React.Fragment>
         );
 
@@ -107,7 +106,7 @@ export function Section({ data, cmps, handleDrop, path, updateComponent, onSelec
           path: `${path}-${data.cmps.length}`,
           childrenCount: data.cmps.length
         }}
-        accept={(hasOnlyInnersections) ? [INNERSECTION, SIDEBAR_INNERSECTION] : [COMPONENT, SIDEBAR_COLUMN, COLUMN]}
+        accept={(hasOnlyInnersections) ? [INNERSECTION, SIDEBAR_INNERSECTION] : [SIDEBAR_ITEM, COMPONENT, SIDEBAR_COLUMN, COLUMN]}
         onDrop={handleDrop}
         className={(hasOnlyInnersections) ? '' : 'horizontalDrag'}
         isLast
