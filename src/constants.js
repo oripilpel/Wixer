@@ -1,3 +1,4 @@
+import { positions } from '@mui/system';
 import { utilService } from './services/util.service';
 
 export const SIDEBAR_SECTION = 'sidebarSection'
@@ -9,7 +10,7 @@ export const INNERSECTION = 'innersection';
 export const COLUMN = 'column';
 export const COMPONENT = 'component';
 
-export const SIDEBAR_ITEMS_BASIC =  [
+export const SIDEBAR_ITEMS_BASIC = [
   {
     id: utilService.makeId(),
     type: SIDEBAR_INNERSECTION,
@@ -281,6 +282,12 @@ export const SIDEBAR_ITEMS_SECTIONS = [
         {
           type: INNERSECTION,
           id: utilService.makeId(),
+          style: {
+            padding: 10,
+            flexGrow: 1,
+            background: 'transparent',
+            display: 'flex'
+          },
           cmps: [
             {
               type: COLUMN,
@@ -376,6 +383,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                       height: '50px',
                       minWidth: '150px',
                       fontFamily: 'montserrat',
+
                     }
                   }
                 }
@@ -389,16 +397,11 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                 alignItems: 'center'
               }
             }
-          ],
-          style: {
-            padding: 10,
-            flexGrow: 0,
-            background: 'transparent'
+          ]
 
-          }
         }
       ],
-      style: { backgroundColor: '#FaF8f1' }
+      style: { backgroundColor: '#faf8f1' }
     }
   },
   {
@@ -616,7 +619,9 @@ export const SIDEBAR_ITEMS_SECTIONS = [
       type: SECTION,
       style: {
         backgroundImage: 'url(https://static.wixstatic.com/media/46dc18_0998a8ce1f34483cbe31aec42ff6108f~mv2.jpg/v1/fill/w_1068,h_808,al_c,q_85,usm_0.66_1.00_0.01/46dc18_0998a8ce1f34483cbe31aec42ff6108f~mv2.webp)',
-        height: 755
+        height: 755,
+        backgroundAttachment: 'fixed',
+        backgroundPosition: 'center'
       },
       cmps: []
     }
@@ -626,6 +631,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
     type: SIDEBAR_SECTION,
     component: {
       type: SECTION,
+      id: utilService.makeId(),
       style: {
         height: 960,
         backgroundColor: '#faf8f1'
@@ -633,71 +639,89 @@ export const SIDEBAR_ITEMS_SECTIONS = [
       cmps: [
         {
           id: utilService.makeId(),
-          type: COLUMN,
+          type: INNERSECTION,
           style: {
-            flexGrow: 4,
-            alignItems: 'center',
-            justifyContent: 'center',
+            maxWidth: '1060px',
+            padding: '0 25px',
+            margin: 'auto'
           },
           cmps: [
             {
               id: utilService.makeId(),
-              type: COMPONENT,
-              component: {
-                type: 'text',
-                data: { txt: 'Made With Love. Simply Delicious' },
-                style: {
-                  fontSize: 48,
-                  color: 'rgb(9,15,15)',
-                  fontFamily: 'Arial',
-                  textAlign: 'center',
+              type: COLUMN,
+              style: {
+                flexGrow: 4,
+                alignItems: 'center',
+                justifyContent: 'center',
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: 'Made With Love. Simply Delicious' },
+                    style: {
+                      fontSize: 48,
+                      color: 'rgb(9,15,15)',
+                      fontFamily: 'forum, serif',
+                      textAlign: 'center',
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: "I'm a paragraph. Click here to add your own text and edit me. I'm a great place for you to tell a story and let your users know a little more about you." },
+                    style: {
+                      paddingTop: 40,
+                      paddingBottom: 40,
+                      fontSize: 16,
+                      color: 'rgb(9,15,15)',
+                      fontFamily: 'raleway, san-serif',
+                      textAlign: 'center',
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'button',
+                    data: {
+                      txt: 'View Menu',
+                      hoverColor: '#534835'
+                    },
+                    style: {
+                      fontSize: '16',
+                      fontFamily: 'forum, serif',
+                      color: 'rgb(238, 236, 226)',
+                      backgroundColor: 'rgb(124, 108, 80)',
+                      border: 0,
+                      padding: '25px 65px',
+                      cursor: 'pointer'
+                    }
+                  }
                 }
-              }
+              ]
             },
             {
               id: utilService.makeId(),
-              type: COMPONENT,
-              component: {
-                type: 'text',
-                data: { txt: "I'm a paragraph. Click here to add your own text and edit me. I'm a great place for you to tell a story and let your users know a little more about you." },
-                style: {
-                  paddingTop: 40,
-                  paddingBottom: 40,
-                  fontSize: 16,
-                  color: 'rgb(9,15,15)',
-                  fontFamily: 'Arial'
+              type: COLUMN,
+              style: {},
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'image',
+                    data: { url: 'https://static.wixstatic.com/media/46dc18_3487b934a84548e090e13f5ce1bf08ad~mv2.jpg/v1/fill/w_450,h_800,al_c,q_80,usm_0.66_1.00_0.01/46dc18_3487b934a84548e090e13f5ce1bf08ad~mv2.webp' },
+                    style: {}
+                  }
                 }
-              }
-            },
-            {
-              id: utilService.makeId(),
-              type: COMPONENT,
-              component: {
-                type: 'button',
-                data: { txt: 'View Menu' },
-                style: {
-                  borderColor: '#7c6c50',
-                  backgroundColor: '#7c6c50',
-                  borderRadius: '0',
-                  color: 'rgb(250, 248, 241)'
-                }
-              }
-            }
-          ]
-        },
-        {
-          id: utilService.makeId(),
-          type: COLUMN,
-          style: {},
-          cmps: [
-            {
-              id: utilService.makeId(),
-              type: COMPONENT,
-              component: {
-                type: 'image',
-                data: { url: 'https://static.wixstatic.com/media/46dc18_3487b934a84548e090e13f5ce1bf08ad~mv2.jpg/v1/fill/w_450,h_800,al_c,q_80,usm_0.66_1.00_0.01/46dc18_3487b934a84548e090e13f5ce1bf08ad~mv2.webp' },
-                style: {}
-              }
+              ]
             }
           ]
         }
@@ -710,6 +734,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
     name: 'footer',
     component: {
       type: SECTION,
+      id: utilService.makeId(),
       style: {
         justifyContent: 'center',
         alignItems: 'center',
@@ -721,8 +746,12 @@ export const SIDEBAR_ITEMS_SECTIONS = [
           id: utilService.makeId(),
           type: INNERSECTION,
           style: {
-            width: 870,
-            alignSelf: 'center'
+            alignSelf: 'center',
+            gap: '20px',
+            justifyContent: 'space-around',
+            width: '1060px',
+            padding: '0 25px',
+            margin: 'auto'
           },
           cmps: [
             {
@@ -741,7 +770,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     style: {
                       fontSize: 32,
                       color: 'rgb(250,248,241)',
-                      fontFamily: 'Arial'
+                      fontFamily: 'forum, serif',
                     }
                   }
                 },
@@ -754,7 +783,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     style: {
                       fontSize: 22,
                       color: 'rgb(250,248,241)',
-                      fontFamily: 'Arial'
+                      fontFamily: 'forum, serif',
                     }
                   }
                 },
@@ -767,7 +796,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     style: {
                       fontSize: 22,
                       color: 'rgb(250,248,241)',
-                      fontFamily: 'Arial'
+                      fontFamily: 'forum, serif',
                     }
                   }
                 },
@@ -789,7 +818,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     style: {
                       fontSize: 32,
                       color: 'rgb(250,248,241)',
-                      fontFamily: 'Arial'
+                      fontFamily: 'forum, serif',
                     }
                   }
                 },
@@ -802,7 +831,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     style: {
                       fontSize: 22,
                       color: 'rgb(250,248,241)',
-                      fontFamily: 'Arial'
+                      fontFamily: 'forum, serif',
                     }
                   }
                 },
@@ -815,7 +844,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     style: {
                       fontSize: 22,
                       color: 'rgb(250,248,241)',
-                      fontFamily: 'Arial'
+                      fontFamily: 'forum, serif',
                     }
                   }
                 },
@@ -837,7 +866,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     style: {
                       fontSize: 32,
                       color: 'rgb(250,248,241)',
-                      fontFamily: 'Arial'
+                      fontFamily: 'forum, serif',
                     }
                   }
                 },
@@ -850,7 +879,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     style: {
                       fontSize: 22,
                       color: 'rgb(250,248,241)',
-                      fontFamily: 'Arial'
+                      fontFamily: 'forum, serif',
                     }
                   }
                 },
@@ -863,7 +892,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     style: {
                       fontSize: 22,
                       color: 'rgb(250,248,241)',
-                      fontFamily: 'Arial'
+                      fontFamily: 'forum, serif',
                     }
                   }
                 },
@@ -901,7 +930,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     style: {
                       fontSize: '27',
                       color: '#000000',
-                      fontFamily: 'Arial',
+                      fontFamily: 'forum, serif',
                       letterSpacing: '0.35em'
                     }
                   }
@@ -925,7 +954,9 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                   type: COMPONENT,
                   component: {
                     style: {
-                      display: 'flex'
+                      display: 'flex',
+                      fontFamily: 'raleway, san-serif',
+                      fontSize: '16'
                     },
                     type: 'nav',
                     data: {
@@ -970,17 +1001,18 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                   component: {
                     type: 'button',
                     data: {
-                      txt: 'Order Now',
-                      hoverColor: 'black'
+                      txt: 'Order Online',
+                      hoverColor: '#534835'
                     },
                     style: {
-                      backgroundColor: '#7C6C50',
-                      borderRadius: '5px',
-                      border: 'none',
+                      fontSize: '16',
+                      fontFamily: 'forum, serif',
+                      color: 'rgb(238, 236, 226)',
+                      backgroundColor: 'rgb(124, 108, 80)',
+                      border: 0,
                       height: 50,
                       width: 150,
-                      fontFamily: 'montserrat',
-                      transition: '.3s'
+                      cursor: 'pointer'
                     }
                   }
                 }
@@ -996,93 +1028,112 @@ export const SIDEBAR_ITEMS_SECTIONS = [
             }
           ],
           style: {
-            padding: 10,
-            flexGrow: 0,
-            background: 'transparent'
-          }
+            flexGrow: 1,
+            maxWidth: '1060px',
+            padding: '0 25px',
+            margin: 'auto'
+          },
         }
       ],
-      style: { backgroundColor: '#FAF8F1' }
+      style: {
+        backgroundColor: '#FAF8F1',
+      }
     }
   },
   {
+    id: utilService.makeId(),
     type: SIDEBAR_SECTION,
     name: 'berco',
-    id: utilService.makeId(),
     component: {
+      id: utilService.makeId(),
       type: SECTION,
-      style: {},
-      cmps: [{
-        id: utilService.makeId(),
-        type: INNERSECTION,
-        style: {},
-        cmps: [
-          {
-            id: utilService.makeId(),
-            type: COLUMN,
-            style: {
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center'
-            },
-            cmps: [
-              {
-                id: utilService.makeId(),
-                type: 'component',
-                component: {
-                  type: 'text',
-                  data: {
-                    txt: 'A Fresh and Seasonal Cuisine'
-                  },
-                  style: {
-                    fontSize: 48,
-                    color: '#000000',
-                    fontFamily: 'Arial',
-                    textAlign: 'center',
-                    maxWidth: '15ch'
-                  }
-                }
+      style: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundImage: 'url(https://static.wixstatic.com/media/46dc18_129ba04ade8a4cf3962ccb05b35e57c7~mv2.jpg/v1/fill/w_980,h_880,al_c,q_85,usm_0.66_1.00_0.01/46dc18_129ba04ade8a4cf3962ccb05b35e57c7~mv2.webp)',
+        backgroundAttachment: 'fixed',
+        backgroundPosition: 'center',
+      },
+      cmps: [
+        {
+          id: utilService.makeId(),
+          type: INNERSECTION,
+          style: {
+            maxWidth: '1060px',
+            padding: '0 25px',
+            margin: 'auto'
+          },
+          cmps: [
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                position: 'relative',
+                alignItems: 'center',
+                backgroundColor: 'rgb(250, 248, 241)',
+                maxWidth: '600px',
+                margin: '60px 0',
+                padding: '50px 60px',
+                display: 'flex',
+                gap: '25px'
               },
-              {
-                id: utilService.makeId(),
-                type: 'component',
-                component: {
-                  type: 'text',
-                  data: {
-                    txt: `I'm a paragraph. Click here to add your own text and edit me. I’m a great place for you to tell a story and let your users know a little more about you.`
-                  },
-                  style: {
-                    maxWidth: '420px',
-                    fontSize: 16,
-                    color: '#000000',
-                    fontFamily: 'Arial',
-                    textAlign: 'center',
-                    lineHeight: '1.5em'
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: 'A Fresh and Seasonal Cuisine' },
+                    style: {
+                      fontSize: 48,
+                      color: '#000000',
+                      fontFamily: 'forum, serif',
+                      textAlign: 'center',
+                      maxWidth: '15ch'
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: `I'm a paragraph. Click here to add your own text and edit me. I’m a great place for you to tell a story and let your users know a little more about you.` },
+                    style: {
+                      maxWidth: '420px',
+                      fontSize: 16,
+                      color: '#000000',
+                      fontFamily: 'raleway, san-serif',
+                      textAlign: 'center',
+                      lineHeight: '1.5em'
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'button',
+                    data: {
+                      txt: 'About Lawrence',
+                      hoverColor: '#534835'
+                    },
+                    style: {
+                      fontSize: '16',
+                      fontFamily: 'forum, serif',
+                      color: 'rgb(238, 236, 226)',
+                      backgroundColor: 'rgb(124, 108, 80)',
+                      border: 0,
+                      padding: '25px 65px',
+                      cursor: 'pointer'
+                    }
                   }
                 }
-              },
-              {
-                id: utilService.makeId(),
-                type: 'component',
-                component: {
-                  type: 'button',
-                  data: {
-                    txt: 'About Lawrence'
-                  },
-                  style: {
-                    fontSize: 16,
-                    color: '#eeece2',
-                    fontFamily: 'Arial',
-                    backgroundColor: '#7c6c50',
-                    width: '260px',
-                    height: '64px',
-                  }
-                }
-              }
-            ]
-          }
-        ]
-      }]
+              ]
+            }
+          ]
+        }
+      ]
     }
   }
 ];

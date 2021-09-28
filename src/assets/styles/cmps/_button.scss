@@ -1,11 +1,3 @@
 .btn{
-    outline: none;
-    cursor: pointer;
-    background: none;
-    transition: .3s;
-    font-family: "Lato",sans-serif;
-    &:hover{
-      transform:scale(1.1);
-      transition: all 0.3s ease-in-out;
-    }
-}
+    transition: background-color .3s ;
+  }

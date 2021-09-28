@@ -15,7 +15,7 @@ export function TemplatePreview({ template, idx, cols }) {
             <div className="cover">
                 <div className="actions">
                     {template.json &&
-                        <a href={`/${template.json}`}>Preview</a>
+                        <a href={`/publish/${template.json}`} target='blank'>Preview</a>
                     }
                     <a href={`/editor/${template.json}`}>Edit</a>
                 </div>

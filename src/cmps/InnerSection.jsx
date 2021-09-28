@@ -4,10 +4,12 @@ import { INNERSECTION, COLUMN, SIDEBAR_COLUMN } from "../constants.js";
 import { DropZone } from "./DropZone";
 import Column from "./Column";
 import { Actions } from "./Actions.jsx";
-import { translateStyle } from "../helpers.js";
+import { translateStyle } from '../services/wap.service';
 
 export function InnerSection({ data, components, handleDrop, path, updateComponent, onSelect, selected }) {
     const ref = useRef(null);
+
+    console.log('data', data)
 
     const [actionsVisible, setActionsVisible] = useState(false);
 
@@ -15,8 +17,10 @@ export function InnerSection({ data, components, handleDrop, path, updateCompone
         type: INNERSECTION,
         item: {
             type: INNERSECTION,
+            style: data.style,
             id: data.id,
             cmps: data.cmps,
+            style: data.style,
             path
         },
         collect: monitor => ({
@@ -24,6 +28,11 @@ export function InnerSection({ data, components, handleDrop, path, updateCompone
         })
     });
 
+
+    const select = (ev) => {
+        ev.stopPropagation()
+        onSelect('innersection', path.split('-'))
+    }
 
     const opacity = isDragging ? 0 : 1;
     drag(ref);
@@ -50,41 +59,42 @@ export function InnerSection({ data, components, handleDrop, path, updateCompone
         <div
             ref={ref}
             style={{ ...style, opacity }}
-            className="base draggable innersection"
+            onClick={select}
+            className="base draggable innersection flex"
             onMouseEnter={() => setActionsVisible(true)}
             onMouseLeave={() => setActionsVisible(false)}>
             {/* {data.id} */}
-            <div className="columns">
-                {data.cmps.map((column, index) => {
-                    const currentPath = `${path}-${index}`;
+            {/* <div className="columns"> */}
+            {data.cmps.map((column, index) => {
+                const currentPath = `${path}-${index}`;
 
-                    return (
-                        <React.Fragment key={column.id}>
-                            <DropZone
-                                data={{
-                                    path: currentPath,
-                                    childrenCount: data.cmps.length,
-                                }}
-                                accept={[COLUMN, SIDEBAR_COLUMN]}
-                                onDrop={handleDrop}
-                                className="horizontalDrag"
-                            />
-                            {renderColumn(column, currentPath)}
-                        </React.Fragment>
-                    );
-                })}
-                <DropZone
-                    data={{
-                        path: `${path}-${data.cmps.length}`,
-                        childrenCount: data.cmps.length
-                    }}
-                    accept={[COLUMN, SIDEBAR_COLUMN]}
-                    onDrop={handleDrop}
-                    className="horizontalDrag"
-                    isLast
-                />
-                {actionsVisible && <Actions path={path} />}
-            </div>
+                return (
+                    <React.Fragment key={column.id}>
+                        <DropZone
+                            data={{
+                                path: currentPath,
+                                childrenCount: data.cmps.length,
+                            }}
+                            accept={[COLUMN, SIDEBAR_COLUMN]}
+                            onDrop={handleDrop}
+                            className="horizontalDrag"
+                        />
+                        {renderColumn(column, currentPath)}
+                    </React.Fragment>
+                );
+            })}
+            <DropZone
+                data={{
+                    path: `${path}-${data.cmps.length}`,
+                    childrenCount: data.cmps.length
+                }}
+                accept={[COLUMN, SIDEBAR_COLUMN]}
+                onDrop={handleDrop}
+                className="horizontalDrag"
+                isLast
+            />
+            {actionsVisible && <Actions path={path} />}
+            {/* </div> */}
         </div>
     );
 };

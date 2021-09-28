@@ -6,6 +6,8 @@ import { COMPONENT } from "../constants";
 import { SidebarEditComponent } from "./SidebarEditComponent";
 import { saveWap } from '../store/layout.actions'
 import { SidebarAddComponent } from "./SidebarAddComponent";
+import { Link } from "react-router-dom";
+
 
 function _SideBar({ selected, update, cmps, style, _id, saveWap }) {
     const [isEdit, setIsEdit] = useState(false);
@@ -27,8 +29,7 @@ function _SideBar({ selected, update, cmps, style, _id, saveWap }) {
                 <Tab label="Add" value="add"/>
                 <Tab label="Edit" value ="edit"/>
             </Tabs>
-            {/* <button onClick={onAddClick}>Add</button>
-            <button onClick={onEditClick}>Edit</button> */}
+            <Link to={`/publish/${_id}`}>Publish</Link>
             {!isEdit && <SidebarAddComponent />}
             {isEdit && selected && (
                 <>

@@ -1,7 +1,20 @@
-export function Nav({ style, data, isEditing }) {
+export function Nav({ style, data }) {
+    const changeNavText = (ev, idx) => { data.links[idx].txt = ev.target.innerText }
     return (
-        <ul style={style} className="nav clear-list">
-            {data.links.map(link => <li style={{padding:'10px'}} key={link.id}>{link.txt}</li>)}
-        </ul>
+        <nav style={style} className="nav clear-list">
+            {data.links.map((link, idx) => {
+                return (
+                    <p
+                        key={idx}
+                        contentEditable={true}
+                        suppressContentEditableWarning={true}
+                        onBlur={(ev) => { changeNavText(ev, idx) }}
+                        style={{ padding: '10px' }}>
+                        {link.txt}
+                    </p>
+                )
+            }
+            )}
+        </nav>
     )
 }

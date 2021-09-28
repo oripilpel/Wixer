@@ -1,9 +1,10 @@
 import React from 'react';
 
 import Logo from '../assets/img/logo.png';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 
-export class Header extends React.Component {
+
+class _Header extends React.Component {
     state = {
         isMenuOpen: false
     }
@@ -15,6 +16,7 @@ export class Header extends React.Component {
     render() {
         const { pathname } = this.props.location
         const { isMenuOpen } = this.state
+        if (pathname.includes('publish')) return <></>
         return (
             <header className={`header flex align-center justify-between ${pathname.includes("editor") ? "min" : ""}`}>
 
@@ -41,3 +43,5 @@ export class Header extends React.Component {
         )
     }
 }
+
+export const Header = withRouter(_Header);

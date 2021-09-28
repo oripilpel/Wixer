@@ -1,4 +1,4 @@
-import { COLUMN, SECTION } from "../constants"
+import { COLUMN, INNERSECTION, SECTION } from "../constants"
 import { ColumnSectionEdit } from "./ColumnSectionEdit"
 import { ImageEdit } from "./ImageEdit"
 import { TextEdit } from "./TextEdit"
@@ -8,6 +8,7 @@ export function SidebarEditComponent({ type, style, onUpdate }) {
     switch (type) {
         case COLUMN:
         case SECTION:
+        case INNERSECTION:
             return <ColumnSectionEdit style={style} onUpdate={onUpdate} />
         case 'text':
             return <TextEdit style={style} onUpdate={onUpdate} />
