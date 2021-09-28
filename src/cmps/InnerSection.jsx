@@ -1,10 +1,10 @@
 import React, { useRef, useState } from "react";
 import { useDrag } from "react-dnd";
+import { translateStyle } from "../services/util.service.js";
 import { INNERSECTION, COLUMN, SIDEBAR_COLUMN } from "../constants.js";
 import { DropZone } from "./DropZone";
 import Column from "./Column";
 import { Actions } from "./Actions.jsx";
-import { translateStyle } from '../services/wap.service';
 
 export function InnerSection({ data, components, handleDrop, path, updateComponent, onSelect, selected }) {
     const ref = useRef(null);
