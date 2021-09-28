@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
-import { removeItem, duplicateItem } from '../store/layout.actions';
+import { removeItem, duplicateItem, setSelected } from '../store/layout.actions';
 
-function _Actions({ path, removeItem, duplicateItem }) {
+function _Actions({ path, selected, removeItem, duplicateItem, setSelected }) {
     const onRemove = (ev) => {
         ev.stopPropagation();
         removeItem(path.split('-'));
+        if (selected.path.join('-') === path) setSelected(null);
     }
     const onDuplicate = (ev) => {
         ev.stopPropagation();
@@ -18,9 +19,16 @@ function _Actions({ path, removeItem, duplicateItem }) {
     )
 }
 
-const mapDispatchToProps = {
-    removeItem,
-    duplicateItem
+function mapStateToProps(state) {
+    return {
+        selected: state.layoutModule.selected,
+    }
 }
 
-export const Actions = connect(null, mapDispatchToProps)(_Actions);
+const mapDispatchToProps = {
+    removeItem,
+    duplicateItem,
+    setSelected
+}
+
+export const Actions = connect(mapStateToProps, mapDispatchToProps)(_Actions);
