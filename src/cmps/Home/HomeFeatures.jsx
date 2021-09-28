@@ -15,7 +15,7 @@ export class HomeFeatures extends React.Component {
                 <div className="feature">
                     <Fade left duration={duration} delay={delay}>
                         <div className="feature-wrapper main-layout  flex align-center wrap justify-between" >
-                            <img src={Feature3} />
+                            <img src={Feature3} alt="img1" />
                             <div className="content">
                                 <h3>Just Drag & Drop</h3>
                                 <p>
@@ -35,14 +35,14 @@ export class HomeFeatures extends React.Component {
                                     Start from scratch or choose from over designer-made templates that you can fully customize using Wixer website Editor.
                                 </p>
                             </div>
-                            <img src={Feature2} />
+                            <img src={Feature2} alt="img2" />
                         </div>
                     </Fade>
                 </div>
                 <div className="feature">
                     <Fade left duration={duration} delay={delay}>
                         <div className="feature-wrapper main-layout  flex align-center wrap justify-between" >
-                            <img src={Feature4} />
+                            <img src={Feature4} alt="img3" />
                             <div className="content">
                                 <h3>Customize your site</h3>
                                 <p>
@@ -61,7 +61,7 @@ export class HomeFeatures extends React.Component {
                                     Design and build your own high-quality websites. Whether you’re promoting your business, showcasing your work, opening your store or starting a blog—you can do it all with the Wixer website builder.
                                 </p>
                             </div>
-                            <img src={Feature1} />
+                            <img src={Feature1} alt="img4" />
                         </div>
                     </Fade>
                 </div>

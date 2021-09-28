@@ -11,7 +11,7 @@ export function HomeTop() {
                     </span>
                     <a href="#templates" >Start Build Now!</a>
                 </p>
-                <img src={Hero} />
+                <img src={Hero} alt="logo" />
             </div>
         </div>
     )

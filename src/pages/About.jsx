@@ -6,10 +6,10 @@ export function About() {
         <section className="about main-layout">
             <div className="soon">
                 <div>
-                    <img className="soon-img" src={Soon} />
+                    <img className="soon-img" src={Soon} alt=""/>
                 </div>
                 <div>
-                    <img className="build-img" src={Build} />
+                    <img className="build-img" src={Build} alt=""/>
                 </div>
             </div>
         </section>

@@ -11,9 +11,7 @@ export const reorder = (list, startIndex, endIndex) => {
 };
 
 export const remove = (arr, index) => [
-  // part of the array before the specified index
   ...arr.slice(0, index),
-  // part of the array after the specified index
   ...arr.slice(index + 1)
 ];
 
@@ -26,6 +24,7 @@ export const insert = (arr, index, newItem) => {
 };
 
 export const duplicate = (layout, path) => {
+  debugger
   let item;
   let idx;
   let newLayout = [...layout];
@@ -49,7 +48,22 @@ export const duplicate = (layout, path) => {
       idx = idx < 0 ? 0 : idx;
       newLayout[path[0]].cmps[path[1]].cmps = insert(newLayout[path[0]].cmps[path[1]].cmps, idx, item);
       break;
+    case 4:
+      item = { ...newLayout[path[0]].cmps[path[1]].cmps[path[2]].cmps[path[3]] };
+      item.id = utilService.makeId();
+      idx = path[3] - 1;
+      idx = idx < 0 ? 0 : idx;
+      newLayout[path[0]].cmps[path[1]].cmps[path[2]].cmps = insert(newLayout[path[0]].cmps[path[1]].cmps[path[2]].cmps, idx, item);
+      break;
+    default:
+      item = { ...newLayout[path[0]].cmps[path[1]].cmps[path[2]].cmps[path[3]].component.data.links[path[4]] };
+      item.id = utilService.makeId();
+      idx = path[4] - 1;
+      idx = idx < 0 ? 0 : idx;
+      newLayout[path[0]].cmps[path[1]].cmps[path[2]].cmps[path[3]].component.data.links = insert(newLayout[path[0]].cmps[path[1]].cmps[path[2]].cmps[path[3]].component.data.links, idx, item);
+      break;
   }
+
   return newLayout;
 }
 
