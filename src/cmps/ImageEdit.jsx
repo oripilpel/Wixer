@@ -16,7 +16,7 @@ export function ImageEdit({ data, style, onUpdate }) {
         onUpdate('style', newStyle);
     }
     return (
-        <>
+        <div className="image-edit">
             <ImageUpload label="Upload image" onUpload={(ev) => uploadImg(ev).then(url => onUploadImage(url))} />
             <WidthEdit name="width" value={width || 100} onChange={onChange} />
             <PaddingEdit
@@ -31,6 +31,6 @@ export function ImageEdit({ data, style, onUpdate }) {
                 marginBottom={marginBottom}
                 marginLeft={marginLeft}
                 onChange={onChange} />
-        </>
+        </div>
     )
 }
