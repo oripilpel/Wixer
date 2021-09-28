@@ -1,8 +1,11 @@
 .component {
     padding: 10px;
-    border: 1px dashed black;
     padding: 0.5rem 1rem;
     position: relative;
+
+    .editor & {
+        border: $borderEditMode;
+    }
 
     .component:focus{ 
         border-color: red;

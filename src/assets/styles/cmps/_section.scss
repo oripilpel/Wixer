@@ -6,7 +6,10 @@
     padding: 20px 0;
 
     .debug & {
-        border: 1px solid $sectionBorderColor;
+        border: 1px solid $sectionBorderColor !important;
+    }
+    .editor & {
+        border: $borderEditMode;
     }
     .columns {
         display: flex;

@@ -4,4 +4,7 @@
     .debug & {
         border: 1px solid $innerSectionBorderColor;
     }
+    .editor & {
+        border: $borderEditMode !important;
+    }
 }

@@ -13,11 +13,17 @@ function _Actions({ path, removeItem, duplicateItem }) {
         duplicateItem(path.split('-'));
     }
     return (
-        <div className="actions">
+        <div className="actions" style={{zIndex: path.length}}>
             <i className="far fa-clone" onClick={onDuplicate}></i>
             <i className="fas fa-trash-alt" onClick={onRemove}></i>
         </div>
     )
+}
+
+function mapStateToProps(state) {
+    return {
+        selected: state.layoutModule.selected,
+    }
 }
 
 const mapDispatchToProps = {
@@ -26,4 +32,4 @@ const mapDispatchToProps = {
     setSelected
 }
 
-export const Actions = connect(null, mapDispatchToProps)(_Actions);
+export const Actions = connect(mapStateToProps, mapDispatchToProps)(_Actions);

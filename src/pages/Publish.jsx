@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
-import { translateStyle } from "../services/wap.service";
 import { connect } from 'react-redux';
-
+import { translateStyle } from "../services/util.service";
 
 import { Image } from "../cmps/Image";
 import { Text } from "../cmps/publish/Text";

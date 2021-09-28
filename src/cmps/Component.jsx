@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useDrag } from "react-dnd";
+import { translateStyle } from "../services/util.service";
 import { COMPONENT } from "../constants";
-import { translateStyle } from "../services/wap.service";
 import { Image } from "./Image";
 import { Text } from "./Text";
 import { Video } from "./Video";

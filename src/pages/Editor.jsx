@@ -34,7 +34,7 @@ function _Editor(
         loadWap
     }) {
 
-    const debugMode = true;
+    const debugMode = false;
 
     useEffect(() => {
         const id = match.params.wapId;
@@ -145,23 +145,27 @@ function _Editor(
             />
         );
     };
-    const getSelected = (s) => {
-        if (!s) return;
-        const path = s.path
-        switch (path.length) {
-            case 1:
-                return { ...cmps[path[0]], path }
-            case 2:
-                return { ...cmps[path[0]].cmps[path[1]], path }
-            case 3:
-                const currCmp = cmps[path[0]].cmps[path[1]].cmps[path[2]]
-                if (currCmp.type === COLUMN) {
-                    return { ...currCmp, path }
-                } else {
-                    return { ...currCmp.component, path }
-                }
-            default:
-                return { ...cmps[path[0]].cmps[path[1]].cmps[path[2]].cmps[path[3]].component, path }
+    const getSelected = (selected) => {
+        if (!selected) return;
+        const path = selected.path
+        try {
+            switch (path.length) {
+                case 1:
+                    return { ...cmps[path[0]], path }
+                case 2:
+                    return { ...cmps[path[0]].cmps[path[1]], path }
+                case 3:
+                    const currCmp = cmps[path[0]].cmps[path[1]].cmps[path[2]]
+                    if (currCmp.type === COLUMN) {
+                        return { ...currCmp, path }
+                    } else {
+                        return { ...currCmp.component, path }
+                    }
+                default:
+                    return { ...cmps[path[0]].cmps[path[1]].cmps[path[2]].cmps[path[3]].component, path }
+            }
+        } catch (err) {
+            return null;
         }
     }
     return (

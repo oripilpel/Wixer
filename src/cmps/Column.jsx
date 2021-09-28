@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useDrag, useDrop } from "react-dnd";
-import { translateStyle } from '../services/wap.service';
+import { translateStyle } from "../services/util.service";
+
 import { COLUMN, COMPONENT, SIDEBAR_ITEM } from "../constants";
 import { DropZone } from "./DropZone";
 import Component from "./Component";

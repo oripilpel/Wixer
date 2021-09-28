@@ -49,33 +49,6 @@ export const SIDEBAR_ITEMS_BASIC = [
     id: utilService.makeId(),
     type: SIDEBAR_ITEM,
     component: {
-      type: 'input',
-      data: {
-        placeholder: 'placeholder',
-        label: 'label'
-      }
-    }
-  },
-  {
-    id: utilService.makeId(),
-    type: SIDEBAR_ITEM,
-    component: {
-      type: 'name',
-      content: 'Some name'
-    }
-  },
-  {
-    id: utilService.makeId(),
-    type: SIDEBAR_ITEM,
-    component: {
-      type: 'email',
-      content: 'Some email'
-    }
-  },
-  {
-    id: utilService.makeId(),
-    type: SIDEBAR_ITEM,
-    component: {
       type: 'video',
       data: { videoId: 'VvU27gvAK40' },
       style: {
@@ -103,7 +76,7 @@ export const SIDEBAR_ITEMS_BASIC = [
       style: {
         borderRadius: '5px',
         border: 'none',
-        height: '50px',
+        height: 50,
         minWidth: '150px',
         fontFamily: 'montserrat',
       }
@@ -111,7 +84,7 @@ export const SIDEBAR_ITEMS_BASIC = [
   },
 ]
 
-export const SIDEBAR_ITEMS_SECTIONS = [
+export const SIDEBAR_ITEMS_NAV = [
   {
     id: utilService.makeId(),
     type: SIDEBAR_ITEM,
@@ -139,7 +112,150 @@ export const SIDEBAR_ITEMS_SECTIONS = [
         ]
       }
     }
-  },
+  }
+]
+
+export const SIDEBAT_ITEMS_HEADER = [
+  {
+    id: utilService.makeId(),
+    type: SIDEBAR_SECTION,
+    name: 'Header',
+    component: {
+      type: SECTION,
+      id: utilService.makeId(),
+      cmps: [
+        {
+          type: INNERSECTION,
+          id: utilService.makeId(),
+          cmps: [
+            {
+              type: COLUMN,
+              id: utilService.makeId(),
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: {
+                      txt: 'LAWRENCE'
+                    },
+                    style: {
+                      fontSize: '27',
+                      color: '#000000',
+                      fontFamily: 'forum',
+                      letterSpacing: '0.35em'
+                    }
+                  }
+                }
+              ],
+              style: {
+                padding: 10,
+                flexGrow: 0,
+                flexDirection: 'column',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }
+            },
+            {
+              type: COLUMN,
+              id: utilService.makeId(),
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    style: {
+                      display: 'flex',
+                      fontFamily: 'raleway, san-serif',
+                      fontSize: '16'
+                    },
+                    type: 'nav',
+                    data: {
+                      links: [
+                        {
+                          id: utilService.makeId(),
+                          txt: 'Reservation'
+                        },
+                        {
+                          id: utilService.makeId(),
+                          txt: 'Menu'
+                        },
+                        {
+                          id: utilService.makeId(),
+                          txt: 'About'
+                        },
+                        {
+                          id: utilService.makeId(),
+                          txt: 'Contact'
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              style: {
+                padding: 10,
+                flexGrow: 1,
+                flexDirection: 'column',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }
+            },
+            {
+              type: COLUMN,
+              id: utilService.makeId(),
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'button',
+                    data: {
+                      txt: 'Order Online',
+                      hoverColor: '#534835'
+                    },
+                    style: {
+                      fontSize: '16',
+                      fontFamily: 'forum',
+                      color: '#eeece2',
+                      backgroundColor: '#7c6c50',
+                      border: 0,
+                      height: 50,
+                      width: 150,
+                      cursor: 'pointer'
+                    }
+                  }
+                }
+              ],
+              style: {
+                padding: 10,
+                flexGrow: 0,
+                flexDirection: 'column',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }
+            }
+          ],
+          style: {
+            flexGrow: 1,
+            maxWidth: '1060px',
+            padding: '0 25px',
+            margin: 'auto'
+          },
+        }
+      ],
+      style: {
+        backgroundColor: '#FAF8F1',
+      }
+    }
+  }
+]
+
+export const SIDEBAR_ITEMS_SECTIONS = [
   {
     id: utilService.makeId(),
     type: SIDEBAR_SECTION,
@@ -269,140 +385,6 @@ export const SIDEBAR_ITEMS_SECTIONS = [
 
       ],
       style: { backgroundColor: '#101010' }
-    }
-  },
-  {
-    id: utilService.makeId(),
-    type: SIDEBAR_SECTION,
-    name: 'Header',
-    component: {
-      type: SECTION,
-      id: utilService.makeId(),
-      cmps: [
-        {
-          type: INNERSECTION,
-          id: utilService.makeId(),
-          style: {
-            padding: 10,
-            flexGrow: 1,
-            background: 'transparent',
-            display: 'flex'
-          },
-          cmps: [
-            {
-              type: COLUMN,
-              id: utilService.makeId(),
-              cmps: [
-                {
-                  id: utilService.makeId(),
-                  type: COMPONENT,
-                  component: {
-                    type: 'text',
-                    data: {
-                      txt: 'LAWRENCE'
-                    },
-                    style: {
-                      fontSize: '27',
-                      color: '#000000',
-                      fontFamily: 'Arial',
-                      letterSpacing: '0.35em'
-                    }
-                  }
-                }
-              ],
-              style: {
-                padding: 10,
-                flexGrow: 0,
-                flexDirection: 'column',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center'
-              }
-            },
-            {
-              type: COLUMN,
-              id: utilService.makeId(),
-              cmps: [
-                {
-                  id: utilService.makeId(),
-                  type: COMPONENT,
-                  component: {
-                    style: {
-                      display: 'flex'
-                    },
-                    type: 'nav',
-                    data: {
-                      hoverColor: '#ECECEC',
-                      links: [
-                        {
-                          id: utilService.makeId(),
-                          txt: 'Reservation'
-                        },
-                        {
-                          id: utilService.makeId(),
-                          txt: 'Menu'
-                        },
-                        {
-                          id: utilService.makeId(),
-                          txt: 'About'
-                        },
-                        {
-                          id: utilService.makeId(),
-                          txt: 'Contact'
-                        }
-                      ]
-                    }
-                  }
-                }
-              ],
-              style: {
-                padding: 10,
-                flexGrow: 1,
-                flexDirection: 'column',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center'
-              }
-            },
-            {
-              type: COLUMN,
-              id: utilService.makeId(),
-              cmps: [
-                {
-                  id: utilService.makeId(),
-                  type: COMPONENT,
-                  component: {
-                    type: 'button',
-                    data: {
-                      txt: 'Order Now',
-                      hoverClr: ''
-                    },
-                    style: {
-                      backgroundColor: '#7c6c50',
-                      borderRadius: '5px',
-                      border: 'none',
-                      height: '50px',
-                      minWidth: '150px',
-                      fontFamily: 'montserrat',
-
-                    }
-                  }
-                }
-              ],
-              style: {
-                padding: 10,
-                flexGrow: 0,
-                flexDirection: 'column',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center'
-              }
-            }
-          ]
-
-        }
-      ],
-      style: { backgroundColor: '#faf8f1' }
     }
   },
   {
@@ -664,8 +646,8 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     data: { txt: 'Made With Love. Simply Delicious' },
                     style: {
                       fontSize: 48,
-                      color: 'rgb(9,15,15)',
-                      fontFamily: 'forum, serif',
+                      color: '#090f0f',
+                      fontFamily: 'forum',
                       textAlign: 'center',
                     }
                   }
@@ -680,7 +662,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                       paddingTop: 40,
                       paddingBottom: 40,
                       fontSize: 16,
-                      color: 'rgb(9,15,15)',
+                      color: '#090f0f',
                       fontFamily: 'raleway, san-serif',
                       textAlign: 'center',
                     }
@@ -697,9 +679,9 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     },
                     style: {
                       fontSize: '16',
-                      fontFamily: 'forum, serif',
-                      color: 'rgb(238, 236, 226)',
-                      backgroundColor: 'rgb(124, 108, 80)',
+                      fontFamily: 'forum',
+                      color: '#eeece2',
+                      backgroundColor: '#7c6c50',
                       border: 0,
                       padding: '25px 65px',
                       cursor: 'pointer'
@@ -732,318 +714,6 @@ export const SIDEBAR_ITEMS_SECTIONS = [
   {
     id: utilService.makeId(),
     type: SIDEBAR_SECTION,
-    name: 'footer',
-    component: {
-      type: SECTION,
-      id: utilService.makeId(),
-      style: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: 420,
-        backgroundColor: 'rgb(9,15,15)'
-      },
-      cmps: [
-        {
-          id: utilService.makeId(),
-          type: INNERSECTION,
-          style: {
-            alignSelf: 'center',
-            gap: '20px',
-            justifyContent: 'space-around',
-            width: '1060px',
-            padding: '0 25px',
-            margin: 'auto'
-          },
-          cmps: [
-            {
-              id: utilService.makeId(),
-              type: COLUMN,
-              style: {
-                alignItems: 'flex-start'
-              },
-              cmps: [
-                {
-                  id: utilService.makeId(),
-                  type: 'component',
-                  component: {
-                    type: 'text',
-                    data: { txt: 'Address' },
-                    style: {
-                      fontSize: 32,
-                      color: 'rgb(250,248,241)',
-                      fontFamily: 'forum, serif',
-                    }
-                  }
-                },
-                {
-                  id: utilService.makeId(),
-                  type: 'component',
-                  component: {
-                    type: 'text',
-                    data: { txt: '500 Terry Francois Street' },
-                    style: {
-                      fontSize: 22,
-                      color: 'rgb(250,248,241)',
-                      fontFamily: 'forum, serif',
-                    }
-                  }
-                },
-                {
-                  id: utilService.makeId(),
-                  type: 'component',
-                  component: {
-                    type: 'text',
-                    data: { txt: 'San Francisco, CA 94158' },
-                    style: {
-                      fontSize: 22,
-                      color: 'rgb(250,248,241)',
-                      fontFamily: 'forum, serif',
-                    }
-                  }
-                },
-              ]
-            },
-            {
-              id: utilService.makeId(),
-              type: COLUMN,
-              style: {
-                alignItems: 'flex-start'
-              },
-              cmps: [
-                {
-                  id: utilService.makeId(),
-                  type: 'component',
-                  component: {
-                    type: 'text',
-                    data: { txt: 'Opening Hours' },
-                    style: {
-                      fontSize: 32,
-                      color: 'rgb(250,248,241)',
-                      fontFamily: 'forum, serif',
-                    }
-                  }
-                },
-                {
-                  id: utilService.makeId(),
-                  type: 'component',
-                  component: {
-                    type: 'text',
-                    data: { txt: 'Mon - Fri: 11am - 10pm' },
-                    style: {
-                      fontSize: 22,
-                      color: 'rgb(250,248,241)',
-                      fontFamily: 'forum, serif',
-                    }
-                  }
-                },
-                {
-                  id: utilService.makeId(),
-                  type: 'component',
-                  component: {
-                    type: 'text',
-                    data: { txt: 'Sat - Sun: 11am - 12am' },
-                    style: {
-                      fontSize: 22,
-                      color: 'rgb(250,248,241)',
-                      fontFamily: 'forum, serif',
-                    }
-                  }
-                },
-              ]
-            },
-            {
-              id: utilService.makeId(),
-              type: COLUMN,
-              style: {
-                alignItems: 'flex-start'
-              },
-              cmps: [
-                {
-                  id: utilService.makeId(),
-                  type: 'component',
-                  component: {
-                    type: 'text',
-                    data: { txt: 'Contact Us' },
-                    style: {
-                      fontSize: 32,
-                      color: 'rgb(250,248,241)',
-                      fontFamily: 'forum, serif',
-                    }
-                  }
-                },
-                {
-                  id: utilService.makeId(),
-                  type: 'component',
-                  component: {
-                    type: 'text',
-                    data: { txt: 'info@mysite.com' },
-                    style: {
-                      fontSize: 22,
-                      color: 'rgb(250,248,241)',
-                      fontFamily: 'forum, serif',
-                    }
-                  }
-                },
-                {
-                  id: utilService.makeId(),
-                  type: 'component',
-                  component: {
-                    type: 'text',
-                    data: { txt: '123 456 6780' },
-                    style: {
-                      fontSize: 22,
-                      color: 'rgb(250,248,241)',
-                      fontFamily: 'forum, serif',
-                    }
-                  }
-                },
-              ]
-            }
-          ]
-        }
-      ]
-    }
-  },
-  {
-    id: utilService.makeId(),
-    type: SIDEBAR_SECTION,
-    name: 'Header',
-    component: {
-      type: SECTION,
-      id: utilService.makeId(),
-      cmps: [
-        {
-          type: INNERSECTION,
-          id: utilService.makeId(),
-          cmps: [
-            {
-              type: COLUMN,
-              id: utilService.makeId(),
-              cmps: [
-                {
-                  id: utilService.makeId(),
-                  type: COMPONENT,
-                  component: {
-                    type: 'text',
-                    data: {
-                      txt: 'LAWRENCE'
-                    },
-                    style: {
-                      fontSize: '27',
-                      color: '#000000',
-                      fontFamily: 'forum, serif',
-                      letterSpacing: '0.35em'
-                    }
-                  }
-                }
-              ],
-              style: {
-                padding: 10,
-                flexGrow: 0,
-                flexDirection: 'column',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center'
-              }
-            },
-            {
-              type: COLUMN,
-              id: utilService.makeId(),
-              cmps: [
-                {
-                  id: utilService.makeId(),
-                  type: COMPONENT,
-                  component: {
-                    style: {
-                      display: 'flex',
-                      fontFamily: 'raleway, san-serif',
-                      fontSize: '16'
-                    },
-                    type: 'nav',
-                    data: {
-                      links: [
-                        {
-                          id: utilService.makeId(),
-                          txt: 'Reservation'
-                        },
-                        {
-                          id: utilService.makeId(),
-                          txt: 'Menu'
-                        },
-                        {
-                          id: utilService.makeId(),
-                          txt: 'About'
-                        },
-                        {
-                          id: utilService.makeId(),
-                          txt: 'Contact'
-                        }
-                      ]
-                    }
-                  }
-                }
-              ],
-              style: {
-                padding: 10,
-                flexGrow: 1,
-                flexDirection: 'column',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center'
-              }
-            },
-            {
-              type: COLUMN,
-              id: utilService.makeId(),
-              cmps: [
-                {
-                  id: utilService.makeId(),
-                  type: COMPONENT,
-                  component: {
-                    type: 'button',
-                    data: {
-                      txt: 'Order Online',
-                      hoverColor: '#534835'
-                    },
-                    style: {
-                      fontSize: '16',
-                      fontFamily: 'forum, serif',
-                      color: '#eee2ec',
-                      backgroundColor: '#7c6c50',
-                      border: 0,
-                      height: 50,
-                      width: 150,
-                      cursor: 'pointer'
-                    }
-                  }
-                }
-              ],
-              style: {
-                padding: 10,
-                flexGrow: 0,
-                flexDirection: 'column',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center'
-              }
-            }
-          ],
-          style: {
-            flexGrow: 1,
-            maxWidth: '1060px',
-            padding: '0 25px',
-            margin: 'auto'
-          },
-        }
-      ],
-      style: {
-        backgroundColor: '#FAF8F1',
-      }
-    }
-  },
-  {
-    id: utilService.makeId(),
-    type: SIDEBAR_SECTION,
     name: 'berco',
     component: {
       id: utilService.makeId(),
@@ -1071,7 +741,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
               style: {
                 position: 'relative',
                 alignItems: 'center',
-                backgroundColor: 'rgb(250, 248, 241)',
+                backgroundColor: '#faf8f1',
                 maxWidth: '600px',
                 margin: '60px 0',
                 padding: '50px 60px',
@@ -1088,7 +758,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     style: {
                       fontSize: 48,
                       color: '#000000',
-                      fontFamily: 'forum, serif',
+                      fontFamily: 'forum',
                       textAlign: 'center',
                       maxWidth: '15ch'
                     }
@@ -1121,9 +791,9 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     },
                     style: {
                       fontSize: '16',
-                      fontFamily: 'forum, serif',
-                      color: 'rgb(238, 236, 226)',
-                      backgroundColor: 'rgb(124, 108, 80)',
+                      fontFamily: 'forum',
+                      color: '#eeece2',
+                      backgroundColor: '#7c6c50',
                       border: 0,
                       padding: '25px 65px',
                       cursor: 'pointer'
@@ -1139,6 +809,183 @@ export const SIDEBAR_ITEMS_SECTIONS = [
   }
 ];
 
+export const SIDEBAR_ITEMS_FOOTER = [
+  {
+    id: utilService.makeId(),
+    type: SIDEBAR_SECTION,
+    name: 'footer',
+    component: {
+      type: SECTION,
+      id: utilService.makeId(),
+      style: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: 420,
+        backgroundColor: '#090f0f'
+      },
+      cmps: [
+        {
+          id: utilService.makeId(),
+          type: INNERSECTION,
+          style: {
+            alignSelf: 'center',
+            gap: '20px',
+            justifyContent: 'space-around',
+            width: '1060px',
+            padding: '0 25px',
+            margin: 'auto'
+          },
+          cmps: [
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                alignItems: 'flex-start'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: 'component',
+                  component: {
+                    type: 'text',
+                    data: { txt: 'Address' },
+                    style: {
+                      fontSize: 32,
+                      color: '#faf8f1',
+                      fontFamily: 'forum',
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: 'component',
+                  component: {
+                    type: 'text',
+                    data: { txt: '500 Terry Francois Street' },
+                    style: {
+                      fontSize: 22,
+                      color: '#faf8f1',
+                      fontFamily: 'forum',
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: 'component',
+                  component: {
+                    type: 'text',
+                    data: { txt: 'San Francisco, CA 94158' },
+                    style: {
+                      fontSize: 22,
+                      color: '#faf8f1',
+                      fontFamily: 'forum',
+                    }
+                  }
+                },
+              ]
+            },
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                alignItems: 'flex-start'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: 'component',
+                  component: {
+                    type: 'text',
+                    data: { txt: 'Opening Hours' },
+                    style: {
+                      fontSize: 32,
+                      color: '#faf8f1',
+                      fontFamily: 'forum',
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: 'component',
+                  component: {
+                    type: 'text',
+                    data: { txt: 'Mon - Fri: 11am - 10pm' },
+                    style: {
+                      fontSize: 22,
+                      color: '#faf8f1',
+                      fontFamily: 'forum',
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: 'component',
+                  component: {
+                    type: 'text',
+                    data: { txt: 'Sat - Sun: 11am - 12am' },
+                    style: {
+                      fontSize: 22,
+                      color: '#faf8f1',
+                      fontFamily: 'forum',
+                    }
+                  }
+                },
+              ]
+            },
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                alignItems: 'flex-start'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: 'component',
+                  component: {
+                    type: 'text',
+                    data: { txt: 'Contact Us' },
+                    style: {
+                      fontSize: 32,
+                      color: '#faf8f1',
+                      fontFamily: 'forum',
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: 'component',
+                  component: {
+                    type: 'text',
+                    data: { txt: 'info@mysite.com' },
+                    style: {
+                      fontSize: 22,
+                      color: '#faf8f1',
+                      fontFamily: 'forum',
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: 'component',
+                  component: {
+                    type: 'text',
+                    data: { txt: '123 456 6780' },
+                    style: {
+                      fontSize: 22,
+                      color: '#faf8f1',
+                      fontFamily: 'forum',
+                    }
+                  }
+                },
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+]
 
 // const template = {
 //   type: SIDEBAR_SECTION,
