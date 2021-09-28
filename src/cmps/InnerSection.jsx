@@ -9,7 +9,6 @@ import { translateStyle } from '../services/wap.service';
 export function InnerSection({ data, components, handleDrop, path, updateComponent, onSelect, selected }) {
     const ref = useRef(null);
 
-    console.log('data', data)
 
     const [actionsVisible, setActionsVisible] = useState(false);
 
