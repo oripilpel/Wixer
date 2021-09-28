@@ -1,7 +1,65 @@
 .side-bar {
-    width: 200px;
-    padding: 10px;
+    position: relative;
+    height: calc(100vh - 30px);
+    width: 220px;
     border-right: 1px solid #111;
-    height: calc(100vh - 44px);
-    background: #e1e1e1;
+    background: #e6e9ec;
+    .tabs {
+        margin-block-end: 20px;
+    }
+    .tab {
+        background-color: #293241;
+        color: whitesmoke;
+        flex-grow: 1;
+    }
+    .MuiTabs-indicator {
+        background-color: unset;
+    }
+    .MuiAccordion-root {
+        background-color: #e6e9ec;
+    }
+
+    .Mui-selected {
+        background-color: #e6e9ec;
+        color: #293241;
+    }
+    .items {
+        height: calc(100vh - 162px);
+        overflow-y: auto;
+        overflow-x: clip;
+        .empty {
+            text-align: center;
+        }
+    }
+    .save-pub {
+        display: flex;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        gap: 2px;
+        background-color: #444e60;
+        div {
+            flex: 1;
+        }
+        .save,
+        .pub {
+            color: #e6e9ec;
+            background-color: #293241;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: 0.4s;
+            &:hover {
+                background-color: #444e60;
+            }
+        }
+        .pub {
+            a {
+                color: #e6e9ec;
+                text-decoration: none;
+            }
+        }
+    }
 }

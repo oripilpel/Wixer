@@ -34,9 +34,9 @@ export function TemplateList({ numberOfTemplates, moreTemplates }) {
                                 loading="lazy"
                             />
                             <div className="show-all">
-                                <div className="actions">
-                                    <a href={`/templates`}>{`Explore More Templates`}</a>
-                                </div>
+                                <a href={`/templates`}>
+                                    {`Explore More Templates`}
+                                </a>
                             </div>
                         </ImageListItem >
                     )}
