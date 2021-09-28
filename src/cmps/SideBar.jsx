@@ -1,24 +1,21 @@
 import { useState, useEffect } from "react";
 import { connect } from 'react-redux';
 import { StyledEngineProvider } from "@mui/styled-engine";
+import { Tab, Tabs } from "@mui/material";
 import { COMPONENT } from "../constants";
 import { SidebarEditComponent } from "./SidebarEditComponent";
 import { saveWap } from '../store/layout.actions'
 import { SidebarAddComponent } from "./SidebarAddComponent";
 import { Link } from "react-router-dom";
 
-
 function _SideBar({ selected, update, cmps, style, _id, saveWap }) {
     const [isEdit, setIsEdit] = useState(false);
     useEffect(() => {
         if (selected) setIsEdit(true);
     }, [selected]);
-    const onAddClick = () => {
-        setIsEdit(false);
-    }
-    const onEditClick = () => {
-        setIsEdit(true);
-    }
+    const handleChange = (ev, value) => {
+        setIsEdit(value === 'add'? false : true);
+      };
     const onUpdate = (field, data) => {
         update(selected, field, data);
     }
@@ -27,12 +24,10 @@ function _SideBar({ selected, update, cmps, style, _id, saveWap }) {
     }
     return (
         <div className="side-bar">
-            {/* <Tabs value={value} onChange={handleChange} aria-label="disabled tabs example">
-                <Tab label="Add" />
-                <Tab label="Edit" />
-            </Tabs> */}
-            <button onClick={onAddClick}>Add</button>
-            <button onClick={onEditClick}>Edit</button>
+            <Tabs value={isEdit ? 'edit' : 'add'} onChange={handleChange} aria-label="disabled tabs example">
+                <Tab label="Add" value="add"/>
+                <Tab label="Edit" value ="edit"/>
+            </Tabs>
             <Link to={`/publish/${_id}`}>Publish</Link>
             {!isEdit && <SidebarAddComponent />}
             {isEdit && selected && (

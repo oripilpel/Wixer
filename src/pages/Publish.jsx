@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
-import { translateStyle } from "../services/wap.service";
 import { connect } from 'react-redux';
-
+import { translateStyle } from "../services/util.service";
 
 import { Image } from "../cmps/Image";
 import { Text } from "../cmps/publish/Text";
@@ -39,14 +38,13 @@ function _Publish({ match, cmps, loadWap }) {
         }
     }
 
-console.log(cmps);
     return (
         cmps.map((sec, secIdx) => {
             return <div key={secIdx} className="section" style={{ ...sec.style, display: 'flex', flexDirection: 'column' }}>
-                {sec.cmps.map((colOrIS, colOrISIdx) => <div key={colOrISIdx} className={colOrIS.cmps[0].cmps ? 'inner-section flex' : 'col'} style={colOrIS.style}>
-                    {colOrIS.cmps.map((colOrCmp, colOrCmpIdx) => <div key={colOrCmpIdx} className={colOrCmp.cmps ? 'col flex direction-column' : 'cmp'} style={colOrCmp.style}>
-                        {colOrCmp.cmps && colOrCmp.cmps.map((cmp, cmpIdx) => <div key={cmpIdx}  className="cmp">{renderer(cmp)}</div>)}
-                        <div className="cmp">{renderer(colOrIS)}</div>
+                {sec.cmps.map(colOrIS => <div key={colOrIS.id} className={colOrIS.cmps[0].cmps ? 'innersection flex' : 'column'} style={colOrIS.style}>
+                    {colOrIS.cmps.map(colOrCmp => <div key={colOrCmp.id} className={colOrCmp.cmps ? 'column flex direction-column' : 'component'} style={colOrCmp.style}>
+                        {colOrCmp.cmps && colOrCmp.cmps.map(cmp => <div key={cmp.id} className="component">{renderer(cmp)}</div>)}
+                        {!colOrCmp.cmps && <div className="component">{renderer(colOrIS)}</div>}
                     </div>)
                     }
                 </div>)}

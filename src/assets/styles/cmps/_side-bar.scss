@@ -1,8 +1,7 @@
 .side-bar {
-    flex: 0 0 1;
-    min-width: 200px;
+    width: 200px;
     padding: 10px;
     border-right: 1px solid #111;
-    height: 100vh;
+    height: calc(100vh - 44px);
     background: #e1e1e1;
 }

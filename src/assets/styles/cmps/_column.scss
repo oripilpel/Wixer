@@ -3,6 +3,10 @@
     padding: 10px;
     position: relative;
 
+    .editor & {
+        border: $borderEditMode;
+    }
+
     .debug & {
         border: 1px solid $columnBorderColor;
     }
