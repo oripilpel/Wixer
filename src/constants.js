@@ -49,33 +49,6 @@ export const SIDEBAR_ITEMS_BASIC = [
     id: utilService.makeId(),
     type: SIDEBAR_ITEM,
     component: {
-      type: 'input',
-      data: {
-        placeholder: 'placeholder',
-        label: 'label'
-      }
-    }
-  },
-  {
-    id: utilService.makeId(),
-    type: SIDEBAR_ITEM,
-    component: {
-      type: 'name',
-      content: 'Some name'
-    }
-  },
-  {
-    id: utilService.makeId(),
-    type: SIDEBAR_ITEM,
-    component: {
-      type: 'email',
-      content: 'Some email'
-    }
-  },
-  {
-    id: utilService.makeId(),
-    type: SIDEBAR_ITEM,
-    component: {
       type: 'video',
       data: { videoId: 'VvU27gvAK40' },
       style: {
@@ -111,7 +84,7 @@ export const SIDEBAR_ITEMS_BASIC = [
   },
 ]
 
-export const SIDEBAR_ITEMS_SECTIONS = [
+export const SIDEBAR_ITEMS_NAV = [
   {
     id: utilService.makeId(),
     type: SIDEBAR_ITEM,
@@ -139,7 +112,150 @@ export const SIDEBAR_ITEMS_SECTIONS = [
         ]
       }
     }
-  },
+  }
+]
+
+export const SIDEBAT_ITEMS_HEADER = [
+  {
+    id: utilService.makeId(),
+    type: SIDEBAR_SECTION,
+    name: 'Header',
+    component: {
+      type: SECTION,
+      id: utilService.makeId(),
+      cmps: [
+        {
+          type: INNERSECTION,
+          id: utilService.makeId(),
+          cmps: [
+            {
+              type: COLUMN,
+              id: utilService.makeId(),
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: {
+                      txt: 'LAWRENCE'
+                    },
+                    style: {
+                      fontSize: '27',
+                      color: '#000000',
+                      fontFamily: 'forum',
+                      letterSpacing: '0.35em'
+                    }
+                  }
+                }
+              ],
+              style: {
+                padding: 10,
+                flexGrow: 0,
+                flexDirection: 'column',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }
+            },
+            {
+              type: COLUMN,
+              id: utilService.makeId(),
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    style: {
+                      display: 'flex',
+                      fontFamily: 'raleway, san-serif',
+                      fontSize: '16'
+                    },
+                    type: 'nav',
+                    data: {
+                      links: [
+                        {
+                          id: utilService.makeId(),
+                          txt: 'Reservation'
+                        },
+                        {
+                          id: utilService.makeId(),
+                          txt: 'Menu'
+                        },
+                        {
+                          id: utilService.makeId(),
+                          txt: 'About'
+                        },
+                        {
+                          id: utilService.makeId(),
+                          txt: 'Contact'
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              style: {
+                padding: 10,
+                flexGrow: 1,
+                flexDirection: 'column',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }
+            },
+            {
+              type: COLUMN,
+              id: utilService.makeId(),
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'button',
+                    data: {
+                      txt: 'Order Online',
+                      hoverColor: '#534835'
+                    },
+                    style: {
+                      fontSize: '16',
+                      fontFamily: 'forum',
+                      color: '#eeece2',
+                      backgroundColor: '#7c6c50',
+                      border: 0,
+                      height: 50,
+                      width: 150,
+                      cursor: 'pointer'
+                    }
+                  }
+                }
+              ],
+              style: {
+                padding: 10,
+                flexGrow: 0,
+                flexDirection: 'column',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }
+            }
+          ],
+          style: {
+            flexGrow: 1,
+            maxWidth: '1060px',
+            padding: '0 25px',
+            margin: 'auto'
+          },
+        }
+      ],
+      style: {
+        backgroundColor: '#FAF8F1',
+      }
+    }
+  }
+]
+
+export const SIDEBAR_ITEMS_SECTIONS = [
   {
     id: utilService.makeId(),
     type: SIDEBAR_SECTION,
@@ -269,140 +385,6 @@ export const SIDEBAR_ITEMS_SECTIONS = [
 
       ],
       style: { backgroundColor: '#101010' }
-    }
-  },
-  {
-    id: utilService.makeId(),
-    type: SIDEBAR_SECTION,
-    name: 'Header',
-    component: {
-      type: SECTION,
-      id: utilService.makeId(),
-      cmps: [
-        {
-          type: INNERSECTION,
-          id: utilService.makeId(),
-          style: {
-            padding: 10,
-            flexGrow: 1,
-            background: 'transparent',
-            display: 'flex'
-          },
-          cmps: [
-            {
-              type: COLUMN,
-              id: utilService.makeId(),
-              cmps: [
-                {
-                  id: utilService.makeId(),
-                  type: COMPONENT,
-                  component: {
-                    type: 'text',
-                    data: {
-                      txt: 'LAWRENCE'
-                    },
-                    style: {
-                      fontSize: '27',
-                      color: '#000000',
-                      fontFamily: 'Arial',
-                      letterSpacing: '0.35em'
-                    }
-                  }
-                }
-              ],
-              style: {
-                padding: 10,
-                flexGrow: 0,
-                flexDirection: 'column',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center'
-              }
-            },
-            {
-              type: COLUMN,
-              id: utilService.makeId(),
-              cmps: [
-                {
-                  id: utilService.makeId(),
-                  type: COMPONENT,
-                  component: {
-                    style: {
-                      display: 'flex'
-                    },
-                    type: 'nav',
-                    data: {
-                      hoverColor: '#ECECEC',
-                      links: [
-                        {
-                          id: utilService.makeId(),
-                          txt: 'Reservation'
-                        },
-                        {
-                          id: utilService.makeId(),
-                          txt: 'Menu'
-                        },
-                        {
-                          id: utilService.makeId(),
-                          txt: 'About'
-                        },
-                        {
-                          id: utilService.makeId(),
-                          txt: 'Contact'
-                        }
-                      ]
-                    }
-                  }
-                }
-              ],
-              style: {
-                padding: 10,
-                flexGrow: 1,
-                flexDirection: 'column',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center'
-              }
-            },
-            {
-              type: COLUMN,
-              id: utilService.makeId(),
-              cmps: [
-                {
-                  id: utilService.makeId(),
-                  type: COMPONENT,
-                  component: {
-                    type: 'button',
-                    data: {
-                      txt: 'Order Now',
-                      hoverClr: ''
-                    },
-                    style: {
-                      backgroundColor: '#7c6c50',
-                      borderRadius: '5px',
-                      border: 'none',
-                      height: 50,
-                      minWidth: '150px',
-                      fontFamily: 'montserrat',
-
-                    }
-                  }
-                }
-              ],
-              style: {
-                padding: 10,
-                flexGrow: 0,
-                flexDirection: 'column',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center'
-              }
-            }
-          ]
-
-        }
-      ],
-      style: { backgroundColor: '#faf8f1' }
     }
   },
   {
@@ -732,6 +714,105 @@ export const SIDEBAR_ITEMS_SECTIONS = [
   {
     id: utilService.makeId(),
     type: SIDEBAR_SECTION,
+    name: 'berco',
+    component: {
+      id: utilService.makeId(),
+      type: SECTION,
+      style: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundImage: 'url(https://static.wixstatic.com/media/46dc18_129ba04ade8a4cf3962ccb05b35e57c7~mv2.jpg/v1/fill/w_980,h_880,al_c,q_85,usm_0.66_1.00_0.01/46dc18_129ba04ade8a4cf3962ccb05b35e57c7~mv2.webp)',
+        backgroundAttachment: 'fixed',
+        backgroundPosition: 'center',
+      },
+      cmps: [
+        {
+          id: utilService.makeId(),
+          type: INNERSECTION,
+          style: {
+            maxWidth: '1060px',
+            padding: '0 25px',
+            margin: 'auto'
+          },
+          cmps: [
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                position: 'relative',
+                alignItems: 'center',
+                backgroundColor: '#faf8f1',
+                maxWidth: '600px',
+                margin: '60px 0',
+                padding: '50px 60px',
+                display: 'flex',
+                gap: '25px'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: 'A Fresh and Seasonal Cuisine' },
+                    style: {
+                      fontSize: 48,
+                      color: '#000000',
+                      fontFamily: 'forum',
+                      textAlign: 'center',
+                      maxWidth: '15ch'
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: `I'm a paragraph. Click here to add your own text and edit me. I’m a great place for you to tell a story and let your users know a little more about you.` },
+                    style: {
+                      maxWidth: '420px',
+                      fontSize: 16,
+                      color: '#000000',
+                      fontFamily: 'raleway, san-serif',
+                      textAlign: 'center',
+                      lineHeight: '1.5em'
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'button',
+                    data: {
+                      txt: 'About Lawrence',
+                      hoverColor: '#534835'
+                    },
+                    style: {
+                      fontSize: '16',
+                      fontFamily: 'forum',
+                      color: '#eeece2',
+                      backgroundColor: '#7c6c50',
+                      border: 0,
+                      padding: '25px 65px',
+                      cursor: 'pointer'
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+];
+
+export const SIDEBAR_ITEMS_FOOTER = [
+  {
+    id: utilService.makeId(),
+    type: SIDEBAR_SECTION,
     name: 'footer',
     component: {
       type: SECTION,
@@ -903,242 +984,8 @@ export const SIDEBAR_ITEMS_SECTIONS = [
         }
       ]
     }
-  },
-  {
-    id: utilService.makeId(),
-    type: SIDEBAR_SECTION,
-    name: 'Header',
-    component: {
-      type: SECTION,
-      id: utilService.makeId(),
-      cmps: [
-        {
-          type: INNERSECTION,
-          id: utilService.makeId(),
-          cmps: [
-            {
-              type: COLUMN,
-              id: utilService.makeId(),
-              cmps: [
-                {
-                  id: utilService.makeId(),
-                  type: COMPONENT,
-                  component: {
-                    type: 'text',
-                    data: {
-                      txt: 'LAWRENCE'
-                    },
-                    style: {
-                      fontSize: '27',
-                      color: '#000000',
-                      fontFamily: 'forum',
-                      letterSpacing: '0.35em'
-                    }
-                  }
-                }
-              ],
-              style: {
-                padding: 10,
-                flexGrow: 0,
-                flexDirection: 'column',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center'
-              }
-            },
-            {
-              type: COLUMN,
-              id: utilService.makeId(),
-              cmps: [
-                {
-                  id: utilService.makeId(),
-                  type: COMPONENT,
-                  component: {
-                    style: {
-                      display: 'flex',
-                      fontFamily: 'raleway, san-serif',
-                      fontSize: '16'
-                    },
-                    type: 'nav',
-                    data: {
-                      links: [
-                        {
-                          id: utilService.makeId(),
-                          txt: 'Reservation'
-                        },
-                        {
-                          id: utilService.makeId(),
-                          txt: 'Menu'
-                        },
-                        {
-                          id: utilService.makeId(),
-                          txt: 'About'
-                        },
-                        {
-                          id: utilService.makeId(),
-                          txt: 'Contact'
-                        }
-                      ]
-                    }
-                  }
-                }
-              ],
-              style: {
-                padding: 10,
-                flexGrow: 1,
-                flexDirection: 'column',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center'
-              }
-            },
-            {
-              type: COLUMN,
-              id: utilService.makeId(),
-              cmps: [
-                {
-                  id: utilService.makeId(),
-                  type: COMPONENT,
-                  component: {
-                    type: 'button',
-                    data: {
-                      txt: 'Order Online',
-                      hoverColor: '#534835'
-                    },
-                    style: {
-                      fontSize: '16',
-                      fontFamily: 'forum',
-                      color: '#eeece2',
-                      backgroundColor: '#7c6c50',
-                      border: 0,
-                      height: 50,
-                      width: 150,
-                      cursor: 'pointer'
-                    }
-                  }
-                }
-              ],
-              style: {
-                padding: 10,
-                flexGrow: 0,
-                flexDirection: 'column',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center'
-              }
-            }
-          ],
-          style: {
-            flexGrow: 1,
-            maxWidth: '1060px',
-            padding: '0 25px',
-            margin: 'auto'
-          },
-        }
-      ],
-      style: {
-        backgroundColor: '#FAF8F1',
-      }
-    }
-  },
-  {
-    id: utilService.makeId(),
-    type: SIDEBAR_SECTION,
-    name: 'berco',
-    component: {
-      id: utilService.makeId(),
-      type: SECTION,
-      style: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundImage: 'url(https://static.wixstatic.com/media/46dc18_129ba04ade8a4cf3962ccb05b35e57c7~mv2.jpg/v1/fill/w_980,h_880,al_c,q_85,usm_0.66_1.00_0.01/46dc18_129ba04ade8a4cf3962ccb05b35e57c7~mv2.webp)',
-        backgroundAttachment: 'fixed',
-        backgroundPosition: 'center',
-      },
-      cmps: [
-        {
-          id: utilService.makeId(),
-          type: INNERSECTION,
-          style: {
-            maxWidth: '1060px',
-            padding: '0 25px',
-            margin: 'auto'
-          },
-          cmps: [
-            {
-              id: utilService.makeId(),
-              type: COLUMN,
-              style: {
-                position: 'relative',
-                alignItems: 'center',
-                backgroundColor: '#faf8f1',
-                maxWidth: '600px',
-                margin: '60px 0',
-                padding: '50px 60px',
-                display: 'flex',
-                gap: '25px'
-              },
-              cmps: [
-                {
-                  id: utilService.makeId(),
-                  type: COMPONENT,
-                  component: {
-                    type: 'text',
-                    data: { txt: 'A Fresh and Seasonal Cuisine' },
-                    style: {
-                      fontSize: 48,
-                      color: '#000000',
-                      fontFamily: 'forum',
-                      textAlign: 'center',
-                      maxWidth: '15ch'
-                    }
-                  }
-                },
-                {
-                  id: utilService.makeId(),
-                  type: COMPONENT,
-                  component: {
-                    type: 'text',
-                    data: { txt: `I'm a paragraph. Click here to add your own text and edit me. I’m a great place for you to tell a story and let your users know a little more about you.` },
-                    style: {
-                      maxWidth: '420px',
-                      fontSize: 16,
-                      color: '#000000',
-                      fontFamily: 'raleway, san-serif',
-                      textAlign: 'center',
-                      lineHeight: '1.5em'
-                    }
-                  }
-                },
-                {
-                  id: utilService.makeId(),
-                  type: COMPONENT,
-                  component: {
-                    type: 'button',
-                    data: {
-                      txt: 'About Lawrence',
-                      hoverColor: '#534835'
-                    },
-                    style: {
-                      fontSize: '16',
-                      fontFamily: 'forum',
-                      color: '#eeece2',
-                      backgroundColor: '#7c6c50',
-                      border: 0,
-                      padding: '25px 65px',
-                      cursor: 'pointer'
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    }
   }
-];
-
+]
 
 // const template = {
 //   type: SIDEBAR_SECTION,
