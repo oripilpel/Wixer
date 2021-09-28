@@ -103,7 +103,7 @@ export const SIDEBAR_ITEMS_BASIC = [
       style: {
         borderRadius: '5px',
         border: 'none',
-        height: '50px',
+        height: 50,
         minWidth: '150px',
         fontFamily: 'montserrat',
       }
@@ -381,7 +381,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                       backgroundColor: '#7c6c50',
                       borderRadius: '5px',
                       border: 'none',
-                      height: '50px',
+                      height: 50,
                       minWidth: '150px',
                       fontFamily: 'montserrat',
 
@@ -664,8 +664,8 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     data: { txt: 'Made With Love. Simply Delicious' },
                     style: {
                       fontSize: 48,
-                      color: 'rgb(9,15,15)',
-                      fontFamily: 'forum, serif',
+                      color: '#090f0f',
+                      fontFamily: 'forum',
                       textAlign: 'center',
                     }
                   }
@@ -680,7 +680,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                       paddingTop: 40,
                       paddingBottom: 40,
                       fontSize: 16,
-                      color: 'rgb(9,15,15)',
+                      color: '#090f0f',
                       fontFamily: 'raleway, san-serif',
                       textAlign: 'center',
                     }
@@ -697,9 +697,9 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     },
                     style: {
                       fontSize: '16',
-                      fontFamily: 'forum, serif',
-                      color: 'rgb(238, 236, 226)',
-                      backgroundColor: 'rgb(124, 108, 80)',
+                      fontFamily: 'forum',
+                      color: '#eeece2',
+                      backgroundColor: '#7c6c50',
                       border: 0,
                       padding: '25px 65px',
                       cursor: 'pointer'
@@ -740,7 +740,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
         justifyContent: 'center',
         alignItems: 'center',
         height: 420,
-        backgroundColor: 'rgb(9,15,15)'
+        backgroundColor: '#090f0f'
       },
       cmps: [
         {
@@ -770,8 +770,8 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     data: { txt: 'Address' },
                     style: {
                       fontSize: 32,
-                      color: 'rgb(250,248,241)',
-                      fontFamily: 'forum, serif',
+                      color: '#faf8f1',
+                      fontFamily: 'forum',
                     }
                   }
                 },
@@ -783,8 +783,8 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     data: { txt: '500 Terry Francois Street' },
                     style: {
                       fontSize: 22,
-                      color: 'rgb(250,248,241)',
-                      fontFamily: 'forum, serif',
+                      color: '#faf8f1',
+                      fontFamily: 'forum',
                     }
                   }
                 },
@@ -796,8 +796,8 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     data: { txt: 'San Francisco, CA 94158' },
                     style: {
                       fontSize: 22,
-                      color: 'rgb(250,248,241)',
-                      fontFamily: 'forum, serif',
+                      color: '#faf8f1',
+                      fontFamily: 'forum',
                     }
                   }
                 },
@@ -818,8 +818,8 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     data: { txt: 'Opening Hours' },
                     style: {
                       fontSize: 32,
-                      color: 'rgb(250,248,241)',
-                      fontFamily: 'forum, serif',
+                      color: '#faf8f1',
+                      fontFamily: 'forum',
                     }
                   }
                 },
@@ -831,8 +831,8 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     data: { txt: 'Mon - Fri: 11am - 10pm' },
                     style: {
                       fontSize: 22,
-                      color: 'rgb(250,248,241)',
-                      fontFamily: 'forum, serif',
+                      color: '#faf8f1',
+                      fontFamily: 'forum',
                     }
                   }
                 },
@@ -844,8 +844,8 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     data: { txt: 'Sat - Sun: 11am - 12am' },
                     style: {
                       fontSize: 22,
-                      color: 'rgb(250,248,241)',
-                      fontFamily: 'forum, serif',
+                      color: '#faf8f1',
+                      fontFamily: 'forum',
                     }
                   }
                 },
@@ -866,8 +866,8 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     data: { txt: 'Contact Us' },
                     style: {
                       fontSize: 32,
-                      color: 'rgb(250,248,241)',
-                      fontFamily: 'forum, serif',
+                      color: '#faf8f1',
+                      fontFamily: 'forum',
                     }
                   }
                 },
@@ -879,8 +879,8 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     data: { txt: 'info@mysite.com' },
                     style: {
                       fontSize: 22,
-                      color: 'rgb(250,248,241)',
-                      fontFamily: 'forum, serif',
+                      color: '#faf8f1',
+                      fontFamily: 'forum',
                     }
                   }
                 },
@@ -892,8 +892,8 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     data: { txt: '123 456 6780' },
                     style: {
                       fontSize: 22,
-                      color: 'rgb(250,248,241)',
-                      fontFamily: 'forum, serif',
+                      color: '#faf8f1',
+                      fontFamily: 'forum',
                     }
                   }
                 },
@@ -931,7 +931,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     style: {
                       fontSize: '27',
                       color: '#000000',
-                      fontFamily: 'forum, serif',
+                      fontFamily: 'forum',
                       letterSpacing: '0.35em'
                     }
                   }
@@ -1007,9 +1007,9 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     },
                     style: {
                       fontSize: '16',
-                      fontFamily: 'forum, serif',
-                      color: 'rgb(238, 236, 226)',
-                      backgroundColor: 'rgb(124, 108, 80)',
+                      fontFamily: 'forum',
+                      color: '#eeece2',
+                      backgroundColor: '#7c6c50',
                       border: 0,
                       height: 50,
                       width: 150,
@@ -1071,7 +1071,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
               style: {
                 position: 'relative',
                 alignItems: 'center',
-                backgroundColor: 'rgb(250, 248, 241)',
+                backgroundColor: '#faf8f1',
                 maxWidth: '600px',
                 margin: '60px 0',
                 padding: '50px 60px',
@@ -1088,7 +1088,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     style: {
                       fontSize: 48,
                       color: '#000000',
-                      fontFamily: 'forum, serif',
+                      fontFamily: 'forum',
                       textAlign: 'center',
                       maxWidth: '15ch'
                     }
@@ -1121,9 +1121,9 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     },
                     style: {
                       fontSize: '16',
-                      fontFamily: 'forum, serif',
-                      color: 'rgb(238, 236, 226)',
-                      backgroundColor: 'rgb(124, 108, 80)',
+                      fontFamily: 'forum',
+                      color: '#eeece2',
+                      backgroundColor: '#7c6c50',
                       border: 0,
                       padding: '25px 65px',
                       cursor: 'pointer'
