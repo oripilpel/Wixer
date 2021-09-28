@@ -10,7 +10,7 @@ const gTemplates = [
         title: 'Start from scratch',
     },
     {
-        json: 'kO1k6',
+        json: 'O0QHg',
         img: Restaurant,
         title: 'Restaurant',
     },

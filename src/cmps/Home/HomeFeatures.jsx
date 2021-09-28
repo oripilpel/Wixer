@@ -9,7 +9,7 @@ import Feature4 from '../../assets/img/feature4.png'
 export class HomeFeatures extends React.Component {
     render() {
         const duration = 2000
-        const delay = 300
+        const delay = 0
         return (
             <div className="home-features">
                 <div className="feature">

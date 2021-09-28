@@ -96,7 +96,6 @@ export function layoutReducer(state = initialState, action) {
         case 'MOVE_COLUMN':
             return { ...state }
         case 'UPDATE_COMPONENT':
-            // debugger
             const { comp, field, value } = action;
             const newLayout = JSON.parse(JSON.stringify(state))
             const { path } = comp;

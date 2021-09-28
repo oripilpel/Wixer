@@ -3,8 +3,6 @@ import { useState } from "react";
 export function Button({ style, data }) {
     const [color, setColor] = useState([style.backgroundColor])
 
-    console.log(color);
-
     return (
         <button className="btn" onMouseEnter={() => { setColor(data.hoverColor) }}
             onMouseLeave={() => { setColor(style.backgroundColor) }}

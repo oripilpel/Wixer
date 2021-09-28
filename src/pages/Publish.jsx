@@ -39,13 +39,13 @@ function _Publish({ match, cmps, loadWap }) {
         }
     }
 
-
+console.log(cmps);
     return (
-        cmps.map(sec => {
-            return <div className="section" style={{ ...sec.style, display: 'flex', flexDirection: 'column' }}>
-                {sec.cmps.map(colOrIS => <div className={colOrIS.cmps[0].cmps ? 'inner-section flex' : 'col'} style={colOrIS.style}>
-                    {colOrIS.cmps.map(colOrCmp => <div className={colOrCmp.cmps ? 'col flex direction-column' : 'cmp'} style={colOrCmp.style}>
-                        {colOrCmp.cmps && colOrCmp.cmps.map(cmp => <div className="cmp">{renderer(cmp)}</div>)}
+        cmps.map((sec, secIdx) => {
+            return <div key={secIdx} className="section" style={{ ...sec.style, display: 'flex', flexDirection: 'column' }}>
+                {sec.cmps.map((colOrIS, colOrISIdx) => <div key={colOrISIdx} className={colOrIS.cmps[0].cmps ? 'inner-section flex' : 'col'} style={colOrIS.style}>
+                    {colOrIS.cmps.map((colOrCmp, colOrCmpIdx) => <div key={colOrCmpIdx} className={colOrCmp.cmps ? 'col flex direction-column' : 'cmp'} style={colOrCmp.style}>
+                        {colOrCmp.cmps && colOrCmp.cmps.map((cmp, cmpIdx) => <div key={cmpIdx}  className="cmp">{renderer(cmp)}</div>)}
                         <div className="cmp">{renderer(colOrIS)}</div>
                     </div>)
                     }

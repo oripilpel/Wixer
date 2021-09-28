@@ -383,6 +383,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                       height: '50px',
                       minWidth: '150px',
                       fontFamily: 'montserrat',
+
                     }
                   }
                 }
@@ -618,7 +619,9 @@ export const SIDEBAR_ITEMS_SECTIONS = [
       type: SECTION,
       style: {
         backgroundImage: 'url(https://static.wixstatic.com/media/46dc18_0998a8ce1f34483cbe31aec42ff6108f~mv2.jpg/v1/fill/w_1068,h_808,al_c,q_85,usm_0.66_1.00_0.01/46dc18_0998a8ce1f34483cbe31aec42ff6108f~mv2.webp)',
-        height: 755
+        height: 755,
+        backgroundAttachment: 'fixed',
+        backgroundPosition: 'center'
       },
       cmps: []
     }
@@ -628,6 +631,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
     type: SIDEBAR_SECTION,
     component: {
       type: SECTION,
+      id: utilService.makeId(),
       style: {
         height: 960,
         backgroundColor: '#faf8f1'
@@ -635,75 +639,89 @@ export const SIDEBAR_ITEMS_SECTIONS = [
       cmps: [
         {
           id: utilService.makeId(),
-          type: COLUMN,
+          type: INNERSECTION,
           style: {
-            flexGrow: 4,
-            alignItems: 'center',
-            justifyContent: 'center',
+            maxWidth: '1060px',
+            padding: '0 25px',
+            margin: 'auto'
           },
           cmps: [
             {
               id: utilService.makeId(),
-              type: COMPONENT,
-              component: {
-                type: 'text',
-                data: { txt: 'Made With Love. Simply Delicious' },
-                style: {
-                  fontSize: 48,
-                  color: 'rgb(9,15,15)',
-                  fontFamily: 'forum, serif',
-                  textAlign: 'center',
+              type: COLUMN,
+              style: {
+                flexGrow: 4,
+                alignItems: 'center',
+                justifyContent: 'center',
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: 'Made With Love. Simply Delicious' },
+                    style: {
+                      fontSize: 48,
+                      color: 'rgb(9,15,15)',
+                      fontFamily: 'forum, serif',
+                      textAlign: 'center',
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: "I'm a paragraph. Click here to add your own text and edit me. I'm a great place for you to tell a story and let your users know a little more about you." },
+                    style: {
+                      paddingTop: 40,
+                      paddingBottom: 40,
+                      fontSize: 16,
+                      color: 'rgb(9,15,15)',
+                      fontFamily: 'raleway, san-serif',
+                      textAlign: 'center',
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'button',
+                    data: {
+                      txt: 'View Menu',
+                      hoverColor: '#534835'
+                    },
+                    style: {
+                      fontSize: '16',
+                      fontFamily: 'forum, serif',
+                      color: 'rgb(238, 236, 226)',
+                      backgroundColor: 'rgb(124, 108, 80)',
+                      border: 0,
+                      padding: '25px 65px',
+                      cursor: 'pointer'
+                    }
+                  }
                 }
-              }
+              ]
             },
             {
               id: utilService.makeId(),
-              type: COMPONENT,
-              component: {
-                type: 'text',
-                data: { txt: "I'm a paragraph. Click here to add your own text and edit me. I'm a great place for you to tell a story and let your users know a little more about you." },
-                style: {
-                  paddingTop: 40,
-                  paddingBottom: 40,
-                  fontSize: 16,
-                  color: 'rgb(9,15,15)',
-                  fontFamily: 'raleway, san-serif',
-                  textAlign: 'center',
+              type: COLUMN,
+              style: {},
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'image',
+                    data: { url: 'https://static.wixstatic.com/media/46dc18_3487b934a84548e090e13f5ce1bf08ad~mv2.jpg/v1/fill/w_450,h_800,al_c,q_80,usm_0.66_1.00_0.01/46dc18_3487b934a84548e090e13f5ce1bf08ad~mv2.webp' },
+                    style: {}
+                  }
                 }
-              }
-            },
-            {
-              id: utilService.makeId(),
-              type: COMPONENT,
-              component: {
-                type: 'button',
-                data: { txt: 'View Menu' },
-                style: {
-                  fontSize: '16',
-                  fontFamily: 'forum, serif',
-                  color: 'rgb(238, 236, 226)',
-                  backgroundColor: 'rgb(124, 108, 80)',
-                  border: 0,
-                  padding: '25px 65px',
-                  cursor: 'pointer'
-                }
-              }
-            }
-          ]
-        },
-        {
-          id: utilService.makeId(),
-          type: COLUMN,
-          style: {},
-          cmps: [
-            {
-              id: utilService.makeId(),
-              type: COMPONENT,
-              component: {
-                type: 'image',
-                data: { url: 'https://static.wixstatic.com/media/46dc18_3487b934a84548e090e13f5ce1bf08ad~mv2.jpg/v1/fill/w_450,h_800,al_c,q_80,usm_0.66_1.00_0.01/46dc18_3487b934a84548e090e13f5ce1bf08ad~mv2.webp' },
-                style: {}
-              }
+              ]
             }
           ]
         }
@@ -728,10 +746,12 @@ export const SIDEBAR_ITEMS_SECTIONS = [
           id: utilService.makeId(),
           type: INNERSECTION,
           style: {
-            maxWidth: 870,
             alignSelf: 'center',
             gap: '20px',
-            justifyContent: 'space-around'
+            justifyContent: 'space-around',
+            width: '1060px',
+            padding: '0 25px',
+            margin: 'auto'
           },
           cmps: [
             {
@@ -1009,10 +1029,15 @@ export const SIDEBAR_ITEMS_SECTIONS = [
           ],
           style: {
             flexGrow: 1,
+            maxWidth: '1060px',
+            padding: '0 25px',
+            margin: 'auto'
           },
         }
       ],
-      style: { backgroundColor: '#FAF8F1' }
+      style: {
+        backgroundColor: '#FAF8F1',
+      }
     }
   },
   {
@@ -1026,12 +1051,18 @@ export const SIDEBAR_ITEMS_SECTIONS = [
         alignItems: 'center',
         justifyContent: 'center',
         backgroundImage: 'url(https://static.wixstatic.com/media/46dc18_129ba04ade8a4cf3962ccb05b35e57c7~mv2.jpg/v1/fill/w_980,h_880,al_c,q_85,usm_0.66_1.00_0.01/46dc18_129ba04ade8a4cf3962ccb05b35e57c7~mv2.webp)',
+        backgroundAttachment: 'fixed',
+        backgroundPosition: 'center',
       },
       cmps: [
         {
           id: utilService.makeId(),
           type: INNERSECTION,
-          style: {},
+          style: {
+            maxWidth: '1060px',
+            padding: '0 25px',
+            margin: 'auto'
+          },
           cmps: [
             {
               id: utilService.makeId(),
@@ -1083,7 +1114,10 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                   type: COMPONENT,
                   component: {
                     type: 'button',
-                    data: { txt: 'About Lawrence' },
+                    data: {
+                      txt: 'About Lawrence',
+                      hoverColor: '#534835'
+                    },
                     style: {
                       fontSize: '16',
                       fontFamily: 'forum, serif',
