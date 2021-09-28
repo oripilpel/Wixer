@@ -1,17 +1,15 @@
-export function Nav({ style, data }) {
-    const changeNavText = (ev, idx) => { data.links[idx].txt = ev.target.innerText }
-    
+export function Nav({ style, data, update }) {
+
     return (
         <nav style={style} className="nav clear-list">
             {data.links.map((link, idx) => {
                 return (
                     <p
-                    // onMouseEnter={}
-                    // onMouseLeave={}
+                    onMouseEnter={(ev)=>{console.log(ev,ev.target)}}
                         key={idx}
                         contentEditable={true}
                         suppressContentEditableWarning={true}
-                        onBlur={(ev) => { changeNavText(ev, idx) }}
+                        onBlur={(ev) => { update(idx, ev.target.innerText) }}
                         style={{ padding: '0 20px' }}>
                         {link.txt}
                     </p>

@@ -1,12 +1,16 @@
 import { useState, useEffect } from "react";
 import { connect } from 'react-redux';
+import { Link } from "react-router-dom";
+
 import { StyledEngineProvider } from "@mui/styled-engine";
 import { Tab, Tabs } from "@mui/material";
+import AddBoxIcon from '@mui/icons-material/AddBox';
+import EditIcon from '@mui/icons-material/Edit';
+
 import { COMPONENT } from "../constants";
 import { SidebarEditComponent } from "./SidebarEditComponent";
-import { saveWap } from '../store/layout.actions'
 import { SidebarAddComponent } from "./SidebarAddComponent";
-import { Link } from "react-router-dom";
+import { saveWap } from '../store/layout.actions'
 
 function _SideBar({ selected, update, cmps, style, _id, saveWap }) {
     const [isEdit, setIsEdit] = useState(false);
@@ -14,8 +18,8 @@ function _SideBar({ selected, update, cmps, style, _id, saveWap }) {
         if (selected) setIsEdit(true);
     }, [selected]);
     const handleChange = (ev, value) => {
-        setIsEdit(value === 'add'? false : true);
-      };
+        setIsEdit(value === 'add' ? false : true);
+    };
     const onUpdate = (field, data) => {
         update(selected, field, data);
     }
@@ -24,24 +28,33 @@ function _SideBar({ selected, update, cmps, style, _id, saveWap }) {
     }
     return (
         <div className="side-bar">
-            <Tabs value={isEdit ? 'edit' : 'add'} onChange={handleChange} aria-label="disabled tabs example">
-                <Tab label="Add" value="add"/>
-                <Tab label="Edit" value ="edit"/>
+            <Tabs className='tabs' value={isEdit ? 'edit' : 'add'} onChange={handleChange} aria-label="disabled tabs example">
+                <Tab icon={<AddBoxIcon />} className="tab" label="Add" value="add" />
+                <Tab icon={<EditIcon />} className="tab" label="Edit" value="edit" />
             </Tabs>
-            <Link to={`/publish/${_id}`}>Publish</Link>
-            {!isEdit && <SidebarAddComponent />}
-            {isEdit && selected && (
-                <>
-                    <StyledEngineProvider injectFirst>
-                        <SidebarEditComponent
-                            type={(selected.type === COMPONENT) ? selected.component.type : selected.type}
-                            style={(selected.type === COMPONENT) ? selected.component.style : selected.style}
-                            onUpdate={onUpdate} />
-                    </StyledEngineProvider>
-                </>
-            )}
-            <button onClick={onSave}>Save</button>
-            {isEdit && !selected && <div>Nothing is selected</div>}
+            <div className="items">
+
+                {!isEdit && <SidebarAddComponent />}
+                {isEdit && selected && (
+                    <>
+                        <StyledEngineProvider injectFirst>
+                            <SidebarEditComponent
+                                type={(selected.type === COMPONENT) ? selected.component.type : selected.type}
+                                style={(selected.type === COMPONENT) ? selected.component.style : selected.style}
+                                onUpdate={onUpdate} />
+                        </StyledEngineProvider>
+                    </>
+                )}
+                {isEdit && !selected && <div className="empty">Nothing is selected</div>}
+            </div>
+            <div className="save-pub">
+                <div className="save" onClick={onSave}>
+                    Save
+                </div>
+                <div className="pub">
+                    <Link to={`/publish/${_id}`}>Publish</Link>
+                </div>
+            </div>
         </div>
     )
 }
