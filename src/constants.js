@@ -806,6 +806,564 @@ export const SIDEBAR_ITEMS_SECTIONS = [
         }
       ]
     }
+  },
+  {
+    id: utilService.makeId(),
+    type: SIDEBAR_SECTION,
+    name: 'Hero',
+    component: {
+      type: SECTION,
+      style: {
+        height: 775,
+        backgroundImage: 'url(https://www.mercedes-benz.co.il/wp-content/uploads/heritage_1.jpg)',
+        justifyContent: 'center',
+        alignItems: 'center',
+      },
+      cmps: [
+        {
+          id: utilService.makeId(),
+          type: INNERSECTION,
+          style: {
+            width: 800,
+            height: 230,
+            backgroundColor: '#000000c7'
+          },
+          cmps: [
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                border: '1px solid #9f835e',
+                alignItems: 'center'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: 'מורשת' },
+                    style: {
+                      color: '#9f835e',
+                      fontSize: 40,
+                      fontFamily: 'Arial'
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: 'המורשת של מרצדס בנץ משתרעת על פני למעלה מ-125 שנים בהם ביססה החברה את מעמדה כאחת מיצרניות הרכב המובילות בעולם. מרצדס בנץ מילאה תפקיד מרכזי בהיסטוריה של תעשיית הרכב והייתה ועודנה חלוצה בתחומי הטכנולוגיה, הבטיחות, העיצוב, הספורט מוטורי והקיימות. ' },
+                    style: {
+                      color: '#a09d9d',
+                      fontSize: 15,
+                      marginBottom: 25,
+                      fontFamily: 'Arial',
+                      textAlign: 'center'
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: '< עוד על מורשת מרצדס-בנץ' },
+                    style: {
+                      color: '#9f835e',
+                      fontSize: 15,
+                      fontFamily: 'Arial'
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    id: utilService.makeId(),
+    type: SIDEBAR_SECTION,
+    name: 'Gallery',
+    component: {
+      type: SECTION,
+      style: {
+        backgroundColor: '#000000',
+        backgroundImage: 'url(https://www.mercedes-benz.co.il/wp-content/uploads/general/footer-back.png)'
+      },
+      cmps: [
+        {
+          id: utilService.makeId(),
+          type: INNERSECTION,
+          style: {
+            alignItems: '',
+            paddingTop: 40,
+            borderTop: '1px solid #696969'
+          },
+          cmps: [
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                alignItems: 'center'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'button',
+                    data: {
+                      txt: 'TV מרצדס',
+                      hoverColor: '#000000'
+                    },
+                    style: {
+                      fontSize: '16',
+                      fontFamily: 'Arial',
+                      color: '#9f835e',
+                      backgroundColor: '#000000',
+                      border: 0,
+                      height: 60,
+                      width: 350,
+                      cursor: 'pointer',
+                      border: '1px solid #9f835e'
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: utilService.makeId(),
+          type: INNERSECTION,
+          style: {},
+          cmps: [
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                alignItems: 'center'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'image',
+                    data: { url: 'https://www.mercedes-benz.co.il/wp-content/uploads/11306_mercedes_tv_5.jpg' },
+                    style: {}
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: 'Stronger than Time- מרצדס G-Class' },
+                    style: {
+                      textAlign: 'right',
+                      fontFamily: 'Arial',
+                      color: '#9f835e',
+                      marginTop: 15,
+                      marginBottom: 10
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                alignItems: 'center'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'image',
+                    data: { url: 'https://www.mercedes-benz.co.il/wp-content/uploads/12168_ao_oct_pics_4-1-e1604495033850.jpg' },
+                    style: {}
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: "EQC- It's more than electric. It's a Mercedes" },
+                    style: {
+                      textAlign: 'right',
+                      fontFamily: 'Arial',
+                      color: '#9f835e',
+                      marginTop: 15,
+                      marginBottom: 10
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                alignItems: 'center'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'image',
+                    data: { url: 'https://www.mercedes-benz.co.il/wp-content/uploads/13644_ao_April_image_3.jpg' },
+                    style: {}
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: 'The new EQB' },
+                    style: {
+                      textAlign: 'right',
+                      fontFamily: 'Arial',
+                      color: '#9f835e',
+                      marginTop: 15,
+                      marginBottom: 10
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                alignItems: 'center'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'image',
+                    data: { url: 'https://www.mercedes-benz.co.il/wp-content/uploads/13644_ao_April_image_1.jpg' },
+                    style: {}
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: "The all-new EQA- It's more than electric. It's a Mercedes" },
+                    style: {
+                      textAlign: 'right',
+                      fontFamily: 'Arial',
+                      color: '#9f835e',
+                      marginTop: 15,
+                      marginBottom: 10
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: utilService.makeId(),
+          type: INNERSECTION,
+          style: {},
+          cmps: [
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                alignItems: 'center'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'image',
+                    data: { url: 'https://www.mercedes-benz.co.il/wp-content/uploads/2020-06-24_1300-002.jpg' },
+                    style: {}
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: 'GLE Coupe- חיית כבישים עם כל האבזור והטכנולוגיה שאפשר לבקש' },
+                    style: {
+                      textAlign: 'right',
+                      fontFamily: 'Arial',
+                      color: '#9f835e',
+                      marginTop: 15,
+                      marginBottom: 10
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                alignItems: 'center'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'image',
+                    data: { url: 'https://www.mercedes-benz.co.il/wp-content/uploads/10161_awo_january_banner_atar_avtr_310x190_1-1.jpg' },
+                    style: {}
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: "Mercedez AMG- לוקח אותך לקצה" },
+                    style: {
+                      textAlign: 'right',
+                      fontFamily: 'Arial',
+                      color: '#9f835e',
+                      marginTop: 15,
+                      marginBottom: 10
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                alignItems: 'center'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'image',
+                    data: { url: 'https://www.mercedes-benz.co.il/wp-content/uploads/11306_mercedes_tv_5.jpg' },
+                    style: {}
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: 'GLA- The best Premium compact SUV' },
+                    style: {
+                      textAlign: 'right',
+                      fontFamily: 'Arial',
+                      color: '#9f835e',
+                      marginTop: 15,
+                      marginBottom: 10
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                alignItems: 'center'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'image',
+                    data: { url: 'https://www.mercedes-benz.co.il/wp-content/uploads/MBC27200-1-1.jpg' },
+                    style: {
+                      width: 285
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: 'מרצדס S Class- רכב הפאר הטוב ביותר בעולם' },
+                    style: {
+                      textAlign: 'right',
+                      fontFamily: 'Arial',
+                      color: '#9f835e',
+                      marginTop: 15,
+                      marginBottom: 10
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: utilService.makeId(),
+          type: INNERSECTION,
+          style: {
+            paddingBottom: 40,
+            borderBottom: '1px solid #696969'
+          },
+          cmps: [
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                alignItems: 'center'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'image',
+                    data: { url: 'https://www.mercedes-benz.co.il/wp-content/uploads/13644_ao_April_image_4.jpg' },
+                    style: {}
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: 'The new E-Class Coupe : Made to be dynamic' },
+                    style: {
+                      textAlign: 'right',
+                      fontFamily: 'Arial',
+                      color: '#9f835e',
+                      marginTop: 15,
+                      marginBottom: 10
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                alignItems: 'center'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'image',
+                    data: { url: 'https://www.mercedes-benz.co.il/wp-content/uploads/13644_ao_April_image_2-1.jpg' },
+                    style: {}
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: 'E-Class Cabriolet - More then ever' },
+                    style: {
+                      textAlign: 'right',
+                      fontFamily: 'Arial',
+                      color: '#9f835e',
+                      marginTop: 15,
+                      marginBottom: 10
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                alignItems: 'center'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'image',
+                    data: { url: 'https://www.mercedes-benz.co.il/wp-content/uploads/ANG.jpg' },
+                    style: {}
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: 'AMG GT Black Series- ספורטיבית ללא פשרות' },
+                    style: {
+                      textAlign: 'right',
+                      fontFamily: 'Arial',
+                      color: '#9f835e',
+                      marginTop: 15,
+                      marginBottom: 10
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                alignItems: 'center'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'image',
+                    data: { url: 'https://www.mercedes-benz.co.il/wp-content/uploads/2020-07-14_1446.jpg' },
+                    style: {
+                      width: 285
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: 'GLB- הצורה היפה ביותר של החופש ברכב הפנאי שייקח אותך לעולם של חוויות חדשות' },
+                    style: {
+                      textAlign: 'right',
+                      fontFamily: 'Arial',
+                      color: '#9f835e',
+                      marginTop: 15,
+                      marginBottom: 10
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
   }
 ];
 
@@ -981,6 +1539,371 @@ export const SIDEBAR_ITEMS_FOOTER = [
               ]
             }
           ]
+        }
+      ]
+    }
+  },
+  {
+    id: utilService.makeId(),
+    type: SIDEBAR_SECTION,
+    name: 'footer2',
+    component: {
+      type: SECTION,
+      id: utilService.makeId(),
+      style: {
+        backgroundColor: '#000000',
+        backgroundImage: 'url(https://www.mercedes-benz.co.il/wp-content/uploads/general/footer-back.png)',
+        justifyContent: 'center'
+      },
+      cmps: [
+        {
+          id: utilService.makeId(),
+          type: INNERSECTION,
+          style: {
+            height: 180
+          },
+          cmps: [
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {},
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: {
+                      txt: 'הידע והנתונים המופיעים באתר זה מתייחסים למגוון דגמים המשווקים במקומות שונים בעולם ומעודכנים למועד הבאת המקור הלועזי לתרגום. ייתכנו הבדלים בין התיאור המובא באתר זה לבין הדגמים המשווקים על-ידי חברתנו, הן מבחינת המפרט הטכני והן מבחינת האביזרים, הציוד והמערכות הנלוות. כמו כן ייתכנו הבדלים בדגם מסויים, בהתאם לשינויים הנעשים מזמן לזמן. חלק מהאביזרים ו/או המערכות המפורטים באתר זה מצוי רק בחלק מדגמי הרכבים, אין בפרסום המובא באתר זה כדי לחייב את היצרן ו/או את החברה בהספקת דגמים שיכללו את כל או חלק מהאביזרים, הציוד והמערכות המתוארים בו והם שומרים לעצמם את הזכות לבטל, להוסיף, לשנות ולשפר, ללא הודעה מוקדמת וללא עידכון באתר זה. התמונות באתר הינן להמחשה בלבד. האתר כפוף לשינוי ללא הודעה מוקדמת. ט.ל.ח.'
+                    },
+                    style: {
+                      color: '#A09D9D',
+                      textAlign: 'right'
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: utilService.makeId(),
+          type: INNERSECTION,
+          style: {
+            backgroundImage: 'url(https://www.mercedes-benz.co.il/wp-content/uploads/social-bg-1.jpg)',
+            height: 175
+          },
+          cmps: [
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                alignItems: 'center'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: {
+                      txt: '.מרצדס-בנץ באינסטגרם',
+                    },
+                    style: {
+                      color: '#ffffff',
+                      fontFamily: 'Arial',
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: {
+                      txt: '.כל העדכונים, החידושים, האירועים, הדגמים. ',
+                    },
+                    style: {
+                      color: '#ffffff',
+                      fontFamily: 'Arial',
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'button',
+                    data: {
+                      txt: 'עקבו אחרינו',
+                      hoverColor: '#00abec'
+                    },
+                    style: {
+                      fontSize: '16',
+                      fontFamily: 'Arial',
+                      color: '#ffffff',
+                      backgroundColor: '#00abec',
+                      border: 0,
+                      height: 50,
+                      width: 150,
+                      cursor: 'pointer'
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: utilService.makeId(),
+          type: INNERSECTION,
+          style: {
+            alignSelf: 'center',
+            backgroundColor: '#000000'
+          },
+          cmps: [
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                paddingRight: 25,
+                borderRight: '1px solid #555'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    id: utilService.makeId(),
+                    type: 'text',
+                    style: {
+                      color: '#ffffff',
+                      textAlign: 'right',
+                      paddingBottom: 30,
+                      fontFamily: 'Arial',
+                    },
+                    data: {
+                      txt: 'מוקד מכירות מרצדס-בנץ 9996*'
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    id: utilService.makeId(),
+                    type: 'text',
+                    style: {
+                      color: '#ffffff',
+                      textAlign: 'right',
+                      paddingBottom: 30,
+                      fontFamily: 'Arial',
+                    },
+                    data: {
+                      txt: 'שירות לקוחות: טל. 03-9153030'
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    id: utilService.makeId(),
+                    type: 'text',
+                    style: {
+                      color: '#a09d9d',
+                      textAlign: 'right',
+                      fontFamily: 'Arial',
+                    },
+                    data: {
+                      txt: 'מדיניות פרטיות'
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    id: utilService.makeId(),
+                    type: 'text',
+                    style: {
+                      color: '#a09d9d',
+                      textAlign: 'right',
+                      fontFamily: 'Arial'
+                    },
+                    data: {
+                      txt: 'תנאי שימוש'
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    id: utilService.makeId(),
+                    type: 'text',
+                    style: {
+                      color: '#a09d9d',
+                      textAlign: 'right',
+                      fontFamily: 'Arial'
+                    },
+                    data: {
+                      txt: 'הצהרת נגישות'
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                paddingRight: 25,
+                borderRight: '1px solid #555'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    id: utilService.makeId(),
+                    type: 'text',
+                    style: {
+                      color: '#a09d9d',
+                      textAlign: 'right',
+                      fontFamily: 'Arial'
+                    },
+                    data: {
+                      txt: 'מדדי זיהום אויר וצריכת דלק'
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    id: utilService.makeId(),
+                    type: 'text',
+                    style: {
+                      color: '#a09d9d',
+                      textAlign: 'right',
+                      fontFamily: 'Arial'
+                    },
+                    data: {
+                      txt: 'מחירון חלפים מרצדס'
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    id: utilService.makeId(),
+                    type: 'text',
+                    style: {
+                      color: '#a09d9d',
+                      textAlign: 'right',
+                      fontFamily: 'Arial'
+                    },
+                    data: {
+                      txt: 'אודות מרצדס-בנץ'
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    id: utilService.makeId(),
+                    type: 'text',
+                    style: {
+                      color: '#a09d9d',
+                      textAlign: 'right',
+                      fontFamily: 'Arial'
+                    },
+                    data: {
+                      txt: 'שירות לקוחות'
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    id: utilService.makeId(),
+                    type: 'text',
+                    style: {
+                      color: '#a09d9d',
+                      textAlign: 'right',
+                      fontFamily: 'Arial'
+                    },
+                    data: {
+                      txt: 'צור קשר'
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    id: utilService.makeId(),
+                    type: 'text',
+                    style: {
+                      color: '#a09d9d',
+                      textAlign: 'right',
+                      fontFamily: 'Arial'
+                    },
+                    data: {
+                      txt: 'מגזין מרצדס Star'
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                paddingRight: 25,
+                borderRight: '1px solid #555',
+                textAlign: 'right'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    id: utilService.makeId(),
+                    type: 'image',
+                    style: {
+                      width: 218,
+                      height: 100
+                    },
+                    data: {
+                      url: 'https://www.mercedes-benz.co.il/wp-content/themes/mercedes/images/mercedes-logo-forsite.svg'
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    id: utilService.makeId(),
+                    type: 'text',
+                    style: {
+                      color: '#ffffff',
+                      textAlign: 'right',
+                      fontFamily: 'Arial'
+                    },
+                    data: {
+                      txt: 'מרצדס בנץ ישראל הוקמה על ידי חברת כלמוביל בשנת 1963, והייתה ליבואנית הראשונה של מכוניות יוקרה בישראל. מרצדס בנץ ישראל היא חלק מחברת כלמוביל שנוסדה בשנת 1936 ונמצאת בבעלות משפחת חרל"פ. קבוצת כלמוביל היא יבואנית הרכב המובילה בישראל הן של כלי רכב פרטיים, והן של כלי רכב מסחריים, משאיות ואוטובוסים לישראל.'
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+
         }
       ]
     }
