@@ -44,8 +44,8 @@ function _Publish({ match, cmps, loadWap }) {
             return <div key={secIdx} className="section" style={{ ...sec.style, display: 'flex', flexDirection: 'column' }}>
                 {sec.cmps.map(colOrIS => <div key={colOrIS.id} className={colOrIS.cmps[0].cmps ? 'innersection flex' : 'column'} style={colOrIS.style}>
                     {colOrIS.cmps.map(colOrCmp => <div key={colOrCmp.id} className={colOrCmp.cmps ? 'column flex direction-column' : 'component'} style={colOrCmp.style}>
-                        {colOrCmp.cmps && colOrCmp.cmps.map(cmp => <div key={cmp.id} className="component">{renderer(cmp)}</div>)}
-                        {!colOrCmp.cmps && <div className="component">{renderer(colOrIS)}</div>}
+                        {colOrCmp.cmps && colOrCmp.cmps.map(cmp => <div key={cmp.id} className="component1">{renderer(cmp)}</div>)}
+                        {!colOrCmp.cmps && renderer(colOrCmp)}
                     </div>)
                     }
                 </div>)}

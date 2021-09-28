@@ -1,5 +1,3 @@
-import { translateStyle } from "../services/wap.service";
-
 export function Text({ data, style, update }) {
     function onBodyChange({ target }) {
         update('data', { txt: target.innerText });

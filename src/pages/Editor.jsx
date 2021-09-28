@@ -148,7 +148,6 @@ function _Editor(
     const getSelected = (s) => {
         if (!s) return;
         const path = s.path
-
         switch (path.length) {
             case 1:
                 return { ...cmps[path[0]], path }

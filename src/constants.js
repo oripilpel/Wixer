@@ -1008,8 +1008,8 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     style: {
                       fontSize: '16',
                       fontFamily: 'forum, serif',
-                      color: 'rgb(238, 236, 226)',
-                      backgroundColor: 'rgb(124, 108, 80)',
+                      color: '#eee2ec',
+                      backgroundColor: '#7c6c50',
                       border: 0,
                       height: 50,
                       width: 150,
