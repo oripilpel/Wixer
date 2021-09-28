@@ -10,7 +10,7 @@ export function SidebarAddComponent() {
     };
     return (
         <>
-            <Accordion expanded={expanded === 'basics'} onChange={handleChange('basics')}>
+            <Accordion className='berco' expanded={expanded === 'basics'} onChange={handleChange('basics')}>
                 <AccordionSummary aria-controls="basicsd-content" id="basicsd-header">
                     Basics
                 </AccordionSummary>
