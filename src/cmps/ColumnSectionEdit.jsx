@@ -20,7 +20,7 @@ export function ColumnSectionEdit({ style, onUpdate }) {
     const onUploadImage = (url) => {
         const newStyle = { ...style };
         newStyle['backgroundImage'] = `url(${url})`;
-        onUpdate(newStyle);
+        onUpdate('style', newStyle);
     }
     const {
         flexGrow,

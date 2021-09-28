@@ -825,7 +825,6 @@ export const SIDEBAR_ITEMS_SECTIONS = [
           type: INNERSECTION,
           style: {
             width: 800,
-            height: 230,
             backgroundColor: '#000000c7'
           },
           cmps: [
