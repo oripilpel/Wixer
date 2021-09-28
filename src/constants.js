@@ -332,6 +332,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     },
                     type: 'nav',
                     data: {
+                      hoverColor: '#ECECEC',
                       links: [
                         {
                           id: utilService.makeId(),
