@@ -4,5 +4,12 @@
         bottom: 0;
         right: 0;
         z-index: 1;
+        background-color: white;
+        padding: 5px;
+        border-radius: 15px;
+
+        > *:not(:first-child) {
+            margin-inline-start: 5px;
+        }
     }
 }

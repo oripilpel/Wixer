@@ -6,7 +6,6 @@ export function PaddingEdit({ paddingTop, paddingRight, paddingBottom, paddingLe
 
             <div>
                 <label htmlFor="padding-top">Padding-top:</label>
-                {/* <input type="range" name="paddingTop" id="padding-top" value={paddingTop || 0} min="0" max="100" onChange={onChange} /> */}
                 <PrettoSlider
                     valueLabelDisplay="auto"
                     aria-label="pretto slider"
@@ -18,7 +17,6 @@ export function PaddingEdit({ paddingTop, paddingRight, paddingBottom, paddingLe
             </div>
             <div>
                 <label htmlFor="padding-right">Padding-right:</label>
-                {/* <input type="range" name="paddingRight" id="padding-right" value={paddingRight || 0} min="0" max="100" onChange={onChange} /> */}
                 <PrettoSlider
                     valueLabelDisplay="auto"
                     aria-label="pretto slider"
@@ -30,7 +28,6 @@ export function PaddingEdit({ paddingTop, paddingRight, paddingBottom, paddingLe
             </div>
             <div>
                 <label htmlFor="padding-bottom">Padding-bottom:</label>
-                {/* <input type="range" name="paddingBottom" id="padding-bottom" value={paddingBottom || 0} min="0" max="100" onChange={onChange} /> */}
                 <PrettoSlider
                     valueLabelDisplay="auto"
                     aria-label="pretto slider"
@@ -42,7 +39,6 @@ export function PaddingEdit({ paddingTop, paddingRight, paddingBottom, paddingLe
             </div>
             <div>
                 <label htmlFor="padding-left">Padding-left:</label>
-                {/* <input type="range" name="paddingLeft" id="padding-left" value={paddingLeft || 0} min="0" max="100" onChange={onChange} /> */}
                 <PrettoSlider
                     valueLabelDisplay="auto"
                     aria-label="pretto slider"

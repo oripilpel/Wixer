@@ -8,6 +8,6 @@
     }
 
     .debug & {
-        border: 1px solid $columnBorderColor;
+        border: 1px solid $columnBorderColor !important;
     }
 }
