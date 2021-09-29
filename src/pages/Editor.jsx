@@ -225,6 +225,7 @@ function _Editor(
     };
     const getSelected = (selected) => {
         if (!selected) return;
+        console.log(selected);
         const path = selected.path
         try {
             switch (path.length) {
