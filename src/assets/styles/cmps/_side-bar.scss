@@ -5,7 +5,20 @@
     border-right: 1px solid #111;
     background: #e6e9ec;
     .tabs {
-        margin-block-end: 20px;
+        // margin-block-end: 20px;
+        .add {
+            &.anima {
+                animation: add-blink 2s infinite;
+            }
+        }
+        @keyframes add-blink {
+            0% {
+                background-color: #e6e9ec;
+            }
+            100% {
+                background-color: #ccb00b;
+            }
+        }
     }
     .tab {
         background-color: #293241;
@@ -24,7 +37,7 @@
         color: #293241;
     }
     .items {
-        height: calc(100vh - 162px);
+        height: calc(100vh - 176px);
         overflow-y: auto;
         overflow-x: clip;
         .empty {
@@ -60,6 +73,21 @@
                 color: #e6e9ec;
                 text-decoration: none;
             }
+            &.anima {
+                animation: pub-blink 2s infinite;
+            }
         }
+        @keyframes pub-blink {
+            0% {
+                background-color: #e6e9ec;
+            }
+            100% {
+                background-color: #ccb00b;
+            }
+        }
+    }
+    .hints{
+        margin: 5px 0;
+        padding-inline-start: 5px;
     }
 }

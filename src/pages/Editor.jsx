@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from 'react-redux';
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
@@ -19,6 +19,7 @@ import {
 } from '../store/layout.actions'
 import { utilService } from "../services/util.service";
 
+
 function _Editor(
     { match,
         cmps,
@@ -33,6 +34,8 @@ function _Editor(
         insert,
         loadWap
     }) {
+
+    const [hintsText, setHintsText] = useState('Click on Add button to see the elements')
 
     const debugMode = false;
     useEffect(() => {
@@ -249,7 +252,7 @@ function _Editor(
     return (
         <DndProvider backend={HTML5Backend}>
             <div className={`editor ${debugMode ? 'debug' : ''}`}>
-                <SideBar selected={getSelected(selected)} update={onUpdateComponent} />
+                <SideBar selected={getSelected(selected)} update={onUpdateComponent} setHintsText={setHintsText}/>
                 <div className="page-container">
                     <div className="page">
                         {cmps.map((section, index) => {
@@ -279,11 +282,11 @@ function _Editor(
                             onDrop={handleDrop}
                             isLast
                         />
-                        {!cmps.length && (
+                        {/* {!cmps.length && ( */}
                             <div className="empty">
-                                Drag component to start...
+                                {hintsText}
                             </div>
-                        )}
+                        {/* )} */}
                     </div>
                 </div>
             </div>

@@ -30,15 +30,15 @@ const KeysToComponentMap = {
   'footer2': footer2
 }
 
-  const KeysToIconMap = {
-    'ViewColumnIcon': <div className="icon"><ViewColumnIcon /></div>,
-    'TextFieldsIcon': <div className="icon"><TextFieldsIcon /></div>,
-    'VideoLibraryIcon': <div className="icon"><VideoLibraryIcon /></div>,
-    'InsertPhotoIcon': <div className="icon"><InsertPhotoIcon /></div>,
-    'SmartButtonIcon': <div className="icon"><SmartButtonIcon /></div>,
-  }
+const KeysToIconMap = {
+  'ViewColumnIcon': <div className="icon"><ViewColumnIcon /></div>,
+  'TextFieldsIcon': <div className="icon"><TextFieldsIcon /></div>,
+  'VideoLibraryIcon': <div className="icon"><VideoLibraryIcon /></div>,
+  'InsertPhotoIcon': <div className="icon"><InsertPhotoIcon /></div>,
+  'SmartButtonIcon': <div className="icon"><SmartButtonIcon /></div>,
+}
 
-export function SideBarItem({ data, type }) {
+export function SideBarItem({ data, type, isElementClicked, setHints }) {
   const [{ opacity }, drag] = useDrag({
     type,
     item: data,
@@ -48,7 +48,9 @@ export function SideBarItem({ data, type }) {
   });
 
   return (
-    <div className="side-bar-item flex direction-column justify-center" ref={drag} style={{ opacity }}>
+    <div
+      className={`side-bar-item flex direction-column justify-center ${data.name === 'text' && !isElementClicked ? 'anima' : ''}`}
+      onMouseDown={!isElementClicked ? () => setHints(isElementClicked) : setHints} ref={drag} style={{ opacity }}>
       {data.icon && KeysToIconMap[data.icon]}
       {!data.image && (data.name || data.component.type)}
       {data.image && <img src={KeysToComponentMap[data.image]} />}
