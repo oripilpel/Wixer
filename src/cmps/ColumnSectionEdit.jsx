@@ -5,6 +5,7 @@ import { PaddingEdit } from "./PaddingEdit";
 import { ImageUpload } from "./ImageUpload";
 import { WidthEdit } from "./WidthEdit";
 import { Accordion, AccordionSummary, AccordionDetails } from './Accordion';
+import { BorderEdit } from './BorderEdit';
 
 export function ColumnSectionEdit({ style, onUpdate }) {
     const [expanded, setExpanded] = React.useState('background')
@@ -100,6 +101,14 @@ export function ColumnSectionEdit({ style, onUpdate }) {
                         marginBottom={marginBottom}
                         marginLeft={marginLeft}
                         onChange={onChange} />
+                </AccordionDetails>
+            </Accordion>
+            <Accordion expanded={expanded === 'border'} onChange={handleChange('border')}>
+                <AccordionSummary aria-controls="borderd-content" id="borderd-header">
+                    Border
+                </AccordionSummary>
+                <AccordionDetails>
+                    <BorderEdit style={style} onChange={onChange}/>
                 </AccordionDetails>
             </Accordion>
         </div>
