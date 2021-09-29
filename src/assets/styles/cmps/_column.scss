@@ -4,7 +4,7 @@
     position: relative;
 
     .editor & {
-        border: $borderEditMode;
+        outline: $borderEditMode;
     }
 
     .debug & {
