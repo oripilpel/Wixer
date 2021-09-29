@@ -66,8 +66,8 @@ export function DropZone({ data, onDrop, isLast, className, accept = ACCEPTS }) 
     <div
       style={{
         position: (isActive) ? 'relative' : 'absolute',
-        top:(isActive)?0:-30,
-        left:0
+        top: (isActive) ? 0 : -30,
+        left: 0
       }}
       className={classNames(
         "drop-zone",

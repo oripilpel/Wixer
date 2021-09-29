@@ -39,16 +39,93 @@ function _Editor(
     useEffect(() => {
         const id = match.params.wapId;
         if (id) loadWap(id)
-    },[]);
+    }, []);
 
     const onUpdateComponent = (comp, field, value) => {
         updateComponent(comp, field, value);
     }
 
+    // const handleDrop =
+    //     (dropZone, item) => {
+    //         debugger
+    //         const splitDropZonePath = dropZone.path.split("-");
+    //         const pathToDropZone = splitDropZonePath.slice(0, -1).join("-");
+
+    //         const newItem = { id: item.id, type: item.type, component: item.component, style: item.style };
+
+    //         switch (item.type) {
+    //             case SIDEBAR_COLUMN:
+    //                 moveSidebarColumnIntoParent(splitDropZonePath);
+    //                 break;
+    //         }
+
+    //         if (item.type === COLUMN || item.type === SECTION || item.type === INNERSECTION) {
+    //             newItem.cmps = item.cmps;
+    //         }
+
+    //         if (item.type === SIDEBAR_COLUMN) {
+    //             moveSidebarColumnIntoParent(splitDropZonePath);
+    //             return;
+    //         }
+
+    //         if (item.type === SIDEBAR_INNERSECTION) {
+    //             moveSidebarInnerSectionIntoParent(splitDropZonePath);
+    //             return;
+    //         }
+    //         if (item.type === SIDEBAR_SECTION) {
+    //             const newSection = { ...item.component };
+    //             newSection.id = utilService.makeId();
+    //             insert(splitDropZonePath[0], newSection)
+    //             return
+    //         }
+
+
+    //         // sidebar into
+    //         if (item.type === SIDEBAR_ITEM) {
+    //             // 1. Move sidebar item into page
+    //             const newComponent = {
+    //                 id: utilService.makeId(),
+    //                 ...item.component
+    //             };
+
+    //             const newItem = {
+    //                 id: newComponent.id,
+    //                 type: COMPONENT,
+    //                 component: item.component
+    //             };
+    //             moveSidebarComponentIntoParent(splitDropZonePath, newItem);
+    //             return;
+    //         }
+
+    //         // move down here since sidebar items dont have path
+    //         const splitItemPath = item.path.split("-");
+    //         const pathToItem = splitItemPath.slice(0, -1).join("-");
+
+    //         // 2. Pure move (no create)
+    //         if (splitItemPath.length === splitDropZonePath.length) {
+    //             // 2.a. move within parent
+    //             if (pathToItem === pathToDropZone) {
+    //                 moveWithinParent(splitDropZonePath, splitItemPath);
+    //                 return;
+    //             }
+
+    //             // 2.b. OR move different parent
+    //             // TODO FIX columns. item includes children
+    //             moveToDifferentParent(splitDropZonePath, splitItemPath, newItem);
+    //             return;
+    //         }
+
+    //         // 3. Move + Create
+    //         moveToDifferentParent(splitDropZonePath, splitItemPath, newItem);
+    //     }
+
     const handleDrop =
         (dropZone, item) => {
+            debugger
             const splitDropZonePath = dropZone.path.split("-");
             const pathToDropZone = splitDropZonePath.slice(0, -1).join("-");
+
+
 
             const newItem = { id: item.id, type: item.type, component: item.component, style: item.style };
             if (item.type === COLUMN || item.type === SECTION || item.type === INNERSECTION) {
@@ -65,7 +142,7 @@ function _Editor(
                 return;
             }
             if (item.type === SIDEBAR_SECTION) {
-                const newSection = item.component;
+                const newSection = JSON.parse(JSON.stringify(item.component));
                 newSection.id = utilService.makeId();
                 insert(splitDropZonePath[0], newSection)
                 return
@@ -110,6 +187,7 @@ function _Editor(
             // 3. Move + Create
             moveToDifferentParent(splitDropZonePath, splitItemPath, newItem);
         }
+
     const onSelect = (type, path) => {
         switch (type) {
             case COMPONENT:

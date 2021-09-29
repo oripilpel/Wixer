@@ -13,7 +13,7 @@ function _Actions({ path, removeItem, duplicateItem, type }) {
         duplicateItem(path.split('-'), type);
     }
     return (
-        <div className="actions" style={{ zIndex: path.length }}>
+        <div className="actions" style={{ color:'black', zIndex: path.length }}>
             <i className="far fa-clone" onClick={onDuplicate}></i>
             <i className="fas fa-trash-alt" onClick={onRemove}></i>
         </div>
