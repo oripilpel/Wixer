@@ -63,7 +63,7 @@ export function Section({ data, cmps, handleDrop, path, updateComponent, onSelec
       />
     );
   };
-  const hasOnlyInnersections = (data.cmps.every(cmp => cmp.type === INNERSECTION));
+  const hasOnlyInnersections = (data.cmps.some(cmp => cmp.type === INNERSECTION));
 
   const select = (ev) => {
     ev.stopPropagation();
@@ -73,7 +73,7 @@ export function Section({ data, cmps, handleDrop, path, updateComponent, onSelec
     <div
       ref={ref}
       style={{ ...data.style, opacity }}
-      className={`section${(hasOnlyInnersections) ? ' flex direction-column' : ' flex'}`}
+      className={`section draggable${(hasOnlyInnersections) ? ' flex direction-column' : ' flex'}`}
       onClick={select}
       onMouseEnter={() => {
         setActionsVisible(true)
