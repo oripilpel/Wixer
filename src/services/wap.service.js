@@ -10,6 +10,20 @@ export const reorder = (list, startIndex, endIndex) => {
   return result;
 };
 
+export const reorderInnerSection = (list, startIndex, endIndex) => {
+  const result = Array.from(list);
+  const [removed] = result[0].cmps.splice(startIndex, 1);
+  result[0].cmps.splice(endIndex, 0, removed); // inserting task in new index
+  return result;
+}
+
+export const reorderInnerSectionColumn = (list, columnIndex, startIndex, endIndex) => {
+  const result = Array.from(list);
+  const [removed] = result[0].cmps[columnIndex].cmps.splice(startIndex, 1);
+  result[0].cmps[columnIndex].cmps.splice(endIndex, 0, removed); // inserting task in new index
+  return result;
+}
+
 export const remove = (arr, index) => [
   ...arr.slice(0, index),
   ...arr.slice(index + 1)
@@ -97,10 +111,15 @@ export const duplicate = (layout, item) => {
 }
 
 export const reorderChildren = (children, splitDropZonePath, splitItemPath) => {
-  if (splitDropZonePath.length === 1 || ((children[splitItemPath[0]].type === INNERSECTION || children[splitItemPath[0]].type === COLUMN) && splitItemPath[0] === splitDropZonePath[0])) {
-    if (children[splitItemPath[0]].type === INNERSECTION || children[splitItemPath[0]].type === COLUMN) children = children[splitItemPath[0]].cmps
+  if (splitDropZonePath.length === 1 || children[splitItemPath[0]].type === INNERSECTION && splitItemPath.length === 2 || children[splitItemPath[0]].type === INNERSECTION && splitItemPath.length === 3) {
     const dropZoneIndex = Number(splitDropZonePath[splitDropZonePath.length - 1]);
     const itemIndex = Number(splitItemPath[splitItemPath.length - 1]);
+    if (children[splitItemPath[0]].type === INNERSECTION && splitItemPath.length === 2) //column in innersection
+      return reorderInnerSection(children, itemIndex, dropZoneIndex);
+    if (children[splitItemPath[0]].type === INNERSECTION && splitItemPath.length === 3) { // component in column in innersection
+      const columnIndex = Number(splitItemPath[splitItemPath.length - 2])
+      reorderInnerSectionColumn(children, columnIndex, itemIndex, dropZoneIndex);
+    }
     return reorder(children, itemIndex, dropZoneIndex);
   }
 
@@ -110,9 +129,9 @@ export const reorderChildren = (children, splitDropZonePath, splitItemPath) => {
 
   // Update the specific node's children
   let newSplitDropZoneChildrenPath = splitDropZonePath.slice(1);
-    newSplitDropZoneChildrenPath[newSplitDropZoneChildrenPath.length - 1] =
-      +splitDropZonePath[splitDropZonePath.length - 1] > +splitItemPath[splitItemPath.length - 1] ?
-        newSplitDropZoneChildrenPath[newSplitDropZoneChildrenPath.length - 1] - 1 : newSplitDropZoneChildrenPath[newSplitDropZoneChildrenPath.length - 1]
+  newSplitDropZoneChildrenPath[newSplitDropZoneChildrenPath.length - 1] =
+    +splitDropZonePath[splitDropZonePath.length - 1] > +splitItemPath[splitItemPath.length - 1] ?
+      newSplitDropZoneChildrenPath[newSplitDropZoneChildrenPath.length - 1] - 1 : newSplitDropZoneChildrenPath[newSplitDropZoneChildrenPath.length - 1]
   const splitDropZoneChildrenPath = newSplitDropZoneChildrenPath
   const splitItemChildrenPath = splitItemPath.slice(1);
   const nodeChildren = updatedChildren[curIndex];
