@@ -34,7 +34,7 @@ function _Editor(
         loadWap
     }) {
 
-    const debugMode = false;
+    const debugMode = true;
     useEffect(() => {
         const id = match.params.wapId;
         if (id) loadWap(id)
@@ -253,6 +253,7 @@ function _Editor(
                 <div className="page-container">
                     <div className="page">
                         {cmps.map((section, index) => {
+                            console.log('cmps', cmps)
                             const currentPath = `${index}`;
                             return (
                                 <React.Fragment key={section.id}>
