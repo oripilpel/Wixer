@@ -1,0 +1,11 @@
+.font-edit {
+    & > div:not(:first-child) {
+        margin-block-end: 10px;
+    }
+    .font-size {
+        span {
+            margin-block-start: -5px;
+            margin-block-end: -5px;
+        }
+    }
+}
