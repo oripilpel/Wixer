@@ -35,7 +35,6 @@ function _Editor(
     }) {
 
     const debugMode = false;
-
     useEffect(() => {
         const id = match.params.wapId;
         if (id) loadWap(id)
@@ -256,7 +255,6 @@ function _Editor(
                     <div className="page">
                         {cmps.map((section, index) => {
                             const currentPath = `${index}`;
-
                             return (
                                 <React.Fragment key={section.id}>
                                     <DropZone
@@ -282,6 +280,11 @@ function _Editor(
                             onDrop={handleDrop}
                             isLast
                         />
+                        {!cmps.length && (
+                            <div className="empty">
+                                Drag component to start...
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
