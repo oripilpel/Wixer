@@ -120,7 +120,6 @@ function _Editor(
 
     const handleDrop =
         (dropZone, item) => {
-            debugger
             const splitDropZonePath = dropZone.path.split("-");
             const pathToDropZone = splitDropZonePath.slice(0, -1).join("-");
 
@@ -226,6 +225,7 @@ function _Editor(
     };
     const getSelected = (selected) => {
         if (!selected) return;
+        console.log(selected);
         const path = selected.path
         try {
             switch (path.length) {
