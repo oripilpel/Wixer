@@ -1,20 +1,20 @@
 export const site1 = {
-    "_id": "V7pEt",
+    "_id": "O0QHg",
     "cmps": [
         {
             "type": "section",
-            "id": "dKfRZnyK5b",
+            "id": "AbVCDogILx",
             "cmps": [
                 {
                     "type": "innersection",
-                    "id": "8PYohVlMz7",
+                    "id": "plQ5B2WHqq",
                     "cmps": [
                         {
                             "type": "column",
-                            "id": "bJNkdgZEkx",
+                            "id": "EvRBfNuH6k",
                             "cmps": [
                                 {
-                                    "id": "RjG8fCArkF",
+                                    "id": "YUGm1A7Z7u",
                                     "type": "component",
                                     "component": {
                                         "type": "text",
@@ -24,7 +24,7 @@ export const site1 = {
                                         "style": {
                                             "fontSize": "27",
                                             "color": "#000000",
-                                            "fontFamily": "Arial",
+                                            "fontFamily": "forum, serif",
                                             "letterSpacing": "0.35em"
                                         }
                                     }
@@ -41,32 +41,34 @@ export const site1 = {
                         },
                         {
                             "type": "column",
-                            "id": "4NrTuDPFei",
+                            "id": "2gvDSqM83Q",
                             "cmps": [
                                 {
-                                    "id": "ZMIOe4SJd4",
+                                    "id": "0nefKt86Gp",
                                     "type": "component",
                                     "component": {
                                         "style": {
-                                            "display": "flex"
+                                            "display": "flex",
+                                            "fontFamily": "raleway, san-serif",
+                                            "fontSize": "16"
                                         },
                                         "type": "nav",
                                         "data": {
                                             "links": [
                                                 {
-                                                    "id": "E3oSOGftFS",
+                                                    "id": "NocnpLqqUf",
                                                     "txt": "Reservation"
                                                 },
                                                 {
-                                                    "id": "STMaa7F3Cw",
+                                                    "id": "Pcxl1igX0X",
                                                     "txt": "Menu"
                                                 },
                                                 {
-                                                    "id": "NPg65QuaLq",
+                                                    "id": "7DP2emK0QB",
                                                     "txt": "About"
                                                 },
                                                 {
-                                                    "id": "FG1hiDDrH8",
+                                                    "id": "Stf1ZXZZR0",
                                                     "txt": "Contact"
                                                 }
                                             ]
@@ -85,25 +87,26 @@ export const site1 = {
                         },
                         {
                             "type": "column",
-                            "id": "BfgADoBmIJ",
+                            "id": "0m3HkpRDsw",
                             "cmps": [
                                 {
-                                    "id": "8ZGeKmIKFN",
+                                    "id": "rxvBKqfOPI",
                                     "type": "component",
                                     "component": {
                                         "type": "button",
                                         "data": {
-                                            "txt": "Order Now",
-                                            "hoverColor": "black"
+                                            "txt": "Order Online",
+                                            "hoverColor": "#534835"
                                         },
                                         "style": {
-                                            "backgroundColor": "#7C6C50",
-                                            "borderRadius": "5px",
-                                            "border": "none",
+                                            "fontSize": "16",
+                                            "fontFamily": "forum, serif",
+                                            "color": "rgb(238, 236, 226)",
+                                            "backgroundColor": "rgb(124, 108, 80)",
+                                            "border": 0,
                                             "height": 50,
                                             "width": 150,
-                                            "fontFamily": "montserrat",
-                                            "transition": ".3s"
+                                            "cursor": "pointer"
                                         }
                                     }
                                 }
@@ -119,9 +122,10 @@ export const site1 = {
                         }
                     ],
                     "style": {
-                        "padding": 10,
-                        "flexGrow": 0,
-                        "background": "transparent"
+                        "flexGrow": 1,
+                        "maxWidth": "1060px",
+                        "padding": "0 25px",
+                        "margin": "auto"
                     }
                 }
             ],
@@ -133,117 +137,152 @@ export const site1 = {
             "type": "section",
             "style": {
                 "backgroundImage": "url(https://static.wixstatic.com/media/46dc18_0998a8ce1f34483cbe31aec42ff6108f~mv2.jpg/v1/fill/w_1068,h_808,al_c,q_85,usm_0.66_1.00_0.01/46dc18_0998a8ce1f34483cbe31aec42ff6108f~mv2.webp)",
-                "height": 755
+                "height": 755,
+                "backgroundAttachment": "fixed",
+                "backgroundPosition": "center"
             },
             "cmps": []
         },
         {
             "type": "section",
+            "id": "n8HpPWQ4SY",
             "style": {
                 "height": 960,
                 "backgroundColor": "#faf8f1"
             },
             "cmps": [
                 {
-                    "id": "kN8rqNu9co",
-                    "type": "column",
+                    "id": "B6jZE0dFSW",
+                    "type": "innersection",
                     "style": {
-                        "flexGrow": 4,
-                        "alignItems": "center",
-                        "justifyContent": "center"
+                        "maxWidth": "1060px",
+                        "padding": "0 25px",
+                        "margin": "auto"
                     },
                     "cmps": [
                         {
-                            "id": "8ywjVbmsuY",
-                            "type": "component",
-                            "component": {
-                                "type": "text",
-                                "data": {
-                                    "txt": "Made With Love. Simply Delicious"
+                            "id": "fblPzw015a",
+                            "type": "column",
+                            "style": {
+                                "flexGrow": 4,
+                                "alignItems": "center",
+                                "justifyContent": "center"
+                            },
+                            "cmps": [
+                                {
+                                    "id": "oEOAduKHDf",
+                                    "type": "component",
+                                    "component": {
+                                        "type": "text",
+                                        "data": {
+                                            "txt": "Made With Love. Simply Delicious"
+                                        },
+                                        "style": {
+                                            "fontSize": 48,
+                                            "color": "rgb(9,15,15)",
+                                            "fontFamily": "forum, serif",
+                                            "textAlign": "center"
+                                        }
+                                    }
                                 },
-                                "style": {
-                                    "fontSize": 48,
-                                    "color": "rgb(9,15,15)",
-                                    "fontFamily": "Arial",
-                                    "textAlign": "center"
+                                {
+                                    "id": "WD6zcFayOn",
+                                    "type": "component",
+                                    "component": {
+                                        "type": "text",
+                                        "data": {
+                                            "txt": "I'm a paragraph. Click here to add your own text and edit me. I'm a great place for you to tell a story and let your users know a little more about you."
+                                        },
+                                        "style": {
+                                            "paddingTop": 40,
+                                            "paddingBottom": 40,
+                                            "fontSize": 16,
+                                            "color": "rgb(9,15,15)",
+                                            "fontFamily": "raleway, san-serif",
+                                            "textAlign": "center"
+                                        }
+                                    }
+                                },
+                                {
+                                    "id": "c2mzOHLeu0",
+                                    "type": "component",
+                                    "component": {
+                                        "type": "button",
+                                        "data": {
+                                            "txt": "View Menu",
+                                            "hoverColor": "#534835"
+                                        },
+                                        "style": {
+                                            "fontSize": "16",
+                                            "fontFamily": "forum, serif",
+                                            "color": "rgb(238, 236, 226)",
+                                            "backgroundColor": "rgb(124, 108, 80)",
+                                            "border": 0,
+                                            "padding": "25px 65px",
+                                            "cursor": "pointer"
+                                        }
+                                    }
                                 }
-                            }
+                            ]
                         },
                         {
-                            "id": "DMXYM4zFzA",
-                            "type": "component",
-                            "component": {
-                                "type": "text",
-                                "data": {
-                                    "txt": "I'm a paragraph. Click here to add your own text and edit me. I'm a great place for you to tell a story and let your users know a little more about you."
-                                },
-                                "style": {
-                                    "paddingTop": 40,
-                                    "paddingBottom": 40,
-                                    "fontSize": 16,
-                                    "color": "rgb(9,15,15)",
-                                    "fontFamily": "Arial"
+                            "id": "vLUXpaxc8D",
+                            "type": "column",
+                            "style": {},
+                            "cmps": [
+                                {
+                                    "id": "w8H0s5gSoH",
+                                    "type": "component",
+                                    "component": {
+                                        "type": "image",
+                                        "data": {
+                                            "url": "https://static.wixstatic.com/media/46dc18_3487b934a84548e090e13f5ce1bf08ad~mv2.jpg/v1/fill/w_450,h_800,al_c,q_80,usm_0.66_1.00_0.01/46dc18_3487b934a84548e090e13f5ce1bf08ad~mv2.webp"
+                                        },
+                                        "style": {}
+                                    }
                                 }
-                            }
-                        },
-                        {
-                            "id": "k3USlfLODC",
-                            "type": "component",
-                            "component": {
-                                "type": "button",
-                                "data": {
-                                    "txt": "View Menu"
-                                },
-                                "style": {
-                                    "borderColor": "#7c6c50",
-                                    "backgroundColor": "#7c6c50",
-                                    "borderRadius": "0",
-                                    "color": "rgb(250, 248, 241)"
-                                }
-                            }
-                        }
-                    ]
-                },
-                {
-                    "id": "RBk049oRvu",
-                    "type": "column",
-                    "style": {},
-                    "cmps": [
-                        {
-                            "id": "BadrVyeIYZ",
-                            "type": "component",
-                            "component": {
-                                "type": "image",
-                                "data": {
-                                    "url": "https://static.wixstatic.com/media/46dc18_3487b934a84548e090e13f5ce1bf08ad~mv2.jpg/v1/fill/w_450,h_800,al_c,q_80,usm_0.66_1.00_0.01/46dc18_3487b934a84548e090e13f5ce1bf08ad~mv2.webp"
-                                },
-                                "style": {}
-                            }
+                            ]
                         }
                     ]
                 }
             ]
         },
         {
+            "id": "QNjofmaOkX",
             "type": "section",
-            "style": {},
+            "style": {
+                "alignItems": "center",
+                "justifyContent": "center",
+                "backgroundImage": "url(https://static.wixstatic.com/media/46dc18_129ba04ade8a4cf3962ccb05b35e57c7~mv2.jpg/v1/fill/w_980,h_880,al_c,q_85,usm_0.66_1.00_0.01/46dc18_129ba04ade8a4cf3962ccb05b35e57c7~mv2.webp)",
+                "backgroundAttachment": "fixed",
+                "backgroundPosition": "center"
+            },
             "cmps": [
                 {
-                    "id": "hJMSYubrln",
+                    "id": "6fuSdc9loR",
                     "type": "innersection",
-                    "style": {},
+                    "style": {
+                        "maxWidth": "1060px",
+                        "padding": "0 25px",
+                        "margin": "auto"
+                    },
                     "cmps": [
                         {
-                            "id": "xhGwWzV4FP",
+                            "id": "x5LvzBbXAn",
                             "type": "column",
                             "style": {
+                                "position": "relative",
+                                "alignItems": "center",
+                                "backgroundColor": "rgb(250, 248, 241)",
+                                "maxWidth": "600px",
+                                "margin": "60px 0",
+                                "padding": "50px 60px",
                                 "display": "flex",
-                                "flexDirection": "column",
-                                "alignItems": "center"
+                                "gap": "25px"
                             },
                             "cmps": [
                                 {
-                                    "id": "ZP73xjd7jp",
+                                    "id": "5E45JW56G7",
                                     "type": "component",
                                     "component": {
                                         "type": "text",
@@ -253,14 +292,14 @@ export const site1 = {
                                         "style": {
                                             "fontSize": 48,
                                             "color": "#000000",
-                                            "fontFamily": "Arial",
+                                            "fontFamily": "forum, serif",
                                             "textAlign": "center",
                                             "maxWidth": "15ch"
                                         }
                                     }
                                 },
                                 {
-                                    "id": "6OW8v2WPIk",
+                                    "id": "B8ggsWzt42",
                                     "type": "component",
                                     "component": {
                                         "type": "text",
@@ -271,27 +310,29 @@ export const site1 = {
                                             "maxWidth": "420px",
                                             "fontSize": 16,
                                             "color": "#000000",
-                                            "fontFamily": "Arial",
+                                            "fontFamily": "raleway, san-serif",
                                             "textAlign": "center",
                                             "lineHeight": "1.5em"
                                         }
                                     }
                                 },
                                 {
-                                    "id": "tdWdbpixUL",
+                                    "id": "L62zCo7gtr",
                                     "type": "component",
                                     "component": {
                                         "type": "button",
                                         "data": {
-                                            "txt": "About Lawrence"
+                                            "txt": "About Lawrence",
+                                            "hoverColor": "#534835"
                                         },
                                         "style": {
-                                            "fontSize": 16,
-                                            "color": "#eeece2",
-                                            "fontFamily": "Arial",
-                                            "backgroundColor": "#7c6c50",
-                                            "width": "260px",
-                                            "height": "64px"
+                                            "fontSize": "16",
+                                            "fontFamily": "forum, serif",
+                                            "color": "rgb(238, 236, 226)",
+                                            "backgroundColor": "rgb(124, 108, 80)",
+                                            "border": 0,
+                                            "padding": "25px 65px",
+                                            "cursor": "pointer"
                                         }
                                     }
                                 }
@@ -303,6 +344,7 @@ export const site1 = {
         },
         {
             "type": "section",
+            "id": "GzbaOQRs5M",
             "style": {
                 "justifyContent": "center",
                 "alignItems": "center",
@@ -311,22 +353,26 @@ export const site1 = {
             },
             "cmps": [
                 {
-                    "id": "bpiKtfsrWK",
+                    "id": "o7BoZEmREr",
                     "type": "innersection",
                     "style": {
-                        "width": 870,
-                        "alignSelf": "center"
+                        "alignSelf": "center",
+                        "gap": "20px",
+                        "justifyContent": "space-around",
+                        "width": "1060px",
+                        "padding": "0 25px",
+                        "margin": "auto"
                     },
                     "cmps": [
                         {
-                            "id": "7gAAjq63w9",
+                            "id": "3d08MSwFsZ",
                             "type": "column",
                             "style": {
                                 "alignItems": "flex-start"
                             },
                             "cmps": [
                                 {
-                                    "id": "OsgNjTuyrO",
+                                    "id": "R7A06DEKun",
                                     "type": "component",
                                     "component": {
                                         "type": "text",
@@ -336,12 +382,12 @@ export const site1 = {
                                         "style": {
                                             "fontSize": 32,
                                             "color": "rgb(250,248,241)",
-                                            "fontFamily": "Arial"
+                                            "fontFamily": "forum, serif"
                                         }
                                     }
                                 },
                                 {
-                                    "id": "EP9lEG1ngY",
+                                    "id": "QioGeP7csd",
                                     "type": "component",
                                     "component": {
                                         "type": "text",
@@ -351,12 +397,12 @@ export const site1 = {
                                         "style": {
                                             "fontSize": 22,
                                             "color": "rgb(250,248,241)",
-                                            "fontFamily": "Arial"
+                                            "fontFamily": "forum, serif"
                                         }
                                     }
                                 },
                                 {
-                                    "id": "1ygqEoONGY",
+                                    "id": "rUbWZ9B7NC",
                                     "type": "component",
                                     "component": {
                                         "type": "text",
@@ -366,21 +412,21 @@ export const site1 = {
                                         "style": {
                                             "fontSize": 22,
                                             "color": "rgb(250,248,241)",
-                                            "fontFamily": "Arial"
+                                            "fontFamily": "forum, serif"
                                         }
                                     }
                                 }
                             ]
                         },
                         {
-                            "id": "NGaq4VGpkx",
+                            "id": "1RRmhDNVz9",
                             "type": "column",
                             "style": {
                                 "alignItems": "flex-start"
                             },
                             "cmps": [
                                 {
-                                    "id": "F0OzgQ3szD",
+                                    "id": "9rPGB6H05r",
                                     "type": "component",
                                     "component": {
                                         "type": "text",
@@ -390,12 +436,12 @@ export const site1 = {
                                         "style": {
                                             "fontSize": 32,
                                             "color": "rgb(250,248,241)",
-                                            "fontFamily": "Arial"
+                                            "fontFamily": "forum, serif"
                                         }
                                     }
                                 },
                                 {
-                                    "id": "hKdxn3p2CL",
+                                    "id": "D92ZzTebaG",
                                     "type": "component",
                                     "component": {
                                         "type": "text",
@@ -405,12 +451,12 @@ export const site1 = {
                                         "style": {
                                             "fontSize": 22,
                                             "color": "rgb(250,248,241)",
-                                            "fontFamily": "Arial"
+                                            "fontFamily": "forum, serif"
                                         }
                                     }
                                 },
                                 {
-                                    "id": "gdB18NUAQG",
+                                    "id": "uTkjXpT22K",
                                     "type": "component",
                                     "component": {
                                         "type": "text",
@@ -420,21 +466,21 @@ export const site1 = {
                                         "style": {
                                             "fontSize": 22,
                                             "color": "rgb(250,248,241)",
-                                            "fontFamily": "Arial"
+                                            "fontFamily": "forum, serif"
                                         }
                                     }
                                 }
                             ]
                         },
                         {
-                            "id": "LC24T3caDh",
+                            "id": "2TwhUCtPJg",
                             "type": "column",
                             "style": {
                                 "alignItems": "flex-start"
                             },
                             "cmps": [
                                 {
-                                    "id": "yyg1yZNBNz",
+                                    "id": "SLcCnCXvm6",
                                     "type": "component",
                                     "component": {
                                         "type": "text",
@@ -444,12 +490,12 @@ export const site1 = {
                                         "style": {
                                             "fontSize": 32,
                                             "color": "rgb(250,248,241)",
-                                            "fontFamily": "Arial"
+                                            "fontFamily": "forum, serif"
                                         }
                                     }
                                 },
                                 {
-                                    "id": "wnYPHBsRuT",
+                                    "id": "BHLc14sTun",
                                     "type": "component",
                                     "component": {
                                         "type": "text",
@@ -459,12 +505,12 @@ export const site1 = {
                                         "style": {
                                             "fontSize": 22,
                                             "color": "rgb(250,248,241)",
-                                            "fontFamily": "Arial"
+                                            "fontFamily": "forum, serif"
                                         }
                                     }
                                 },
                                 {
-                                    "id": "TYrexanYQA",
+                                    "id": "Qb47vHFaPl",
                                     "type": "component",
                                     "component": {
                                         "type": "text",
@@ -474,7 +520,7 @@ export const site1 = {
                                         "style": {
                                             "fontSize": 22,
                                             "color": "rgb(250,248,241)",
-                                            "fontFamily": "Arial"
+                                            "fontFamily": "forum, serif"
                                         }
                                     }
                                 }
