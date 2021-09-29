@@ -73,7 +73,7 @@ export function Section({ data, cmps, handleDrop, path, updateComponent, onSelec
     <div
       ref={ref}
       style={{ ...data.style, opacity }}
-      className={`section draggable${(hasOnlyInnersections) ? ' flex direction-column' : ' flex'}`}
+      className={`section${(hasOnlyInnersections) ? ' flex direction-column' : ' flex'}`}
       onClick={select}
       onMouseEnter={() => {
         setActionsVisible(true)
