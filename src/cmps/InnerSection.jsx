@@ -61,8 +61,6 @@ export function InnerSection({ data, components, handleDrop, path, updateCompone
             className="base draggable innersection flex"
             onMouseEnter={() => setActionsVisible(true)}
             onMouseLeave={() => setActionsVisible(false)}>
-            {/* {data.id} */}
-            {/* <div className="columns"> */}
             {data.cmps.map((column, index) => {
                 const currentPath = `${path}-${index}`;
 
@@ -92,7 +90,6 @@ export function InnerSection({ data, components, handleDrop, path, updateCompone
                 isLast
             />
             {actionsVisible && <Actions path={path} type={INNERSECTION} />}
-            {/* </div> */}
         </div>
     );
 };

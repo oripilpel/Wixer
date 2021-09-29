@@ -81,7 +81,6 @@ export function Section({ data, cmps, handleDrop, path, updateComponent, onSelec
       onMouseLeave={() => {
         setActionsVisible(false)
       }}>
-      {/* <div className={(hasOnlyInnersections) ? 'innersections flex direction-column' : 'columns flex'}> */}
       {data.cmps.map((child, index) => {
         const currentPath = `${path}-${index}`;
         return (
@@ -112,7 +111,6 @@ export function Section({ data, cmps, handleDrop, path, updateComponent, onSelec
         isLast
       />
       {actionsVisible && <Actions path={path} type={SECTION} />}
-      {/* </div> */}
     </div>
   );
 };

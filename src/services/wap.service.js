@@ -49,11 +49,11 @@ export const duplicate = (layout, item) => {
         newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps = insert(newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps, idx, item);
       }
       else {
-        item = { ...newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps[splitItemPath[3]] };
+        item = { ...newLayout[splitItemPath[0]].cmps[splitItemPath[1]] };
         item.id = utilService.makeId();
-        idx = splitItemPath[3] - 1;
+        idx = splitItemPath[1] - 1;
         idx = idx < 0 ? 0 : idx;
-        newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps = insert(newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps, idx, item);
+        newLayout[splitItemPath[0]].cmps = insert(newLayout[splitItemPath[0]].cmps, idx, item);
       }
       break;
     default:
@@ -349,8 +349,6 @@ const _generateColumn = (item = null) => {
       flexGrow: 1,
       flexDirection: 'column',
       display: 'flex',
-      // justifyContent: 'center',
-      // alignItems: 'center'
     }
   }
 }
