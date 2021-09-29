@@ -113,7 +113,7 @@ export function layoutReducer(state = initialState, action) {
                     else newLayout.cmps[path[0]].cmps[path[1]].cmps[path[2]].component[field] = value;
                     break;
                 default:
-                    if (comp.component.type === 'nav') { newLayout.cmps[path[0]].cmps[path[1]].cmps[path[2]].cmps[path[3]].component.data.links[field].txt = value }
+                    if (comp.component && comp.component.type === 'nav') { newLayout.cmps[path[0]].cmps[path[1]].cmps[path[2]].cmps[path[3]].component.data.links[field].txt = value }
                     else newLayout.cmps[path[0]].cmps[path[1]].cmps[path[2]].cmps[path[3]].component[field] = value;
                     break;
             }

@@ -1,5 +1,5 @@
-import { SECTION, COLUMN, COMPONENT, INNERSECTION } from "../constants";
-import { utilService } from "./util.service";
+import { SECTION, COLUMN, COMPONENT, INNERSECTION } from "./constants";
+import { utilService } from "./services/util.service";
 
 // a little function to help us with reordering the result
 export const reorder = (list, startIndex, endIndex) => {
@@ -11,90 +11,22 @@ export const reorder = (list, startIndex, endIndex) => {
 };
 
 export const remove = (arr, index) => [
+  // part of the array before the specified index
   ...arr.slice(0, index),
+  // part of the array after the specified index
   ...arr.slice(index + 1)
 ];
 
 export const insert = (arr, index, newItem) => {
   return [
+    // part of the array before the specified index
     ...arr.slice(0, index),
+    // inserted item
     newItem,
+    // part of the array after the specified index
     ...arr.slice(index)
   ]
 };
-
-export const duplicate = (layout, item) => {
-  const { splitItemPath, type } = item
-  let idx;
-  let newLayout = [...layout];
-  switch (type) {
-    case SECTION:
-      item = { ...newLayout[splitItemPath[0]] };
-      item.id = utilService.makeId();
-      newLayout = insert(newLayout, splitItemPath[0] + 1, item);
-      break;
-    case INNERSECTION:
-      item = { ...newLayout[splitItemPath[0]].cmps[splitItemPath[1]] };
-      item.id = utilService.makeId();
-      idx = splitItemPath[1] - 1;
-      idx = idx < 0 ? 0 : idx;
-      newLayout[splitItemPath[0]].cmps = insert(newLayout[splitItemPath[0]].cmps, idx, item);
-      break;
-    case COLUMN:
-      if (splitItemPath.length === 3) {
-        item = { ...newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]] };
-        item.id = utilService.makeId();
-        idx = splitItemPath[2] - 1;
-        idx = idx < 0 ? 0 : idx;
-        newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps = insert(newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps, idx, item);
-      }
-      else {
-        item = { ...newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps[splitItemPath[3]] };
-        item.id = utilService.makeId();
-        idx = splitItemPath[3] - 1;
-        idx = idx < 0 ? 0 : idx;
-        newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps = insert(newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps, idx, item);
-      }
-      break;
-    default:
-      switch (splitItemPath.length) {
-        case 3:
-          item = { ...newLayout[splitItemPath[0]].cmps[splitItemPath[1]] };
-          item.id = utilService.makeId();
-          idx = splitItemPath[1] - 1;
-          idx = idx < 0 ? 0 : idx;
-          newLayout[splitItemPath[0]].cmps = insert(newLayout[splitItemPath[0]].cmps, idx, item);
-          break;
-        case 4:
-          item = { ...newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]] };
-          if (item.cmps) {
-            item = { ...item.cmps[splitItemPath[3]] }
-            item.id = utilService.makeId();
-            idx = splitItemPath[3] - 1;
-            idx = idx < 0 ? 0 : idx;
-            newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps = insert(newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps, idx, item);
-          }
-          else {
-            item = { ...item.component.data.links[splitItemPath[3]] }
-            item.id = utilService.makeId();
-            idx = splitItemPath[3] - 1;
-            idx = idx < 0 ? 0 : idx;
-            newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].component.data.links = insert(newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].component.data.links, idx, item);
-          }
-          break;
-        default:
-          item = { ...newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps[splitItemPath[3]].component.data.links[splitItemPath[4]] };
-          item.id = utilService.makeId();
-          idx = splitItemPath[4] - 1;
-          idx = idx < 0 ? 0 : idx;
-          newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps[splitItemPath[3]].component.data.links = insert(newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps[splitItemPath[3]].component.data.links, idx, item);
-          break;
-      }
-      break;
-  }
-
-  return newLayout;
-}
 
 export const reorderChildren = (children, splitDropZonePath, splitItemPath) => {
   if (splitDropZonePath.length === 1) {
@@ -108,11 +40,7 @@ export const reorderChildren = (children, splitDropZonePath, splitItemPath) => {
   const curIndex = Number(splitDropZonePath.slice(0, 1));
 
   // Update the specific node's children
-  let newSplitDropZoneChildrenPath = splitDropZonePath.slice(1);
-  newSplitDropZoneChildrenPath[newSplitDropZoneChildrenPath.length - 1] =
-    +splitDropZonePath[splitDropZonePath.length - 1] > +splitItemPath[splitItemPath.length - 1] ?
-      newSplitDropZoneChildrenPath[newSplitDropZoneChildrenPath.length - 1] - 1 : newSplitDropZoneChildrenPath[newSplitDropZoneChildrenPath.length - 1]
-  const splitDropZoneChildrenPath = newSplitDropZoneChildrenPath
+  const splitDropZoneChildrenPath = splitDropZonePath.slice(1);
   const splitItemChildrenPath = splitItemPath.slice(1);
   const nodeChildren = updatedChildren[curIndex];
   updatedChildren[curIndex] = {
@@ -127,36 +55,23 @@ export const reorderChildren = (children, splitDropZonePath, splitItemPath) => {
   return updatedChildren;
 };
 
-export const removeChildFromChildren = (layout, item) => {
-  const { type, splitItemPath } = item
-  switch (type) {
-    case SECTION:
+export const removeChildFromChildren = (layout, splitItemPath) => {
+  switch (splitItemPath.length) {
+    case 1:
       layout.splice(splitItemPath[0], 1)
       return layout
-    case INNERSECTION:
+
+    case 2:
       layout[splitItemPath[0]].cmps.splice(splitItemPath[1], 1)
       return layout
-    case COLUMN:
-      if (splitItemPath.length === 3) layout[splitItemPath[0]].cmps[splitItemPath[1]].cmps.splice(splitItemPath[2], 1)
-      else layout[splitItemPath[0]].cmps.splice(splitItemPath[1], 1)
-      return layout
-    default:
-      let component;
-      switch (splitItemPath.length) {
-        case 3:
-          component = layout[splitItemPath[0]].cmps[splitItemPath[1]]
-          break;
-        case 4:
-          component = layout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]]
-          break;
-        default:
-          component = layout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps[splitItemPath[3]]
-          break;
-      }
-      if (component.cmps) component.cmps.splice(splitItemPath[splitItemPath.length - 1], 1)
-      else component.component.data.links.splice(splitItemPath[splitItemPath.length - 1], 1)
+
+    case 3:
+      layout[splitItemPath[0]].cmps[splitItemPath[1]].cmps.splice(splitItemPath[2], 1)
       return layout
 
+    default:
+      layout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps.splice(splitItemPath[3], 1)
+      return layout
   }
 };
 
@@ -288,7 +203,7 @@ export const handleMoveToDifferentParent = (
   }
 
   let updatedLayout = layout;
-  updatedLayout = removeChildFromChildren(updatedLayout, { type: item.type, splitItemPath });
+  updatedLayout = removeChildFromChildren(updatedLayout, splitItemPath);
   updatedLayout = handleAddColumDataToRow(updatedLayout);
   updatedLayout = addChildToChildren(
     updatedLayout,
@@ -346,6 +261,24 @@ export const handleMoveSidebarComponentIntoParent = (
   return addChildToChildren(layout, splitDropZonePath, newLayoutStructure);
 };
 
+export const handleRemoveItemFromLayout = (layout, splitItemPath) => {
+  return removeChildFromChildren(layout, splitItemPath);
+};
+
+export const translateStyle = (style) => {
+  if (style.paddingTop) style.paddingTop = `${style.paddingTop}px`;
+  if (style.paddingRight) style.paddingRight = `${style.paddingRight}px`;
+  if (style.paddingBottom) style.paddingBottom = `${style.paddingBottom}px`;
+  if (style.paddingLeft) style.paddingLeft = `${style.paddingLeft}px`;
+  if (style.marginTop) style.marginTop = `${style.marginTop}px`;
+  if (style.marginRight) style.paddingRight = `${style.marginRight}px`;
+  if (style.marginBottom) style.marginBottom = `${style.marginBottom}px`;
+  if (style.marginLeft) style.marginLeft = `${style.marginLeft}px`;
+  if (style.fontSize) style.fontSize = `${style.fontSize}px`;
+  if (style.width) style.width = `${style.width}%`;
+  return style;
+}
+
 const _generateColumn = (item = null) => {
   return {
     type: COLUMN,
@@ -356,8 +289,8 @@ const _generateColumn = (item = null) => {
       flexGrow: 1,
       flexDirection: 'column',
       display: 'flex',
-      // justifyContent: 'center',
-      // alignItems: 'center'
+      justifyContent: 'center',
+      alignItems: 'center'
     }
   }
 }
@@ -369,8 +302,7 @@ const _generateInnerSection = (item = null) => {
     cmps: [_generateColumn(), _generateColumn(), _generateColumn()],
     style: {
       padding: 10,
-      flexGrow: 1,
-      display: 'flex'
+      flexGrow: 0
     }
   }
 }

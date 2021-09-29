@@ -29,6 +29,7 @@ export function FontEdit({ fontSize, color, fontFamily, textAlign, onChange }) {
                     id="font-family"
                     value={fontFamily}
                     label="Font family"
+                    name="fontFamily"
                     onChange={onChange}
                 >
                     <MenuItem value="Arial">Arial</MenuItem>

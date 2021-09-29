@@ -19,14 +19,19 @@
 @import "cmps/column";
 @import "cmps/column-section-edit";
 @import "cmps/component";
+
 @import "cmps/side-bar";
 @import "cmps/side-bar-item";
 @import "cmps/header";
 @import "cmps/button";
 @import "cmps/actions";
+
 @import "cmps/template-list";
 @import "cmps/template-preview";
-@import "cmps/text-edit";
-@import "cmps/button-edit";
+
 @import "cmps/Home/home-top";
 @import "cmps/Home/home-features";
+
+@import "cmps/button-edit";
+@import "cmps/text-edit";
+@import "cmps/image-edit";

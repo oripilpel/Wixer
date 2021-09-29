@@ -65,7 +65,9 @@ function _Editor(
                 return;
             }
             if (item.type === SIDEBAR_SECTION) {
-                insert(splitDropZonePath[0], item.component)
+                const newSection = item.component;
+                newSection.id = utilService.makeId();
+                insert(splitDropZonePath[0], newSection)
                 return
             }
 
