@@ -174,7 +174,7 @@ export const SIDEBAT_ITEMS_HEADER = [
                     },
                     type: 'nav',
                     data: {
-                      hoverColor: '#00000',
+                      hoverColor: '#000000',
                       color: '#000000',
                       links: [
                         {
