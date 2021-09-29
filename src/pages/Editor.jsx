@@ -38,7 +38,7 @@ function _Editor(
     useEffect(() => {
         const id = match.params.wapId;
         if (id) loadWap(id)
-    });
+    },[]);
 
     const onUpdateComponent = (comp, field, value) => {
         updateComponent(comp, field, value);

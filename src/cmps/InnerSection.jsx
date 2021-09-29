@@ -91,7 +91,7 @@ export function InnerSection({ data, components, handleDrop, path, updateCompone
                 className="horizontalDrag"
                 isLast
             />
-            {actionsVisible && <Actions path={path} />}
+            {actionsVisible && <Actions path={path} type={INNERSECTION} />}
             {/* </div> */}
         </div>
     );

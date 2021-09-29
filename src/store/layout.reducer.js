@@ -6,7 +6,7 @@ import {
     handleMoveSidebarComponentIntoParent,
     handleMoveSidebarColumnIntoParent,
     handleMoveSidebarInnerSectionIntoParent,
-    handleRemoveItemFromLayout,
+    removeChildFromChildren,
     insert,
     duplicate
 } from "../services/wap.service";
@@ -29,9 +29,9 @@ export function layoutReducer(state = initialState, action) {
         case 'REMOVE_ITEM':
             return {
                 ...state,
-                cmps: handleRemoveItemFromLayout(
+                cmps: removeChildFromChildren(
                     [...state.cmps],
-                    action.splitItemPath
+                    action.item
                 ),
             }
         case 'DUPLICATE_ITEM':
@@ -39,7 +39,7 @@ export function layoutReducer(state = initialState, action) {
                 ...state,
                 cmps: duplicate(
                     state.cmps,
-                    action.splitItemPath
+                    action.item
                 )
             }
         case 'MOVE_SIDEBAR_COMPONENT_INTO_PARENT':
@@ -96,9 +96,8 @@ export function layoutReducer(state = initialState, action) {
         case 'MOVE_COLUMN':
             return { ...state }
         case 'UPDATE_COMPONENT':
-            // debugger
             const { comp, field, value } = action;
-            if (!comp || (!field && field !== 0) || !value) return
+            if (!comp || (!field && field !== 0) || !value) return state
             const newLayout = JSON.parse(JSON.stringify(state))
             const { path } = comp;
             switch (path.length) {
@@ -114,7 +113,7 @@ export function layoutReducer(state = initialState, action) {
                     else newLayout.cmps[path[0]].cmps[path[1]].cmps[path[2]].component[field] = value;
                     break;
                 default:
-                    if (comp.component &&  comp.component.type === 'nav') { newLayout.cmps[path[0]].cmps[path[1]].cmps[path[2]].cmps[path[3]].component.data.links[field].txt = value }
+                    if (comp.component && comp.component.type === 'nav') { newLayout.cmps[path[0]].cmps[path[1]].cmps[path[2]].cmps[path[3]].component.data.links[field].txt = value }
                     else newLayout.cmps[path[0]].cmps[path[1]].cmps[path[2]].cmps[path[3]].component[field] = value;
                     break;
             }

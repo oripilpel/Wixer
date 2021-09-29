@@ -20,11 +20,11 @@ export function FontEdit({ fontSize, color, fontFamily, textAlign, onChange }) {
                 />
             </div>
             <div className="font-align">
-            <div className="label">
+                <div className="label">
                     <label htmlFor="textAlign">Align:</label>
                 </div>
                 <div className="input">
-                <FontEditTextAlign name="textAlign" value={textAlign || 'left'} onChange={onChange} />
+                    <FontEditTextAlign name="textAlign" value={textAlign || 'left'} onChange={onChange} />
                 </div>
             </div>
             <div className="font-color">
@@ -41,10 +41,11 @@ export function FontEdit({ fontSize, color, fontFamily, textAlign, onChange }) {
                 </div>
                 <div className="input">
                     <Select
-                        labelId="font-familyl"
+                        labelId="font-family"
                         id="font-family"
                         value={fontFamily}
                         label="Font family"
+                        name="fontFamily"
                         onChange={onChange}
                     >
                         <MenuItem value="Arial">Arial</MenuItem>

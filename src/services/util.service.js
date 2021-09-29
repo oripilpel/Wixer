@@ -25,6 +25,7 @@ export const translateStyle = (style) => {
     if (style.fontSize) style.fontSize = `${style.fontSize}px`;
     if (style.width) style.width = `${style.width}px`;
     if (style.height) style.height = `${style.height}px`
+    if (style.borderWidth) style.borderWidth = `${style.borderWidth}px`
     return style;
 }
 

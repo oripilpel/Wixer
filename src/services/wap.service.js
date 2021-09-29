@@ -23,44 +23,73 @@ export const insert = (arr, index, newItem) => {
   ]
 };
 
-export const duplicate = (layout, path) => {
-  debugger
-  let item;
+export const duplicate = (layout, item) => {
+  const { splitItemPath, type } = item
   let idx;
   let newLayout = [...layout];
-  switch (path.length) {
-    case 1:
-      item = { ...newLayout[path[0]] };
+  switch (type) {
+    case SECTION:
+      item = { ...newLayout[splitItemPath[0]] };
       item.id = utilService.makeId();
-      newLayout = insert(newLayout, path[0] + 1, item);
+      newLayout = insert(newLayout, splitItemPath[0] + 1, item);
       break;
-    case 2:
-      item = { ...newLayout[path[0]].cmps[path[1]] };
+    case INNERSECTION:
+      item = { ...newLayout[splitItemPath[0]].cmps[splitItemPath[1]] };
       item.id = utilService.makeId();
-      idx = path[1] - 1;
+      idx = splitItemPath[1] - 1;
       idx = idx < 0 ? 0 : idx;
-      newLayout[path[0]].cmps = insert(newLayout[path[0]].cmps, idx, item);
+      newLayout[splitItemPath[0]].cmps = insert(newLayout[splitItemPath[0]].cmps, idx, item);
       break;
-    case 3:
-      item = { ...newLayout[path[0]].cmps[path[1]].cmps[path[2]] };
-      item.id = utilService.makeId();
-      idx = path[2] - 1;
-      idx = idx < 0 ? 0 : idx;
-      newLayout[path[0]].cmps[path[1]].cmps = insert(newLayout[path[0]].cmps[path[1]].cmps, idx, item);
-      break;
-    case 4:
-      item = { ...newLayout[path[0]].cmps[path[1]].cmps[path[2]].cmps[path[3]] };
-      item.id = utilService.makeId();
-      idx = path[3] - 1;
-      idx = idx < 0 ? 0 : idx;
-      newLayout[path[0]].cmps[path[1]].cmps[path[2]].cmps = insert(newLayout[path[0]].cmps[path[1]].cmps[path[2]].cmps, idx, item);
+    case COLUMN:
+      if (splitItemPath.length === 3) {
+        item = { ...newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]] };
+        item.id = utilService.makeId();
+        idx = splitItemPath[2] - 1;
+        idx = idx < 0 ? 0 : idx;
+        newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps = insert(newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps, idx, item);
+      }
+      else {
+        item = { ...newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps[splitItemPath[3]] };
+        item.id = utilService.makeId();
+        idx = splitItemPath[3] - 1;
+        idx = idx < 0 ? 0 : idx;
+        newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps = insert(newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps, idx, item);
+      }
       break;
     default:
-      item = { ...newLayout[path[0]].cmps[path[1]].cmps[path[2]].cmps[path[3]].component.data.links[path[4]] };
-      item.id = utilService.makeId();
-      idx = path[4] - 1;
-      idx = idx < 0 ? 0 : idx;
-      newLayout[path[0]].cmps[path[1]].cmps[path[2]].cmps[path[3]].component.data.links = insert(newLayout[path[0]].cmps[path[1]].cmps[path[2]].cmps[path[3]].component.data.links, idx, item);
+      switch (splitItemPath.length) {
+        case 3:
+          item = { ...newLayout[splitItemPath[0]].cmps[splitItemPath[1]] };
+          item.id = utilService.makeId();
+          idx = splitItemPath[1] - 1;
+          idx = idx < 0 ? 0 : idx;
+          newLayout[splitItemPath[0]].cmps = insert(newLayout[splitItemPath[0]].cmps, idx, item);
+          break;
+        case 4:
+          item = { ...newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]] };
+          if (item.cmps) {
+            item = { ...item.cmps[splitItemPath[3]] }
+            item.id = utilService.makeId();
+            idx = splitItemPath[3] - 1;
+            idx = idx < 0 ? 0 : idx;
+            newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps = insert(newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps, idx, item);
+          }
+          else {
+            item = { ...item.component.data.links[splitItemPath[3]] }
+            item.id = utilService.makeId();
+            idx = splitItemPath[3] - 1;
+            idx = idx < 0 ? 0 : idx;
+            newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].component.data.links = insert(newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].component.data.links, idx, item);
+          }
+          break;
+        default:
+          item = { ...newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps[splitItemPath[3]].component.data.links[splitItemPath[4]] };
+          item.id = utilService.makeId();
+          idx = splitItemPath[4] - 1;
+          idx = idx < 0 ? 0 : idx;
+          newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps[splitItemPath[3]].component.data.links = insert(newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps[splitItemPath[3]].component.data.links, idx, item);
+          break;
+      }
       break;
   }
 
@@ -98,23 +127,36 @@ export const reorderChildren = (children, splitDropZonePath, splitItemPath) => {
   return updatedChildren;
 };
 
-export const removeChildFromChildren = (layout, splitItemPath) => {
-  switch (splitItemPath.length) {
-    case 1:
+export const removeChildFromChildren = (layout, item) => {
+  const { type, splitItemPath } = item
+  switch (type) {
+    case SECTION:
       layout.splice(splitItemPath[0], 1)
       return layout
-
-    case 2:
+    case INNERSECTION:
       layout[splitItemPath[0]].cmps.splice(splitItemPath[1], 1)
       return layout
-
-    case 3:
-      layout[splitItemPath[0]].cmps[splitItemPath[1]].cmps.splice(splitItemPath[2], 1)
+    case COLUMN:
+      if (splitItemPath.length === 3) layout[splitItemPath[0]].cmps[splitItemPath[1]].cmps.splice(splitItemPath[2], 1)
+      else layout[splitItemPath[0]].cmps.splice(splitItemPath[1], 1)
       return layout
-
     default:
-      layout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps.splice(splitItemPath[3], 1)
+      let component;
+      switch (splitItemPath.length) {
+        case 3:
+          component = layout[splitItemPath[0]].cmps[splitItemPath[1]]
+          break;
+        case 4:
+          component = layout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]]
+          break;
+        default:
+          component = layout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps[splitItemPath[3]]
+          break;
+      }
+      if (component.cmps) component.cmps.splice(splitItemPath[splitItemPath.length - 1], 1)
+      else component.component.data.links.splice(splitItemPath[splitItemPath.length - 1], 1)
       return layout
+
   }
 };
 
@@ -246,7 +288,7 @@ export const handleMoveToDifferentParent = (
   }
 
   let updatedLayout = layout;
-  updatedLayout = removeChildFromChildren(updatedLayout, splitItemPath);
+  updatedLayout = removeChildFromChildren(updatedLayout, { type: item.type, splitItemPath });
   updatedLayout = handleAddColumDataToRow(updatedLayout);
   updatedLayout = addChildToChildren(
     updatedLayout,
@@ -302,10 +344,6 @@ export const handleMoveSidebarComponentIntoParent = (
   }
 
   return addChildToChildren(layout, splitDropZonePath, newLayoutStructure);
-};
-
-export const handleRemoveItemFromLayout = (layout, splitItemPath) => {
-  return removeChildFromChildren(layout, splitItemPath);
 };
 
 const _generateColumn = (item = null) => {

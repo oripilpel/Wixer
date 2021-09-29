@@ -6,7 +6,7 @@ import { Image } from "../cmps/Image";
 import { Text } from "../cmps/publish/Text";
 import { Video } from "../cmps/Video";
 import { Nav } from "../cmps/publish/Nav";
-import { Button } from "../cmps/Button";
+import { Button } from "../cmps/publish/Button";
 import { loadWap } from '../store/layout.actions'
 
 function _Publish({ match, cmps, loadWap }) {
@@ -21,7 +21,7 @@ function _Publish({ match, cmps, loadWap }) {
     useEffect(() => {
         const id = match.params.wapId;
         if (id) loadWap(id);
-    });
+    },[]);
 
     const renderer = ({ component }) => {
         if (!component) return

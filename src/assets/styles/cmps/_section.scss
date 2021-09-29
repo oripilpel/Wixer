@@ -11,7 +11,7 @@
         border: 1px solid $sectionBorderColor !important;
     }
     .editor & {
-        border: $borderEditMode;
+        outline: $borderEditMode;
     }
     .columns {
         display: flex;
