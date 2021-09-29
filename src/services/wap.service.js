@@ -97,9 +97,10 @@ export const duplicate = (layout, item) => {
 }
 
 export const reorderChildren = (children, splitDropZonePath, splitItemPath) => {
-  if (splitDropZonePath.length === 1) {
-    const dropZoneIndex = Number(splitDropZonePath[0]);
-    const itemIndex = Number(splitItemPath[0]);
+  if (splitDropZonePath.length === 1 || ((children[splitItemPath[0]].type === INNERSECTION || children[splitItemPath[0]].type === COLUMN) && splitItemPath[0] === splitDropZonePath[0])) {
+    if (children[splitItemPath[0]].type === INNERSECTION || children[splitItemPath[0]].type === COLUMN) children = children[splitItemPath[0]].cmps
+    const dropZoneIndex = Number(splitDropZonePath[splitDropZonePath.length - 1]);
+    const itemIndex = Number(splitItemPath[splitItemPath.length - 1]);
     return reorder(children, itemIndex, dropZoneIndex);
   }
 
