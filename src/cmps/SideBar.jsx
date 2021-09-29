@@ -41,6 +41,7 @@ function _SideBar({ selected, update, cmps, style, _id, saveWap }) {
                             <SidebarEditComponent
                                 type={(selected.type === COMPONENT) ? selected.component.type : selected.type}
                                 style={(selected.type === COMPONENT) ? selected.component.style : selected.style}
+                                data={(selected.type === COMPONENT) ? selected.component.data : selected.data}
                                 onUpdate={onUpdate} />
                         </StyledEngineProvider>
                     </>

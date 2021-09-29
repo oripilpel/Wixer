@@ -5,7 +5,6 @@ export function VideoEdit({ data, style, onUpdate }) {
     }
     return (
         <div>
-            {JSON.stringify(data)}
             <label htmlFor="video-id">Enter YouTube video Id</label>
             <input type="text" name="videoId" id="video-id" defaultValue={data.videoId} onChange={onChange} />
         </div>

@@ -1,5 +1,6 @@
-import Plus from '../assets/img/plus.png'
-import Restaurant from '../assets/img/restaurant.jpeg'
+import Plus from '../assets/img/plus.png';
+import Restaurant from '../assets/img/restaurant.jpeg';
+import mercedes from '../assets/img/mercedes.jpg'
 export const templateService = {
     getAmountOfTemplates
 }
@@ -15,9 +16,9 @@ const gTemplates = [
         title: 'Restaurant',
     },
     {
-        json: '23232',
-        img: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
-        title: 'Burger',
+        json: 'T9Aek',
+        img: mercedes,
+        title: 'Mercedes',
     },
     {
         json: '12345',

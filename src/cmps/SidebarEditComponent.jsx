@@ -3,8 +3,9 @@ import { ColumnSectionEdit } from "./ColumnSectionEdit"
 import { ImageEdit } from "./ImageEdit"
 import { TextEdit } from "./TextEdit"
 import { ButtonEdit } from "./ButtonEdit"
+import { VideoEdit } from "./VideoEdit"
 
-export function SidebarEditComponent({ type, style, onUpdate }) {
+export function SidebarEditComponent({ type, style, data, onUpdate }) {
     switch (type) {
         case COLUMN:
         case SECTION:
@@ -16,6 +17,8 @@ export function SidebarEditComponent({ type, style, onUpdate }) {
             return <ImageEdit style={style} onUpdate={onUpdate} />
         case 'button':
             return <ButtonEdit style={style} onUpdate={onUpdate} />
+        case 'video':
+            return <VideoEdit style={style} onUpdate={onUpdate} data={data}/>
         default:
             return <></>
     }
