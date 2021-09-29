@@ -13,7 +13,8 @@ export const SIDEBAR_ITEMS_BASIC = [
   {
     id: utilService.makeId(),
     type: SIDEBAR_INNERSECTION,
-    name: 'layout',
+    name: 'columns',
+    icon: 'ViewColumnIcon',
     component: {
       type: INNERSECTION,
       children: [],
@@ -23,7 +24,7 @@ export const SIDEBAR_ITEMS_BASIC = [
   {
     id: utilService.makeId(),
     type: SIDEBAR_COLUMN,
-    name: 'layout',
+    name: 'column',
     component: {
       type: COLUMN,
       children: [],
@@ -34,6 +35,7 @@ export const SIDEBAR_ITEMS_BASIC = [
     id: utilService.makeId(),
     type: SIDEBAR_ITEM,
     name: 'text',
+    icon: 'TextFieldsIcon',
     component: {
       type: 'text',
       data: { txt: 'Some text' },
@@ -47,6 +49,8 @@ export const SIDEBAR_ITEMS_BASIC = [
   {
     id: utilService.makeId(),
     type: SIDEBAR_ITEM,
+    name: 'video',
+    icon: 'VideoLibraryIcon',
     component: {
       type: 'video',
       data: { videoId: 'VvU27gvAK40' },
@@ -60,6 +64,7 @@ export const SIDEBAR_ITEMS_BASIC = [
     id: utilService.makeId(),
     type: SIDEBAR_ITEM,
     name: 'image',
+    icon: 'InsertPhotoIcon',
     component: {
       type: 'image',
       data: { url: 'https://random.imagecdn.app/150/150' },
@@ -69,6 +74,8 @@ export const SIDEBAR_ITEMS_BASIC = [
   {
     id: utilService.makeId(),
     type: SIDEBAR_ITEM,
+    name: 'button',
+    icon: 'SmartButtonIcon',
     component: {
       type: 'button',
       data: { txt: 'Click to Change', hoverColor: '#767676' },
