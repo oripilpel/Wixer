@@ -95,7 +95,7 @@ export function Section({ data, cmps, handleDrop, path, updateComponent, onSelec
               onDrop={handleDrop}
               className={(hasOnlyInnersections) ? '' : 'horizontalDrag'}
             />
-            {(child.type === COLUMN) && (renderColumn(child, currentPath) || renderInnerSection(child, currentPath))}
+            {((child.type === COLUMN) && renderColumn(child, currentPath)) || renderInnerSection(child, currentPath)}
           </React.Fragment>
         );
 
@@ -111,7 +111,7 @@ export function Section({ data, cmps, handleDrop, path, updateComponent, onSelec
         className={(hasOnlyInnersections) ? '' : 'horizontalDrag'}
         isLast
       />
-      {actionsVisible && <Actions path={path} />}
+      {actionsVisible && <Actions path={path} type={SECTION} />}
       {/* </div> */}
     </div>
   );

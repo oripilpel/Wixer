@@ -1,19 +1,19 @@
 import { connect } from 'react-redux';
 import { removeItem, duplicateItem, setSelected } from '../store/layout.actions';
 
-function _Actions({ path, removeItem, duplicateItem }) {
+function _Actions({ path, removeItem, duplicateItem, type }) {
     const onRemove = (ev) => {
         ev.stopPropagation();
         setSelected(null)
-        removeItem(path.split('-'));
+        removeItem(path.split('-'), type);
 
     }
     const onDuplicate = (ev) => {
         ev.stopPropagation();
-        duplicateItem(path.split('-'));
+        duplicateItem(path.split('-'), type);
     }
     return (
-        <div className="actions" style={{zIndex: path.length}}>
+        <div className="actions" style={{ zIndex: path.length }}>
             <i className="far fa-clone" onClick={onDuplicate}></i>
             <i className="fas fa-trash-alt" onClick={onRemove}></i>
         </div>

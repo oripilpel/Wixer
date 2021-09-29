@@ -58,6 +58,7 @@ const Component = ({ data, path, updateComponent, select, selected }) => {
           key: component.id,
           data: component.data,
           style: translateStyle({ ...component.style }),
+          path,
           update
         },
       );
@@ -74,7 +75,7 @@ const Component = ({ data, path, updateComponent, select, selected }) => {
       onMouseLeave={() => setActionsVisible(false)}
     >
       {renderer(component)}
-      {actionsVisible && <Actions path={path} />}
+      {actionsVisible && <Actions path={path} type={COMPONENT}  />}
     </div>
   );
 };

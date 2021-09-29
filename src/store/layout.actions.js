@@ -33,17 +33,17 @@ export function loadWap(wapId) {
     }
 }
 
-export function removeItem(splitItemPath) {
+export function removeItem(splitItemPath, type) {
     return dispatch => dispatch({
         type: 'REMOVE_ITEM',
-        splitItemPath
+        item: { splitItemPath, type }
     })
 }
 
-export function  duplicateItem(splitItemPath) {
+export function duplicateItem(splitItemPath, type) {
     return dispatch => dispatch({
         type: 'DUPLICATE_ITEM',
-        splitItemPath
+        item: { splitItemPath, type }
     })
 
 }

@@ -89,7 +89,7 @@ const Column = ({ data, handleDrop, path, updateComponent, onSelect, selected })
         accept={[COMPONENT, SIDEBAR_ITEM]}
 
       />
-      {actionsVisible && <Actions path={path} />}
+      {actionsVisible && <Actions path={path} type={COLUMN}  />}
     </div>
   );
 };

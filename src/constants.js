@@ -71,13 +71,14 @@ export const SIDEBAR_ITEMS_BASIC = [
     type: SIDEBAR_ITEM,
     component: {
       type: 'button',
-      data: { txt: 'Click to Change' },
+      data: { txt: 'Click to Change', hoverColor: '#767676' },
       style: {
         borderRadius: '5px',
         border: 'none',
         height: 50,
         minWidth: '150px',
         fontFamily: 'montserrat',
+        backgroundColor: '#afafaf'
       }
     }
   },
@@ -248,6 +249,160 @@ export const SIDEBAT_ITEMS_HEADER = [
       style: {
         backgroundColor: '#FAF8F1',
       }
+    }
+  },
+  {
+    id: utilService.makeId(),
+    type: SIDEBAR_SECTION,
+    name: 'Header',
+    component: {
+      type: SECTION,
+      id: utilService.makeId(),
+      style: {
+        backgroundColor: '#000',
+        flexGrow: 0,
+        padding: 10,
+        display: 'flex',
+      },
+      cmps: [
+        {
+          type: INNERSECTION,
+          id: utilService.makeId(),
+          style: {
+            flexGrow: 1,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center'
+          },
+          cmps: [
+            {
+              type: COLUMN,
+              id: utilService.makeId(),
+              style: {
+                flexGrow: 0,
+                flexDirection: 'column',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'
+              },
+              cmps: [{
+                type: COMPONENT,
+                id: utilService.makeId(),
+                component: {
+
+                  style: {
+                    flexGrow: 0,
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    width: '180'
+                  },
+                  type: 'image',
+                  data: { url: 'http://res.cloudinary.com/dq6ymh7ev/image/upload/v1632845763/u3wzylxl7s5jn7kdaeqk.svg' }
+                }
+              }
+
+              ]
+            },
+            {
+              type: COLUMN,
+              id: utilService.makeId(),
+              style: {
+                flexGrow: 0,
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'
+              },
+              cmps: [{
+                type: COMPONENT,
+                id: utilService.makeId(),
+                component: {
+                  style: {
+                    color: '#b09f82',
+                    flexGrow: 0,
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    fontSize: '34'
+                  },
+                  type: 'text',
+                  data: { txt: '*9996' }
+                }
+              }]
+            },
+            {
+              type: COLUMN,
+              id: utilService.makeId(),
+              style: {
+                flexGrow: 0,
+                flexDirection: 'column',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                width: 'fit-content'
+              },
+              cmps: [
+                {
+                  type: COMPONENT,
+                  id: utilService.makeId(),
+                  style: {
+                    flexGrow: 0,
+                    flexDirection: 'column',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                  },
+                  component: {
+                    type: 'image',
+                    data: { url: 'http://res.cloudinary.com/dq6ymh7ev/image/upload/v1632845750/slyc5yzyraawpadfejws.svg' }
+                  }
+                }
+              ]
+            }, {
+              type: COLUMN,
+              id: utilService.makeId(),
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    style: {
+                      display: 'flex',
+                    },
+                    type: 'nav',
+                    data: {
+                      hoverColor: '#f6f6f6',
+                      color: '#a19d9d',
+                      links: [
+                        {
+                          id: utilService.makeId(),
+                          txt: 'מרצדס ישראל'
+                        },
+                        {
+                          id: utilService.makeId(),
+                          txt: 'מרצדס לשירותך'
+                        },
+                        {
+                          id: utilService.makeId(),
+                          txt: 'דגמים'
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              style: {
+                padding: 10,
+                flexGrow: 1,
+                flexDirection: 'column',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'flex-end',
+              }
+            }
+          ]
+        }
+      ]
     }
   }
 ]
@@ -923,7 +1078,6 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                       fontFamily: 'Arial',
                       color: '#9f835e',
                       backgroundColor: '#000000',
-                      border: 0,
                       height: 60,
                       width: 350,
                       cursor: 'pointer',
