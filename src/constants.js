@@ -717,6 +717,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
     id: utilService.makeId(),
     type: SIDEBAR_SECTION,
     name: 'Gallery',
+    image: 'gallery',
     component: {
       type: SECTION,
       style: {
@@ -1371,371 +1372,372 @@ export const SIDEBAR_ITEMS_FOOTER = [
       ]
     }
   },
-  // {
-  //   id: utilService.makeId(),
-  //   type: SIDEBAR_SECTION,
-  //   name: 'footer2',
-  //   component: {
-  //     type: SECTION,
-  //     id: utilService.makeId(),
-  //     style: {
-  //       backgroundColor: '#000000',
-  //       backgroundImage: 'url(https://www.mercedes-benz.co.il/wp-content/uploads/general/footer-back.png)',
-  //       justifyContent: 'center'
-  //     },
-  //     cmps: [
-  //       {
-  //         id: utilService.makeId(),
-  //         type: INNERSECTION,
-  //         style: {
-  //           height: 180
-  //         },
-  //         cmps: [
-  //           {
-  //             id: utilService.makeId(),
-  //             type: COLUMN,
-  //             style: {},
-  //             cmps: [
-  //               {
-  //                 id: utilService.makeId(),
-  //                 type: COMPONENT,
-  //                 component: {
-  //                   type: 'text',
-  //                   data: {
-  //                     txt: 'הידע והנתונים המופיעים באתר זה מתייחסים למגוון דגמים המשווקים במקומות שונים בעולם ומעודכנים למועד הבאת המקור הלועזי לתרגום. ייתכנו הבדלים בין התיאור המובא באתר זה לבין הדגמים המשווקים על-ידי חברתנו, הן מבחינת המפרט הטכני והן מבחינת האביזרים, הציוד והמערכות הנלוות. כמו כן ייתכנו הבדלים בדגם מסויים, בהתאם לשינויים הנעשים מזמן לזמן. חלק מהאביזרים ו/או המערכות המפורטים באתר זה מצוי רק בחלק מדגמי הרכבים, אין בפרסום המובא באתר זה כדי לחייב את היצרן ו/או את החברה בהספקת דגמים שיכללו את כל או חלק מהאביזרים, הציוד והמערכות המתוארים בו והם שומרים לעצמם את הזכות לבטל, להוסיף, לשנות ולשפר, ללא הודעה מוקדמת וללא עידכון באתר זה. התמונות באתר הינן להמחשה בלבד. האתר כפוף לשינוי ללא הודעה מוקדמת. ט.ל.ח.'
-  //                   },
-  //                   style: {
-  //                     color: '#A09D9D',
-  //                     textAlign: 'right'
-  //                   }
-  //                 }
-  //               }
-  //             ]
-  //           }
-  //         ]
-  //       },
-  //       {
-  //         id: utilService.makeId(),
-  //         type: INNERSECTION,
-  //         style: {
-  //           backgroundImage: 'url(https://www.mercedes-benz.co.il/wp-content/uploads/social-bg-1.jpg)',
-  //           height: 175
-  //         },
-  //         cmps: [
-  //           {
-  //             id: utilService.makeId(),
-  //             type: COLUMN,
-  //             style: {
-  //               alignItems: 'center'
-  //             },
-  //             cmps: [
-  //               {
-  //                 id: utilService.makeId(),
-  //                 type: COMPONENT,
-  //                 component: {
-  //                   type: 'text',
-  //                   data: {
-  //                     txt: '.מרצדס-בנץ באינסטגרם',
-  //                   },
-  //                   style: {
-  //                     color: '#ffffff',
-  //                     fontFamily: 'Arial',
-  //                   }
-  //                 }
-  //               },
-  //               {
-  //                 id: utilService.makeId(),
-  //                 type: COMPONENT,
-  //                 component: {
-  //                   type: 'text',
-  //                   data: {
-  //                     txt: '.כל העדכונים, החידושים, האירועים, הדגמים. ',
-  //                   },
-  //                   style: {
-  //                     color: '#ffffff',
-  //                     fontFamily: 'Arial',
-  //                   }
-  //                 }
-  //               },
-  //               {
-  //                 id: utilService.makeId(),
-  //                 type: COMPONENT,
-  //                 component: {
-  //                   type: 'button',
-  //                   data: {
-  //                     txt: 'עקבו אחרינו',
-  //                     hoverColor: '#00abec'
-  //                   },
-  //                   style: {
-  //                     fontSize: '16',
-  //                     fontFamily: 'Arial',
-  //                     color: '#ffffff',
-  //                     backgroundColor: '#00abec',
-  //                     border: 0,
-  //                     height: 50,
-  //                     width: 150,
-  //                     cursor: 'pointer'
-  //                   }
-  //                 }
-  //               }
-  //             ]
-  //           }
-  //         ]
-  //       },
-  //       {
-  //         id: utilService.makeId(),
-  //         type: INNERSECTION,
-  //         style: {
-  //           alignSelf: 'center',
-  //           backgroundColor: '#000000'
-  //         },
-  //         cmps: [
-  //           {
-  //             id: utilService.makeId(),
-  //             type: COLUMN,
-  //             style: {
-  //               paddingRight: 25,
-  //               borderRight: '1px solid #555'
-  //             },
-  //             cmps: [
-  //               {
-  //                 id: utilService.makeId(),
-  //                 type: COMPONENT,
-  //                 component: {
-  //                   id: utilService.makeId(),
-  //                   type: 'text',
-  //                   style: {
-  //                     color: '#ffffff',
-  //                     textAlign: 'right',
-  //                     paddingBottom: 30,
-  //                     fontFamily: 'Arial',
-  //                   },
-  //                   data: {
-  //                     txt: 'מוקד מכירות מרצדס-בנץ 9996*'
-  //                   }
-  //                 }
-  //               },
-  //               {
-  //                 id: utilService.makeId(),
-  //                 type: COMPONENT,
-  //                 component: {
-  //                   id: utilService.makeId(),
-  //                   type: 'text',
-  //                   style: {
-  //                     color: '#ffffff',
-  //                     textAlign: 'right',
-  //                     paddingBottom: 30,
-  //                     fontFamily: 'Arial',
-  //                   },
-  //                   data: {
-  //                     txt: 'שירות לקוחות: טל. 03-9153030'
-  //                   }
-  //                 }
-  //               },
-  //               {
-  //                 id: utilService.makeId(),
-  //                 type: COMPONENT,
-  //                 component: {
-  //                   id: utilService.makeId(),
-  //                   type: 'text',
-  //                   style: {
-  //                     color: '#a09d9d',
-  //                     textAlign: 'right',
-  //                     fontFamily: 'Arial',
-  //                   },
-  //                   data: {
-  //                     txt: 'מדיניות פרטיות'
-  //                   }
-  //                 }
-  //               },
-  //               {
-  //                 id: utilService.makeId(),
-  //                 type: COMPONENT,
-  //                 component: {
-  //                   id: utilService.makeId(),
-  //                   type: 'text',
-  //                   style: {
-  //                     color: '#a09d9d',
-  //                     textAlign: 'right',
-  //                     fontFamily: 'Arial'
-  //                   },
-  //                   data: {
-  //                     txt: 'תנאי שימוש'
-  //                   }
-  //                 }
-  //               },
-  //               {
-  //                 id: utilService.makeId(),
-  //                 type: COMPONENT,
-  //                 component: {
-  //                   id: utilService.makeId(),
-  //                   type: 'text',
-  //                   style: {
-  //                     color: '#a09d9d',
-  //                     textAlign: 'right',
-  //                     fontFamily: 'Arial'
-  //                   },
-  //                   data: {
-  //                     txt: 'הצהרת נגישות'
-  //                   }
-  //                 }
-  //               }
-  //             ]
-  //           },
-  //           {
-  //             id: utilService.makeId(),
-  //             type: COLUMN,
-  //             style: {
-  //               paddingRight: 25,
-  //               borderRight: '1px solid #555'
-  //             },
-  //             cmps: [
-  //               {
-  //                 id: utilService.makeId(),
-  //                 type: COMPONENT,
-  //                 component: {
-  //                   id: utilService.makeId(),
-  //                   type: 'text',
-  //                   style: {
-  //                     color: '#a09d9d',
-  //                     textAlign: 'right',
-  //                     fontFamily: 'Arial'
-  //                   },
-  //                   data: {
-  //                     txt: 'מדדי זיהום אויר וצריכת דלק'
-  //                   }
-  //                 }
-  //               },
-  //               {
-  //                 id: utilService.makeId(),
-  //                 type: COMPONENT,
-  //                 component: {
-  //                   id: utilService.makeId(),
-  //                   type: 'text',
-  //                   style: {
-  //                     color: '#a09d9d',
-  //                     textAlign: 'right',
-  //                     fontFamily: 'Arial'
-  //                   },
-  //                   data: {
-  //                     txt: 'מחירון חלפים מרצדס'
-  //                   }
-  //                 }
-  //               },
-  //               {
-  //                 id: utilService.makeId(),
-  //                 type: COMPONENT,
-  //                 component: {
-  //                   id: utilService.makeId(),
-  //                   type: 'text',
-  //                   style: {
-  //                     color: '#a09d9d',
-  //                     textAlign: 'right',
-  //                     fontFamily: 'Arial'
-  //                   },
-  //                   data: {
-  //                     txt: 'אודות מרצדס-בנץ'
-  //                   }
-  //                 }
-  //               },
-  //               {
-  //                 id: utilService.makeId(),
-  //                 type: COMPONENT,
-  //                 component: {
-  //                   id: utilService.makeId(),
-  //                   type: 'text',
-  //                   style: {
-  //                     color: '#a09d9d',
-  //                     textAlign: 'right',
-  //                     fontFamily: 'Arial'
-  //                   },
-  //                   data: {
-  //                     txt: 'שירות לקוחות'
-  //                   }
-  //                 }
-  //               },
-  //               {
-  //                 id: utilService.makeId(),
-  //                 type: COMPONENT,
-  //                 component: {
-  //                   id: utilService.makeId(),
-  //                   type: 'text',
-  //                   style: {
-  //                     color: '#a09d9d',
-  //                     textAlign: 'right',
-  //                     fontFamily: 'Arial'
-  //                   },
-  //                   data: {
-  //                     txt: 'צור קשר'
-  //                   }
-  //                 }
-  //               },
-  //               {
-  //                 id: utilService.makeId(),
-  //                 type: COMPONENT,
-  //                 component: {
-  //                   id: utilService.makeId(),
-  //                   type: 'text',
-  //                   style: {
-  //                     color: '#a09d9d',
-  //                     textAlign: 'right',
-  //                     fontFamily: 'Arial'
-  //                   },
-  //                   data: {
-  //                     txt: 'מגזין מרצדס Star'
-  //                   }
-  //                 }
-  //               }
-  //             ]
-  //           },
-  //           {
-  //             id: utilService.makeId(),
-  //             type: COLUMN,
-  //             style: {
-  //               paddingRight: 25,
-  //               borderRight: '1px solid #555',
-  //               textAlign: 'right'
-  //             },
-  //             cmps: [
-  //               {
-  //                 id: utilService.makeId(),
-  //                 type: COMPONENT,
-  //                 component: {
-  //                   id: utilService.makeId(),
-  //                   type: 'image',
-  //                   style: {
-  //                     width: 218,
-  //                     height: 100
-  //                   },
-  //                   data: {
-  //                     url: 'https://www.mercedes-benz.co.il/wp-content/themes/mercedes/images/mercedes-logo-forsite.svg'
-  //                   }
-  //                 }
-  //               },
-  //               {
-  //                 id: utilService.makeId(),
-  //                 type: COMPONENT,
-  //                 component: {
-  //                   id: utilService.makeId(),
-  //                   type: 'text',
-  //                   style: {
-  //                     color: '#ffffff',
-  //                     textAlign: 'right',
-  //                     fontFamily: 'Arial'
-  //                   },
-  //                   data: {
-  //                     txt: 'מרצדס בנץ ישראל הוקמה על ידי חברת כלמוביל בשנת 1963, והייתה ליבואנית הראשונה של מכוניות יוקרה בישראל. מרצדס בנץ ישראל היא חלק מחברת כלמוביל שנוסדה בשנת 1936 ונמצאת בבעלות משפחת חרל"פ. קבוצת כלמוביל היא יבואנית הרכב המובילה בישראל הן של כלי רכב פרטיים, והן של כלי רכב מסחריים, משאיות ואוטובוסים לישראל.'
-  //                   }
-  //                 }
-  //               }
-  //             ]
-  //           }
-  //         ]
+  {
+    id: utilService.makeId(),
+    type: SIDEBAR_SECTION,
+    name: 'footer2',
+    image: 'footer2',
+    component: {
+      type: SECTION,
+      id: utilService.makeId(),
+      style: {
+        backgroundColor: '#000000',
+        backgroundImage: 'url(https://www.mercedes-benz.co.il/wp-content/uploads/general/footer-back.png)',
+        justifyContent: 'center'
+      },
+      cmps: [
+        {
+          id: utilService.makeId(),
+          type: INNERSECTION,
+          style: {
+            height: 180
+          },
+          cmps: [
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {},
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: {
+                      txt: 'הידע והנתונים המופיעים באתר זה מתייחסים למגוון דגמים המשווקים במקומות שונים בעולם ומעודכנים למועד הבאת המקור הלועזי לתרגום. ייתכנו הבדלים בין התיאור המובא באתר זה לבין הדגמים המשווקים על-ידי חברתנו, הן מבחינת המפרט הטכני והן מבחינת האביזרים, הציוד והמערכות הנלוות. כמו כן ייתכנו הבדלים בדגם מסויים, בהתאם לשינויים הנעשים מזמן לזמן. חלק מהאביזרים ו/או המערכות המפורטים באתר זה מצוי רק בחלק מדגמי הרכבים, אין בפרסום המובא באתר זה כדי לחייב את היצרן ו/או את החברה בהספקת דגמים שיכללו את כל או חלק מהאביזרים, הציוד והמערכות המתוארים בו והם שומרים לעצמם את הזכות לבטל, להוסיף, לשנות ולשפר, ללא הודעה מוקדמת וללא עידכון באתר זה. התמונות באתר הינן להמחשה בלבד. האתר כפוף לשינוי ללא הודעה מוקדמת. ט.ל.ח.'
+                    },
+                    style: {
+                      color: '#A09D9D',
+                      textAlign: 'right'
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: utilService.makeId(),
+          type: INNERSECTION,
+          style: {
+            backgroundImage: 'url(https://www.mercedes-benz.co.il/wp-content/uploads/social-bg-1.jpg)',
+            height: 175
+          },
+          cmps: [
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                alignItems: 'center'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: {
+                      txt: '.מרצדס-בנץ באינסטגרם',
+                    },
+                    style: {
+                      color: '#ffffff',
+                      fontFamily: 'Arial',
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: {
+                      txt: '.כל העדכונים, החידושים, האירועים, הדגמים. ',
+                    },
+                    style: {
+                      color: '#ffffff',
+                      fontFamily: 'Arial',
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'button',
+                    data: {
+                      txt: 'עקבו אחרינו',
+                      hoverColor: '#00abec'
+                    },
+                    style: {
+                      fontSize: '16',
+                      fontFamily: 'Arial',
+                      color: '#ffffff',
+                      backgroundColor: '#00abec',
+                      border: 0,
+                      height: 50,
+                      width: 150,
+                      cursor: 'pointer'
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: utilService.makeId(),
+          type: INNERSECTION,
+          style: {
+            alignSelf: 'center',
+            backgroundColor: '#000000'
+          },
+          cmps: [
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                paddingRight: 25,
+                borderRight: '1px solid #555'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    id: utilService.makeId(),
+                    type: 'text',
+                    style: {
+                      color: '#ffffff',
+                      textAlign: 'right',
+                      paddingBottom: 30,
+                      fontFamily: 'Arial',
+                    },
+                    data: {
+                      txt: 'מוקד מכירות מרצדס-בנץ 9996*'
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    id: utilService.makeId(),
+                    type: 'text',
+                    style: {
+                      color: '#ffffff',
+                      textAlign: 'right',
+                      paddingBottom: 30,
+                      fontFamily: 'Arial',
+                    },
+                    data: {
+                      txt: 'שירות לקוחות: טל. 03-9153030'
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    id: utilService.makeId(),
+                    type: 'text',
+                    style: {
+                      color: '#a09d9d',
+                      textAlign: 'right',
+                      fontFamily: 'Arial',
+                    },
+                    data: {
+                      txt: 'מדיניות פרטיות'
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    id: utilService.makeId(),
+                    type: 'text',
+                    style: {
+                      color: '#a09d9d',
+                      textAlign: 'right',
+                      fontFamily: 'Arial'
+                    },
+                    data: {
+                      txt: 'תנאי שימוש'
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    id: utilService.makeId(),
+                    type: 'text',
+                    style: {
+                      color: '#a09d9d',
+                      textAlign: 'right',
+                      fontFamily: 'Arial'
+                    },
+                    data: {
+                      txt: 'הצהרת נגישות'
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                paddingRight: 25,
+                borderRight: '1px solid #555'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    id: utilService.makeId(),
+                    type: 'text',
+                    style: {
+                      color: '#a09d9d',
+                      textAlign: 'right',
+                      fontFamily: 'Arial'
+                    },
+                    data: {
+                      txt: 'מדדי זיהום אויר וצריכת דלק'
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    id: utilService.makeId(),
+                    type: 'text',
+                    style: {
+                      color: '#a09d9d',
+                      textAlign: 'right',
+                      fontFamily: 'Arial'
+                    },
+                    data: {
+                      txt: 'מחירון חלפים מרצדס'
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    id: utilService.makeId(),
+                    type: 'text',
+                    style: {
+                      color: '#a09d9d',
+                      textAlign: 'right',
+                      fontFamily: 'Arial'
+                    },
+                    data: {
+                      txt: 'אודות מרצדס-בנץ'
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    id: utilService.makeId(),
+                    type: 'text',
+                    style: {
+                      color: '#a09d9d',
+                      textAlign: 'right',
+                      fontFamily: 'Arial'
+                    },
+                    data: {
+                      txt: 'שירות לקוחות'
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    id: utilService.makeId(),
+                    type: 'text',
+                    style: {
+                      color: '#a09d9d',
+                      textAlign: 'right',
+                      fontFamily: 'Arial'
+                    },
+                    data: {
+                      txt: 'צור קשר'
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    id: utilService.makeId(),
+                    type: 'text',
+                    style: {
+                      color: '#a09d9d',
+                      textAlign: 'right',
+                      fontFamily: 'Arial'
+                    },
+                    data: {
+                      txt: 'מגזין מרצדס Star'
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                paddingRight: 25,
+                borderRight: '1px solid #555',
+                textAlign: 'right'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    id: utilService.makeId(),
+                    type: 'image',
+                    style: {
+                      width: 218,
+                      height: 100
+                    },
+                    data: {
+                      url: 'https://www.mercedes-benz.co.il/wp-content/themes/mercedes/images/mercedes-logo-forsite.svg'
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    id: utilService.makeId(),
+                    type: 'text',
+                    style: {
+                      color: '#ffffff',
+                      textAlign: 'right',
+                      fontFamily: 'Arial'
+                    },
+                    data: {
+                      txt: 'מרצדס בנץ ישראל הוקמה על ידי חברת כלמוביל בשנת 1963, והייתה ליבואנית הראשונה של מכוניות יוקרה בישראל. מרצדס בנץ ישראל היא חלק מחברת כלמוביל שנוסדה בשנת 1936 ונמצאת בבעלות משפחת חרל"פ. קבוצת כלמוביל היא יבואנית הרכב המובילה בישראל הן של כלי רכב פרטיים, והן של כלי רכב מסחריים, משאיות ואוטובוסים לישראל.'
+                    }
+                  }
+                }
+              ]
+            }
+          ]
 
-  //       }
-  //     ]
-  //   }
-  // }
+        }
+      ]
+    }
+  }
 ]
 
 // const template = {
