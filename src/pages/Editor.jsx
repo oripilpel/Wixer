@@ -34,7 +34,7 @@ function _Editor(
         loadWap
     }) {
 
-    const debugMode = true;
+    const debugMode = false;
     useEffect(() => {
         const id = match.params.wapId;
         if (id) loadWap(id)
@@ -120,15 +120,15 @@ function _Editor(
 
     const handleDrop =
         (dropZone, item) => {
+            // debugger
             const splitDropZonePath = dropZone.path.split("-");
             const pathToDropZone = splitDropZonePath.slice(0, -1).join("-");
-
-
 
             const newItem = { id: item.id, type: item.type, component: item.component, style: item.style };
             if (item.type === COLUMN || item.type === SECTION || item.type === INNERSECTION) {
                 newItem.cmps = item.cmps;
             }
+            console.log(item);
 
             if (item.type === SIDEBAR_COLUMN) {
                 moveSidebarColumnIntoParent(splitDropZonePath);
@@ -225,7 +225,6 @@ function _Editor(
     };
     const getSelected = (selected) => {
         if (!selected) return;
-        console.log(selected);
         const path = selected.path
         try {
             switch (path.length) {
@@ -254,7 +253,6 @@ function _Editor(
                 <div className="page-container">
                     <div className="page">
                         {cmps.map((section, index) => {
-                            console.log('cmps', cmps)
                             const currentPath = `${index}`;
                             return (
                                 <React.Fragment key={section.id}>
