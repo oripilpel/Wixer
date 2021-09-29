@@ -1,7 +1,7 @@
 import update from 'immutability-helper';
 import { COLUMN } from '../constants';
 import {
-    handleMoveWithinParent,
+    reorderChildren,
     handleMoveToDifferentParent,
     handleMoveSidebarComponentIntoParent,
     handleMoveSidebarColumnIntoParent,
@@ -70,7 +70,7 @@ export function layoutReducer(state = initialState, action) {
         case 'MOVE_WITHIN_PARENT':
             return {
                 ...state,
-                cmps: handleMoveWithinParent(state.cmps, action.splitDropZonePath, action.splitItemPath)
+                cmps: reorderChildren(state.cmps, action.splitDropZonePath, action.splitItemPath)
             }
         case 'MOVE_TO_DIFFERENT_PARENT':
             return {

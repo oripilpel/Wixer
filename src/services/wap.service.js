@@ -97,8 +97,8 @@ export const duplicate = (layout, item) => {
 }
 
 export const reorderChildren = (children, splitDropZonePath, splitItemPath) => {
-  if (splitDropZonePath.length === 1 || ((children[splitItemPath[0]].type === INNERSECTION || children[splitItemPath[0]].type === COLUMN) && splitItemPath[0] === splitDropZonePath[0])) {
-    if (children[splitItemPath[0]].type === INNERSECTION || children[splitItemPath[0]].type === COLUMN) children = children[splitItemPath[0]].cmps
+  if (splitDropZonePath.length === 1 || ((children[splitItemPath[0]].type === INNERSECTION) && splitItemPath[0] === splitDropZonePath[0])) {
+    if (children[splitItemPath[0]].type === INNERSECTION) children = children[splitItemPath[0]].cmps
     const dropZoneIndex = Number(splitDropZonePath[splitDropZonePath.length - 1]);
     const itemIndex = Number(splitItemPath[splitItemPath.length - 1]);
     return reorder(children, itemIndex, dropZoneIndex);
@@ -111,7 +111,7 @@ export const reorderChildren = (children, splitDropZonePath, splitItemPath) => {
   // Update the specific node's children
   let newSplitDropZoneChildrenPath = splitDropZonePath.slice(1);
   newSplitDropZoneChildrenPath[newSplitDropZoneChildrenPath.length - 1] =
-    +splitDropZonePath[splitDropZonePath.length - 1] > +splitItemPath[splitItemPath.length - 1] ?
+    (+splitDropZonePath[splitDropZonePath.length - 1] > +splitItemPath[splitItemPath.length - 1] && splitDropZonePath.length === 2) ?
       newSplitDropZoneChildrenPath[newSplitDropZoneChildrenPath.length - 1] - 1 : newSplitDropZoneChildrenPath[newSplitDropZoneChildrenPath.length - 1]
   const splitDropZoneChildrenPath = newSplitDropZoneChildrenPath
   const splitItemChildrenPath = splitItemPath.slice(1);
@@ -185,14 +185,6 @@ export const addChildToChildren = (children, splitDropZonePath, item) => {
   };
 
   return updatedChildren;
-};
-
-export const handleMoveWithinParent = (
-  layout,
-  splitDropZonePath,
-  splitItemPath
-) => {
-  return reorderChildren(layout, splitDropZonePath, splitItemPath);
 };
 
 export const handleMoveSidebarColumnIntoParent = (

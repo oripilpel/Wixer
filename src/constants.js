@@ -99,6 +99,8 @@ export const SIDEBAR_ITEMS_NAV = [
       style: { display: 'flex' },
       type: 'nav',
       data: {
+        color: '#000000',
+        hoverColor: '#868686',
         links: [
           {
             id: utilService.makeId(),
@@ -181,7 +183,7 @@ export const SIDEBAT_ITEMS_HEADER = [
                     },
                     type: 'nav',
                     data: {
-                      hoverColor: '#000000',
+                      hoverColor: '#868686',
                       color: '#000000',
                       links: [
                         {
