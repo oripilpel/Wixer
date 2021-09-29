@@ -21,7 +21,7 @@ function _Publish({ match, cmps, loadWap }) {
     useEffect(() => {
         const id = match.params.wapId;
         if (id) loadWap(id);
-    });
+    },[]);
 
     const renderer = ({ component }) => {
         if (!component) return
