@@ -704,485 +704,485 @@ export const SIDEBAR_ITEMS_SECTIONS = [
       ]
     }
   },
-  // {
-  //   id: utilService.makeId(),
-  //   type: SIDEBAR_SECTION,
-  //   name: 'Gallery',
-  //   component: {
-  //     type: SECTION,
-  //     style: {
-  //       backgroundColor: '#000000',
-  //       backgroundImage: 'url(https://www.mercedes-benz.co.il/wp-content/uploads/general/footer-back.png)'
-  //     },
-  //     cmps: [
-  //       {
-  //         id: utilService.makeId(),
-  //         type: INNERSECTION,
-  //         style: {
-  //           alignItems: '',
-  //           paddingTop: 40,
-  //           borderTop: '1px solid #696969'
-  //         },
-  //         cmps: [
-  //           {
-  //             id: utilService.makeId(),
-  //             type: COLUMN,
-  //             style: {
-  //               alignItems: 'center'
-  //             },
-  //             cmps: [
-  //               {
-  //                 id: utilService.makeId(),
-  //                 type: COMPONENT,
-  //                 component: {
-  //                   type: 'button',
-  //                   data: {
-  //                     txt: 'TV מרצדס',
-  //                     hoverColor: '#000000'
-  //                   },
-  //                   style: {
-  //                     fontSize: '16',
-  //                     fontFamily: 'Arial',
-  //                     color: '#9f835e',
-  //                     backgroundColor: '#000000',
-  //                     height: 60,
-  //                     width: 350,
-  //                     cursor: 'pointer',
-  //                     border: '1px solid #9f835e'
-  //                   }
-  //                 }
-  //               }
-  //             ]
-  //           }
-  //         ]
-  //       },
-  //       {
-  //         id: utilService.makeId(),
-  //         type: INNERSECTION,
-  //         style: {},
-  //         cmps: [
-  //           {
-  //             id: utilService.makeId(),
-  //             type: COLUMN,
-  //             style: {
-  //               alignItems: 'center'
-  //             },
-  //             cmps: [
-  //               {
-  //                 id: utilService.makeId(),
-  //                 type: COMPONENT,
-  //                 component: {
-  //                   type: 'image',
-  //                   data: { url: 'https://www.mercedes-benz.co.il/wp-content/uploads/11306_mercedes_tv_5.jpg' },
-  //                   style: {}
-  //                 }
-  //               },
-  //               {
-  //                 id: utilService.makeId(),
-  //                 type: COMPONENT,
-  //                 component: {
-  //                   type: 'text',
-  //                   data: { txt: 'Stronger than Time- מרצדס G-Class' },
-  //                   style: {
-  //                     textAlign: 'right',
-  //                     fontFamily: 'Arial',
-  //                     color: '#9f835e',
-  //                     marginTop: 15,
-  //                     marginBottom: 10
-  //                   }
-  //                 }
-  //               }
-  //             ]
-  //           },
-  //           {
-  //             id: utilService.makeId(),
-  //             type: COLUMN,
-  //             style: {
-  //               alignItems: 'center'
-  //             },
-  //             cmps: [
-  //               {
-  //                 id: utilService.makeId(),
-  //                 type: COMPONENT,
-  //                 component: {
-  //                   type: 'image',
-  //                   data: { url: 'https://www.mercedes-benz.co.il/wp-content/uploads/12168_ao_oct_pics_4-1-e1604495033850.jpg' },
-  //                   style: {}
-  //                 }
-  //               },
-  //               {
-  //                 id: utilService.makeId(),
-  //                 type: COMPONENT,
-  //                 component: {
-  //                   type: 'text',
-  //                   data: { txt: "EQC- It's more than electric. It's a Mercedes" },
-  //                   style: {
-  //                     textAlign: 'right',
-  //                     fontFamily: 'Arial',
-  //                     color: '#9f835e',
-  //                     marginTop: 15,
-  //                     marginBottom: 10
-  //                   }
-  //                 }
-  //               }
-  //             ]
-  //           },
-  //           {
-  //             id: utilService.makeId(),
-  //             type: COLUMN,
-  //             style: {
-  //               alignItems: 'center'
-  //             },
-  //             cmps: [
-  //               {
-  //                 id: utilService.makeId(),
-  //                 type: COMPONENT,
-  //                 component: {
-  //                   type: 'image',
-  //                   data: { url: 'https://www.mercedes-benz.co.il/wp-content/uploads/13644_ao_April_image_3.jpg' },
-  //                   style: {}
-  //                 }
-  //               },
-  //               {
-  //                 id: utilService.makeId(),
-  //                 type: COMPONENT,
-  //                 component: {
-  //                   type: 'text',
-  //                   data: { txt: 'The new EQB' },
-  //                   style: {
-  //                     textAlign: 'right',
-  //                     fontFamily: 'Arial',
-  //                     color: '#9f835e',
-  //                     marginTop: 15,
-  //                     marginBottom: 10
-  //                   }
-  //                 }
-  //               }
-  //             ]
-  //           },
-  //           {
-  //             id: utilService.makeId(),
-  //             type: COLUMN,
-  //             style: {
-  //               alignItems: 'center'
-  //             },
-  //             cmps: [
-  //               {
-  //                 id: utilService.makeId(),
-  //                 type: COMPONENT,
-  //                 component: {
-  //                   type: 'image',
-  //                   data: { url: 'https://www.mercedes-benz.co.il/wp-content/uploads/13644_ao_April_image_1.jpg' },
-  //                   style: {}
-  //                 }
-  //               },
-  //               {
-  //                 id: utilService.makeId(),
-  //                 type: COMPONENT,
-  //                 component: {
-  //                   type: 'text',
-  //                   data: { txt: "The all-new EQA- It's more than electric. It's a Mercedes" },
-  //                   style: {
-  //                     textAlign: 'right',
-  //                     fontFamily: 'Arial',
-  //                     color: '#9f835e',
-  //                     marginTop: 15,
-  //                     marginBottom: 10
-  //                   }
-  //                 }
-  //               }
-  //             ]
-  //           }
-  //         ]
-  //       },
-  //       {
-  //         id: utilService.makeId(),
-  //         type: INNERSECTION,
-  //         style: {},
-  //         cmps: [
-  //           {
-  //             id: utilService.makeId(),
-  //             type: COLUMN,
-  //             style: {
-  //               alignItems: 'center'
-  //             },
-  //             cmps: [
-  //               {
-  //                 id: utilService.makeId(),
-  //                 type: COMPONENT,
-  //                 component: {
-  //                   type: 'image',
-  //                   data: { url: 'https://www.mercedes-benz.co.il/wp-content/uploads/2020-06-24_1300-002.jpg' },
-  //                   style: {}
-  //                 }
-  //               },
-  //               {
-  //                 id: utilService.makeId(),
-  //                 type: COMPONENT,
-  //                 component: {
-  //                   type: 'text',
-  //                   data: { txt: 'GLE Coupe- חיית כבישים עם כל האבזור והטכנולוגיה שאפשר לבקש' },
-  //                   style: {
-  //                     textAlign: 'right',
-  //                     fontFamily: 'Arial',
-  //                     color: '#9f835e',
-  //                     marginTop: 15,
-  //                     marginBottom: 10
-  //                   }
-  //                 }
-  //               }
-  //             ]
-  //           },
-  //           {
-  //             id: utilService.makeId(),
-  //             type: COLUMN,
-  //             style: {
-  //               alignItems: 'center'
-  //             },
-  //             cmps: [
-  //               {
-  //                 id: utilService.makeId(),
-  //                 type: COMPONENT,
-  //                 component: {
-  //                   type: 'image',
-  //                   data: { url: 'https://www.mercedes-benz.co.il/wp-content/uploads/10161_awo_january_banner_atar_avtr_310x190_1-1.jpg' },
-  //                   style: {}
-  //                 }
-  //               },
-  //               {
-  //                 id: utilService.makeId(),
-  //                 type: COMPONENT,
-  //                 component: {
-  //                   type: 'text',
-  //                   data: { txt: "Mercedez AMG- לוקח אותך לקצה" },
-  //                   style: {
-  //                     textAlign: 'right',
-  //                     fontFamily: 'Arial',
-  //                     color: '#9f835e',
-  //                     marginTop: 15,
-  //                     marginBottom: 10
-  //                   }
-  //                 }
-  //               }
-  //             ]
-  //           },
-  //           {
-  //             id: utilService.makeId(),
-  //             type: COLUMN,
-  //             style: {
-  //               alignItems: 'center'
-  //             },
-  //             cmps: [
-  //               {
-  //                 id: utilService.makeId(),
-  //                 type: COMPONENT,
-  //                 component: {
-  //                   type: 'image',
-  //                   data: { url: 'https://www.mercedes-benz.co.il/wp-content/uploads/11306_mercedes_tv_5.jpg' },
-  //                   style: {}
-  //                 }
-  //               },
-  //               {
-  //                 id: utilService.makeId(),
-  //                 type: COMPONENT,
-  //                 component: {
-  //                   type: 'text',
-  //                   data: { txt: 'GLA- The best Premium compact SUV' },
-  //                   style: {
-  //                     textAlign: 'right',
-  //                     fontFamily: 'Arial',
-  //                     color: '#9f835e',
-  //                     marginTop: 15,
-  //                     marginBottom: 10
-  //                   }
-  //                 }
-  //               }
-  //             ]
-  //           },
-  //           {
-  //             id: utilService.makeId(),
-  //             type: COLUMN,
-  //             style: {
-  //               alignItems: 'center'
-  //             },
-  //             cmps: [
-  //               {
-  //                 id: utilService.makeId(),
-  //                 type: COMPONENT,
-  //                 component: {
-  //                   type: 'image',
-  //                   data: { url: 'https://www.mercedes-benz.co.il/wp-content/uploads/MBC27200-1-1.jpg' },
-  //                   style: {
-  //                     width: 285
-  //                   }
-  //                 }
-  //               },
-  //               {
-  //                 id: utilService.makeId(),
-  //                 type: COMPONENT,
-  //                 component: {
-  //                   type: 'text',
-  //                   data: { txt: 'מרצדס S Class- רכב הפאר הטוב ביותר בעולם' },
-  //                   style: {
-  //                     textAlign: 'right',
-  //                     fontFamily: 'Arial',
-  //                     color: '#9f835e',
-  //                     marginTop: 15,
-  //                     marginBottom: 10
-  //                   }
-  //                 }
-  //               }
-  //             ]
-  //           }
-  //         ]
-  //       },
-  //       {
-  //         id: utilService.makeId(),
-  //         type: INNERSECTION,
-  //         style: {
-  //           paddingBottom: 40,
-  //           borderBottom: '1px solid #696969'
-  //         },
-  //         cmps: [
-  //           {
-  //             id: utilService.makeId(),
-  //             type: COLUMN,
-  //             style: {
-  //               alignItems: 'center'
-  //             },
-  //             cmps: [
-  //               {
-  //                 id: utilService.makeId(),
-  //                 type: COMPONENT,
-  //                 component: {
-  //                   type: 'image',
-  //                   data: { url: 'https://www.mercedes-benz.co.il/wp-content/uploads/13644_ao_April_image_4.jpg' },
-  //                   style: {}
-  //                 }
-  //               },
-  //               {
-  //                 id: utilService.makeId(),
-  //                 type: COMPONENT,
-  //                 component: {
-  //                   type: 'text',
-  //                   data: { txt: 'The new E-Class Coupe : Made to be dynamic' },
-  //                   style: {
-  //                     textAlign: 'right',
-  //                     fontFamily: 'Arial',
-  //                     color: '#9f835e',
-  //                     marginTop: 15,
-  //                     marginBottom: 10
-  //                   }
-  //                 }
-  //               }
-  //             ]
-  //           },
-  //           {
-  //             id: utilService.makeId(),
-  //             type: COLUMN,
-  //             style: {
-  //               alignItems: 'center'
-  //             },
-  //             cmps: [
-  //               {
-  //                 id: utilService.makeId(),
-  //                 type: COMPONENT,
-  //                 component: {
-  //                   type: 'image',
-  //                   data: { url: 'https://www.mercedes-benz.co.il/wp-content/uploads/13644_ao_April_image_2-1.jpg' },
-  //                   style: {}
-  //                 }
-  //               },
-  //               {
-  //                 id: utilService.makeId(),
-  //                 type: COMPONENT,
-  //                 component: {
-  //                   type: 'text',
-  //                   data: { txt: 'E-Class Cabriolet - More then ever' },
-  //                   style: {
-  //                     textAlign: 'right',
-  //                     fontFamily: 'Arial',
-  //                     color: '#9f835e',
-  //                     marginTop: 15,
-  //                     marginBottom: 10
-  //                   }
-  //                 }
-  //               }
-  //             ]
-  //           },
-  //           {
-  //             id: utilService.makeId(),
-  //             type: COLUMN,
-  //             style: {
-  //               alignItems: 'center'
-  //             },
-  //             cmps: [
-  //               {
-  //                 id: utilService.makeId(),
-  //                 type: COMPONENT,
-  //                 component: {
-  //                   type: 'image',
-  //                   data: { url: 'https://www.mercedes-benz.co.il/wp-content/uploads/ANG.jpg' },
-  //                   style: {}
-  //                 }
-  //               },
-  //               {
-  //                 id: utilService.makeId(),
-  //                 type: COMPONENT,
-  //                 component: {
-  //                   type: 'text',
-  //                   data: { txt: 'AMG GT Black Series- ספורטיבית ללא פשרות' },
-  //                   style: {
-  //                     textAlign: 'right',
-  //                     fontFamily: 'Arial',
-  //                     color: '#9f835e',
-  //                     marginTop: 15,
-  //                     marginBottom: 10
-  //                   }
-  //                 }
-  //               }
-  //             ]
-  //           },
-  //           {
-  //             id: utilService.makeId(),
-  //             type: COLUMN,
-  //             style: {
-  //               alignItems: 'center'
-  //             },
-  //             cmps: [
-  //               {
-  //                 id: utilService.makeId(),
-  //                 type: COMPONENT,
-  //                 component: {
-  //                   type: 'image',
-  //                   data: { url: 'https://www.mercedes-benz.co.il/wp-content/uploads/2020-07-14_1446.jpg' },
-  //                   style: {
-  //                     width: 285
-  //                   }
-  //                 }
-  //               },
-  //               {
-  //                 id: utilService.makeId(),
-  //                 type: COMPONENT,
-  //                 component: {
-  //                   type: 'text',
-  //                   data: { txt: 'GLB- הצורה היפה ביותר של החופש ברכב הפנאי שייקח אותך לעולם של חוויות חדשות' },
-  //                   style: {
-  //                     textAlign: 'right',
-  //                     fontFamily: 'Arial',
-  //                     color: '#9f835e',
-  //                     marginTop: 15,
-  //                     marginBottom: 10
-  //                   }
-  //                 }
-  //               }
-  //             ]
-  //           }
-  //         ]
-  //       }
-  //     ]
-  //   }
-  // }
+  {
+    id: utilService.makeId(),
+    type: SIDEBAR_SECTION,
+    name: 'Gallery',
+    component: {
+      type: SECTION,
+      style: {
+        backgroundColor: '#000000',
+        backgroundImage: 'url(https://www.mercedes-benz.co.il/wp-content/uploads/general/footer-back.png)'
+      },
+      cmps: [
+        {
+          id: utilService.makeId(),
+          type: INNERSECTION,
+          style: {
+            alignItems: '',
+            paddingTop: 40,
+            borderTop: '1px solid #696969'
+          },
+          cmps: [
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                alignItems: 'center'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'button',
+                    data: {
+                      txt: 'TV מרצדס',
+                      hoverColor: '#000000'
+                    },
+                    style: {
+                      fontSize: '16',
+                      fontFamily: 'Arial',
+                      color: '#9f835e',
+                      backgroundColor: '#000000',
+                      height: 60,
+                      width: 350,
+                      cursor: 'pointer',
+                      border: '1px solid #9f835e'
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: utilService.makeId(),
+          type: INNERSECTION,
+          style: {},
+          cmps: [
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                alignItems: 'center'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'image',
+                    data: { url: 'https://www.mercedes-benz.co.il/wp-content/uploads/11306_mercedes_tv_5.jpg' },
+                    style: {}
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: 'Stronger than Time- מרצדס G-Class' },
+                    style: {
+                      textAlign: 'right',
+                      fontFamily: 'Arial',
+                      color: '#9f835e',
+                      marginTop: 15,
+                      marginBottom: 10
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                alignItems: 'center'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'image',
+                    data: { url: 'https://www.mercedes-benz.co.il/wp-content/uploads/12168_ao_oct_pics_4-1-e1604495033850.jpg' },
+                    style: {}
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: "EQC- It's more than electric. It's a Mercedes" },
+                    style: {
+                      textAlign: 'right',
+                      fontFamily: 'Arial',
+                      color: '#9f835e',
+                      marginTop: 15,
+                      marginBottom: 10
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                alignItems: 'center'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'image',
+                    data: { url: 'https://www.mercedes-benz.co.il/wp-content/uploads/13644_ao_April_image_3.jpg' },
+                    style: {}
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: 'The new EQB' },
+                    style: {
+                      textAlign: 'right',
+                      fontFamily: 'Arial',
+                      color: '#9f835e',
+                      marginTop: 15,
+                      marginBottom: 10
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                alignItems: 'center'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'image',
+                    data: { url: 'https://www.mercedes-benz.co.il/wp-content/uploads/13644_ao_April_image_1.jpg' },
+                    style: {}
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: "The all-new EQA- It's more than electric. It's a Mercedes" },
+                    style: {
+                      textAlign: 'right',
+                      fontFamily: 'Arial',
+                      color: '#9f835e',
+                      marginTop: 15,
+                      marginBottom: 10
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: utilService.makeId(),
+          type: INNERSECTION,
+          style: {},
+          cmps: [
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                alignItems: 'center'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'image',
+                    data: { url: 'https://www.mercedes-benz.co.il/wp-content/uploads/2020-06-24_1300-002.jpg' },
+                    style: {}
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: 'GLE Coupe- חיית כבישים עם כל האבזור והטכנולוגיה שאפשר לבקש' },
+                    style: {
+                      textAlign: 'right',
+                      fontFamily: 'Arial',
+                      color: '#9f835e',
+                      marginTop: 15,
+                      marginBottom: 10
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                alignItems: 'center'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'image',
+                    data: { url: 'https://www.mercedes-benz.co.il/wp-content/uploads/10161_awo_january_banner_atar_avtr_310x190_1-1.jpg' },
+                    style: {}
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: "Mercedez AMG- לוקח אותך לקצה" },
+                    style: {
+                      textAlign: 'right',
+                      fontFamily: 'Arial',
+                      color: '#9f835e',
+                      marginTop: 15,
+                      marginBottom: 10
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                alignItems: 'center'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'image',
+                    data: { url: 'https://www.mercedes-benz.co.il/wp-content/uploads/11306_mercedes_tv_5.jpg' },
+                    style: {}
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: 'GLA- The best Premium compact SUV' },
+                    style: {
+                      textAlign: 'right',
+                      fontFamily: 'Arial',
+                      color: '#9f835e',
+                      marginTop: 15,
+                      marginBottom: 10
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                alignItems: 'center'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'image',
+                    data: { url: 'https://www.mercedes-benz.co.il/wp-content/uploads/MBC27200-1-1.jpg' },
+                    style: {
+                      width: 285
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: 'מרצדס S Class- רכב הפאר הטוב ביותר בעולם' },
+                    style: {
+                      textAlign: 'right',
+                      fontFamily: 'Arial',
+                      color: '#9f835e',
+                      marginTop: 15,
+                      marginBottom: 10
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: utilService.makeId(),
+          type: INNERSECTION,
+          style: {
+            paddingBottom: 40,
+            borderBottom: '1px solid #696969'
+          },
+          cmps: [
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                alignItems: 'center'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'image',
+                    data: { url: 'https://www.mercedes-benz.co.il/wp-content/uploads/13644_ao_April_image_4.jpg' },
+                    style: {}
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: 'The new E-Class Coupe : Made to be dynamic' },
+                    style: {
+                      textAlign: 'right',
+                      fontFamily: 'Arial',
+                      color: '#9f835e',
+                      marginTop: 15,
+                      marginBottom: 10
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                alignItems: 'center'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'image',
+                    data: { url: 'https://www.mercedes-benz.co.il/wp-content/uploads/13644_ao_April_image_2-1.jpg' },
+                    style: {}
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: 'E-Class Cabriolet - More then ever' },
+                    style: {
+                      textAlign: 'right',
+                      fontFamily: 'Arial',
+                      color: '#9f835e',
+                      marginTop: 15,
+                      marginBottom: 10
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                alignItems: 'center'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'image',
+                    data: { url: 'https://www.mercedes-benz.co.il/wp-content/uploads/ANG.jpg' },
+                    style: {}
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: 'AMG GT Black Series- ספורטיבית ללא פשרות' },
+                    style: {
+                      textAlign: 'right',
+                      fontFamily: 'Arial',
+                      color: '#9f835e',
+                      marginTop: 15,
+                      marginBottom: 10
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                alignItems: 'center'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'image',
+                    data: { url: 'https://www.mercedes-benz.co.il/wp-content/uploads/2020-07-14_1446.jpg' },
+                    style: {
+                      width: 285
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: 'GLB- הצורה היפה ביותר של החופש ברכב הפנאי שייקח אותך לעולם של חוויות חדשות' },
+                    style: {
+                      textAlign: 'right',
+                      fontFamily: 'Arial',
+                      color: '#9f835e',
+                      marginTop: 15,
+                      marginBottom: 10
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
 ];
 
 export const SIDEBAR_ITEMS_FOOTER = [
