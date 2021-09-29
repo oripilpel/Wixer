@@ -169,7 +169,7 @@ export const SIDEBAT_ITEMS_HEADER = [
                   component: {
                     style: {
                       display: 'flex',
-                      fontFamily: 'raleway, san-serif',
+                      fontFamily: 'raleway',
                       fontSize: 16
                     },
                     type: 'nav',
@@ -481,7 +481,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                       paddingBottom: 40,
                       fontSize: 16,
                       color: '#090f0f',
-                      fontFamily: 'raleway, san-serif',
+                      fontFamily: 'raleway',
                       textAlign: 'center',
                     }
                   }
@@ -593,7 +593,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                       maxWidth: '420px',
                       fontSize: 16,
                       color: '#000000',
-                      fontFamily: 'raleway, san-serif',
+                      fontFamily: 'raleway',
                       textAlign: 'center',
                       lineHeight: '1.5em'
                     }

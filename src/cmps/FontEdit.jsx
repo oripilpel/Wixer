@@ -50,8 +50,12 @@ export function FontEdit({ fontSize, color, fontFamily, textAlign, onChange }) {
                     >
                         <MenuItem value="Arial">Arial</MenuItem>
                         <MenuItem value="caveat">Caveat</MenuItem>
-                        <MenuItem value="montserrat">montserrat</MenuItem>
+                        <MenuItem value="montserrat">Montserrat</MenuItem>
                         <MenuItem value="forum">Forum</MenuItem>
+                        <MenuItem value="roboto">Roboto</MenuItem>
+                        <MenuItem value="raleway">Raleway</MenuItem>
+                        <MenuItem value="courgette">Courgette</MenuItem>
+                        <MenuItem value="lobster">Lobster</MenuItem>
                     </Select>
                 </div>
             </div>
