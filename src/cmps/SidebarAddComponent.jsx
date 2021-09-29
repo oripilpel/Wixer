@@ -9,12 +9,12 @@ export function SidebarAddComponent() {
         setExpanded(newExpanded ? panel : false);
     };
     return (
-        <>
-            <Accordion className='berco' expanded={expanded === 'basics'} onChange={handleChange('basics')}>
+        <div className="sidebar-add-component">
+            <Accordion expanded={expanded === 'basics'} onChange={handleChange('basics')}>
                 <AccordionSummary aria-controls="basicsd-content" id="basicsd-header">
                     Basics
                 </AccordionSummary>
-                <AccordionDetails>
+                <AccordionDetails className='basics' >
                     {Object.values(SIDEBAR_ITEMS_BASIC).map((sideBarItem, index) => (
                         <SideBarItem key={sideBarItem.id} data={sideBarItem} type={sideBarItem.type} />
                     ))}
@@ -60,6 +60,6 @@ export function SidebarAddComponent() {
                     ))}
                 </AccordionDetails>
             </Accordion>
-        </>
+        </div>
     );
 }

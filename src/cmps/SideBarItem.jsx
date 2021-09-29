@@ -1,6 +1,13 @@
 import React from "react";
 import { useDrag } from "react-dnd";
 
+// import AddBoxIcon from '@mui/icons-material/AddBox';
+import ViewColumnIcon from '@mui/icons-material/ViewColumn';
+import TextFieldsIcon from '@mui/icons-material/TextFields';
+import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
+import InsertPhotoIcon from '@mui/icons-material/InsertPhoto';
+import SmartButtonIcon from '@mui/icons-material/SmartButton';
+
 import header1 from '../assets/img/elements/header1.jpg';
 import header2 from '../assets/img/elements/header2.jpg';
 import hero1 from '../assets/img/elements/hero1.jpg';
@@ -19,7 +26,15 @@ const KeysToComponentMap = {
   'header2': header2
 }
 
-export function SideBarItem({ data, type }){
+  const KeysToIconMap = {
+    'ViewColumnIcon': <div className="icon"><ViewColumnIcon /></div>,
+    'TextFieldsIcon': <div className="icon"><TextFieldsIcon /></div>,
+    'VideoLibraryIcon': <div className="icon"><VideoLibraryIcon /></div>,
+    'InsertPhotoIcon': <div className="icon"><InsertPhotoIcon /></div>,
+    'SmartButtonIcon': <div className="icon"><SmartButtonIcon /></div>,
+  }
+
+export function SideBarItem({ data, type }) {
   const [{ opacity }, drag] = useDrag({
     type,
     item: data,
@@ -29,9 +44,10 @@ export function SideBarItem({ data, type }){
   });
 
   return (
-    <div className="side-bar-item flex align-center" ref={drag} style={{ opacity }}>
+    <div className="side-bar-item flex direction-column justify-center" ref={drag} style={{ opacity }}>
+      {data.icon && KeysToIconMap[data.icon]}
       {!data.image && (data.name || data.component.type)}
-      {data.image && <img src={KeysToComponentMap[data.image]}/>}
+      {data.image && <img src={KeysToComponentMap[data.image]} />}
     </div>
   );
 };
