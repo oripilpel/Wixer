@@ -97,7 +97,7 @@ export const duplicate = (layout, item) => {
 }
 
 export const reorderChildren = (children, splitDropZonePath, splitItemPath, substract) => {
-  debugger
+  // debugger
   if (splitDropZonePath.length === 1) {
     const dropZoneIndex = Number(splitDropZonePath[splitDropZonePath.length - 1]);
     const itemIndex = Number(splitItemPath[splitItemPath.length - 1]);
