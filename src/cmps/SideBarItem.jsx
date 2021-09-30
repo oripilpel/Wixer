@@ -50,7 +50,8 @@ export function SideBarItem({ data, type, isElementClicked, setHints }) {
   return (
     <div
       className={`side-bar-item flex direction-column justify-center ${data.name === 'text' && !isElementClicked ? 'anima' : ''}`}
-      onMouseDown={!isElementClicked ? () => setHints(isElementClicked) : setHints} ref={drag} style={{ opacity }}>
+      onMouseDown={() => data.name === 'text' && !isElementClicked ? setHints(isElementClicked) : ''}
+      ref={drag} style={{ opacity }}>
       {data.icon && KeysToIconMap[data.icon]}
       {!data.image && (data.name || data.component.type)}
       {data.image && <img src={KeysToComponentMap[data.image]} />}
