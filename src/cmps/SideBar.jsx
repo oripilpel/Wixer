@@ -21,10 +21,10 @@ function _SideBar({ selected, update, cmps, style, _id, saveWap, hints, disableH
 
     useEffect(() => {
         //componentDidMount
-        const removeEventBus = eventBusService.on('componentSelected', () => { setIsEdit(true) })
+        const removeEventBus = eventBusService.on('componentSelected', () => { setIsEdit(true) });
         return () => {
             // componentWillUnmount
-            removeEventBus()
+            removeEventBus();
         }
     }, [])
 
@@ -91,7 +91,7 @@ function _SideBar({ selected, update, cmps, style, _id, saveWap, hints, disableH
     const onSave = () => {
         saveWap({ _id, cmps, style })
     }
-    
+
     return (
         <div className="side-bar">
             <Tabs className='tabs' value={isEdit ? 'edit' : 'add'} onChange={handleChange} aria-label="disabled tabs example">
