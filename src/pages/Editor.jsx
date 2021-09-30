@@ -38,7 +38,6 @@ function _Editor(
     }) {
 
     const [history, setHitory] = useState([]);
-    const [hintsText, setHintsText] = useState('Click on Add button to see the elements');
 
     const debugMode = false;
     useEffect(() => {
@@ -56,6 +55,7 @@ function _Editor(
     }
 
     const onUndo = () => {
+        console.log(history);
         if (!history.length) return;
         const lastStep = history[history.length - 2];
         setWap(lastStep);
@@ -192,7 +192,7 @@ function _Editor(
     return (
         <DndProvider backend={HTML5Backend}>
             <div className={`editor ${debugMode ? 'debug' : ''}`}>
-                <SideBar selected={getSelected(selected)} update={onUpdateComponent} setHintsText={setHintsText} onUndo={onUndo} />
+                <SideBar selected={getSelected(selected)} update={onUpdateComponent} onUndo={onUndo} />
                 <div className="page-container">
                     <div className="page">
                         {cmps.map((section, index) => {
@@ -222,11 +222,11 @@ function _Editor(
                             onDrop={handleDrop}
                             isLast
                         />
-                        {/* {!cmps.length && ( */}
-                        <div className="empty">
-                            {hintsText}
-                        </div>
-                        {/* )} */}
+                        {!cmps.length && (
+                            <div className="empty">
+                                Drag element to start...
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
