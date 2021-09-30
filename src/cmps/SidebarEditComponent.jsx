@@ -4,6 +4,7 @@ import { ImageEdit } from "./ImageEdit"
 import { TextEdit } from "./TextEdit"
 import { ButtonEdit } from "./ButtonEdit"
 import { VideoEdit } from "./VideoEdit"
+import { GMapEdit } from "./GMapEdit"
 
 export function SidebarEditComponent({ type, style, data, onUpdate }) {
     switch (type) {
@@ -19,6 +20,8 @@ export function SidebarEditComponent({ type, style, data, onUpdate }) {
             return <ButtonEdit style={style} onUpdate={onUpdate} />
         case 'video':
             return <VideoEdit style={style} onUpdate={onUpdate} data={data}/>
+        case 'GMap':
+            return <GMapEdit onUpdate={onUpdate} data={data}/>
         default:
             return <></>
     }

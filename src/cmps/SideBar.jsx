@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
 
@@ -13,9 +13,21 @@ import { COMPONENT } from "../constants";
 import { SidebarEditComponent } from "./SidebarEditComponent";
 import { SidebarAddComponent } from "./SidebarAddComponent";
 import { saveWap } from '../store/layout.actions'
+import { disableHints, enableHints } from "../store/hints.actions";
+import { eventBusService } from "../services/event-bus-service";
 import { hintsService } from "../services/hint.service"
 
 function _SideBar({ selected, update, cmps, style, _id, saveWap, setHintsText }) {
+    const [isEdit, setIsEdit] = useState(false)
+
+    useEffect(() => {
+        //componentDidMount
+        const removeEventBus = eventBusService.on('componentSelected', () => { setIsEdit(true) })
+        return () => {
+            // componentWillUnmount
+            removeEventBus()
+        }
+    }, [])
 
     const hints = hintsService.get()
     const [hintsChecked, setHintsChecked] = useState(hints ? true : false);
@@ -70,29 +82,18 @@ function _SideBar({ selected, update, cmps, style, _id, saveWap, setHintsText })
             setHintsText('')
         }
     };
-    const usePrevious = (value) => {
-        const ref = useRef();
-        useEffect(() => {
-            ref.current = value;
-        });
-        return ref.current;
-    }
-    const prevSelected = usePrevious(selected) || { path: [] };
-    const [isEdit, setIsEdit] = useState(false);
-    useEffect(() => {
-        if (selected && (prevSelected.path.join() !== selected.path.join())) {
-            setIsEdit(true);
-        }
-    }, [selected]);
     const handleChange = (ev, value) => {
         setIsEdit(value === 'add' ? false : true);
     };
+
     const onUpdate = (field, data) => {
         update(selected, field, data);
     }
+
     const onSave = () => {
         saveWap({ _id, cmps, style })
     }
+    
     return (
         <div className="side-bar">
             <Tabs className='tabs' value={isEdit ? 'edit' : 'add'} onChange={handleChange} aria-label="disabled tabs example">
@@ -120,6 +121,7 @@ function _SideBar({ selected, update, cmps, style, _id, saveWap, setHintsText })
                 {!isEdit && <SidebarAddComponent isElementClicked={isElementClicked} setHints={setHints} />}
                 {isEdit && selected && (
                     <>
+                        Editing: {(selected.type === COMPONENT) ? selected.component.type : selected.type}
                         <StyledEngineProvider injectFirst>
                             <SidebarEditComponent
                                 type={(selected.type === COMPONENT) ? selected.component.type : selected.type}
