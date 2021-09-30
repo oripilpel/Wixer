@@ -10,15 +10,12 @@
         border: 1px solid green;
         .empty {
             position: absolute;
-            top: 0%;
+            top: 50%;
             left: 50%;
-            transform: translate(-50%);
+            transform: translate(-50%, -50%);
             font-size: 1.7rem;
             font-weight: bold;
-            text-align: center;
-            border-radius: 5px;
             color: #293241;
-            width: max-content;
             pointer-events: none;
         }
     }

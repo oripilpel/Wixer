@@ -8,7 +8,7 @@ export function saveWap(wap) {
                 type: 'SET_WAP',
                 cmps: savedWap.cmps,
                 style: savedWap.style
-            })
+            });
         }
         catch (err) {
             console.log(err);
@@ -19,13 +19,12 @@ export function saveWap(wap) {
 export function loadWap(wapId) {
     return async dispatch => {
         try {
-            const wap = await wapService.getById(wapId)
-            // console.log(wap);
+            const wap = await wapService.getById(wapId);
             return dispatch({
                 type: 'SET_WAP',
                 cmps: wap.cmps,
                 style: wap.style
-            })
+            });
         }
         catch (err) {
             console.log(err);
@@ -33,18 +32,26 @@ export function loadWap(wapId) {
     }
 }
 
+export function setWap(cmps, style={}) {
+    return dispatch => dispatch({
+        type: 'SET_WAP',
+        cmps,
+        style
+    });
+}
+
 export function removeItem(splitItemPath, type) {
     return dispatch => dispatch({
         type: 'REMOVE_ITEM',
         item: { splitItemPath, type }
-    })
+    });
 }
 
 export function duplicateItem(splitItemPath, type) {
     return dispatch => dispatch({
         type: 'DUPLICATE_ITEM',
         item: { splitItemPath, type }
-    })
+    });
 
 }
 
@@ -84,7 +91,7 @@ export function moveToDifferentParent(splitDropZonePath, splitItemPath, item) {
         splitDropZonePath,
         splitItemPath,
         item
-    })
+    });
 }
 
 export function updateComponent(comp, field, value) {

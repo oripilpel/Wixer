@@ -13,12 +13,24 @@ import { COMPONENT } from "../constants";
 import { SidebarEditComponent } from "./SidebarEditComponent";
 import { SidebarAddComponent } from "./SidebarAddComponent";
 import { saveWap } from '../store/layout.actions'
-import { disableHints, enableHints } from "../store/hints.actions";
 import { eventBusService } from "../services/event-bus-service";
+import { hintsService } from "../services/hint.service"
 
-function _SideBar({ selected, update, cmps, style, _id, saveWap, hints, disableHints, enableHints, setHintsText }) {
-    const [hintsChecked, setHintsChecked] = useState(true);
-    const [isAddClicked, setIsAddClicked] = useState(false);
+function _SideBar({ selected, update, cmps, style, _id, saveWap, onUndo }) {
+    const [isEdit, setIsEdit] = useState(false)
+
+    useEffect(() => {
+        //componentDidMount
+        const removeEventBus = eventBusService.on('componentSelected', () => { setIsEdit(true) });
+        return () => {
+            // componentWillUnmount
+            removeEventBus();
+        }
+    }, [])
+
+    const hints = hintsService.get()
+    const [hintsChecked, setHintsChecked] = useState(hints ? true : false);
+    const [isAddClicked, setIsAddClicked] = useState(hints ? false : true);
     const [isElementClicked, setIsElementClicked] = useState(true);
     const [isPublishBlink, setIsPublishBlink] = useState(true);
 
@@ -28,7 +40,6 @@ function _SideBar({ selected, update, cmps, style, _id, saveWap, hints, disableH
                 if (isAddClicked) return
                 setIsAddClicked(true)
                 setIsElementClicked(false)
-                setHintsText('Drag elements and drop to the blue zones')
                 break;
             case isElementClicked:
                 if (isElementClicked) return
@@ -37,14 +48,13 @@ function _SideBar({ selected, update, cmps, style, _id, saveWap, hints, disableH
                 setTimeout(() => {
                     setIsPublishBlink(true)
                     setHintsChecked(false);
-                    setHintsText('')
+                    hintsService.save(false)
                 }, 5000)
-                setHintsText('Don\'t forget to click on Publish at the end!')
                 break;
             case isPublishBlink:
                 setIsPublishBlink(true)
                 setHintsChecked(false);
-                setHintsText('')
+                hintsService.save(false)
                 break;
             default:
                 break;
@@ -56,25 +66,14 @@ function _SideBar({ selected, update, cmps, style, _id, saveWap, hints, disableH
             setIsAddClicked(false)
             setIsElementClicked(true)
             setIsPublishBlink(true)
-            setHintsText('Click on Add button to see the elements')
+            hintsService.save(true)
         } else {
             setIsAddClicked(true)
             setIsElementClicked(true)
             setIsPublishBlink(true)
-            setHintsText('')
+            hintsService.save(false)
         }
     };
-
-    const [isEdit, setIsEdit] = useState(false);
-    useEffect(() => {
-        //componentDidMount
-        const removeEventBus = eventBusService.on('componentSelected', () => { setIsEdit(true) })
-        return () => {
-            // componentWillUnmount
-            removeEventBus()
-        }
-    }, [])
-
     const handleChange = (ev, value) => {
         setIsEdit(value === 'add' ? false : true);
     };
@@ -96,6 +95,7 @@ function _SideBar({ selected, update, cmps, style, _id, saveWap, hints, disableH
                     onClick={() => { setHints(isAddClicked) }} />
                 <Tab icon={<EditIcon />} className="tab" label="Edit" value="edit" />
             </Tabs>
+            <button onClick={onUndo}>Undo</button>
             <div className="hints">
                 <FormControlLabel
                     value="end"
@@ -143,14 +143,11 @@ function mapStateToProps(state) {
         cmps: state.layoutModule.cmps,
         style: state.layoutModule.style,
         _id: state.layoutModule._id,
-        hints: state.hintsModule.hints
     }
 }
 
 const mapDispatchToProps = {
-    saveWap,
-    disableHints,
-    enableHints
+    saveWap
 }
 
 export const SideBar = connect(mapStateToProps, mapDispatchToProps)(_SideBar);
