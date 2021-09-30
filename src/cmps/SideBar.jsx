@@ -16,7 +16,7 @@ import { saveWap } from '../store/layout.actions'
 import { eventBusService } from "../services/event-bus-service";
 import { hintsService } from "../services/hint.service"
 
-function _SideBar({ selected, update, cmps, style, _id, saveWap, setHintsText, onUndo }) {
+function _SideBar({ selected, update, cmps, style, _id, saveWap, onUndo }) {
     const [isEdit, setIsEdit] = useState(false)
 
     useEffect(() => {
@@ -40,7 +40,6 @@ function _SideBar({ selected, update, cmps, style, _id, saveWap, setHintsText, o
                 if (isAddClicked) return
                 setIsAddClicked(true)
                 setIsElementClicked(false)
-                setHintsText('Drag elements and drop to the blue zones')
                 break;
             case isElementClicked:
                 if (isElementClicked) return
@@ -50,15 +49,12 @@ function _SideBar({ selected, update, cmps, style, _id, saveWap, setHintsText, o
                     setIsPublishBlink(true)
                     setHintsChecked(false);
                     hintsService.save(false)
-                    setHintsText('')
                 }, 5000)
-                setHintsText('Don\'t forget to click on Publish at the end!')
                 break;
             case isPublishBlink:
                 setIsPublishBlink(true)
                 setHintsChecked(false);
                 hintsService.save(false)
-                setHintsText('')
                 break;
             default:
                 break;
@@ -72,13 +68,11 @@ function _SideBar({ selected, update, cmps, style, _id, saveWap, setHintsText, o
             setIsElementClicked(true)
             setIsPublishBlink(true)
             hintsService.save(true)
-            setHintsText('Click on Add button to see the elements')
         } else {
             setIsAddClicked(true)
             setIsElementClicked(true)
             setIsPublishBlink(true)
             hintsService.save(false)
-            setHintsText('')
         }
     };
     const handleChange = (ev, value) => {
