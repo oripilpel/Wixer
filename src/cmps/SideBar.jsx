@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
 
@@ -68,10 +68,19 @@ function _SideBar({ selected, update, cmps, style, _id, saveWap, hints, disableH
             setHintsText('')
         }
     };
-
+    const usePrevious = (value) => {
+        const ref = useRef();
+        useEffect(() => {
+            ref.current = value;
+        });
+        return ref.current;
+    }
+    const prevSelected = usePrevious(selected) || {path:[]};
     const [isEdit, setIsEdit] = useState(false);
     useEffect(() => {
-        if (selected) setIsEdit(true);
+        if (selected && (prevSelected.path.join() !== selected.path.join())) {
+            setIsEdit(true);
+        }
     }, [selected]);
     const handleChange = (ev, value) => {
         setIsEdit(value === 'add' ? false : true);
