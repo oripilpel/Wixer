@@ -16,6 +16,7 @@ import {
     moveToDifferentParent,
     updateComponent,
     setSelected,
+    reorderColumns
 } from '../store/layout.actions'
 import { utilService } from "../services/util.service";
 import { eventBusService } from "../services/event-bus-service";
@@ -34,7 +35,8 @@ function _Editor(
         updateComponent,
         setSelected,
         insert,
-        loadWap
+        loadWap,
+        reorderColumns
     }) {
 
     const [hintsText, setHintsText] = useState('Click on Add button to see the elements')
@@ -125,7 +127,6 @@ function _Editor(
 
     const handleDrop =
         (dropZone, item) => {
-            // debugger
             const splitDropZonePath = dropZone.path.split("-");
             const pathToDropZone = splitDropZonePath.slice(0, -1).join("-");
 
@@ -225,6 +226,7 @@ function _Editor(
                 updateComponent={onUpdateComponent}
                 onSelect={onSelect}
                 selected={selected}
+                moveColumns={reorderColumns}
             />
         );
     };
@@ -254,7 +256,7 @@ function _Editor(
     return (
         <DndProvider backend={HTML5Backend}>
             <div className={`editor ${debugMode ? 'debug' : ''}`}>
-                <SideBar selected={getSelected(selected)} update={onUpdateComponent} setHintsText={setHintsText}/>
+                <SideBar selected={getSelected(selected)} update={onUpdateComponent} setHintsText={setHintsText} />
                 <div className="page-container">
                     <div className="page">
                         {cmps.map((section, index) => {
@@ -285,9 +287,9 @@ function _Editor(
                             isLast
                         />
                         {/* {!cmps.length && ( */}
-                            <div className="empty">
-                                {hintsText}
-                            </div>
+                        <div className="empty">
+                            {hintsText}
+                        </div>
                         {/* )} */}
                     </div>
                 </div>
@@ -313,6 +315,7 @@ const mapDispatchToProps = {
     updateComponent,
     setSelected,
     insert,
+    reorderColumns
 }
 
 export const Editor = connect(mapStateToProps, mapDispatchToProps)(_Editor);

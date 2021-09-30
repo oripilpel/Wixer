@@ -96,9 +96,9 @@ export const SIDEBAR_ITEMS_BASIC = [
     // icon: 'SmartButtonIcon',
     component: {
       type: 'GMap',
-      data: { 
-        lat:31.962712994957688, 
-        lng:34.91398822780261,
+      data: {
+        lat: 31.962712994957688,
+        lng: 34.91398822780261,
         zoom: 15,
         markerName: 'Ginaton'
       },
@@ -112,7 +112,7 @@ export const SIDEBAR_ITEMS_NAV = [
     id: utilService.makeId(),
     type: SIDEBAR_ITEM,
     component: {
-      style: { display: 'flex', color: '#000000' },
+      style: { gap: 16, display: 'flex', color: '#000000' },
       type: 'nav',
       data: {
         hoverColor: '#868686',

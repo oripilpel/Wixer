@@ -12,7 +12,7 @@ export function Nav({ style, data }) {
                 setColor(color ? color : 'black')
             }}
             href={`#${link.txt}`}
-            style={{ color: c }}
+            style={{ padding:'5px',color: c }}
             className="link"
 
         >{link.txt}</a>

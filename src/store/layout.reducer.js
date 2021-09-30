@@ -20,12 +20,14 @@ const initialState = {
 
 export function layoutReducer(state = initialState, action) {
     switch (action.type) {
+
         case 'SET_WAP':
             return {
                 ...state,
                 cmps: action.cmps,
                 style: action.style
             }
+
         case 'REMOVE_ITEM':
             return {
                 ...state,
@@ -34,6 +36,7 @@ export function layoutReducer(state = initialState, action) {
                     action.item
                 ),
             }
+
         case 'DUPLICATE_ITEM':
             return {
                 ...state,
@@ -42,6 +45,7 @@ export function layoutReducer(state = initialState, action) {
                     action.item
                 )
             }
+
         case 'MOVE_SIDEBAR_COMPONENT_INTO_PARENT':
             return {
                 ...state,
@@ -51,6 +55,7 @@ export function layoutReducer(state = initialState, action) {
                     action.newItem
                 )
             }
+
         case 'MOVE_SIDEBAR_COLUMN_INTO_PARENT':
             return {
                 ...state,
@@ -59,6 +64,7 @@ export function layoutReducer(state = initialState, action) {
                     action.splitDropZonePath
                 )
             }
+
         case 'MOVE_SIDEBAR_INNER_SECTION_INTO_PARENT':
             return {
                 ...state,
@@ -67,11 +73,13 @@ export function layoutReducer(state = initialState, action) {
                     action.splitDropZonePath
                 )
             }
+
         case 'MOVE_WITHIN_PARENT':
             return {
                 ...state,
                 cmps: reorderChildren(state.cmps, action.splitDropZonePath, action.splitItemPath)
             }
+
         case 'MOVE_TO_DIFFERENT_PARENT':
             return {
                 ...state,
@@ -82,6 +90,7 @@ export function layoutReducer(state = initialState, action) {
                     action.item
                 )
             }
+
         case 'MOVE_SECTION':
             const { dragIndex, hoverIndex } = action;
             const dragSection = state.cmps[dragIndex];
@@ -93,13 +102,21 @@ export function layoutReducer(state = initialState, action) {
                     ],
                 }
             });
-        case 'MOVE_COLUMN':
-            return { ...state }
+
+        case 'REORDER_COLUMNS':
+            debugger
+            var { cmps, path, itemIdx, hoverIdx } = action.props
+            path = path.split('-')
+            var newLayout = JSON.parse(JSON.stringify(state.cmps))
+            if (path.length === 2) newLayout[path[0]].cmps = reorderChildren(newLayout[path[0]].cmps, itemIdx, hoverIdx)
+            else newLayout[path[0]].cmps[path[1]].cmps = reorderChildren(newLayout[path[0]].cmps[path[1]].cmps, itemIdx, hoverIdx)
+            return { ...state, cmps: newLayout }
+
         case 'UPDATE_COMPONENT':
             const { comp, field, value } = action;
             if (!comp || (!field && field !== 0) || !value) return state
-            const newLayout = JSON.parse(JSON.stringify(state))
-            const { path } = comp;
+            var newLayout = JSON.parse(JSON.stringify(state))
+            var { path } = comp;
             switch (path.length) {
                 case 1:
                     newLayout.cmps[path[0]][field] = value;
@@ -118,10 +135,12 @@ export function layoutReducer(state = initialState, action) {
                     break;
             }
             return newLayout;
+
         case 'SET_SELECTED':
             return { ...state, selected: action.selected };
+
         case 'INSERT_ITEM':
-            const cmps = insert(state.cmps, action.index, action.newItem);
+            var cmps = insert(state.cmps, action.index, action.newItem);
             return { ...state, cmps: cmps }
 
         default:

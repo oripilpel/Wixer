@@ -7,15 +7,11 @@ import { DropZone } from "./DropZone";
 import Component from "./Component";
 import { Actions } from "./Actions";
 
-const Column = ({ data, handleDrop, path, updateComponent, onSelect, selected }) => {
+export function Column({ data, handleDrop, path, updateComponent, onSelect, selected, moveColumns }) {
   const ref = useRef(null);
 
 
   const [actionsVisible, setActionsVisible] = useState(false);
-
-  const [, drop] = useDrop({
-    accept: COLUMN,
-  });
 
   const [{ isDragging }, drag] = useDrag({
     type: COLUMN,
@@ -31,6 +27,30 @@ const Column = ({ data, handleDrop, path, updateComponent, onSelect, selected })
     })
   });
 
+
+  const [, drop] = useDrop({
+    accept: COLUMN,
+    // hover: (item, monitor) => {
+    //   if (!ref.current) return
+    //   let dragIdx = +path[path.length - 1];
+
+    //   let hoverIdx = +item.path[path.length - 1];
+    //   if (dragIdx === hoverIdx || path.slice(0, path.length - 1) !== item.path.slice(0, item.path.length - 1)) return
+    //   const hoverBoundingRect = ref.current?.getBoundingClientRect()
+    //   const hoverWidth = hoverBoundingRect.right - hoverBoundingRect.left;
+    //   const hoverMiddleX = 3 * (hoverBoundingRect.right - hoverBoundingRect.left) / 4;
+    //   const hoverClientX = monitor.getClientOffset().x - hoverBoundingRect.left;
+    //   if (monitor.getDifferenceFromInitialOffset().x >= hoverMiddleX) return
+    //   console.log('client', hoverClientX, 'hoverMiddleX', hoverMiddleX);
+    //   if (dragIdx < hoverIdx && hoverClientX < hoverMiddleX) return
+    //   if (dragIdx > hoverIdx && hoverClientX > hoverMiddleX) return
+    //   moveColumns([dragIdx], [hoverIdx], path)
+    //   dragIdx = hoverIdx
+    //   return
+    // }
+  })
+
+
   const renderComponent = (component, currentPath) => {
     return (
       <Component
@@ -45,7 +65,7 @@ const Column = ({ data, handleDrop, path, updateComponent, onSelect, selected })
   };
 
   const opacity = isDragging ? 0 : 1;
-  drag(drop(ref));
+  drop(drag(ref));
 
   const select = (ev) => {
     ev.stopPropagation();
@@ -89,8 +109,7 @@ const Column = ({ data, handleDrop, path, updateComponent, onSelect, selected })
         accept={[COMPONENT, SIDEBAR_ITEM]}
 
       />
-      {actionsVisible && <Actions path={path} type={COLUMN}  />}
+      {actionsVisible && <Actions path={path} type={COLUMN} />}
     </div>
   );
-};
-export default Column;
+}

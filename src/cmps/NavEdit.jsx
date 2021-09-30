@@ -1,8 +1,10 @@
 import { PrettoSlider } from "./PrettoSlider";
+import { MenuItem, Select } from "@mui/material";
+
 
 export function NavEdit({ style, onUpdate, data }) {
     const { hoverColor } = data
-    const { fontSize, color, gap } = style
+    const { fontSize, color, gap,fontFamily } = style
     function onChange({ target }) {
         const { name, value } = target;
         const newStyle = { ...style, [name]: value };
@@ -35,7 +37,7 @@ export function NavEdit({ style, onUpdate, data }) {
                     aria-label="pretto slider"
                     value={+gap}
                     min={10}
-                    max={40}
+                    max={80}
                     name="gap"
                     onChange={onChange}
                     id="gap"
@@ -55,6 +57,30 @@ export function NavEdit({ style, onUpdate, data }) {
                 </div>
                 <div className="input">
                     <input type="color" name="hoverColor" id="hoverColor" value={hoverColor} onChange={updateHover} />
+                </div>
+            </div>
+            <div className="font-family">
+                <div className="label">
+                    <label htmlFor="font-family">Font:</label>
+                </div>
+                <div className="input">
+                    <Select
+                        labelId="font-family"
+                        id="font-family"
+                        value={fontFamily}
+                        label="Font family"
+                        name="fontFamily"
+                        onChange={onChange}
+                    >
+                        <MenuItem value="Arial">Arial</MenuItem>
+                        <MenuItem value="caveat">Caveat</MenuItem>
+                        <MenuItem value="montserrat">Montserrat</MenuItem>
+                        <MenuItem value="forum">Forum</MenuItem>
+                        <MenuItem value="roboto">Roboto</MenuItem>
+                        <MenuItem value="raleway">Raleway</MenuItem>
+                        <MenuItem value="courgette">Courgette</MenuItem>
+                        <MenuItem value="lobster">Lobster</MenuItem>
+                    </Select>
                 </div>
             </div>
         </div>

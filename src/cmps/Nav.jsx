@@ -20,7 +20,7 @@ function Paragraph({ idx, link, update, path, color, hoverColor }) {
         contentEditable={true}
         suppressContentEditableWarning={true}
         onBlur={(ev) => { update(idx, ev.target.innerText) }}
-        style={{ padding: '0 20px', position: 'relative', color: c, margin: 0 }}>
+        style={{ padding:'3px', position: 'relative', color: c, margin: 0 }}>
         {link.txt}
         {actionsVisible && <Actions path={path} type={COMPONENT} />}
     </p>

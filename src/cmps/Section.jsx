@@ -2,11 +2,11 @@ import React, { useRef, useState } from "react";
 import { useDrag, useDrop } from "react-dnd";
 import { SECTION, SIDEBAR_ITEM, COMPONENT, SIDEBAR_COLUMN, SIDEBAR_INNERSECTION, INNERSECTION, COLUMN } from "../constants.js";
 import { DropZone } from "./DropZone";
-import Column from "./Column";
+import { Column } from "./Column";
 import { InnerSection } from "./InnerSection.jsx";
 import { Actions } from "./Actions.jsx";
 
-export function Section({ data, cmps, handleDrop, path, updateComponent, onSelect, selected }) {
+export function Section({ data, cmps, handleDrop, path, updateComponent, onSelect, selected, moveColumns }) {
   const ref = useRef(null);
 
   const [actionsVisible, setActionsVisible] = useState(false);
@@ -29,6 +29,9 @@ export function Section({ data, cmps, handleDrop, path, updateComponent, onSelec
   });
 
 
+  const reorderColumns = (itemIdx, hoverIdx, path) => { moveColumns(data.cmps, itemIdx, hoverIdx, path) }
+
+
   const opacity = isDragging ? 0 : 1;
   drag(drop(ref));
 
@@ -44,9 +47,11 @@ export function Section({ data, cmps, handleDrop, path, updateComponent, onSelec
         onSelect={onSelect}
         selected={selected}
         onClick={() => onSelect('column', column)}
+        moveColumns={reorderColumns}
       />
     );
   };
+
   const renderInnerSection = (innerSection, currentPath) => {
 
     return (
@@ -60,15 +65,18 @@ export function Section({ data, cmps, handleDrop, path, updateComponent, onSelec
         onSelect={onSelect}
         selected={selected}
         onClick={() => onSelect('innersection', innerSection)}
+        moveColumns={moveColumns}
       />
     );
   };
+
   const hasOnlyInnersections = (data.cmps.some(cmp => cmp.type === INNERSECTION));
 
   const select = (ev) => {
     ev.stopPropagation();
     onSelect('section', path.split('-'));
   }
+
   return (
     <div
       ref={ref}

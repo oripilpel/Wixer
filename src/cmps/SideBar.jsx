@@ -17,7 +17,6 @@ import { disableHints, enableHints } from "../store/hints.actions";
 import { eventBusService } from "../services/event-bus-service";
 
 function _SideBar({ selected, update, cmps, style, _id, saveWap, hints, disableHints, enableHints, setHintsText }) {
-    const [isEdit, setIsEdit] = useState(false)
     const [hintsChecked, setHintsChecked] = useState(true);
     const [isAddClicked, setIsAddClicked] = useState(false);
     const [isElementClicked, setIsElementClicked] = useState(true);
@@ -51,7 +50,6 @@ function _SideBar({ selected, update, cmps, style, _id, saveWap, hints, disableH
                 break;
         }
     }
-
     const hintsHandleChange = (event) => {
         setHintsChecked(event.target.checked);
         if (event.target.checked) {
@@ -76,58 +74,6 @@ function _SideBar({ selected, update, cmps, style, _id, saveWap, hints, disableH
             removeEventBus()
         }
     }, [])
-
-    const [hintsChecked, setHintsChecked] = useState(hints ? true : false);
-    const [isAddClicked, setIsAddClicked] = useState(hints ? false : true);
-    const [isElementClicked, setIsElementClicked] = useState(true);
-    const [isPublishBlink, setIsPublishBlink] = useState(true);
-
-    const setHints = (stage) => {
-        switch (stage) {
-            case isAddClicked:
-                if (isAddClicked) return
-                setIsAddClicked(true)
-                setIsElementClicked(false)
-                setHintsText('Drag elements and drop to the blue zones')
-                break;
-            case isElementClicked:
-                if (isElementClicked) return
-                setIsElementClicked(true)
-                setIsPublishBlink(false)
-                setTimeout(() => {
-                    setIsPublishBlink(true)
-                    setHintsChecked(false);
-                    setHintsText('')
-                }, 5000)
-                setHintsText('Don\'t forget to click on Publish at the end!')
-                break;
-            case isPublishBlink:
-                setIsPublishBlink(true)
-                setHintsChecked(false);
-                disableHints()
-                setHintsText('')
-                break;
-            default:
-                break;
-        }
-    }
-
-    const hintsHandleChange = (event) => {
-        setHintsChecked(event.target.checked);
-        if (event.target.checked) {
-            setIsAddClicked(false)
-            setIsElementClicked(true)
-            setIsPublishBlink(true)
-            enableHints()
-            setHintsText('Click on Add button to see the elements')
-        } else {
-            setIsAddClicked(true)
-            setIsElementClicked(true)
-            setIsPublishBlink(true)
-            disableHints()
-            setHintsText('')
-        }
-    };
 
     const handleChange = (ev, value) => {
         setIsEdit(value === 'add' ? false : true);
