@@ -13,7 +13,6 @@ import { COMPONENT } from "../constants";
 import { SidebarEditComponent } from "./SidebarEditComponent";
 import { SidebarAddComponent } from "./SidebarAddComponent";
 import { saveWap } from '../store/layout.actions'
-import { disableHints, enableHints } from "../store/hints.actions";
 import { eventBusService } from "../services/event-bus-service";
 import { hintsService } from "../services/hint.service"
 
