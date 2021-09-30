@@ -18,6 +18,7 @@ import {
     setSelected,
 } from '../store/layout.actions'
 import { utilService } from "../services/util.service";
+import { eventBusService } from "../services/event-bus-service";
 
 
 function _Editor(
@@ -189,6 +190,7 @@ function _Editor(
         }
 
     const onSelect = (type, path) => {
+        eventBusService.emit('componentSelected');
         switch (type) {
             case COMPONENT:
                 if (path.length === 3) {
