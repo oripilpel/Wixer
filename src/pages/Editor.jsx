@@ -21,7 +21,6 @@ import {
 import { utilService } from "../services/util.service";
 import { eventBusService } from "../services/event-bus-service";
 
-
 function _Editor(
     { match,
         cmps,

@@ -13,10 +13,10 @@ import { COMPONENT } from "../constants";
 import { SidebarEditComponent } from "./SidebarEditComponent";
 import { SidebarAddComponent } from "./SidebarAddComponent";
 import { saveWap } from '../store/layout.actions'
-import { disableHints, enableHints } from "../store/hints.actions";
 import { eventBusService } from "../services/event-bus-service";
+import { hintsService } from "../services/hint.service"
 
-function _SideBar({ selected, update, cmps, style, _id, saveWap, hints, disableHints, enableHints, setHintsText, onUndo }) {
+function _SideBar({ selected, update, cmps, style, _id, saveWap, setHintsText, onUndo }) {
     const [isEdit, setIsEdit] = useState(false)
 
     useEffect(() => {
@@ -28,6 +28,7 @@ function _SideBar({ selected, update, cmps, style, _id, saveWap, hints, disableH
         }
     }, [])
 
+    const hints = hintsService.get()
     const [hintsChecked, setHintsChecked] = useState(hints ? true : false);
     const [isAddClicked, setIsAddClicked] = useState(hints ? false : true);
     const [isElementClicked, setIsElementClicked] = useState(true);
@@ -48,6 +49,7 @@ function _SideBar({ selected, update, cmps, style, _id, saveWap, hints, disableH
                 setTimeout(() => {
                     setIsPublishBlink(true)
                     setHintsChecked(false);
+                    hintsService.save(false)
                     setHintsText('')
                 }, 5000)
                 setHintsText('Don\'t forget to click on Publish at the end!')
@@ -55,7 +57,7 @@ function _SideBar({ selected, update, cmps, style, _id, saveWap, hints, disableH
             case isPublishBlink:
                 setIsPublishBlink(true)
                 setHintsChecked(false);
-                disableHints()
+                hintsService.save(false)
                 setHintsText('')
                 break;
             default:
@@ -69,17 +71,16 @@ function _SideBar({ selected, update, cmps, style, _id, saveWap, hints, disableH
             setIsAddClicked(false)
             setIsElementClicked(true)
             setIsPublishBlink(true)
-            enableHints()
+            hintsService.save(true)
             setHintsText('Click on Add button to see the elements')
         } else {
             setIsAddClicked(true)
             setIsElementClicked(true)
             setIsPublishBlink(true)
-            disableHints()
+            hintsService.save(false)
             setHintsText('')
         }
     };
-
     const handleChange = (ev, value) => {
         setIsEdit(value === 'add' ? false : true);
     };
@@ -149,14 +150,11 @@ function mapStateToProps(state) {
         cmps: state.layoutModule.cmps,
         style: state.layoutModule.style,
         _id: state.layoutModule._id,
-        hints: state.hintsModule.hints
     }
 }
 
 const mapDispatchToProps = {
-    saveWap,
-    disableHints,
-    enableHints
+    saveWap
 }
 
 export const SideBar = connect(mapStateToProps, mapDispatchToProps)(_SideBar);
