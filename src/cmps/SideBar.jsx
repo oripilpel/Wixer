@@ -6,6 +6,7 @@ import { StyledEngineProvider } from "@mui/styled-engine";
 import { Tab, Tabs } from "@mui/material";
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import EditIcon from '@mui/icons-material/Edit';
+import HistoryIcon from '@mui/icons-material/History';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 
@@ -96,7 +97,6 @@ function _SideBar({ selected, update, cmps, style, _id, saveWap, onUndo }) {
                     onClick={() => { setHints(isAddClicked) }} />
                 <Tab icon={<EditIcon />} className="tab" label="Edit" value="edit" />
             </Tabs>
-            <button onClick={onUndo}>Undo</button>
             <div className="hints">
                 <FormControlLabel
                     value="end"
@@ -109,13 +109,15 @@ function _SideBar({ selected, update, cmps, style, _id, saveWap, onUndo }) {
                     label="Hints"
                     labelPlacement="start"
                 />
-
+                <button onClick={onUndo} title="undo"><HistoryIcon /></button>
             </div>
             <div className="items">
                 {!isEdit && <SidebarAddComponent isElementClicked={isElementClicked} setHints={setHints} />}
                 {isEdit && selected && (
                     <>
-                        Editing: {(selected.type === COMPONENT) ? selected.component.type : selected.type}
+                        <div className="editing">
+                            Editing: {(selected.type === COMPONENT) ? selected.component.type : selected.type}
+                        </div>
                         <StyledEngineProvider injectFirst>
                             <SidebarEditComponent
                                 type={(selected.type === COMPONENT) ? selected.component.type : selected.type}
