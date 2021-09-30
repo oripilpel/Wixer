@@ -25,6 +25,7 @@ export const SIDEBAR_ITEMS_BASIC = [
     id: utilService.makeId(),
     type: SIDEBAR_COLUMN,
     name: 'column',
+    icon: 'Crop75Icon',
     component: {
       type: COLUMN,
       children: [],
@@ -93,7 +94,7 @@ export const SIDEBAR_ITEMS_BASIC = [
     id: utilService.makeId(),
     type: SIDEBAR_ITEM,
     name: 'gmap',
-    // icon: 'SmartButtonIcon',
+    icon: 'RoomIcon',
     component: {
       type: 'GMap',
       data: {
