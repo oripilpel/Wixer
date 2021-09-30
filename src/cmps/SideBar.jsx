@@ -16,7 +16,7 @@ import { saveWap } from '../store/layout.actions'
 import { disableHints, enableHints } from "../store/hints.actions";
 import { eventBusService } from "../services/event-bus-service";
 
-function _SideBar({ selected, update, cmps, style, _id, saveWap, hints, disableHints, enableHints, setHintsText }) {
+function _SideBar({ selected, update, cmps, style, _id, saveWap, hints, disableHints, enableHints, setHintsText, onUndo }) {
     const [isEdit, setIsEdit] = useState(false)
 
     useEffect(() => {
@@ -101,6 +101,7 @@ function _SideBar({ selected, update, cmps, style, _id, saveWap, hints, disableH
                     onClick={() => { setHints(isAddClicked) }} />
                 <Tab icon={<EditIcon />} className="tab" label="Edit" value="edit" />
             </Tabs>
+            <button onClick={onUndo}>Undo</button>
             <div className="hints">
                 <FormControlLabel
                     value="end"

@@ -9,6 +9,7 @@ import { SideBar } from "../cmps/SideBar";
 import {
     insert,
     loadWap,
+    setWap,
     moveSidebarComponentIntoParent,
     moveSidebarColumnIntoParent,
     moveSidebarInnerSectionIntoParent,
@@ -33,98 +34,37 @@ function _Editor(
         updateComponent,
         setSelected,
         insert,
-        loadWap
+        loadWap,
+        setWap
     }) {
 
-    const [hintsText, setHintsText] = useState('Click on Add button to see the elements')
+    const [history, setHitory] = useState([]);
+    const [hintsText, setHintsText] = useState('Click on Add button to see the elements');
 
     const debugMode = false;
     useEffect(() => {
+        //componentDidMount
         const id = match.params.wapId;
-        if (id) loadWap(id)
+        if (id) loadWap(id);
     }, []);
+
+    useEffect(() => {
+        setHitory([...history, JSON.parse(JSON.stringify(cmps))]);
+    }, [cmps])
 
     const onUpdateComponent = (comp, field, value) => {
         updateComponent(comp, field, value);
     }
 
-    // const handleDrop =
-    //     (dropZone, item) => {
-    //         debugger
-    //         const splitDropZonePath = dropZone.path.split("-");
-    //         const pathToDropZone = splitDropZonePath.slice(0, -1).join("-");
-
-    //         const newItem = { id: item.id, type: item.type, component: item.component, style: item.style };
-
-    //         switch (item.type) {
-    //             case SIDEBAR_COLUMN:
-    //                 moveSidebarColumnIntoParent(splitDropZonePath);
-    //                 break;
-    //         }
-
-    //         if (item.type === COLUMN || item.type === SECTION || item.type === INNERSECTION) {
-    //             newItem.cmps = item.cmps;
-    //         }
-
-    //         if (item.type === SIDEBAR_COLUMN) {
-    //             moveSidebarColumnIntoParent(splitDropZonePath);
-    //             return;
-    //         }
-
-    //         if (item.type === SIDEBAR_INNERSECTION) {
-    //             moveSidebarInnerSectionIntoParent(splitDropZonePath);
-    //             return;
-    //         }
-    //         if (item.type === SIDEBAR_SECTION) {
-    //             const newSection = { ...item.component };
-    //             newSection.id = utilService.makeId();
-    //             insert(splitDropZonePath[0], newSection)
-    //             return
-    //         }
-
-
-    //         // sidebar into
-    //         if (item.type === SIDEBAR_ITEM) {
-    //             // 1. Move sidebar item into page
-    //             const newComponent = {
-    //                 id: utilService.makeId(),
-    //                 ...item.component
-    //             };
-
-    //             const newItem = {
-    //                 id: newComponent.id,
-    //                 type: COMPONENT,
-    //                 component: item.component
-    //             };
-    //             moveSidebarComponentIntoParent(splitDropZonePath, newItem);
-    //             return;
-    //         }
-
-    //         // move down here since sidebar items dont have path
-    //         const splitItemPath = item.path.split("-");
-    //         const pathToItem = splitItemPath.slice(0, -1).join("-");
-
-    //         // 2. Pure move (no create)
-    //         if (splitItemPath.length === splitDropZonePath.length) {
-    //             // 2.a. move within parent
-    //             if (pathToItem === pathToDropZone) {
-    //                 moveWithinParent(splitDropZonePath, splitItemPath);
-    //                 return;
-    //             }
-
-    //             // 2.b. OR move different parent
-    //             // TODO FIX columns. item includes children
-    //             moveToDifferentParent(splitDropZonePath, splitItemPath, newItem);
-    //             return;
-    //         }
-
-    //         // 3. Move + Create
-    //         moveToDifferentParent(splitDropZonePath, splitItemPath, newItem);
-    //     }
+    const onUndo = () => {
+        if (!history.length) return;
+        const lastStep = history[history.length - 2];
+        setWap(lastStep);
+        setHitory(history.slice(0, -2));
+    }
 
     const handleDrop =
         (dropZone, item) => {
-            // debugger
             const splitDropZonePath = dropZone.path.split("-");
             const pathToDropZone = splitDropZonePath.slice(0, -1).join("-");
 
@@ -145,7 +85,7 @@ function _Editor(
             if (item.type === SIDEBAR_SECTION) {
                 const newSection = JSON.parse(JSON.stringify(item.component));
                 newSection.id = utilService.makeId();
-                insert(splitDropZonePath[0], newSection)
+                insert(splitDropZonePath[0], newSection);
                 return
             }
 
@@ -253,7 +193,7 @@ function _Editor(
     return (
         <DndProvider backend={HTML5Backend}>
             <div className={`editor ${debugMode ? 'debug' : ''}`}>
-                <SideBar selected={getSelected(selected)} update={onUpdateComponent} setHintsText={setHintsText}/>
+                <SideBar selected={getSelected(selected)} update={onUpdateComponent} setHintsText={setHintsText} onUndo={onUndo} />
                 <div className="page-container">
                     <div className="page">
                         {cmps.map((section, index) => {
@@ -284,9 +224,9 @@ function _Editor(
                             isLast
                         />
                         {/* {!cmps.length && ( */}
-                            <div className="empty">
-                                {hintsText}
-                            </div>
+                        <div className="empty">
+                            {hintsText}
+                        </div>
                         {/* )} */}
                     </div>
                 </div>
@@ -304,6 +244,7 @@ function mapStateToProps(state) {
 }
 const mapDispatchToProps = {
     loadWap,
+    setWap,
     moveSidebarComponentIntoParent,
     moveSidebarColumnIntoParent,
     moveSidebarInnerSectionIntoParent,

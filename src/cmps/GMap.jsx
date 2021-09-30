@@ -3,7 +3,7 @@ import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
 export function _GMap({ data, google }) {
     const { lat, lng, zoom, markerName } = data;
     return (
-        <>
+        <div style={{minHeight: '200px'}}>
             <Map
                 google={google}
                 zoom={zoom}
@@ -15,7 +15,7 @@ export function _GMap({ data, google }) {
                     title={markerName}
                 />
             </Map>
-        </>
+        </div>
     )
 }
 
