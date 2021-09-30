@@ -89,6 +89,22 @@ export const SIDEBAR_ITEMS_BASIC = [
       }
     }
   },
+  {
+    id: utilService.makeId(),
+    type: SIDEBAR_ITEM,
+    name: 'gmap',
+    // icon: 'SmartButtonIcon',
+    component: {
+      type: 'GMap',
+      data: { 
+        lat:31.962712994957688, 
+        lng:34.91398822780261,
+        zoom: 15,
+        markerName: 'Ginaton'
+      },
+      style: {}
+    }
+  },
 ]
 
 export const SIDEBAR_ITEMS_NAV = [

@@ -6,6 +6,7 @@ import { ImageUpload } from "./ImageUpload";
 import { WidthEdit } from "./WidthEdit";
 import { Accordion, AccordionSummary, AccordionDetails } from './Accordion';
 import { BorderEdit } from './BorderEdit';
+import { HeightEdit } from './HeightEdit';
 
 export function ColumnSectionEdit({ style, onUpdate }) {
     const [expanded, setExpanded] = React.useState('background')
@@ -35,7 +36,8 @@ export function ColumnSectionEdit({ style, onUpdate }) {
         marginLeft,
         backgroundColor,
         justifyContent,
-        alignItem: alignItems
+        alignItem: alignItems,
+        height
     } = style;
     return (
         <div className="column-section-edit">
@@ -48,15 +50,16 @@ export function ColumnSectionEdit({ style, onUpdate }) {
                         <label htmlFor="background-color">Background color</label>
                         <input type="color" name="backgroundColor" id="background-color" value={backgroundColor || '#ffffff'} onChange={onChange} />
                     </div>
-                    <ImageUpload label="Upload background image" onUpload={(ev) => uploadImg(ev).then(url => onUploadImage(url))} />
+                    <ImageUpload label="Upload image" onUpload={(ev) => uploadImg(ev).then(url => onUploadImage(url))} />
                 </AccordionDetails>
             </Accordion>
-            <Accordion expanded={expanded === 'width'} onChange={handleChange('width')}>
+            <Accordion expanded={expanded === 'size'} onChange={handleChange('size')}>
                 <AccordionSummary aria-controls="widthd-content" id="widthd-header">
-                    Width
+                    Size
                 </AccordionSummary>
                 <AccordionDetails>
                     <WidthEdit name="flexGrow" value={flexGrow} onChange={onChange} min={0} max={12} />
+                    <HeightEdit value={height || 0} onChange={onChange} />
                 </AccordionDetails>
             </Accordion>
             <Accordion expanded={expanded === 'flex'} onChange={handleChange('flex')}>
@@ -108,7 +111,7 @@ export function ColumnSectionEdit({ style, onUpdate }) {
                     Border
                 </AccordionSummary>
                 <AccordionDetails>
-                    <BorderEdit style={style} onChange={onChange}/>
+                    <BorderEdit style={style} onChange={onChange} />
                 </AccordionDetails>
             </Accordion>
         </div>
