@@ -13,11 +13,12 @@ import { COMPONENT } from "../constants";
 import { SidebarEditComponent } from "./SidebarEditComponent";
 import { SidebarAddComponent } from "./SidebarAddComponent";
 import { saveWap } from '../store/layout.actions'
+import { disableHints, enableHints } from "../store/hints.actions";
 
-function _SideBar({ selected, update, cmps, style, _id, saveWap, setHintsText }) {
+function _SideBar({ selected, update, cmps, style, _id, saveWap, hints, disableHints, enableHints, setHintsText }) {
 
-    const [hintsChecked, setHintsChecked] = useState(true);
-    const [isAddClicked, setIsAddClicked] = useState(false);
+    const [hintsChecked, setHintsChecked] = useState(hints ? true: false);
+    const [isAddClicked, setIsAddClicked] = useState(hints ? false: true);
     const [isElementClicked, setIsElementClicked] = useState(true);
     const [isPublishBlink, setIsPublishBlink] = useState(true);
 
@@ -43,6 +44,7 @@ function _SideBar({ selected, update, cmps, style, _id, saveWap, setHintsText })
             case isPublishBlink:
                 setIsPublishBlink(true)
                 setHintsChecked(false);
+                disableHints()
                 setHintsText('')
                 break;
             default:
@@ -56,11 +58,13 @@ function _SideBar({ selected, update, cmps, style, _id, saveWap, setHintsText })
             setIsAddClicked(false)
             setIsElementClicked(true)
             setIsPublishBlink(true)
+            enableHints()
             setHintsText('Click on Add button to see the elements')
         } else {
             setIsAddClicked(true)
             setIsElementClicked(true)
             setIsPublishBlink(true)
+            disableHints()
             setHintsText('')
         }
     };
@@ -132,12 +136,15 @@ function mapStateToProps(state) {
     return {
         cmps: state.layoutModule.cmps,
         style: state.layoutModule.style,
-        _id: state.layoutModule._id
+        _id: state.layoutModule._id,
+        hints: state.hintsModule.hints
     }
 }
 
 const mapDispatchToProps = {
-    saveWap
+    saveWap,
+    disableHints,
+    enableHints
 }
 
 export const SideBar = connect(mapStateToProps, mapDispatchToProps)(_SideBar);
