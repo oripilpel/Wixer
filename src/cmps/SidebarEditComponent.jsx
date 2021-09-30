@@ -21,7 +21,7 @@ export function SidebarEditComponent({ type, style, data, onUpdate }) {
         case 'video':
             return <VideoEdit style={style} onUpdate={onUpdate} data={data}/>
         case 'GMap':
-            return <GMapEdit onUpdate={onUpdate} data={data}/>
+            return <GMapEdit style={style} onUpdate={onUpdate} data={data}/>
         default:
             return <></>
     }

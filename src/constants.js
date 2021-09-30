@@ -102,7 +102,9 @@ export const SIDEBAR_ITEMS_BASIC = [
         zoom: 15,
         markerName: 'Ginaton'
       },
-      style: {}
+      style: {
+        height: 200
+      }
     }
   },
 ]

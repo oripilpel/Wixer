@@ -55,8 +55,7 @@ function _Editor(
     }
 
     const onUndo = () => {
-        console.log(history);
-        if (!history.length) return;
+        if (history.length === 1) return;
         const lastStep = history[history.length - 2];
         setWap(lastStep);
         setHitory(history.slice(0, -2));
