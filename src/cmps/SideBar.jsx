@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
 
@@ -20,6 +20,7 @@ function _SideBar({ selected, update, cmps, style, _id, saveWap, setHintsText })
     const [isAddClicked, setIsAddClicked] = useState(false);
     const [isElementClicked, setIsElementClicked] = useState(true);
     const [isPublishBlink, setIsPublishBlink] = useState(true);
+    const ref = useRef();
 
     const setHints = (stage) => {
         switch (stage) {
@@ -64,10 +65,18 @@ function _SideBar({ selected, update, cmps, style, _id, saveWap, setHintsText })
             setHintsText('')
         }
     };
-
+    const usePrevious = (id) => {
+        useEffect(() => {
+            ref.current = id;
+        });
+        return ref.current;
+    }
     const [isEdit, setIsEdit] = useState(false);
     useEffect(() => {
-        if (selected) setIsEdit(true);
+        if (selected && (ref.current !== selected.id)) {
+            ref.current = selected.id;
+            setIsEdit(true);
+        }
     }, [selected]);
     const handleChange = (ev, value) => {
         setIsEdit(value === 'add' ? false : true);
