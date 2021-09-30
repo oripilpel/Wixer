@@ -14,13 +14,12 @@ import { SidebarEditComponent } from "./SidebarEditComponent";
 import { SidebarAddComponent } from "./SidebarAddComponent";
 import { saveWap } from '../store/layout.actions'
 
-function _SideBar({ selected, update, cmps, style, _id, saveWap, setHintsText }) {
+function _SideBar({selected, update, cmps, style, _id, saveWap, setHintsText }) {
 
     const [hintsChecked, setHintsChecked] = useState(true);
     const [isAddClicked, setIsAddClicked] = useState(false);
     const [isElementClicked, setIsElementClicked] = useState(true);
     const [isPublishBlink, setIsPublishBlink] = useState(true);
-    const ref = useRef();
 
     const setHints = (stage) => {
         switch (stage) {
@@ -65,16 +64,17 @@ function _SideBar({ selected, update, cmps, style, _id, saveWap, setHintsText })
             setHintsText('')
         }
     };
-    const usePrevious = (id) => {
+    const usePrevious = (value) => {
+        const ref = useRef();
         useEffect(() => {
-            ref.current = id;
+            ref.current = value;
         });
         return ref.current;
     }
+    const prevSelected = usePrevious(selected) || {path:[]};
     const [isEdit, setIsEdit] = useState(false);
     useEffect(() => {
-        if (selected && (ref.current !== selected.id)) {
-            ref.current = selected.id;
+        if (selected && (prevSelected.path.join() !== selected.path.join())) {
             setIsEdit(true);
         }
     }, [selected]);
