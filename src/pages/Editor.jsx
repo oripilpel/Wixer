@@ -131,7 +131,6 @@ function _Editor(
             if (item.type === COLUMN || item.type === SECTION || item.type === INNERSECTION) {
                 newItem.cmps = item.cmps;
             }
-            console.log(item);
 
             if (item.type === SIDEBAR_COLUMN) {
                 moveSidebarColumnIntoParent(splitDropZonePath);
