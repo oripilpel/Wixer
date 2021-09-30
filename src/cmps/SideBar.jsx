@@ -114,6 +114,7 @@ function _SideBar({selected, update, cmps, style, _id, saveWap, setHintsText }) 
                 {!isEdit && <SidebarAddComponent isElementClicked={isElementClicked} setHints={setHints} />}
                 {isEdit && selected && (
                     <>
+                        Editing: {(selected.type === COMPONENT) ? selected.component.type : selected.type}
                         <StyledEngineProvider injectFirst>
                             <SidebarEditComponent
                                 type={(selected.type === COMPONENT) ? selected.component.type : selected.type}

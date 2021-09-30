@@ -8,6 +8,7 @@ import { Video } from "./Video";
 import { Nav } from "./Nav";
 import { Button } from "./Button";
 import { Actions } from "./Actions";
+import { GMap } from "./GMap";
 
 const Component = ({ data, path, updateComponent, select, selected }) => {
   const ref = useRef(null);
@@ -38,6 +39,7 @@ const Component = ({ data, path, updateComponent, select, selected }) => {
     video: Video,
     nav: Nav,
     button: Button,
+    GMap: GMap
   };
 
   const onSelect = (ev) => {
