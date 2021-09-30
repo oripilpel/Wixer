@@ -3,7 +3,7 @@ import { SideBarItem } from "./SideBarItem";
 import { Accordion, AccordionSummary, AccordionDetails } from './Accordion';
 import { SIDEBAR_ITEMS_BASIC, SIDEBAR_ITEMS_FOOTER, SIDEBAR_ITEMS_NAV, SIDEBAR_ITEMS_SECTIONS, SIDEBAT_ITEMS_HEADER } from "../constants";
 
-export function SidebarAddComponent() {
+export function SidebarAddComponent({ isElementClicked, setHints }) {
     const [expanded, setExpanded] = React.useState('basics')
     const handleChange = (panel) => (event, newExpanded) => {
         setExpanded(newExpanded ? panel : false);
@@ -16,7 +16,9 @@ export function SidebarAddComponent() {
                 </AccordionSummary>
                 <AccordionDetails className='basics' >
                     {Object.values(SIDEBAR_ITEMS_BASIC).map((sideBarItem, index) => (
-                        <SideBarItem key={sideBarItem.id} data={sideBarItem} type={sideBarItem.type} />
+                        <SideBarItem key={sideBarItem.id}
+                            data={sideBarItem} type={sideBarItem.type}
+                            isElementClicked={isElementClicked} setHints={setHints} />
                     ))}
                 </AccordionDetails>
             </Accordion>

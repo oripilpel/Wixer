@@ -30,5 +30,5 @@
   .drop-zone.active,
   .trash-drop-zone.active {
     background: #00a2ff;
-    transition: 100ms all;
+    transition:width,height 0.3s ;
   }

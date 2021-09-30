@@ -71,12 +71,10 @@ const Component = ({ data, path, updateComponent, select, selected }) => {
       style={{ opacity }}
       className="component draggable"
       onClick={onSelect}
-      onMouseEnter={() => {
-        setActionsVisible(true)
-      }}
-      onMouseLeave={() => {
-        setActionsVisible(false)
-      }}
+      onMouseEnter={() => setActionsVisible(true)
+      }
+      onMouseLeave={() => setActionsVisible(false)
+      }
     >
       {renderer(component)}
       {actionsVisible && <Actions path={path} type={COMPONENT} />}

@@ -1,0 +1,19 @@
+.section {
+    .actions {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: 1;
+        background-color: white;
+        padding: 5px;
+        border-radius: 15px;
+
+        > * {
+            cursor: pointer;
+        }
+
+        > *:not(:first-child) {
+            margin-inline-start: 5px;
+        }
+    }
+}

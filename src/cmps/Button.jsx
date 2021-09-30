@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export function Button({ style, data, update }) {
+    useEffect(() => { setColor(style.backgroundColor) }, [style])
     const [color, setColor] = useState([style.backgroundColor])
     function onBodyChange({ target }) {
         update('data', { txt: target.innerText });

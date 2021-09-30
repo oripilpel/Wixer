@@ -96,10 +96,9 @@ export const SIDEBAR_ITEMS_NAV = [
     id: utilService.makeId(),
     type: SIDEBAR_ITEM,
     component: {
-      style: { display: 'flex' },
+      style: { display: 'flex', color: '#000000' },
       type: 'nav',
       data: {
-        color: '#000000',
         hoverColor: '#868686',
         links: [
           {
@@ -179,12 +178,12 @@ export const SIDEBAT_ITEMS_HEADER = [
                     style: {
                       display: 'flex',
                       fontFamily: 'raleway',
-                      fontSize: 16
+                      fontSize: 16,
+                      color: '#000000'
                     },
                     type: 'nav',
                     data: {
                       hoverColor: '#868686',
-                      color: '#000000',
                       links: [
                         {
                           id: utilService.makeId(),
@@ -381,11 +380,11 @@ export const SIDEBAT_ITEMS_HEADER = [
                   component: {
                     style: {
                       display: 'flex',
+                      color: '#a19d9d'
                     },
                     type: 'nav',
                     data: {
                       hoverColor: '#f6f6f6',
-                      color: '#a19d9d',
                       links: [
                         {
                           id: utilService.makeId(),

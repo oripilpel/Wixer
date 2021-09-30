@@ -1,0 +1,10 @@
+.innersection {
+    position: relative;
+
+    .debug & {
+        border: 1px solid $innerSectionBorderColor;
+    }
+    .editor & {
+        outline: $borderEditMode !important;
+    }
+}

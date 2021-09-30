@@ -1,0 +1,24 @@
+.section {
+    background-position: center;
+    display: flex;
+    padding: 0;
+    position: relative;
+    background-size: cover;
+    padding: 20px 0;
+
+    .debug & {
+        border: 1px solid $sectionBorderColor !important;
+    }
+    .editor & {
+        outline: $borderEditMode;
+    }
+    .columns {
+        display: flex;
+        padding: 20px 0;
+        flex-grow: 1;
+    }
+    .innersections{
+        display: flex;
+        flex-grow: 1;
+    }
+}

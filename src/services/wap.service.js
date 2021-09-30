@@ -77,7 +77,7 @@ export const duplicate = (layout, item) => {
           else {
             item = { ...item.component.data.links[splitItemPath[3]] }
             item.id = utilService.makeId();
-            idx = splitItemPath[3] - 1;
+            idx = splitItemPath[3];
             idx = idx < 0 ? 0 : idx;
             newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].component.data.links = insert(newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].component.data.links, idx, item);
           }
@@ -85,7 +85,7 @@ export const duplicate = (layout, item) => {
         default:
           item = { ...newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps[splitItemPath[3]].component.data.links[splitItemPath[4]] };
           item.id = utilService.makeId();
-          idx = splitItemPath[4] - 1;
+          idx = splitItemPath[4];
           idx = idx < 0 ? 0 : idx;
           newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps[splitItemPath[3]].component.data.links = insert(newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps[splitItemPath[3]].component.data.links, idx, item);
           break;

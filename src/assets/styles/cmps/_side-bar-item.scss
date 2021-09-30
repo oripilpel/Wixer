@@ -10,4 +10,17 @@
     img {
         width: 100%;
     }
+
+    &.anima {
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+        0% {
+            background-color: #e6e9ec;
+        }
+        100% {
+            background-color: #ccb00b;
+        }
+    }
 }

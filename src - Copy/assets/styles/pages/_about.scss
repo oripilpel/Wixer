@@ -1,0 +1,20 @@
+.about {    
+    margin-block-start: 65px;
+    .soon {
+        text-align: center;
+        .soon-img{
+            width: 250px;
+            height: 70px;
+            object-fit: cover;
+        }
+        .build-img{
+            width: 300px;
+            height: 180px;
+            object-fit: cover;
+            @media screen and (min-width: 500px) {
+                width: 400px;
+                height: 230px;
+            }
+        }
+    }
+}
