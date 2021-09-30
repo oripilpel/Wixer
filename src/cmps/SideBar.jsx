@@ -27,7 +27,7 @@ function _SideBar({ selected, update, cmps, style, _id, saveWap, setHintsText })
                 if (isAddClicked) return
                 setIsAddClicked(true)
                 setIsElementClicked(false)
-                setHintsText('Now drug an elements to the blue zones and build your site')
+                setHintsText('Drag elements and drop to the blue zones')
                 break;
             case isElementClicked:
                 if (isElementClicked) return
