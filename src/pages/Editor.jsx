@@ -19,7 +19,6 @@ import {
 } from '../store/layout.actions'
 import { utilService } from "../services/util.service";
 
-
 function _Editor(
     { match,
         cmps,
@@ -32,7 +31,7 @@ function _Editor(
         updateComponent,
         setSelected,
         insert,
-        loadWap
+        loadWap,
     }) {
 
     const [hintsText, setHintsText] = useState('Click on Add button to see the elements')
