@@ -4,6 +4,8 @@
         height: calc(100vh - 30px);
         .side-bar {
             z-index: 5;
+            position: fixed;
+            bottom: 0;
             display: flex;
             flex-grow: 1;
             flex-direction: row;
@@ -90,8 +92,9 @@
             }
         }
         .page-container {
-            height: unset;
             flex-grow: 2;
+            height: 100%;
+            margin-block-end: 190px;
             .page {
                 .empty {
                     position: unset;
