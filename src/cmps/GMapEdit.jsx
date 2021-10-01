@@ -27,13 +27,13 @@ export function GMapEdit({ style, data, onUpdate }) {
                     Map
                 </AccordionSummary>
                 <AccordionDetails>
-                    <div class="field">
+                    <div className="field">
                         <TextField type="number" id="latitude" label="latitude" name="lat" variant="outlined" fullWidth defaultValue={lat} onChange={onChange} />
                     </div>
-                    <div class="field">
+                    <div className="field">
                         <TextField type="number" id="longitude" label="longitude" name="lng" variant="outlined" fullWidth defaultValue={lng} onChange={onChange} />
                     </div>
-                    <div class="field">
+                    <div className="field">
                         <TextField id="marker-name" label="Name" variant="outlined" name="markerName" fullWidth defaultValue={markerName} onChange={onChange} />
                     </div>
                 </AccordionDetails>

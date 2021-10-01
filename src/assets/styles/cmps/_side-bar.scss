@@ -14,8 +14,11 @@
             0% {
                 background-color: #e6e9ec;
             }
+            50% {
+                background-color: #c2ce1e;
+            }
             100% {
-                background-color: #ccb00b;
+                background-color: #e6e9ec;
             }
         }
     }
@@ -30,7 +33,9 @@
     .MuiAccordion-root {
         background-color: #e6e9ec;
     }
-
+    .MuiAccordionSummary-root {
+        background-color: #fafafa;
+    }
     .Mui-selected {
         background-color: #e6e9ec;
         color: #293241;
@@ -89,8 +94,11 @@
             0% {
                 background-color: #e6e9ec;
             }
+            50% {
+                background-color: #c2ce1e;
+            }
             100% {
-                background-color: #ccb00b;
+                background-color: #e6e9ec;
             }
         }
     }

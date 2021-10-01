@@ -5,8 +5,8 @@
     margin-top: 10px;
     background-color: white;
     color: #293241;
+    box-shadow: 0 0 3px 0 #00000073;
     cursor: grab;
-
     img {
         width: 100%;
     }
@@ -14,13 +14,15 @@
     &.anima {
         animation: pulse 2s infinite;
     }
-
     @keyframes pulse {
         0% {
+            background-color: #c2ce1e;
+        }
+        50% {
             background-color: #e6e9ec;
         }
         100% {
-            background-color: #ccb00b;
+            background-color: #c2ce1e;
         }
     }
 }

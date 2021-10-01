@@ -22,11 +22,6 @@ import {
 import { utilService } from "../services/util.service";
 import { eventBusService } from "../services/event-bus-service";
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> e7aa79905efa10be0cbed7f0e66e2204015b4488
 function _Editor(
     { match,
         cmps,
@@ -40,11 +35,8 @@ function _Editor(
         setSelected,
         insert,
         loadWap,
-<<<<<<< HEAD
-        reorderColumns
-=======
+        reorderColumns,
         setWap
->>>>>>> e7aa79905efa10be0cbed7f0e66e2204015b4488
     }) {
 
     const [history, setHitory] = useState([]);

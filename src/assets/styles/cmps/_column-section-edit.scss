@@ -1,3 +1,13 @@
-// .column-section-edit {
-
-// }
+.column-section-edit {
+    .bg-color-input {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        margin-block-end: 10px;
+        .item {
+            input {
+                cursor: pointer;
+            }
+        }
+    }
+}
