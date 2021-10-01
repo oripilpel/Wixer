@@ -4,8 +4,13 @@ import InputLabel from '@mui/material/InputLabel';
 import { MenuItem, Select } from "@mui/material";
 import { FontEditTextAlign } from "./FontEditTextAlign";
 import { PrettoSlider } from "./PrettoSlider";
+import { useCallback } from 'react';
+import debounce from 'lodash.debounce';
 
 export function FontEdit({ fontSize, color, fontFamily, textAlign, onChange }) {
+    const debouncedChangeHandler = useCallback(
+        debounce(onChange, 20)
+        , []);
     return (
         <div className="font-edit">
             <div className="font-size">
@@ -34,7 +39,7 @@ export function FontEdit({ fontSize, color, fontFamily, textAlign, onChange }) {
                     <label htmlFor="color">Color:</label>
                 </div>
                 <div className="input">
-                    <input type="color" name="color" id="color" value={color} onChange={onChange} />
+                    <input type="color" name="color" id="color" defaultValue={color} onChange={debouncedChangeHandler} />
                 </div>
             </div>
             <div className="font-family">

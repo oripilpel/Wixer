@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { uploadImg } from '../services/cloudinary-service';
 import { MarginEdit } from "./MarginEdit";
 import { PaddingEdit } from "./PaddingEdit";
@@ -7,6 +7,7 @@ import { WidthEdit } from "./WidthEdit";
 import { Accordion, AccordionSummary, AccordionDetails } from './Accordion';
 import { BorderEdit } from './BorderEdit';
 import { HeightEdit } from './HeightEdit';
+import debounce from 'lodash.debounce';
 
 export function ColumnSectionEdit({ style, onUpdate }) {
     const [expanded, setExpanded] = React.useState('background')
@@ -19,6 +20,9 @@ export function ColumnSectionEdit({ style, onUpdate }) {
         newStyle[name] = value;
         onUpdate('style', newStyle);
     }
+    // const debouncedChangeHandler = useCallback(
+    //     debounce(onUpdate, 20)
+    //     , [onUpdate]);
     const onUploadImage = (url) => {
         const newStyle = { ...style };
         newStyle['backgroundImage'] = `url(${url})`;
@@ -36,7 +40,7 @@ export function ColumnSectionEdit({ style, onUpdate }) {
         marginLeft,
         backgroundColor,
         justifyContent,
-        alignItem: alignItems,
+        alignItems,
         height
     } = style;
     return (

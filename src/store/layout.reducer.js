@@ -24,6 +24,7 @@ export function layoutReducer(state = initialState, action) {
         case 'SET_WAP':
             return {
                 ...state,
+                _id: action._id,
                 cmps: action.cmps,
                 style: action.style
             }

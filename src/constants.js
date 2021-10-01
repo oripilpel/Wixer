@@ -439,20 +439,20 @@ export const SIDEBAT_ITEMS_HEADER = [
 ]
 
 export const SIDEBAR_ITEMS_SECTIONS = [
-  // {
-  //   id: utilService.makeId(),
-  //   type: SIDEBAR_SECTION,
-  //   component: {
-  //     type: SECTION,
-  //     style: {
-  //       backgroundImage: 'url(https://static.wixstatic.com/media/46dc18_0998a8ce1f34483cbe31aec42ff6108f~mv2.jpg/v1/fill/w_1068,h_808,al_c,q_85,usm_0.66_1.00_0.01/46dc18_0998a8ce1f34483cbe31aec42ff6108f~mv2.webp)',
-  //       height: 755,
-  //       backgroundAttachment: 'fixed',
-  //       backgroundPosition: 'center'
-  //     },
-  //     cmps: []
-  //   }
-  // },
+  {
+    id: utilService.makeId(),
+    type: SIDEBAR_SECTION,
+    component: {
+      type: SECTION,
+      style: {
+        backgroundImage: 'url(https://static.wixstatic.com/media/46dc18_0998a8ce1f34483cbe31aec42ff6108f~mv2.jpg/v1/fill/w_1068,h_808,al_c,q_85,usm_0.66_1.00_0.01/46dc18_0998a8ce1f34483cbe31aec42ff6108f~mv2.webp)',
+        height: 755,
+        backgroundAttachment: 'fixed',
+        backgroundPosition: 'center'
+      },
+      cmps: []
+    }
+  },
   {
     id: utilService.makeId(),
     type: SIDEBAR_SECTION,
@@ -471,7 +471,8 @@ export const SIDEBAR_ITEMS_SECTIONS = [
           style: {
             maxWidth: '1060px',
             padding: '0 25px',
-            margin: 'auto'
+            margin: 'auto',
+            // alignItems: 'center',
           },
           cmps: [
             {
