@@ -1,3 +1,4 @@
+import { socketService } from "../services/socket.service";
 import { wapService } from "../services/waps.service";
 
 export function saveWap(wap) {
@@ -6,6 +7,7 @@ export function saveWap(wap) {
             const savedWap = await wapService.save(wap)
             return dispatch({
                 type: 'SET_WAP',
+                _id: savedWap._id,
                 cmps: savedWap.cmps,
                 style: savedWap.style
             });
@@ -22,6 +24,7 @@ export function loadWap(wapId) {
             const wap = await wapService.getById(wapId);
             return dispatch({
                 type: 'SET_WAP',
+                _id: wap._id,
                 cmps: wap.cmps,
                 style: wap.style
             });
@@ -32,75 +35,92 @@ export function loadWap(wapId) {
     }
 }
 
-export function setWap(cmps, style={}) {
+export function setWap(_id, cmps, style = {}) {
     return dispatch => dispatch({
         type: 'SET_WAP',
+        _id,
         cmps,
         style
     });
 }
 
-export function removeItem(splitItemPath, type) {
-    return dispatch => dispatch({
+export function removeItem(splitItemPath, type, isEmit = true) {
+    const action = {
         type: 'REMOVE_ITEM',
         item: { splitItemPath, type }
-    });
+    }
+    if (isEmit) socketService.emit('wap change', action);
+    return dispatch => dispatch(action);
 }
 
-export function duplicateItem(splitItemPath, type) {
-    return dispatch => dispatch({
+export function duplicateItem(splitItemPath, type, isEmit = true) {
+    const action = {
         type: 'DUPLICATE_ITEM',
         item: { splitItemPath, type }
-    });
+    }
+    if (isEmit) socketService.emit('wap change', action);
+    return dispatch => dispatch(action);
 
 }
 
-export function moveSidebarComponentIntoParent(splitDropZonePath, newItem) {
-    return dispatch => dispatch({
+export function moveSidebarComponentIntoParent(splitDropZonePath, newItem, isEmit = true) {
+    const action = {
         type: 'MOVE_SIDEBAR_COMPONENT_INTO_PARENT',
         splitDropZonePath,
         newItem
-    });
+    }
+    if (isEmit) socketService.emit('wap change', action);
+    return dispatch => dispatch(action);
 }
 
-export function moveSidebarColumnIntoParent(splitDropZonePath) {
-    return dispatch => dispatch({
+export function moveSidebarColumnIntoParent(splitDropZonePath, isEmit = true) {
+    const action = {
         type: 'MOVE_SIDEBAR_COLUMN_INTO_PARENT',
         splitDropZonePath
-    });
+    }
+    if (isEmit) socketService.emit('wap change', action);
+    return dispatch => dispatch(action);
 }
 
-export function moveSidebarInnerSectionIntoParent(splitDropZonePath) {
-    return dispatch => dispatch({
+export function moveSidebarInnerSectionIntoParent(splitDropZonePath, isEmit = true) {
+    const action = {
         type: 'MOVE_SIDEBAR_INNER_SECTION_INTO_PARENT',
         splitDropZonePath
-    });
+    }
+    if (isEmit) socketService.emit('wap change', action);
+    return dispatch => dispatch(action);
 }
 
-export function moveWithinParent(splitDropZonePath, splitItemPath) {
-    return dispatch => dispatch({
+export function moveWithinParent(splitDropZonePath, splitItemPath, isEmit = true) {
+    const action = {
         type: 'MOVE_WITHIN_PARENT',
         splitDropZonePath,
         splitItemPath
-    });
+    }
+    if (isEmit) socketService.emit('wap change', action);
+    return dispatch => dispatch(action);
 }
 
-export function moveToDifferentParent(splitDropZonePath, splitItemPath, item) {
-    return dispatch => dispatch({
+export function moveToDifferentParent(splitDropZonePath, splitItemPath, item, isEmit = true) {
+    const action = {
         type: 'MOVE_TO_DIFFERENT_PARENT',
         splitDropZonePath,
         splitItemPath,
         item
-    });
+    }
+    if (isEmit) socketService.emit('wap change', action);
+    return dispatch => dispatch(action);
 }
 
-export function updateComponent(comp, field, value) {
-    return dispatch => dispatch({
+export function updateComponent(comp, field, value, isEmit = true) {
+    const action = {
         type: 'UPDATE_COMPONENT',
         comp,
         field,
         value
-    });
+    }
+    if (isEmit) socketService.emit('wap change', action);
+    return dispatch => dispatch(action);
 }
 
 export function setSelected(selected) {
@@ -110,11 +130,13 @@ export function setSelected(selected) {
     });
 }
 
-export function insert(index, newItem) {
-    return dispatch => dispatch({
+export function insert(index, newItem, isEmit = true) {
+    const action = {
         type: 'INSERT_ITEM',
         index,
         newItem
-    });
+    }
+    if (isEmit) socketService.emit('wap change', action);
+    return dispatch => dispatch(action);
 }
 
