@@ -472,7 +472,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
             maxWidth: '1060px',
             padding: '0 25px',
             margin: 'auto',
-            alignItems: 'center',
+            // alignItems: 'center',
           },
           cmps: [
             {
