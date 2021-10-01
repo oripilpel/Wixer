@@ -23,8 +23,8 @@ export function SidebarAddComponent({ isElementClicked, setHints }) {
             <Accordion expanded={expanded === 'nav'} onChange={handleChange('nav')}>
                 <AccordionSummary aria-controls="navd-content" id="navd-header">
                     Nav
-                </AccordionSummary>
-                <AccordionDetails>
+                </AccordionSummary >
+                <AccordionDetails className="nav-items">
                     {Object.values(SIDEBAR_ITEMS_NAV).map((sideBarItem, index) => (
                         <SideBarItem key={sideBarItem.id} data={sideBarItem} type={sideBarItem.type} />
                     ))}

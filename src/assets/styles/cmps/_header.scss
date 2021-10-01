@@ -128,7 +128,7 @@
             width: 35px;
             height: 10px;
             border-block-end: 4px solid black;
-            transition: 0.7s;
+            transition: 0.4s;
         }
         &.active div:nth-child(1) {
             transform: translateY(10px) translateX(-2px) rotate(-45deg);

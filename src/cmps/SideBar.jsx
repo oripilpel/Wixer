@@ -94,10 +94,11 @@ function _SideBar({ selected, update, cmps, style, _id, saveWap, onUndo }) {
                     className={`tab add ${!isAddClicked ? 'anima' : ''}`}
                     label="Add" value="add"
                     onClick={() => { setHints(isAddClicked) }} />
-                <Tab icon={<EditIcon />} className="tab" label="Edit" value="edit" />
+                <Tab icon={<EditIcon />} className="tab edit" label="Edit" value="edit" />
             </Tabs>
             <div className="hints">
                 <FormControlLabel
+                    className="hints"
                     value="end"
                     control={<Switch
                         checked={hintsChecked}
@@ -108,7 +109,7 @@ function _SideBar({ selected, update, cmps, style, _id, saveWap, onUndo }) {
                     label="Hints"
                     labelPlacement="start"
                 />
-                <button onClick={onUndo} title="undo"><HistoryIcon /></button>
+                <button className="undo" onClick={onUndo} title="undo"><HistoryIcon /></button>
             </div>
             <div className="items">
                 {!isEdit && <SidebarAddComponent isElementClicked={isElementClicked} setHints={setHints} />}
@@ -117,13 +118,15 @@ function _SideBar({ selected, update, cmps, style, _id, saveWap, onUndo }) {
                         <div className="editing">
                             Editing: {(selected.type === COMPONENT) ? selected.component.type : selected.type}
                         </div>
-                        <StyledEngineProvider injectFirst>
-                            <SidebarEditComponent
-                                type={(selected.type === COMPONENT) ? selected.component.type : selected.type}
-                                style={(selected.type === COMPONENT) ? selected.component.style : selected.style}
-                                data={(selected.type === COMPONENT) ? selected.component.data : selected.data}
-                                onUpdate={onUpdate} />
-                        </StyledEngineProvider>
+                        <div className="sidebar-edit-component">
+                            <StyledEngineProvider injectFirst>
+                                <SidebarEditComponent
+                                    type={(selected.type === COMPONENT) ? selected.component.type : selected.type}
+                                    style={(selected.type === COMPONENT) ? selected.component.style : selected.style}
+                                    data={(selected.type === COMPONENT) ? selected.component.data : selected.data}
+                                    onUpdate={onUpdate} />
+                            </StyledEngineProvider>
+                        </div>
                     </>
                 )}
                 {isEdit && !selected && <div className="empty">Nothing is selected</div>}
