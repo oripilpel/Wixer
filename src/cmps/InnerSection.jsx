@@ -1,14 +1,13 @@
 import React, { useRef, useState } from "react";
 import { useDrag } from "react-dnd";
 import { translateStyle } from "../services/util.service.js";
-import { INNERSECTION, COLUMN, SIDEBAR_COLUMN } from "../constants.js";
+import { INNERSECTION, COLUMN, SIDEBAR_COLUMN, COMPONENT, SIDEBAR_ITEM } from "../constants.js";
 import { DropZone } from "./DropZone";
-import Column from "./Column";
+import { Column } from "./Column";
 import { Actions } from "./Actions.jsx";
 
-export function InnerSection({ data, components, handleDrop, path, updateComponent, onSelect, selected }) {
+export function InnerSection({ data, components, handleDrop, path, updateComponent, onSelect, selected, moveColumns }) {
     const ref = useRef(null);
-
 
     const [actionsVisible, setActionsVisible] = useState(false);
 
@@ -26,6 +25,8 @@ export function InnerSection({ data, components, handleDrop, path, updateCompone
         })
     });
 
+
+    const reorderColumns = (itemIdx, hoverIdx, path) => { moveColumns(data.cmps, itemIdx, hoverIdx, path) }
 
     const select = (ev) => {
         ev.stopPropagation()
@@ -47,6 +48,7 @@ export function InnerSection({ data, components, handleDrop, path, updateCompone
                 onSelect={onSelect}
                 selected={selected}
                 onClick={() => onSelect('column', column)}
+                moveColumns={reorderColumns}
             />
         );
     };
@@ -71,7 +73,7 @@ export function InnerSection({ data, components, handleDrop, path, updateCompone
                                 path: currentPath,
                                 childrenCount: data.cmps.length,
                             }}
-                            accept={[COLUMN, SIDEBAR_COLUMN]}
+                            accept={[COMPONENT, SIDEBAR_ITEM, COLUMN, SIDEBAR_COLUMN]}
                             onDrop={handleDrop}
                             className="horizontalDrag"
                         />

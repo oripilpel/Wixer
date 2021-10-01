@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { COMPONENT } from "../constants";
 import { Actions } from "./Actions";
 
@@ -6,6 +6,7 @@ import { Actions } from "./Actions";
 function Paragraph({ idx, link, update, path, color, hoverColor }) {
     const [actionsVisible, setActionsVisible] = useState(false);
     const [c, setColor] = useState((color) ? color : 'black');
+    useEffect(() => { setColor(color) }, [color])
     return <p
         onMouseEnter={() => {
             setActionsVisible(true)
@@ -19,7 +20,7 @@ function Paragraph({ idx, link, update, path, color, hoverColor }) {
         contentEditable={true}
         suppressContentEditableWarning={true}
         onBlur={(ev) => { update(idx, ev.target.innerText) }}
-        style={{ padding: '0 20px', position: 'relative', color: c,margin:0 }}>
+        style={{ padding:'3px', position: 'relative', color: c, margin: 0 }}>
         {link.txt}
         {actionsVisible && <Actions path={path} type={COMPONENT} />}
     </p>
@@ -31,7 +32,7 @@ export function Nav({ style, data, update, path }) {
         <nav style={style} className="nav clear-list">
             {data.links.map((link, idx) => {
                 return (
-                    <Paragraph link={link} idx={idx} key={`nav${Date.now() * idx}`} update={update} path={`${path}-${idx}`} color={data.color} hoverColor={data.hoverColor} />
+                    <Paragraph link={link} idx={idx} key={`${path}-${idx}`} update={update} path={`${path}-${idx}`} color={style.color} hoverColor={data.hoverColor} />
                 )
             }
             )}

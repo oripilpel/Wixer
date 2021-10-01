@@ -25,6 +25,7 @@ export const SIDEBAR_ITEMS_BASIC = [
     id: utilService.makeId(),
     type: SIDEBAR_COLUMN,
     name: 'column',
+    icon: 'Crop75Icon',
     component: {
       type: COLUMN,
       children: [],
@@ -93,12 +94,12 @@ export const SIDEBAR_ITEMS_BASIC = [
     id: utilService.makeId(),
     type: SIDEBAR_ITEM,
     name: 'gmap',
-    // icon: 'SmartButtonIcon',
+    icon: 'RoomIcon',
     component: {
       type: 'GMap',
-      data: { 
-        lat:31.962712994957688, 
-        lng:34.91398822780261,
+      data: {
+        lat: 31.962712994957688,
+        lng: 34.91398822780261,
         zoom: 15,
         markerName: 'Ginaton'
       },
@@ -114,10 +115,9 @@ export const SIDEBAR_ITEMS_NAV = [
     id: utilService.makeId(),
     type: SIDEBAR_ITEM,
     component: {
-      style: { display: 'flex' },
+      style: { gap: 16, display: 'flex', color: '#000000' },
       type: 'nav',
       data: {
-        color: '#000000',
         hoverColor: '#868686',
         links: [
           {
@@ -197,12 +197,12 @@ export const SIDEBAT_ITEMS_HEADER = [
                     style: {
                       display: 'flex',
                       fontFamily: 'raleway',
-                      fontSize: 16
+                      fontSize: 16,
+                      color: '#000000'
                     },
                     type: 'nav',
                     data: {
                       hoverColor: '#868686',
-                      color: '#000000',
                       links: [
                         {
                           id: utilService.makeId(),
@@ -399,11 +399,11 @@ export const SIDEBAT_ITEMS_HEADER = [
                   component: {
                     style: {
                       display: 'flex',
+                      color: '#a19d9d'
                     },
                     type: 'nav',
                     data: {
                       hoverColor: '#f6f6f6',
-                      color: '#a19d9d',
                       links: [
                         {
                           id: utilService.makeId(),

@@ -140,3 +140,9 @@ export function insert(index, newItem, isEmit = true) {
     return dispatch => dispatch(action);
 }
 
+export function reorderColumns(cmps, itemIdx, hoverIdx, path) {
+    return dispatch => dispatch({
+        type: 'REORDER_COLUMNS',
+        props: { cmps, path, itemIdx, hoverIdx }
+    })
+}

@@ -1,12 +1,13 @@
 import React from "react";
 import { useDrag } from "react-dnd";
 
-// import AddBoxIcon from '@mui/icons-material/AddBox';
 import ViewColumnIcon from '@mui/icons-material/ViewColumn';
 import TextFieldsIcon from '@mui/icons-material/TextFields';
 import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
 import InsertPhotoIcon from '@mui/icons-material/InsertPhoto';
 import SmartButtonIcon from '@mui/icons-material/SmartButton';
+import Crop75Icon from '@mui/icons-material/Crop75';
+import RoomIcon from '@mui/icons-material/Room';
 
 import header1 from '../assets/img/elements/header1.jpg';
 import header2 from '../assets/img/elements/header2.jpg';
@@ -36,6 +37,8 @@ const KeysToIconMap = {
   'VideoLibraryIcon': <div className="icon"><VideoLibraryIcon /></div>,
   'InsertPhotoIcon': <div className="icon"><InsertPhotoIcon /></div>,
   'SmartButtonIcon': <div className="icon"><SmartButtonIcon /></div>,
+  'Crop75Icon': <div className="icon"><Crop75Icon /></div>,
+  'RoomIcon': <div className="icon"><RoomIcon /></div>,
 }
 
 export function SideBarItem({ data, type, isElementClicked, setHints }) {
@@ -55,7 +58,7 @@ export function SideBarItem({ data, type, isElementClicked, setHints }) {
       {data.icon && KeysToIconMap[data.icon]}
       {!data.image && (data.name || data.component.type)}
       {data.image && <img src={KeysToComponentMap[data.image]} />}
-    </div>
+    </div >
   );
 };
 

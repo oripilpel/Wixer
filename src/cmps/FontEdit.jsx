@@ -1,6 +1,8 @@
+import Box from '@mui/material/Box';
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
 import { MenuItem, Select } from "@mui/material";
 import { FontEditTextAlign } from "./FontEditTextAlign";
-
 import { PrettoSlider } from "./PrettoSlider";
 
 export function FontEdit({ fontSize, color, fontFamily, textAlign, onChange }) {
@@ -36,27 +38,30 @@ export function FontEdit({ fontSize, color, fontFamily, textAlign, onChange }) {
                 </div>
             </div>
             <div className="font-family">
-                <div className="label">
-                    <label htmlFor="font-family">Font:</label>
-                </div>
                 <div className="input">
-                    <Select
-                        labelId="font-family"
-                        id="font-family"
-                        value={fontFamily}
-                        label="Font family"
-                        name="fontFamily"
-                        onChange={onChange}
-                    >
-                        <MenuItem value="Arial">Arial</MenuItem>
-                        <MenuItem value="caveat">Caveat</MenuItem>
-                        <MenuItem value="montserrat">Montserrat</MenuItem>
-                        <MenuItem value="forum">Forum</MenuItem>
-                        <MenuItem value="roboto">Roboto</MenuItem>
-                        <MenuItem value="raleway">Raleway</MenuItem>
-                        <MenuItem value="courgette">Courgette</MenuItem>
-                        <MenuItem value="lobster">Lobster</MenuItem>
-                    </Select>
+                    <Box sx={{ minWidth: 120 }}>
+                        <FormControl fullWidth>
+                            <InputLabel id="font-family">Familiy</InputLabel>
+                            <Select
+                                labelId="font-family"
+                                id="font-family"
+                                value={fontFamily}
+                                label="Familiy"
+                                name="fontFamily"
+                                onChange={onChange}
+                                size="small"
+                            >
+                                <MenuItem value="Arial">Arial</MenuItem>
+                                <MenuItem value="caveat">Caveat</MenuItem>
+                                <MenuItem value="montserrat">Montserrat</MenuItem>
+                                <MenuItem value="forum">Forum</MenuItem>
+                                <MenuItem value="roboto">Roboto</MenuItem>
+                                <MenuItem value="raleway">Raleway</MenuItem>
+                                <MenuItem value="courgette">Courgette</MenuItem>
+                                <MenuItem value="lobster">Lobster</MenuItem>
+                            </Select>
+                        </FormControl>
+                    </Box>
                 </div>
             </div>
         </div>

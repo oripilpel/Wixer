@@ -20,6 +20,7 @@ import {
     setSelected,
     removeItem,
     duplicateItem,
+    reorderColumns
 } from '../store/layout.actions'
 import { utilService } from "../services/util.service";
 import { eventBusService } from "../services/event-bus-service";
@@ -45,6 +46,7 @@ function _Editor(
         duplicateItem,
         saveWap,
         loadWap,
+        reorderColumns,
         setWap
     }) {
 
@@ -225,6 +227,7 @@ function _Editor(
                 updateComponent={onUpdateComponent}
                 onSelect={onSelect}
                 selected={selected}
+                moveColumns={reorderColumns}
             />
         );
     };
@@ -317,7 +320,8 @@ const mapDispatchToProps = {
     setSelected,
     insert,
     removeItem,
-    duplicateItem
+    duplicateItem,
+    reorderColumns
 }
 
 export const Editor = connect(mapStateToProps, mapDispatchToProps)(_Editor);

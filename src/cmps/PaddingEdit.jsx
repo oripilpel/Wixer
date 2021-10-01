@@ -43,9 +43,9 @@ export function PaddingEdit({ paddingTop, paddingRight, paddingBottom, paddingLe
                     valueLabelDisplay="auto"
                     aria-label="pretto slider"
                     defaultValue={paddingLeft || 0}
-                    name="paddingBottom"
+                    name="paddingLeft"
                     onChange={onChange}
-                    id="padding-bottom"
+                    id="padding-left"
                 />
             </div>
         </>

@@ -2,7 +2,7 @@ import { SECTION, COLUMN, COMPONENT, INNERSECTION } from "../constants";
 import { utilService } from "./util.service";
 
 // a little function to help us with reordering the result
-export const reorder = (list, startIndex, endIndex) => {
+export function reorder(list, startIndex, endIndex) {
   const result = Array.from(list);
   const [removed] = result.splice(startIndex, 1);
   result.splice(endIndex, 0, removed); // inserting task in new index
@@ -10,12 +10,14 @@ export const reorder = (list, startIndex, endIndex) => {
   return result;
 };
 
-export const remove = (arr, index) => [
-  ...arr.slice(0, index),
-  ...arr.slice(index + 1)
-];
+export function remove(arr, index) {
+  return [
+    ...arr.slice(0, index),
+    ...arr.slice(index + 1)
+  ]
+};
 
-export const insert = (arr, index, newItem) => {
+export function insert(arr, index, newItem) {
   return [
     ...arr.slice(0, index),
     newItem,
@@ -23,7 +25,7 @@ export const insert = (arr, index, newItem) => {
   ]
 };
 
-export const duplicate = (layout, item) => {
+export function duplicate(layout, item) {
   const { splitItemPath, type } = item
   let idx;
   let newLayout = [...layout];
@@ -77,7 +79,7 @@ export const duplicate = (layout, item) => {
           else {
             item = { ...item.component.data.links[splitItemPath[3]] }
             item.id = utilService.makeId();
-            idx = splitItemPath[3] - 1;
+            idx = splitItemPath[3];
             idx = idx < 0 ? 0 : idx;
             newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].component.data.links = insert(newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].component.data.links, idx, item);
           }
@@ -85,7 +87,7 @@ export const duplicate = (layout, item) => {
         default:
           item = { ...newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps[splitItemPath[3]].component.data.links[splitItemPath[4]] };
           item.id = utilService.makeId();
-          idx = splitItemPath[4] - 1;
+          idx = splitItemPath[4];
           idx = idx < 0 ? 0 : idx;
           newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps[splitItemPath[3]].component.data.links = insert(newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps[splitItemPath[3]].component.data.links, idx, item);
           break;
@@ -96,7 +98,8 @@ export const duplicate = (layout, item) => {
   return newLayout;
 }
 
-export const reorderChildren = (children, splitDropZonePath, splitItemPath, substract) => {
+export function reorderChildren(children, splitDropZonePath, splitItemPath) {
+  // debugger
   if (splitDropZonePath.length === 1) {
     const dropZoneIndex = Number(splitDropZonePath[splitDropZonePath.length - 1]);
     const itemIndex = Number(splitItemPath[splitItemPath.length - 1]);
@@ -127,7 +130,7 @@ export const reorderChildren = (children, splitDropZonePath, splitItemPath, subs
   return updatedChildren;
 };
 
-export const removeChildFromChildren = (layout, item) => {
+export function removeChildFromChildren(layout, item) {
   const { type, splitItemPath } = item
   switch (type) {
     case SECTION:
@@ -160,7 +163,7 @@ export const removeChildFromChildren = (layout, item) => {
   }
 };
 
-export const addChildToChildren = (children, splitDropZonePath, item) => {
+export function addChildToChildren(children, splitDropZonePath, item) {
   if (splitDropZonePath.length === 1) {
     const dropZoneIndex = Number(splitDropZonePath[0]);
     return insert(children, dropZoneIndex, item);
@@ -186,25 +189,7 @@ export const addChildToChildren = (children, splitDropZonePath, item) => {
   return updatedChildren;
 };
 
-export const handleMoveSidebarColumnIntoParent = (
-  layout,
-  splitDropZonePath,
-) => {
-  switch (splitDropZonePath.length) {
-    case 1:
-      const newLayoutStructure = {
-        type: SECTION,
-        id: utilService.makeId(),
-        cmps: [_generateColumn()],
-        style: {}
-      };
-      return addChildToChildren(layout, splitDropZonePath, newLayoutStructure);
-    default:
-      return addChildToChildren(layout, splitDropZonePath, _generateColumn());
-  }
-}
-
-export const handleAddColumDataToRow = (layout) => {
+export function handleAddColumDataToRow(layout) {
   const layoutCopy = [...layout];
   return layoutCopy.filter(section => {
     return section.cmps.length
@@ -212,12 +197,7 @@ export const handleAddColumDataToRow = (layout) => {
 
 };
 
-export const handleMoveToDifferentParent = (
-  layout,
-  splitDropZonePath,
-  splitItemPath,
-  item
-) => {
+export function handleMoveToDifferentParent(layout, splitDropZonePath, splitItemPath, item) {
   let newLayoutStructure;
   const COLUMN_STRUCTURE = {
     type: COLUMN,
@@ -291,10 +271,7 @@ export const handleMoveToDifferentParent = (
   return updatedLayout;
 };
 
-export const handleMoveSidebarInnerSectionIntoParent = (
-  layout,
-  splitDropZonePath,
-) => {
+export function handleMoveSidebarInnerSectionIntoParent(layout, splitDropZonePath,) {
   switch (splitDropZonePath.length) {
 
     case 1:
@@ -310,14 +287,25 @@ export const handleMoveSidebarInnerSectionIntoParent = (
   }
 }
 
-export const handleMoveSidebarComponentIntoParent = (
-  layout,
-  splitDropZonePath,
-  item
-) => {
+export function handleMoveSidebarColumnIntoParent(layout, splitDropZonePath,) {
+  switch (splitDropZonePath.length) {
+    case 1:
+      const newLayoutStructure = {
+        type: SECTION,
+        id: utilService.makeId(),
+        cmps: [_generateColumn()],
+        style: {}
+      };
+      return addChildToChildren(layout, splitDropZonePath, newLayoutStructure);
+    default:
+      return addChildToChildren(layout, splitDropZonePath, _generateColumn());
+  }
+}
+
+export function handleMoveSidebarComponentIntoParent(layout, splitDropZonePath, item) {
   let newLayoutStructure;
   switch (splitDropZonePath.length) {
-    case 1: {
+    case 1:
       newLayoutStructure = {
         type: SECTION,
         id: utilService.makeId(),
@@ -325,20 +313,21 @@ export const handleMoveSidebarComponentIntoParent = (
         style: {}
       };
       break;
-    }
-    case 2: {
+    case 2:
       newLayoutStructure = _generateColumn(item);
       break;
-    }
-    default: {
+    case 3:
+      if (layout[splitDropZonePath[0]].cmps[splitDropZonePath[1]].type === INNERSECTION) newLayoutStructure = _generateColumn(item)
+      else newLayoutStructure = item;
+      break;
+    default:
       newLayoutStructure = item;
-    }
   }
 
   return addChildToChildren(layout, splitDropZonePath, newLayoutStructure);
 };
 
-const _generateColumn = (item = null) => {
+function _generateColumn(item = null) {
   return {
     type: COLUMN,
     id: utilService.makeId(),
@@ -352,7 +341,7 @@ const _generateColumn = (item = null) => {
   }
 }
 
-const _generateInnerSection = (item = null) => {
+function _generateInnerSection(item = null) {
   return {
     type: INNERSECTION,
     id: utilService.makeId(),

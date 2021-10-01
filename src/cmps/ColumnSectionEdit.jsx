@@ -46,9 +46,15 @@ export function ColumnSectionEdit({ style, onUpdate }) {
                     Background
                 </AccordionSummary>
                 <AccordionDetails>
-                    <div>
-                        <label htmlFor="background-color">Background color</label>
-                        <input type="color" name="backgroundColor" id="background-color" value={backgroundColor || '#ffffff'} onChange={onChange} />
+                    <div className="bg-color-input">
+                        <div className="label">
+                            <label htmlFor="background-color">
+                                Color
+                            </label>
+                        </div>
+                        <div className="item">
+                            <input type="color" name="backgroundColor" id="background-color" value={backgroundColor || '#ffffff'} onChange={onChange} />
+                        </div>
                     </div>
                     <ImageUpload label="Upload image" onUpload={(ev) => uploadImg(ev).then(url => onUploadImage(url))} />
                 </AccordionDetails>
@@ -67,15 +73,19 @@ export function ColumnSectionEdit({ style, onUpdate }) {
                     Flex options
                 </AccordionSummary>
                 <AccordionDetails>
-                    <div>
-                        <label htmlFor="justify-content">Justify content</label>
-                        <select name="justifyContent" id="justify-content" value={justifyContent} onChange={onChange}>
-                            <option value="center">Center</option>
-                            <option value="flex-start">Flex start</option>
-                            <option value="flex-end">Flex end</option>
-                            <option value="space-between">Space between</option>
-                            <option value="space-around">Space Around</option>
-                        </select>
+                    <div className="flex">
+                        <div className="label">
+                            <label htmlFor="justify-content">Justify content</label>
+                        </div>
+                        <div className="input">
+                            <select name="justifyContent" id="justify-content" value={justifyContent} onChange={onChange}>
+                                <option value="center">Center</option>
+                                <option value="flex-start">Flex start</option>
+                                <option value="flex-end">Flex end</option>
+                                <option value="space-between">Space between</option>
+                                <option value="space-around">Space Around</option>
+                            </select>
+                        </div>
                     </div>
                     <div>
                         <label htmlFor="align-items">Align items</label>

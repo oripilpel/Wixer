@@ -18,18 +18,18 @@ export function DropZone({ data, onDrop, isLast, className, accept = ACCEPTS }) 
 
       // sidebar items can always be dropped anywhere
       if (!itemPath) {
-        // if (data.childrenCount >= 4 && splitDropZonePath.length !== 3) {
-        //   return false;
-        // }
+        if (data.childrenCount >= 4) {
+          return false;
+        }
         return true;
       }
 
       const splitItemPath = itemPath.split("-");
 
       // limit columns when dragging from one row to another row
-      // if (data.childrenCount >= 4 && splitDropZonePath.length !== 3) {
-      //   return false;
-      // }
+      if (data.childrenCount >= 4 && splitDropZonePath.length !== 3) {
+        return false;
+      }
       // Invalid (Can't drop a parent element (row) into a child (column))
       // const parentDropInChild = splitItemPath.length < splitDropZonePath.length;
 
@@ -65,9 +65,9 @@ export function DropZone({ data, onDrop, isLast, className, accept = ACCEPTS }) 
   return (
     <div
       style={{
-        position: (isActive) ? 'relative' : 'absolute',
-        top: (isActive) ? 0 : -30,
-        left: 0
+        // position: (isActive) ? 'relative' : 'absolute',
+        // top: (isActive) ? 0 : -30,
+        // left: 0
       }}
       className={classNames(
         "drop-zone",
