@@ -1,6 +1,10 @@
 .publish-nav {
     width: 100%;
     transition: 0.5s;
+    position: relative;
+    justify-content: end;
+    display: flex;
+    z-index: 5;
     .links {
         height: 100%;
         align-items: center;
@@ -46,35 +50,39 @@
         display: none;
         flex-direction: column;
         justify-content: center;
-        position: fixed;
-        right: 50px;
-        top: 15px;
+        position: relative;
+        right: 26px;
         cursor: pointer;
-        order: 0;
+        height: 35px;
+        width: 35px;
+        border: 1px solid black;
+        border-radius: 5px;
+        background-color: #f9f6f6;
         div {
-            width: 30px;
-            height: 10px;
-            border-block-end: 3px solid black;
+            width: 25px;
+            height: 8px;
+            border-block-end: 2px solid black;
             transition: 0.4s;
             align-self: center;
         }
+        div:nth-child(1) {
+            border-block-start: 2px solid black;
+            border-block-end: 0;
+        }
+        div:nth-child(2) {
+            height: 2px;
+        }
         &.active div:nth-child(1) {
-            transform: translateY(10px) translateX(-2px) rotate(-45deg);
+            transform: translateY(7px) translateX(2px) rotate(-45deg);
         }
         &.active div:nth-child(2) {
             opacity: 0;
         }
         &.active div:nth-child(3) {
-            transform: translateY(-10px) translateX(2px) rotate(45deg);
+            transform: translateY(-7px) translateX(2px) rotate(45deg);
         }
         @media screen and (max-width: 720px) {
             display: flex;
-            height: 40px;
-            width: 43px;
-            border: 1px solid black;
-            border-radius: 5px;
-            padding-block-end: 5px;
-            background-color: #f9f6f6;
         }
     }
 
