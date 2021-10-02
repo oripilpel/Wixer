@@ -49,15 +49,15 @@ export function SideBarItem({ data, type, isElementClicked, setHints }) {
       opacity: monitor.isDragging() ? 0.4 : 1
     })
   });
-
   return (
     <div
-      className={`side-bar-item flex direction-column justify-center ${data.name === 'text' && !isElementClicked ? 'anima' : ''}`}
-      onMouseDown={() => data.name === 'text' && !isElementClicked ? setHints(isElementClicked) : ''}
+      className={`side-bar-item flex direction-column justify-center ${data.name === 'Header1' && !isElementClicked ? 'anima-bg' : ''}`}
+      onMouseDown={() => data.name === 'Header1' && !isElementClicked ? setHints(isElementClicked) : ''}
       ref={drag} style={{ opacity }}>
       {data.icon && KeysToIconMap[data.icon]}
       {!data.image && (data.name || data.component.type)}
-      {data.image && <img src={KeysToComponentMap[data.image]} />}
+      {data.image && <img src={KeysToComponentMap[data.image]}
+        className={`${data.name === 'Header1' && !isElementClicked ? 'anima' : ''}`} />}
     </div >
   );
 };

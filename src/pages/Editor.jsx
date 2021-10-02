@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { connect } from 'react-redux';
 import { DndProvider } from "react-dnd";
+import { TouchBackend } from 'react-dnd-touch-backend'
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { SIDEBAR_ITEM, COMPONENT, COLUMN, SECTION, SIDEBAR_COLUMN, SIDEBAR_INNERSECTION, INNERSECTION, SIDEBAR_SECTION } from "../constants";
 import { DropZone } from "../cmps/DropZone";
@@ -67,7 +68,7 @@ function _Editor(
     }, []);
 
     useEffect(() => {
-        if(_id) {
+        if (_id) {
             history.push(`/editor/${_id}`);
             socketService.emit('wap topic', _id);
         }
@@ -75,7 +76,7 @@ function _Editor(
 
     useEffect(() => {
         setHitoryUndo([...historyUndo, JSON.parse(JSON.stringify(cmps))]);
-        wapService.save({_id, cmps, style});
+        wapService.save({ _id, cmps, style });
     }, [cmps])
 
     const wapChangeFromSocket = (action) => {
@@ -255,7 +256,7 @@ function _Editor(
         }
     }
     return (
-        <DndProvider backend={HTML5Backend}>
+        <DndProvider backend={TouchBackend} options={{ enableMouseEvents: true }}>
             <div className={`editor ${debugMode ? 'debug' : ''}`}>
                 <SideBar selected={getSelected(selected)} update={onUpdateComponent} onUndo={onUndo} />
                 <div className="page-container">

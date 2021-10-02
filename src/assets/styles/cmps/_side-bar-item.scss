@@ -7,22 +7,27 @@
     color: #293241;
     box-shadow: 0 0 3px 0 #00000073;
     cursor: grab;
+    &:target{
+        cursor: grabbing;
+    }
     img {
         width: 100%;
+        &.anima {
+            animation: pulse 2s infinite;
+        }
     }
-
-    &.anima {
-        animation: pulse 2s infinite;
+    &.anima-bg {
+        background-color: #c2ce1e;
     }
     @keyframes pulse {
         0% {
-            background-color: #c2ce1e;
+            opacity: 1;
         }
         50% {
-            background-color: #e6e9ec;
+            opacity: 0.3;
         }
         100% {
-            background-color: #c2ce1e;
+            opacity: 1;
         }
     }
 }

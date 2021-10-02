@@ -1,0 +1,111 @@
+@media screen and (max-width: 720px) {
+    .editor {
+        flex-direction: column-reverse;
+        height: calc(100vh - 30px);
+        .side-bar {
+            z-index: 5;
+            position: fixed;
+            bottom: 0;
+            display: flex;
+            flex-grow: 1;
+            flex-direction: row;
+            width: 100%;
+            height: 0;
+            min-height: 190px;
+            border-right: unset;
+            box-shadow: 0 0px 3px 0 #0000009e;
+            .tabs {
+                overflow: unset;
+                .MuiTabs-fixed {
+                    display: flex;
+                    padding-block-end: 41px;
+                    .MuiTabs-flexContainer {
+                        flex-direction: column;
+                        .add {
+                            min-width: unset;
+                            width: 65px;
+                        }
+                        .edit {
+                            display: flex;
+                            min-width: unset;
+                            width: 65px;
+                        }
+                    }
+                }
+                .add.anima {
+                    animation: unset;
+                }
+            }
+            .hints {
+                align-items: unset;
+                position: fixed;
+                bottom: 0;
+                width: unset;
+                margin: 0;
+                padding-inline-start: 0;
+                // להוסיף קלאס הינטס על הטוגל
+                .hints {
+                    display: none;
+                }
+                // להוסיף קלאס אנדו על הכפתור
+                .undo {
+                    width: 65px;
+                    height: 40px;
+                    padding: 0;
+                    margin-inline-end: unset;
+                    text-align: center;
+                    color: white;
+                    background-color: #369be3;
+                }
+            }
+            .items {
+                flex-grow: 1;
+                height: unset;
+                margin-block-end: 41px;
+                .sidebar-add-component {
+                    .element-items {
+                        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                        gap: unset;
+                        margin: 0;
+                        margin-inline-start: 60px;
+                        .side-bar-item.anima {
+                            animation: unset;
+                        }
+                    }
+                    .header-items,
+                    .nav-items,
+                    .section-items,
+                    .footer-items {
+                        padding: 0;
+                        margin-block-end: 5px;
+                        margin-inline-start: 60px;
+                    }
+                }
+            }
+            .save-pub {
+                display: flex;
+                position: fixed;
+                bottom: 0;
+                width: calc(100% - 66px);
+                right: 0;
+                .pub.anima {
+                    animation: unset;
+                }
+            }
+        }
+        .page-container {
+            flex-grow: 2;
+            height: 100%;
+            margin-block-end: 190px;
+            .page {
+                margin-inline-start: 60px;
+                .empty {
+                    position: unset;
+                    top: unset;
+                    left: unset;
+                    transform: unset;
+                }
+            }
+        }
+    }
+}
