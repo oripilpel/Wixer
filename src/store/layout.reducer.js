@@ -103,15 +103,6 @@ export function layoutReducer(state = initialState, action) {
                 }
             });
 
-        case 'REORDER_COLUMNS':
-            debugger
-            var { cmps, path, itemIdx, hoverIdx } = action.props
-            path = path.split('-')
-            var newLayout = JSON.parse(JSON.stringify(state.cmps))
-            if (path.length === 2) newLayout[path[0]].cmps = reorderChildren(newLayout[path[0]].cmps, itemIdx, hoverIdx)
-            else newLayout[path[0]].cmps[path[1]].cmps = reorderChildren(newLayout[path[0]].cmps[path[1]].cmps, itemIdx, hoverIdx)
-            return { ...state, cmps: newLayout }
-
         case 'UPDATE_COMPONENT':
             const { comp, field, value } = action;
             if (!comp || (!field && field !== 0) || !value) return state

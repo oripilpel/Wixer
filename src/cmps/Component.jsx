@@ -9,6 +9,7 @@ import { Nav } from "./Nav";
 import { Button } from "./Button";
 import { Actions } from "./Actions";
 import { GMap } from "./GMap";
+import { SocialIcons } from "./SocialIcons";
 
 const Component = ({ data, path, updateComponent, select, selected }) => {
   const ref = useRef(null);
@@ -39,7 +40,8 @@ const Component = ({ data, path, updateComponent, select, selected }) => {
     video: Video,
     nav: Nav,
     button: Button,
-    GMap: GMap
+    GMap: GMap,
+    social: SocialIcons
   };
 
   const onSelect = (ev) => {
@@ -70,7 +72,7 @@ const Component = ({ data, path, updateComponent, select, selected }) => {
   return (
     <div
       ref={ref}
-      style={{ opacity }}
+      style={{ opacity, height: 'fit-content' }}
       className="component draggable"
       onClick={onSelect}
       onMouseEnter={() => setActionsVisible(true)

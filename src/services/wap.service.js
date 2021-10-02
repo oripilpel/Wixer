@@ -38,7 +38,7 @@ export function duplicate(layout, item) {
     case INNERSECTION:
       item = { ...newLayout[splitItemPath[0]].cmps[splitItemPath[1]] };
       item.id = utilService.makeId();
-      idx = splitItemPath[1] - 1;
+      idx = splitItemPath[1] ;
       idx = idx < 0 ? 0 : idx;
       newLayout[splitItemPath[0]].cmps = insert(newLayout[splitItemPath[0]].cmps, idx, item);
       break;
@@ -46,14 +46,14 @@ export function duplicate(layout, item) {
       if (splitItemPath.length === 3) {
         item = { ...newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]] };
         item.id = utilService.makeId();
-        idx = splitItemPath[2] - 1;
+        idx = splitItemPath[2] ;
         idx = idx < 0 ? 0 : idx;
         newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps = insert(newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps, idx, item);
       }
       else {
         item = { ...newLayout[splitItemPath[0]].cmps[splitItemPath[1]] };
         item.id = utilService.makeId();
-        idx = splitItemPath[1] - 1;
+        idx = splitItemPath[1] ;
         idx = idx < 0 ? 0 : idx;
         newLayout[splitItemPath[0]].cmps = insert(newLayout[splitItemPath[0]].cmps, idx, item);
       }
@@ -63,7 +63,7 @@ export function duplicate(layout, item) {
         case 3:
           item = { ...newLayout[splitItemPath[0]].cmps[splitItemPath[1]] };
           item.id = utilService.makeId();
-          idx = splitItemPath[1] - 1;
+          idx = splitItemPath[1] ;
           idx = idx < 0 ? 0 : idx;
           newLayout[splitItemPath[0]].cmps = insert(newLayout[splitItemPath[0]].cmps, idx, item);
           break;
@@ -72,7 +72,7 @@ export function duplicate(layout, item) {
           if (item.cmps) {
             item = { ...item.cmps[splitItemPath[3]] }
             item.id = utilService.makeId();
-            idx = splitItemPath[3] - 1;
+            idx = splitItemPath[3] ;
             idx = idx < 0 ? 0 : idx;
             newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps = insert(newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps, idx, item);
           }
@@ -99,7 +99,6 @@ export function duplicate(layout, item) {
 }
 
 export function reorderChildren(children, splitDropZonePath, splitItemPath) {
-  debugger
   if (splitDropZonePath.length === 1) {
     const dropZoneIndex = Number(splitDropZonePath[splitDropZonePath.length - 1]);
     const itemIndex = Number(splitItemPath[splitItemPath.length - 1]);

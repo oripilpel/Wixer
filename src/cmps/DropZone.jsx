@@ -1,7 +1,7 @@
 import React from "react";
 import classNames from "classnames";
 import { useDrop } from "react-dnd";
-import { COMPONENT, SIDEBAR_ITEM, SECTION, COLUMN } from "../constants";
+import { COMPONENT, SIDEBAR_ITEM, SECTION, COLUMN, SIDEBAR_COLUMN } from "../constants";
 
 const ACCEPTS = [SIDEBAR_ITEM, COMPONENT, SECTION, COLUMN];
 
@@ -11,29 +11,21 @@ export function DropZone({ data, onDrop, isLast, className, accept = ACCEPTS }) 
     drop: (item, monitor) => {
       onDrop(data, item);
     },
-    canDrop: (item, monitor) => {
+    canDrop: (item) => {
       const dropZonePath = data.path;
       const splitDropZonePath = dropZonePath.split("-");
       const itemPath = item.path;
 
       // sidebar items can always be dropped anywhere
       if (!itemPath) {
-        if (data.childrenCount >= 4) {
-          return false;
-        }
         return true;
       }
 
       const splitItemPath = itemPath.split("-");
-
       // limit columns when dragging from one row to another row
-      if (data.childrenCount >= 4 && splitDropZonePath.length !== 3) {
+      if (data.childrenCount >= 4 && (item.type !== COLUMN || splitItemPath[splitItemPath.length - 2] !== splitDropZonePath[splitDropZonePath.length - 2])) {
         return false;
       }
-      // Invalid (Can't drop a parent element (row) into a child (column))
-      // const parentDropInChild = splitItemPath.length < splitDropZonePath.length;
-
-      // if (parentDropInChild) return false;
 
       // Current item can't possible move to it's own location
       if (itemPath === dropZonePath) return false;
@@ -65,9 +57,9 @@ export function DropZone({ data, onDrop, isLast, className, accept = ACCEPTS }) 
   return (
     <div
       style={{
-        // position: (isActive) ? 'relative' : 'absolute',
-        // top: (isActive) ? 0 : -30,
-        // left: 0
+        position: (isActive) ? 'relative' : 'absolute',
+        top: (isActive) ? 0 : -30,
+        left: 0
       }}
       className={classNames(
         "drop-zone",

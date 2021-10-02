@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { connect } from 'react-redux';
 import { DndProvider } from "react-dnd";
+import { TouchBackend } from 'react-dnd-touch-backend'
+
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { SIDEBAR_ITEM, COMPONENT, COLUMN, SECTION, SIDEBAR_COLUMN, SIDEBAR_INNERSECTION, INNERSECTION, SIDEBAR_SECTION } from "../constants";
 import { DropZone } from "../cmps/DropZone";
@@ -17,7 +19,6 @@ import {
     moveToDifferentParent,
     updateComponent,
     setSelected,
-    reorderColumns
 } from '../store/layout.actions'
 import { utilService } from "../services/util.service";
 import { eventBusService } from "../services/event-bus-service";
@@ -35,7 +36,6 @@ function _Editor(
         setSelected,
         insert,
         loadWap,
-        reorderColumns,
         setWap
     }) {
 
@@ -164,7 +164,6 @@ function _Editor(
                 updateComponent={onUpdateComponent}
                 onSelect={onSelect}
                 selected={selected}
-                moveColumns={reorderColumns}
             />
         );
     };
@@ -254,7 +253,6 @@ const mapDispatchToProps = {
     updateComponent,
     setSelected,
     insert,
-    reorderColumns
 }
 
 export const Editor = connect(mapStateToProps, mapDispatchToProps)(_Editor);

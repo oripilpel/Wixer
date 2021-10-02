@@ -7,7 +7,7 @@ import { DropZone } from "./DropZone";
 import Component from "./Component";
 import { Actions } from "./Actions";
 
-export function Column({ data, handleDrop, path, updateComponent, onSelect, selected, moveColumns }) {
+export function Column({ data, handleDrop, path, updateComponent, onSelect, selected }) {
   const ref = useRef(null);
 
 
@@ -28,29 +28,6 @@ export function Column({ data, handleDrop, path, updateComponent, onSelect, sele
   });
 
 
-  const [, drop] = useDrop({
-    accept: COLUMN,
-    // hover: (item, monitor) => {
-    //   if (!ref.current) return
-    //   let dragIdx = +path[path.length - 1];
-
-    //   let hoverIdx = +item.path[path.length - 1];
-    //   if (dragIdx === hoverIdx || path.slice(0, path.length - 1) !== item.path.slice(0, item.path.length - 1)) return
-    //   const hoverBoundingRect = ref.current?.getBoundingClientRect()
-    //   const hoverWidth = hoverBoundingRect.right - hoverBoundingRect.left;
-    //   const hoverMiddleX = 3 * (hoverBoundingRect.right - hoverBoundingRect.left) / 4;
-    //   const hoverClientX = monitor.getClientOffset().x - hoverBoundingRect.left;
-    //   if (monitor.getDifferenceFromInitialOffset().x >= hoverMiddleX) return
-    //   console.log('client', hoverClientX, 'hoverMiddleX', hoverMiddleX);
-    //   if (dragIdx < hoverIdx && hoverClientX < hoverMiddleX) return
-    //   if (dragIdx > hoverIdx && hoverClientX > hoverMiddleX) return
-    //   moveColumns([dragIdx], [hoverIdx], path)
-    //   dragIdx = hoverIdx
-    //   return
-    // }
-  })
-
-
   const renderComponent = (component, currentPath) => {
     return (
       <Component
@@ -65,7 +42,7 @@ export function Column({ data, handleDrop, path, updateComponent, onSelect, sele
   };
 
   const opacity = isDragging ? 0 : 1;
-  drop(drag(ref));
+  drag(ref);
 
   const select = (ev) => {
     ev.stopPropagation();
@@ -76,7 +53,7 @@ export function Column({ data, handleDrop, path, updateComponent, onSelect, sele
   return (
     <div
       ref={ref}
-      style={{ ...style, opacity }}
+      style={{ ...style, opacity, width: (data.cmps?.length) ? 'fit-content' : '80px'}}
       className={`base draggable column flex direction-column ${selected && selected.id === data.id ? 'selected' : ''}`}
       onClick={select}
       onMouseEnter={() => setActionsVisible(true)}
