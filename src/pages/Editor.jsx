@@ -121,11 +121,11 @@ function _Editor(
     }
 
     const onUndo = (isEmit = true) => {
-        if (history.length === 1) return;
+        if (historyUndo.length === 1) return;
         if (isEmit) socketService.emit('wap change', { type: 'UNDO' });
-        const lastStep = history[history.length - 2];
+        const lastStep = historyUndo[historyUndo.length - 2];
         setWap({ _id, ...lastStep });
-        setHitoryUndo(history.slice(0, -2));
+        setHitoryUndo(historyUndo.slice(0, -2));
     }
 
     const handleDrop =
