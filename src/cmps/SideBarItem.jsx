@@ -8,6 +8,7 @@ import InsertPhotoIcon from '@mui/icons-material/InsertPhoto';
 import SmartButtonIcon from '@mui/icons-material/SmartButton';
 import Crop75Icon from '@mui/icons-material/Crop75';
 import RoomIcon from '@mui/icons-material/Room';
+import GroupAddIcon from '@mui/icons-material/GroupAdd';
 
 import header1 from '../assets/img/elements/header1.jpg';
 import header2 from '../assets/img/elements/header2.jpg';
@@ -39,6 +40,7 @@ const KeysToIconMap = {
   'SmartButtonIcon': <div className="icon"><SmartButtonIcon /></div>,
   'Crop75Icon': <div className="icon"><Crop75Icon /></div>,
   'RoomIcon': <div className="icon"><RoomIcon /></div>,
+  'GroupAddIcon': <div className="icon"><GroupAddIcon /></div>,
 }
 
 export function SideBarItem({ data, type, isElementClicked, setHints }) {
