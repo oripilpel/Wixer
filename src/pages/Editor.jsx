@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { DndProvider } from "react-dnd";
 import { TouchBackend } from 'react-dnd-touch-backend'
 import { HTML5Backend } from "react-dnd-html5-backend";
+import { isMobile } from 'react-device-detect'
 import { SIDEBAR_ITEM, COMPONENT, COLUMN, SECTION, SIDEBAR_COLUMN, SIDEBAR_INNERSECTION, INNERSECTION, SIDEBAR_SECTION } from "../constants";
 import { DropZone } from "../cmps/DropZone";
 import { Section } from "../cmps/Section";
@@ -256,7 +257,7 @@ function _Editor(
         }
     }
     return (
-        <DndProvider backend={TouchBackend} options={{ enableMouseEvents: true }}>
+        <DndProvider backend={isMobile ? TouchBackend : HTML5Backend}>
             <div className={`editor ${debugMode ? 'debug' : ''}`}>
                 <SideBar selected={getSelected(selected)} update={onUpdateComponent} onUndo={onUndo} />
                 <div className="page-container">
