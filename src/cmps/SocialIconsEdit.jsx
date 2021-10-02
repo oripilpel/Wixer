@@ -14,7 +14,7 @@ export function SocialIconsEdit({ style, data, onUpdate }) {
         const newSocials = { ...socials }
         newSocials[target.name].url = target.value
         setSocials(newSocials)
-        onUpdate('data', socials)
+        onUpdate('data', { socials })
 
     }
 

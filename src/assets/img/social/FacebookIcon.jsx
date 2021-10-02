@@ -1,7 +1,11 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 export function FacebookIcon({ fillColor, onClick, isEditComp }) {
     const [color, setColor] = useState(fillColor)
+
+    useEffect(() => {
+        setColor(fillColor)
+    }, [fillColor])
 
     function changeColor(clr) {
         if (isEditComp) return

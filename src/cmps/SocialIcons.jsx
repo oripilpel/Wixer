@@ -8,7 +8,7 @@ import { TwitterIcon } from '../assets/img/social/TwitterIcon'
 
 export function SocialIcons({ data, style }) {
     return (
-        <div className="social-icons" style={style}>
+        <div className="social-icons flex justify-between" style={style}>
             {data.socials.facebook.shown && <FacebookIcon fillColor="#000000" />}
             {data.socials.instagram.shown && <InstagramIcon fillColor="#000000" />}
             {data.socials.github.shown && <GithubIcon fillColor="#000000" />}
