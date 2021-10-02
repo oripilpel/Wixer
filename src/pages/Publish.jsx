@@ -7,6 +7,7 @@ import { Text } from "../cmps/publish/Text";
 import { Video } from "../cmps/Video";
 import { Nav } from "../cmps/publish/Nav";
 import { Button } from "../cmps/publish/Button";
+import { SocialIcons } from "../cmps/publish/SocialIcons"
 import { loadWap } from '../store/layout.actions'
 
 function _Publish({ match, cmps, loadWap }) {
@@ -16,12 +17,13 @@ function _Publish({ match, cmps, loadWap }) {
         video: Video,
         nav: Nav,
         button: Button,
+        social: SocialIcons
     };
 
     useEffect(() => {
         const id = match.params.wapId;
         if (id) loadWap(id);
-    },[]);
+    }, []);
 
     const renderer = ({ component }) => {
         if (!component) return
