@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { DndProvider } from "react-dnd";
 import { TouchBackend } from 'react-dnd-touch-backend'
 import { HTML5Backend } from "react-dnd-html5-backend";
+import { isMobile } from 'react-device-detect'
 import { SIDEBAR_ITEM, COMPONENT, COLUMN, SECTION, SIDEBAR_COLUMN, SIDEBAR_INNERSECTION, INNERSECTION, SIDEBAR_SECTION } from "../constants";
 import { DropZone } from "../cmps/DropZone";
 import { Section } from "../cmps/Section";
@@ -120,11 +121,11 @@ function _Editor(
     }
 
     const onUndo = (isEmit = true) => {
-        if (history.length === 1) return;
+        if (historyUndo.length === 1) return;
         if (isEmit) socketService.emit('wap change', { type: 'UNDO' });
-        const lastStep = history[history.length - 2];
+        const lastStep = historyUndo[historyUndo.length - 2];
         setWap({ _id, ...lastStep });
-        setHitoryUndo(history.slice(0, -2));
+        setHitoryUndo(historyUndo.slice(0, -2));
     }
 
     const handleDrop =
@@ -256,7 +257,7 @@ function _Editor(
         }
     }
     return (
-        <DndProvider backend={TouchBackend} options={{ enableMouseEvents: true }}>
+        <DndProvider backend={isMobile ? TouchBackend : HTML5Backend}>
             <div className={`editor ${debugMode ? 'debug' : ''}`}>
                 <SideBar selected={getSelected(selected)} update={onUpdateComponent} onUndo={onUndo} />
                 <div className="page-container">

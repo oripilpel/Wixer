@@ -101,7 +101,8 @@ export const SIDEBAR_ITEMS_BASIC = [
         lat: 31.962712994957688,
         lng: 34.91398822780261,
         zoom: 15,
-        markerName: 'Ginaton'
+        markerName: 'Ginaton',
+        location: 'Ginaton'
       },
       style: {
         height: 200
