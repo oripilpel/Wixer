@@ -1,0 +1,16 @@
+.social-icons-edit{
+    padding:0 16px;
+    gap: 10px;
+    .social-container{
+        input{
+            flex:2;
+            width:100%;
+            border-radius: 5px;
+            border: 1px solid black;
+        }
+        svg{
+            flex:1;
+            cursor: pointer;
+        }
+    }
+}

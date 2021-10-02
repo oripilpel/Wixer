@@ -6,6 +6,7 @@ import { NavEdit } from "./NavEdit"
 import { ButtonEdit } from "./ButtonEdit"
 import { VideoEdit } from "./VideoEdit"
 import { GMapEdit } from "./GMapEdit"
+import { SocialIconsEdit } from "./SocialIconsEdit"
 
 export function SidebarEditComponent({ type, style, data, onUpdate }) {
     switch (type) {
@@ -24,7 +25,9 @@ export function SidebarEditComponent({ type, style, data, onUpdate }) {
         case 'video':
             return <VideoEdit style={style} onUpdate={onUpdate} data={data} />
         case 'GMap':
-            return <GMapEdit style={style} onUpdate={onUpdate} data={data}/>
+            return <GMapEdit style={style} onUpdate={onUpdate} data={data} />
+        case 'social':
+            return <SocialIconsEdit style={style} onUpdate={onUpdate} data={data} />
         default:
             return <></>
     }
