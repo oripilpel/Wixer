@@ -8,6 +8,7 @@ import { Accordion, AccordionSummary, AccordionDetails } from './Accordion';
 import { BorderEdit } from './BorderEdit';
 import { HeightEdit } from './HeightEdit';
 import debounce from 'lodash.debounce';
+import { ImageSearch } from './ImageSearch';
 
 export function ColumnSectionEdit({ style, onUpdate }) {
     const [expanded, setExpanded] = React.useState('background')
@@ -61,6 +62,7 @@ export function ColumnSectionEdit({ style, onUpdate }) {
                         </div>
                     </div>
                     <ImageUpload label="Upload image" onUpload={(ev) => uploadImg(ev).then(url => onUploadImage(url))} />
+                    <ImageSearch onSelect={onUploadImage}/>
                 </AccordionDetails>
             </Accordion>
             <Accordion expanded={expanded === 'size'} onChange={handleChange('size')}>
