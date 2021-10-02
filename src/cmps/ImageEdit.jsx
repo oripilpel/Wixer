@@ -5,6 +5,7 @@ import { MarginEdit } from './MarginEdit';
 import { PaddingEdit } from './PaddingEdit';
 import { WidthEdit } from './WidthEdit';
 import { Accordion, AccordionSummary, AccordionDetails } from './Accordion';
+import { ImageSearch } from './ImageSearch';
 
 export function ImageEdit({ data, style, onUpdate }) {
     const [expanded, setExpanded] = React.useState('image')
@@ -29,6 +30,7 @@ export function ImageEdit({ data, style, onUpdate }) {
                 </AccordionSummary>
                 <AccordionDetails>
                     <ImageUpload label="Upload image" onUpload={(ev) => uploadImg(ev).then(url => onUploadImage(url))} />
+                    <ImageSearch onSelect={onUploadImage}/>
                 </AccordionDetails>
             </Accordion>
             <Accordion expanded={expanded === 'width'} onChange={handleChange('width')}>
