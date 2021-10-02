@@ -2,14 +2,15 @@ import React, { useEffect, useState } from "react";
 import { connect } from 'react-redux';
 import { DndProvider } from "react-dnd";
 import { TouchBackend } from 'react-dnd-touch-backend'
-
 import { HTML5Backend } from "react-dnd-html5-backend";
+import { isMobile } from 'react-device-detect'
 import { SIDEBAR_ITEM, COMPONENT, COLUMN, SECTION, SIDEBAR_COLUMN, SIDEBAR_INNERSECTION, INNERSECTION, SIDEBAR_SECTION } from "../constants";
 import { DropZone } from "../cmps/DropZone";
 import { Section } from "../cmps/Section";
 import { SideBar } from "../cmps/SideBar";
 import {
     insert,
+    saveWap,
     loadWap,
     setWap,
     moveSidebarComponentIntoParent,
@@ -22,10 +23,15 @@ import {
 } from '../store/layout.actions'
 import { utilService } from "../services/util.service";
 import { eventBusService } from "../services/event-bus-service";
+import { socketService } from "../services/socket.service";
+import { wapService } from "../services/waps.service";
 
 function _Editor(
     { match,
+        history,
+        _id,
         cmps,
+        style,
         selected,
         moveSidebarComponentIntoParent,
         moveSidebarColumnIntoParent,
@@ -35,32 +41,87 @@ function _Editor(
         updateComponent,
         setSelected,
         insert,
+        removeItem,
+        duplicateItem,
+        saveWap,
         loadWap,
         setWap
     }) {
 
-    const [history, setHitory] = useState([]);
+    const [historyUndo, setHitoryUndo] = useState([]);
 
     const debugMode = false;
+
     useEffect(() => {
         //componentDidMount
+        socketService.on('wap change', wapChangeFromSocket);
         const id = match.params.wapId;
         if (id) loadWap(id);
+        else { saveWap({ cmps, style }) };
+        return () => {
+            // componentWillUnmount
+            socketService.off('wap change');
+        }
     }, []);
 
     useEffect(() => {
-        setHitory([...history, JSON.parse(JSON.stringify(cmps))]);
+        if (_id) {
+            history.push(`/editor/${_id}`);
+            socketService.emit('wap topic', _id);
+        }
+    }, [_id])
+
+    useEffect(() => {
+        setHitoryUndo([...historyUndo, JSON.parse(JSON.stringify(cmps))]);
+        wapService.save({ _id, cmps, style });
     }, [cmps])
+
+    const wapChangeFromSocket = (action) => {
+        switch (action.type) {
+            case 'UNDO':
+                onUndo(false);
+                break;
+            case 'REMOVE_ITEM':
+                removeItem(action.item.splitItemPath, action.item.type, false);
+                break;
+            case 'DUPLICATE_ITEM':
+                duplicateItem(action.splitItemPath, action.type, false);
+                break;
+            case 'MOVE_SIDEBAR_COMPONENT_INTO_PARENT':
+                moveSidebarComponentIntoParent(action.splitDropZonePath, action.newItem, false);
+                break;
+            case 'MOVE_SIDEBAR_COLUMN_INTO_PARENT':
+                moveSidebarColumnIntoParent(action.splitDropZonePath, false);
+                break;
+            case 'MOVE_SIDEBAR_INNER_SECTION_INTO_PARENT':
+                moveSidebarInnerSectionIntoParent(action.splitDropZonePath, false);
+                break
+            case 'MOVE_WITHIN_PARENT':
+                moveWithinParent(action.splitDropZonePath, action.splitItemPath, false);
+                break;
+            case 'MOVE_TO_DIFFERENT_PARENT':
+                moveToDifferentParent(action.splitDropZonePath, action.splitItemPath, action.item, false);
+                break;
+            case 'UPDATE_COMPONENT':
+                updateComponent(action.comp, action.field, action.value, false);
+                break;
+            case 'INSERT_ITEM':
+                insert(action.index, action.newItem, false)
+                break;
+
+        }
+    }
 
     const onUpdateComponent = (comp, field, value) => {
         updateComponent(comp, field, value);
     }
 
-    const onUndo = () => {
-        if (history.length === 1) return;
-        const lastStep = history[history.length - 2];
-        setWap(lastStep);
-        setHitory(history.slice(0, -2));
+    const onUndo = (isEmit = true) => {
+        if (historyUndo.length === 1) return;
+        if (isEmit) socketService.emit('wap change', { type: 'UNDO' });
+        const lastStep = historyUndo[historyUndo.length - 2];
+        setWap({ _id, ...lastStep });
+        setHitoryUndo(historyUndo.slice(0, -2));
     }
 
     const handleDrop =
@@ -191,7 +252,7 @@ function _Editor(
         }
     }
     return (
-        <DndProvider backend={HTML5Backend}>
+        <DndProvider backend={isMobile ? TouchBackend : HTML5Backend}>
             <div className={`editor ${debugMode ? 'debug' : ''}`}>
                 <SideBar selected={getSelected(selected)} update={onUpdateComponent} onUndo={onUndo} />
                 <div className="page-container">
@@ -237,12 +298,14 @@ function _Editor(
 
 function mapStateToProps(state) {
     return {
+        _id: state.layoutModule._id,
         cmps: state.layoutModule.cmps,
         selected: state.layoutModule.selected,
         style: state.layoutModule.style
     }
 }
 const mapDispatchToProps = {
+    saveWap,
     loadWap,
     setWap,
     moveSidebarComponentIntoParent,

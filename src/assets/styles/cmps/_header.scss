@@ -78,6 +78,8 @@
 
     &.min {
         height: 30px;
+        padding-inline-start: 48px;
+        padding-inline-end: 10px;
         .logo {
             font-size: 25px;
             img {
@@ -86,7 +88,7 @@
         }
         .hamb-icon {
             top: 0;
-            right: 55px;
+            right: 10px;
             div {
                 width: 25px;
                 height: 8px;
@@ -128,7 +130,7 @@
             width: 35px;
             height: 10px;
             border-block-end: 4px solid black;
-            transition: 0.7s;
+            transition: 0.4s;
         }
         &.active div:nth-child(1) {
             transform: translateY(10px) translateX(-2px) rotate(-45deg);

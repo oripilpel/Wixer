@@ -16,7 +16,7 @@ export function NavEdit({ style, onUpdate, data }) {
     }
 
     return (
-        <div className="text-edit">
+        <div className="nav-edit">
             <div className="font-size">
                 <label htmlFor="font-size">Font Size:</label>
                 <PrettoSlider
