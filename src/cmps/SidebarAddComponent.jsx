@@ -4,7 +4,7 @@ import { Accordion, AccordionSummary, AccordionDetails } from './Accordion';
 import { SIDEBAR_ITEMS_BASIC, SIDEBAR_ITEMS_FOOTER, SIDEBAR_ITEMS_NAV, SIDEBAR_ITEMS_SECTIONS, SIDEBAT_ITEMS_HEADER } from "../constants";
 
 export function SidebarAddComponent({ isElementClicked, setHints }) {
-    const [expanded, setExpanded] = React.useState('basics')
+    const [expanded, setExpanded] = React.useState('header')
     const handleChange = (panel) => (event, newExpanded) => {
         setExpanded(newExpanded ? panel : false);
     };
@@ -16,7 +16,8 @@ export function SidebarAddComponent({ isElementClicked, setHints }) {
                 </AccordionSummary>
                 <AccordionDetails className="header-items">
                     {Object.values(SIDEBAT_ITEMS_HEADER).map((sideBarItem, index) => (
-                        <SideBarItem key={sideBarItem.id} data={sideBarItem} type={sideBarItem.type} />
+                        <SideBarItem key={sideBarItem.id} data={sideBarItem} type={sideBarItem.type}
+                        isElementClicked={isElementClicked} setHints={setHints} />
                     ))}
                 </AccordionDetails>
             </Accordion>
@@ -57,8 +58,7 @@ export function SidebarAddComponent({ isElementClicked, setHints }) {
                 <AccordionDetails className='element-items' >
                     {Object.values(SIDEBAR_ITEMS_BASIC).map((sideBarItem, index) => (
                         <SideBarItem key={sideBarItem.id}
-                            data={sideBarItem} type={sideBarItem.type}
-                            isElementClicked={isElementClicked} setHints={setHints} />
+                            data={sideBarItem} type={sideBarItem.type} />
                     ))}
                 </AccordionDetails>
             </Accordion>
