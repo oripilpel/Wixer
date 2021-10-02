@@ -6,7 +6,7 @@ import { DropZone } from "./DropZone";
 import { Column } from "./Column";
 import { Actions } from "./Actions.jsx";
 
-export function InnerSection({ data, components, handleDrop, path, updateComponent, onSelect, selected, moveColumns }) {
+export function InnerSection({ data, components, handleDrop, path, updateComponent, onSelect, selected }) {
     const ref = useRef(null);
 
     const [actionsVisible, setActionsVisible] = useState(false);
@@ -26,7 +26,6 @@ export function InnerSection({ data, components, handleDrop, path, updateCompone
     });
 
 
-    const reorderColumns = (itemIdx, hoverIdx, path) => { moveColumns(data.cmps, itemIdx, hoverIdx, path) }
 
     const select = (ev) => {
         ev.stopPropagation()
@@ -48,7 +47,6 @@ export function InnerSection({ data, components, handleDrop, path, updateCompone
                 onSelect={onSelect}
                 selected={selected}
                 onClick={() => onSelect('column', column)}
-                moveColumns={reorderColumns}
             />
         );
     };

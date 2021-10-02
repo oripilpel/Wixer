@@ -8,7 +8,7 @@
             bottom: 0;
             display: flex;
             flex-grow: 1;
-            flex-direction: row;
+            flex-direction: row-reverse;
             width: 100%;
             height: 0;
             min-height: 190px;
@@ -16,6 +16,7 @@
             box-shadow: 0 0px 3px 0 #0000009e;
             .tabs {
                 overflow: unset;
+                border-inline-start: 1px solid #293241;
                 .MuiTabs-fixed {
                     display: flex;
                     padding-block-end: 41px;
@@ -67,7 +68,7 @@
                         grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
                         gap: unset;
                         margin: 0;
-                        margin-inline-start: 60px;
+                        margin-inline-start: 48px;
                         .side-bar-item.anima {
                             animation: unset;
                         }
@@ -78,7 +79,7 @@
                     .footer-items {
                         padding: 0;
                         margin-block-end: 5px;
-                        margin-inline-start: 60px;
+                        margin-inline-start: 48px;
                     }
                 }
             }
@@ -87,7 +88,7 @@
                 position: fixed;
                 bottom: 0;
                 width: calc(100% - 66px);
-                right: 0;
+                left: 0;
                 .pub.anima {
                     animation: unset;
                 }
@@ -98,7 +99,8 @@
             height: 100%;
             margin-block-end: 190px;
             .page {
-                margin-inline-start: 60px;
+                margin-inline-start: 48px;
+                margin-inline-end: 10px;
                 .empty {
                     position: unset;
                     top: unset;

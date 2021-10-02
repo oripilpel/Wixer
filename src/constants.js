@@ -1,3 +1,4 @@
+import { Instagram } from '@mui/icons-material';
 import { utilService } from './services/util.service';
 
 export const SIDEBAR_SECTION = 'sidebarSection'
@@ -107,6 +108,45 @@ export const SIDEBAR_ITEMS_BASIC = [
       style: {
         height: 200
       }
+    }
+  },
+  {
+    id: utilService.makeId(),
+    type: SIDEBAR_ITEM,
+    name: 'Social',
+    icon: 'SocialIcon',
+    component: {
+      type: 'social',
+      data: {
+        socials: {
+          facebook: {
+            shown: true,
+            url: ''
+          },
+          instagram: {
+            shown: true,
+            url: ''
+          },
+          github: {
+            shown: true,
+            url: ''
+          },
+          dribbble: {
+            shown: true,
+            url: ''
+          },
+          linkedin: {
+            shown: true,
+            url: ''
+          },
+          twitter: {
+            shown: true,
+            url: ''
+          },
+
+        }
+      },
+      style: {}
     }
   },
 ]

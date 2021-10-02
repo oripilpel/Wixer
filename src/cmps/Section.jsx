@@ -6,7 +6,7 @@ import { Column } from "./Column";
 import { InnerSection } from "./InnerSection.jsx";
 import { Actions } from "./Actions.jsx";
 
-export function Section({ data, cmps, handleDrop, path, updateComponent, onSelect, selected, moveColumns }) {
+export function Section({ data, cmps, handleDrop, path, updateComponent, onSelect, selected }) {
   const ref = useRef(null);
 
   const [actionsVisible, setActionsVisible] = useState(false);
@@ -29,9 +29,6 @@ export function Section({ data, cmps, handleDrop, path, updateComponent, onSelec
   });
 
 
-  const reorderColumns = (itemIdx, hoverIdx, path) => { moveColumns(data.cmps, itemIdx, hoverIdx, path) }
-
-
   const opacity = isDragging ? 0 : 1;
   drag(drop(ref));
 
@@ -47,7 +44,6 @@ export function Section({ data, cmps, handleDrop, path, updateComponent, onSelec
         onSelect={onSelect}
         selected={selected}
         onClick={() => onSelect('column', column)}
-        moveColumns={reorderColumns}
       />
     );
   };
@@ -65,7 +61,6 @@ export function Section({ data, cmps, handleDrop, path, updateComponent, onSelec
         onSelect={onSelect}
         selected={selected}
         onClick={() => onSelect('innersection', innerSection)}
-        moveColumns={moveColumns}
       />
     );
   };
@@ -98,7 +93,7 @@ export function Section({ data, cmps, handleDrop, path, updateComponent, onSelec
                 path: currentPath,
                 childrenCount: data.cmps.length,
               }}
-              accept={(hasOnlyInnersections) ? [INNERSECTION, SIDEBAR_INNERSECTION] : [SIDEBAR_ITEM, COMPONENT, SIDEBAR_COLUMN, COLUMN]}
+              accept={(hasOnlyInnersections) ? [INNERSECTION, SIDEBAR_INNERSECTION] : (data.cmps.length >= 4) ? [COLUMN] : [SIDEBAR_ITEM, COMPONENT, SIDEBAR_COLUMN, COLUMN]}
               onDrop={handleDrop}
               className={(hasOnlyInnersections) ? '' : 'horizontalDrag'}
             />
@@ -113,7 +108,7 @@ export function Section({ data, cmps, handleDrop, path, updateComponent, onSelec
           path: `${path}-${data.cmps.length}`,
           childrenCount: data.cmps.length
         }}
-        accept={(hasOnlyInnersections) ? [INNERSECTION, SIDEBAR_INNERSECTION] : [SIDEBAR_ITEM, COMPONENT, SIDEBAR_COLUMN, COLUMN]}
+        accept={(hasOnlyInnersections) ? [INNERSECTION, SIDEBAR_INNERSECTION] : (cmps.length >= 4) ? [COLUMN] : [SIDEBAR_ITEM, COMPONENT, SIDEBAR_COLUMN, COLUMN]}
         onDrop={handleDrop}
         className={(hasOnlyInnersections) ? '' : 'horizontalDrag'}
         isLast
