@@ -124,7 +124,7 @@ function _Editor(
         if (historyUndo.length === 1) return;
         if (isEmit) socketService.emit('wap change', { type: 'UNDO' });
         const lastStep = historyUndo[historyUndo.length - 2];
-        setWap({ _id, ...lastStep });
+        setWap( _id, [...lastStep] );
         setHitoryUndo(historyUndo.slice(0, -2));
     }
 
