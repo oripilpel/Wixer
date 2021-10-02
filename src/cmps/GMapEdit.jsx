@@ -1,8 +1,9 @@
-import React from 'react';
-import { styled } from '@mui/system';
+import React, { useCallback } from 'react';
 import { TextField } from "@mui/material";
 import { Accordion, AccordionSummary, AccordionDetails } from './Accordion';
 import { HeightEdit } from './HeightEdit';
+import { geocodeService } from '../services/geocode.service';
+import debounce from 'lodash.debounce';
 
 export function GMapEdit({ style, data, onUpdate }) {
     const [expanded, setExpanded] = React.useState('map')
@@ -12,6 +13,7 @@ export function GMapEdit({ style, data, onUpdate }) {
     const onChange = ({ target }) => {
         const { name, value } = target;
         onUpdate('data', { ...data, [name]: value });
+        if (name === 'location') debouncedChangeHandler(value);
     }
     const onStyleChange = ({ target }) => {
         const { name, value } = target;
@@ -19,7 +21,14 @@ export function GMapEdit({ style, data, onUpdate }) {
         newStyle[name] = value;
         onUpdate('style', newStyle);
     }
-    const { lat, lng, markerName, height } = data;
+    const onLocationChange = async (loc) => {
+        const location = await geocodeService.getGeoLocation(loc);
+        if (location) onUpdate('data', { ...data, lat: location.lat, lng: location.lng, location: loc });
+    }
+    const debouncedChangeHandler = useCallback(
+        debounce(onLocationChange, 300)
+        , []);
+    const {markerName, height, location } = data;
     return (
         <div className="gmap-edit">
             <Accordion expanded={expanded === 'map'} onChange={handleChange('map')}>
@@ -28,13 +37,10 @@ export function GMapEdit({ style, data, onUpdate }) {
                 </AccordionSummary>
                 <AccordionDetails>
                     <div className="field">
-                        <TextField type="number" id="latitude" label="latitude" name="lat" variant="outlined" fullWidth defaultValue={lat} onChange={onChange} />
+                        <TextField type="text" label="Location" name="location" variant="outlined" defaultValue={location} onChange={onChange} />
                     </div>
                     <div className="field">
-                        <TextField type="number" id="longitude" label="longitude" name="lng" variant="outlined" fullWidth defaultValue={lng} onChange={onChange} />
-                    </div>
-                    <div className="field">
-                        <TextField id="marker-name" label="Name" variant="outlined" name="markerName" fullWidth defaultValue={markerName} onChange={onChange} />
+                        <TextField id="marker-name" label="Marker name" variant="outlined" name="markerName" fullWidth defaultValue={markerName} onChange={onChange} />
                     </div>
                 </AccordionDetails>
             </Accordion>
