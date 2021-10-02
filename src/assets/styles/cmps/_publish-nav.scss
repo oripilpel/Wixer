@@ -4,7 +4,7 @@
     .links {
         height: 100%;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
         @media screen and (max-width: 720px) {
             background-color: #f9f9f9eb;
             display: flex;
@@ -18,6 +18,7 @@
             padding-block-start: 100px;
             box-shadow: 0 0px 20px 0px #00000042;
             transition: 0.4s;
+            justify-content: start;
         }
         &.active {
             right: 0;
@@ -25,12 +26,6 @@
 
         .link {
             order: 1;
-            &:not(:last-child) {
-                margin-inline-end: 25px;
-                @media screen and (max-width: 720px) {
-                    margin-inline-end: 0;
-                }
-            }
         }
         a {
             text-decoration: none;
@@ -56,9 +51,6 @@
         top: 15px;
         cursor: pointer;
         order: 0;
-        position: relative;
-        top: auto;
-        right: 30px;
         div {
             width: 30px;
             height: 10px;

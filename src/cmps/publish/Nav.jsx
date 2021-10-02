@@ -39,13 +39,13 @@ export function Nav({ style, data }) {
                         />
                     )
                 })}
+                <div className={`hamb-icon ${isMenuOpen ? "active" : ""}`} onClick={() => toggleMenu()}>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
             </nav>
 
-            <div className={`hamb-icon ${isMenuOpen ? "active" : ""}`} onClick={() => toggleMenu()}>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
         </div>
     )
 }
