@@ -78,6 +78,8 @@
 
     &.min {
         height: 30px;
+        padding-inline-start: 48px;
+        padding-inline-end: 10px;
         .logo {
             font-size: 25px;
             img {
@@ -86,7 +88,7 @@
         }
         .hamb-icon {
             top: 0;
-            right: 55px;
+            right: 10px;
             div {
                 width: 25px;
                 height: 8px;
