@@ -30,7 +30,8 @@ export function layoutReducer(state = initialState, action) {
                 ...state,
                 _id: action._id,
                 cmps: action.cmps,
-                style: action.style
+                style: action.style,
+                chat: action.chat
             }
 
         case 'REMOVE_ITEM':

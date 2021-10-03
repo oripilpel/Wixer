@@ -83,6 +83,10 @@ function _Editor(
     }, [_id])
 
     useEffect(() => {
+        wapService.save({ _id, cmps, style, chat });
+    }, [chat])
+
+    useEffect(() => {
         setHitoryUndo([...historyUndo, JSON.parse(JSON.stringify(cmps))]);
         wapService.save({ _id, cmps, style });
     }, [cmps])

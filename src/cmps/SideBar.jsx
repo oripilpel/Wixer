@@ -17,7 +17,7 @@ import { saveWap } from '../store/layout.actions'
 import { eventBusService } from "../services/event-bus-service";
 import { hintsService } from "../services/hint.service"
 
-function _SideBar({ selected, update, cmps, style, _id, saveWap, onUndo, setChatIsEnabled, chatOpeningText, chatAnswerText, chatChange }) {
+function _SideBar({ selected, update, cmps, style, _id, chat, saveWap, onUndo, setChatIsEnabled, chatOpeningText, chatAnswerText, chatChange }) {
     const [isEdit, setIsEdit] = useState(false)
 
     useEffect(() => {
@@ -84,7 +84,7 @@ function _SideBar({ selected, update, cmps, style, _id, saveWap, onUndo, setChat
     }
 
     const onSave = () => {
-        saveWap({ _id, cmps, style })
+        saveWap({ _id, cmps, style, chat })
     }
 
     return (
@@ -114,7 +114,7 @@ function _SideBar({ selected, update, cmps, style, _id, saveWap, onUndo, setChat
             <div className="items">
                 {!isEdit && <SidebarAddComponent
                     isElementClicked={isElementClicked}
-                    setHints={setHints} 
+                    setHints={setHints}
                     setChatIsEnabled={setChatIsEnabled}
                     chatChange={chatChange}
                     chatOpeningText={chatOpeningText}
@@ -154,6 +154,7 @@ function mapStateToProps(state) {
         cmps: state.layoutModule.cmps,
         style: state.layoutModule.style,
         _id: state.layoutModule._id,
+        chat: state.layoutModule.chat
     }
 }
 
