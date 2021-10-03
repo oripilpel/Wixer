@@ -11,6 +11,10 @@
         svg{
             flex:1;
             cursor: pointer;
+            path{
+                transition: fill .3s;
+                
+            }
         }
     }
 }

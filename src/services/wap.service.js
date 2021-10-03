@@ -28,32 +28,32 @@ export function insert(arr, index, newItem) {
 export function duplicate(layout, item) {
   const { splitItemPath, type } = item
   let idx;
-  let newLayout = [...layout];
+  let newLayout = JSON.parse(JSON.stringify(layout));
   switch (type) {
     case SECTION:
-      item = { ...newLayout[splitItemPath[0]] };
+      item = JSON.parse(JSON.stringify(newLayout[splitItemPath[0]]));
       item.id = utilService.makeId();
       newLayout = insert(newLayout, splitItemPath[0] + 1, item);
       break;
     case INNERSECTION:
-      item = { ...newLayout[splitItemPath[0]].cmps[splitItemPath[1]] };
+      item = JSON.parse(JSON.stringify(newLayout[splitItemPath[0]].cmps[splitItemPath[1]]));
       item.id = utilService.makeId();
-      idx = splitItemPath[1] ;
+      idx = splitItemPath[1];
       idx = idx < 0 ? 0 : idx;
       newLayout[splitItemPath[0]].cmps = insert(newLayout[splitItemPath[0]].cmps, idx, item);
       break;
     case COLUMN:
       if (splitItemPath.length === 3) {
-        item = { ...newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]] };
+        item = JSON.parse(JSON.stringify(newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]]));
         item.id = utilService.makeId();
-        idx = splitItemPath[2] ;
+        idx = splitItemPath[2];
         idx = idx < 0 ? 0 : idx;
         newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps = insert(newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps, idx, item);
       }
       else {
-        item = { ...newLayout[splitItemPath[0]].cmps[splitItemPath[1]] };
+        item = JSON.parse(JSON.stringify(newLayout[splitItemPath[0]].cmps[splitItemPath[1]]));
         item.id = utilService.makeId();
-        idx = splitItemPath[1] ;
+        idx = splitItemPath[1];
         idx = idx < 0 ? 0 : idx;
         newLayout[splitItemPath[0]].cmps = insert(newLayout[splitItemPath[0]].cmps, idx, item);
       }
@@ -61,23 +61,23 @@ export function duplicate(layout, item) {
     default:
       switch (splitItemPath.length) {
         case 3:
-          item = { ...newLayout[splitItemPath[0]].cmps[splitItemPath[1]] };
+          item = JSON.parse(JSON.stringify(newLayout[splitItemPath[0]].cmps[splitItemPath[1]]));
           item.id = utilService.makeId();
-          idx = splitItemPath[1] ;
+          idx = splitItemPath[1];
           idx = idx < 0 ? 0 : idx;
           newLayout[splitItemPath[0]].cmps = insert(newLayout[splitItemPath[0]].cmps, idx, item);
           break;
         case 4:
-          item = { ...newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]] };
+          item = JSON.parse(JSON.stringify(newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]]));
           if (item.cmps) {
             item = { ...item.cmps[splitItemPath[3]] }
             item.id = utilService.makeId();
-            idx = splitItemPath[3] ;
+            idx = splitItemPath[3];
             idx = idx < 0 ? 0 : idx;
             newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps = insert(newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps, idx, item);
           }
           else {
-            item = { ...item.component.data.links[splitItemPath[3]] }
+            item = JSON.parse(JSON.stringify(item.component.data.links[splitItemPath[3]]))
             item.id = utilService.makeId();
             idx = splitItemPath[3];
             idx = idx < 0 ? 0 : idx;
@@ -85,7 +85,7 @@ export function duplicate(layout, item) {
           }
           break;
         default:
-          item = { ...newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps[splitItemPath[3]].component.data.links[splitItemPath[4]] };
+          item = JSON.parse(JSON.stringify(newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps[splitItemPath[3]].component.data.links[splitItemPath[4]]));
           item.id = utilService.makeId();
           idx = splitItemPath[4];
           idx = idx < 0 ? 0 : idx;

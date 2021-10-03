@@ -114,7 +114,7 @@ export const SIDEBAR_ITEMS_BASIC = [
     id: utilService.makeId(),
     type: SIDEBAR_ITEM,
     name: 'Social',
-    icon: 'SocialIcon',
+    icon: 'GroupAddIcon',
     component: {
       type: 'social',
       data: {
@@ -149,6 +149,25 @@ export const SIDEBAR_ITEMS_BASIC = [
       style: {}
     }
   },
+  // {
+  //   id: utilService.makeId(),
+  //   type: SIDEBAR_ITEM,
+  //   name: 'Form',
+  //   icon: 'FromIcon',
+  //   component: {
+  //     type: 'form',
+  //     data:
+  //     {
+  //       name: '',
+  //       email: '',
+  //       phone: '',
+  //       subject: '',
+  //       msg: ''
+  //     }
+  //     ,
+  //     style: {}
+  //   }
+  // },
 ]
 
 export const SIDEBAR_ITEMS_NAV = [
