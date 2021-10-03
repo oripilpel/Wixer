@@ -15,18 +15,23 @@ const initialState = {
     _id: null,
     selected: null,
     cmps: [],
-    style: {}
+    style: {},
+    chat: {
+        isEnabled: false,
+        openingText: "Hey ☺ \n I'm the digital representative, how can I help you?",
+        answerText: "Thank you for contacting us, we will reach back to you in a short time."
+    }
 }
 
 export function layoutReducer(state = initialState, action) {
     switch (action.type) {
-
         case 'SET_WAP':
             return {
                 ...state,
                 _id: action._id,
                 cmps: action.cmps,
-                style: action.style
+                style: action.style,
+                chat: action.chat
             }
 
         case 'REMOVE_ITEM':
@@ -138,6 +143,12 @@ export function layoutReducer(state = initialState, action) {
         case 'INSERT_ITEM':
             var cmps = insert(state.cmps, action.index, action.newItem);
             return { ...state, cmps: cmps }
+        case 'SET_CHAT_ENABLED':
+            return { ...state, chat: { ...state.chat, isEnabled: action.isChatEnabled } };
+        case 'CHAT_OPENING_TEXT_CHANGE':
+            return { ...state, chat: { ...state.chat, openingText: action.openingText } };
+        case 'CHAT_ANSWER_TEXT_CHANGE':
+            return { ...state, chat: { ...state.chat, answerText: action.answerText } };
 
         default:
             return state;

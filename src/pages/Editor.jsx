@@ -21,11 +21,17 @@ import {
     moveToDifferentParent,
     updateComponent,
     setSelected,
+    duplicateItem,
+    removeItem,
+    setChatIsEnabled,
+    chatOpeningTextChange,
+    chatAnswerTextChange
 } from '../store/layout.actions'
 import { utilService } from "../services/util.service";
 import { eventBusService } from "../services/event-bus-service";
 import { socketService } from "../services/socket.service";
 import { wapService } from "../services/waps.service";
+import { ChatApp } from "../cmps/ChatApp";
 
 function _Editor(
     { match,
@@ -46,7 +52,11 @@ function _Editor(
         duplicateItem,
         saveWap,
         loadWap,
-        setWap
+        setWap,
+        chat,
+        setChatIsEnabled,
+        chatOpeningTextChange,
+        chatAnswerTextChange
     }) {
 
     const [historyUndo, setHitoryUndo] = useState([]);
@@ -73,6 +83,10 @@ function _Editor(
     }, [_id])
 
     useEffect(() => {
+        wapService.save({ _id, cmps, style, chat });
+    }, [chat])
+
+    useEffect(() => {
         setHitoryUndo([...historyUndo, JSON.parse(JSON.stringify(cmps))]);
         wapService.save({ _id, cmps, style });
     }, [cmps])
@@ -80,13 +94,13 @@ function _Editor(
     const wapChangeFromSocket = (action) => {
         switch (action.type) {
             case 'UNDO':
-                onUndo(false);
+                onUndo(false, action.lastStep);
                 break;
             case 'REMOVE_ITEM':
                 removeItem(action.item.splitItemPath, action.item.type, false);
                 break;
             case 'DUPLICATE_ITEM':
-                duplicateItem(action.splitItemPath, action.type, false);
+                duplicateItem(action.item.splitItemPath, action.item.type, false);
                 break;
             case 'MOVE_SIDEBAR_COMPONENT_INTO_PARENT':
                 moveSidebarComponentIntoParent(action.splitDropZonePath, action.newItem, false);
@@ -117,12 +131,14 @@ function _Editor(
         updateComponent(comp, field, value)
     }
 
-    const onUndo = (isEmit = true) => {
+    const onUndo = (isEmit = true, socketLastStep = null) => {
         if (historyUndo.length === 1) return;
-        if (isEmit) socketService.emit('wap change', { type: 'UNDO' });
-        const lastStep = historyUndo[historyUndo.length - 2];
+        const lastStep = socketLastStep || historyUndo[historyUndo.length - 2];
         setWap(_id, [...lastStep]);
-        setHitoryUndo(historyUndo.slice(0, -2));
+        if (isEmit) {
+            socketService.emit('wap change', { type: 'UNDO', lastStep });
+            setHitoryUndo(historyUndo.slice(0, -2));
+        }
     }
 
     const handleDrop =
@@ -252,10 +268,25 @@ function _Editor(
             return null;
         }
     }
+    const chatChange = ({ target }) => {
+        const { name, value } = target;
+        if (name === 'openingText') {
+            chatOpeningTextChange(value);
+        } else {
+            chatAnswerTextChange(value);
+        }
+    }
     return (
         <DndProvider backend={isMobile ? TouchBackend : HTML5Backend}>
             <div className={`editor ${debugMode ? 'debug' : ''}`}>
-                <SideBar selected={getSelected(selected)} update={onUpdateComponent} onUndo={onUndo} />
+                <SideBar
+                    selected={getSelected(selected)}
+                    update={onUpdateComponent}
+                    onUndo={onUndo}
+                    setChatIsEnabled={setChatIsEnabled}
+                    chatOpeningText={chat.openingText}
+                    chatAnswerText={chat.answerText}
+                    chatChange={chatChange} />
                 <div className="page-container">
                     <div className="page">
                         {cmps.map((section, index) => {
@@ -290,6 +321,7 @@ function _Editor(
                                 Drag element to start...
                             </div>
                         )}
+                        {chat.isEnabled && <ChatApp openingText={chat.openingText} answerText={chat.answerText} />}
                     </div>
                 </div>
             </div>
@@ -302,7 +334,8 @@ function mapStateToProps(state) {
         _id: state.layoutModule._id,
         cmps: state.layoutModule.cmps,
         selected: state.layoutModule.selected,
-        style: state.layoutModule.style
+        style: state.layoutModule.style,
+        chat: state.layoutModule.chat
     }
 }
 const mapDispatchToProps = {
@@ -317,6 +350,11 @@ const mapDispatchToProps = {
     updateComponent,
     setSelected,
     insert,
+    duplicateItem,
+    removeItem,
+    setChatIsEnabled,
+    chatOpeningTextChange,
+    chatAnswerTextChange
 }
 
 export const Editor = connect(mapStateToProps, mapDispatchToProps)(_Editor);
