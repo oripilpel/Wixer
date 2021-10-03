@@ -146,3 +146,30 @@ export function reorderColumns(cmps, itemIdx, hoverIdx, path) {
         props: { cmps, path, itemIdx, hoverIdx }
     })
 }
+
+export function setChatIsEnabled(isChatEnabled, isEmit = true) {
+    const action = {
+        type: 'SET_CHAT_ENABLED',
+        isChatEnabled
+    }
+    if (isEmit) socketService.emit('wap change', action);
+    return dispatch => dispatch(action);
+}
+
+export function chatOpeningTextChange(openingText, isEmit = true) {
+    const action = {
+        type: 'CHAT_OPENING_TEXT_CHANGE',
+        openingText
+    }
+    if (isEmit) socketService.emit('wap change', action);
+    return dispatch => dispatch(action);
+}
+
+export function chatAnswerTextChange(answerText, isEmit = true) {
+    const action = {
+        type: 'CHAT_ANSWER_TEXT_CHANGE',
+        answerText
+    }
+    if (isEmit) socketService.emit('wap change', action);
+    return dispatch => dispatch(action);
+}

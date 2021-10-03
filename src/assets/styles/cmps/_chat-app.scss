@@ -1,0 +1,39 @@
+.chat-app {
+    position: absolute;
+    right: 25px;
+    bottom: 25px;
+    .chat-zone {
+        background-color: white;
+        width: 330px;
+        position: absolute;
+        bottom: 0;
+        transform: translateX(-75%);
+
+        .chat-header {
+            background-color: blue;
+            height: 50px;
+            color: white;
+            position: relative;
+
+            .chat-close {
+                position: absolute;
+                left: 15px;
+                cursor: pointer;
+            }
+        }
+
+        .chat-body {
+            height: 330px;
+            overflow-y: scroll;
+        }
+
+        .chat-input-message {
+            flex-grow: 1;
+        }
+    }
+
+    .chat-open-chat {
+        cursor: pointer;
+        font-size: 4rem;
+    }
+}

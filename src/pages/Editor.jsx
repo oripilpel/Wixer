@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from 'react-redux';
 import { DndProvider } from "react-dnd";
 import { TouchBackend } from 'react-dnd-touch-backend'
@@ -22,12 +22,16 @@ import {
     updateComponent,
     setSelected,
     duplicateItem,
-    removeItem
+    removeItem,
+    setChatIsEnabled,
+    chatOpeningTextChange,
+    chatAnswerTextChange
 } from '../store/layout.actions'
 import { utilService } from "../services/util.service";
 import { eventBusService } from "../services/event-bus-service";
 import { socketService } from "../services/socket.service";
 import { wapService } from "../services/waps.service";
+import { ChatApp } from "../cmps/ChatApp";
 
 function _Editor(
     { match,
@@ -48,7 +52,11 @@ function _Editor(
         duplicateItem,
         saveWap,
         loadWap,
-        setWap
+        setWap,
+        chat,
+        setChatIsEnabled,
+        chatOpeningTextChange,
+        chatAnswerTextChange
     }) {
 
     const [historyUndo, setHitoryUndo] = useState([]);
@@ -256,10 +264,25 @@ function _Editor(
             return null;
         }
     }
+    const chatChange = ({ target }) => {
+        const { name, value } = target;
+        if (name === 'openingText') {
+            chatOpeningTextChange(value);
+        } else {
+            chatAnswerTextChange(value);
+        }
+    }
     return (
         <DndProvider backend={isMobile ? TouchBackend : HTML5Backend}>
             <div className={`editor ${debugMode ? 'debug' : ''}`}>
-                <SideBar selected={getSelected(selected)} update={onUpdateComponent} onUndo={onUndo} />
+                <SideBar
+                    selected={getSelected(selected)}
+                    update={onUpdateComponent}
+                    onUndo={onUndo}
+                    setChatIsEnabled={setChatIsEnabled}
+                    chatOpeningText={chat.openingText}
+                    chatAnswerText={chat.answerText}
+                    chatChange={chatChange} />
                 <div className="page-container">
                     <div className="page">
                         {cmps.map((section, index) => {
@@ -294,6 +317,7 @@ function _Editor(
                                 Drag element to start...
                             </div>
                         )}
+                        {chat.isEnabled && <ChatApp openingText={chat.openingText} answerText={chat.answerText} />}
                     </div>
                 </div>
             </div>
@@ -306,7 +330,8 @@ function mapStateToProps(state) {
         _id: state.layoutModule._id,
         cmps: state.layoutModule.cmps,
         selected: state.layoutModule.selected,
-        style: state.layoutModule.style
+        style: state.layoutModule.style,
+        chat: state.layoutModule.chat
     }
 }
 const mapDispatchToProps = {
@@ -322,7 +347,10 @@ const mapDispatchToProps = {
     setSelected,
     insert,
     duplicateItem,
-    removeItem
+    removeItem,
+    setChatIsEnabled,
+    chatOpeningTextChange,
+    chatAnswerTextChange
 }
 
 export const Editor = connect(mapStateToProps, mapDispatchToProps)(_Editor);
