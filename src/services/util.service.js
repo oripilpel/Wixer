@@ -1,6 +1,5 @@
 export const utilService = {
-    makeId,
-    debounce
+    makeId
 }
 
 function makeId(length = 10) {
@@ -28,12 +27,4 @@ export const translateStyle = (style) => {
     if (style.height) style.height = `${style.height}px`
     if (style.borderWidth) style.borderWidth = `${style.borderWidth}px`
     return style;
-}
-
-function debounce(func, timeout = 300) {
-    let timer;
-    return (...args) => {
-        clearTimeout(timer);
-        timer = setTimeout(() => { func.apply(this, args); }, timeout);
-    };
 }

@@ -149,6 +149,25 @@ export const SIDEBAR_ITEMS_BASIC = [
       style: {}
     }
   },
+  // {
+  //   id: utilService.makeId(),
+  //   type: SIDEBAR_ITEM,
+  //   name: 'Form',
+  //   icon: 'FromIcon',
+  //   component: {
+  //     type: 'form',
+  //     data:
+  //     {
+  //       name: '',
+  //       email: '',
+  //       phone: '',
+  //       subject: '',
+  //       msg: ''
+  //     }
+  //     ,
+  //     style: {}
+  //   }
+  // },
 ]
 
 export const SIDEBAR_ITEMS_NAV = [
