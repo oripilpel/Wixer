@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { connect } from 'react-redux';
 import { DndProvider } from "react-dnd";
 import { TouchBackend } from 'react-dnd-touch-backend'
@@ -21,6 +21,8 @@ import {
     moveToDifferentParent,
     updateComponent,
     setSelected,
+    duplicateItem,
+    removeItem
 } from '../store/layout.actions'
 import { utilService } from "../services/util.service";
 import { eventBusService } from "../services/event-bus-service";
@@ -86,7 +88,7 @@ function _Editor(
                 removeItem(action.item.splitItemPath, action.item.type, false);
                 break;
             case 'DUPLICATE_ITEM':
-                duplicateItem(action.splitItemPath, action.type, false);
+                duplicateItem(action.item.splitItemPath, action.item.type, false);
                 break;
             case 'MOVE_SIDEBAR_COMPONENT_INTO_PARENT':
                 moveSidebarComponentIntoParent(action.splitDropZonePath, action.newItem, false);
@@ -117,13 +119,13 @@ function _Editor(
         updateComponent(comp, field, value)
     }
 
-    const onUndo = (isEmit = true) => {
+    const onUndo = useCallback((isEmit = true) => {
         if (historyUndo.length === 1) return;
         if (isEmit) socketService.emit('wap change', { type: 'UNDO' });
         const lastStep = historyUndo[historyUndo.length - 2];
         setWap(_id, [...lastStep]);
         setHitoryUndo(historyUndo.slice(0, -2));
-    }
+    }, [historyUndo])
 
     const handleDrop =
         (dropZone, item) => {
@@ -317,6 +319,8 @@ const mapDispatchToProps = {
     updateComponent,
     setSelected,
     insert,
+    duplicateItem,
+    removeItem
 }
 
 export const Editor = connect(mapStateToProps, mapDispatchToProps)(_Editor);
