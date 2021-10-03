@@ -114,7 +114,7 @@ export const SIDEBAR_ITEMS_BASIC = [
     id: utilService.makeId(),
     type: SIDEBAR_ITEM,
     name: 'Social',
-    icon: 'SocialIcon',
+    icon: 'GroupAddIcon',
     component: {
       type: 'social',
       data: {

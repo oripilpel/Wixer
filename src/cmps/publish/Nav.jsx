@@ -2,6 +2,12 @@ import { useState } from "react"
 
 export function Nav({ style, data }) {
 
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+    const toggleMenu = (menuMode = !isMenuOpen) => {
+        setIsMenuOpen(menuMode)
+    }
+
     function Link({ link, hoverColor, color }) {
         const [c, setColor] = useState(color);
         return <a
@@ -12,14 +18,34 @@ export function Nav({ style, data }) {
                 setColor(color ? color : 'black')
             }}
             href={`#${link.txt}`}
-            style={{ padding:'5px',color: c }}
+            style={{ padding: '5px', color: c }}
             className="link"
 
         >{link.txt}</a>
     }
     return (
-        <nav style={style} className="nav clear-list">
-            {data.links.map((link, idx) => <Link link={link} color={style.color} hoverColor={data.hoverColor} key={`navlink${idx}`} className="clean-href" />)}
-        </nav>
+        <div className="publish-nav">
+            <div className={`screen ${isMenuOpen ? "active" : ""}`} onClick={() => toggleMenu(false)}></div>
+            <nav style={style} className={`nav clear-list links flex ${isMenuOpen ? "active" : ""}`}>
+                {data.links.map((link, idx) => {
+                    return (
+                        <Link
+                            key={`navlink${idx}`}
+                            className="clean-href link flex align-center"
+                            link={link}
+                            color={style.color}
+                            hoverColor={data.hoverColor}
+                            onClick={() => toggleMenu(false)}
+                        />
+                    )
+                })}
+            </nav>
+            <div className={`hamb-icon ${isMenuOpen ? "active" : ""}`} onClick={() => toggleMenu()}>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+        </div>
     )
 }

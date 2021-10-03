@@ -1,0 +1,101 @@
+.publish-nav {
+    width: 100%;
+    transition: 0.5s;
+    position: relative;
+    justify-content: end;
+    display: flex;
+    z-index: 5;
+    .links {
+        height: 100%;
+        align-items: center;
+        justify-content: space-between;
+        @media screen and (max-width: 720px) {
+            background-color: #f9f9f9eb;
+            display: flex;
+            width: 140px;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            position: fixed;
+            right: -175px;
+            top: 0;
+            padding-block-start: 100px;
+            box-shadow: 0 0px 20px 0px #00000042;
+            transition: 0.4s;
+            justify-content: start;
+        }
+        &.active {
+            right: 0;
+        }
+
+        .link {
+            order: 1;
+        }
+        a {
+            text-decoration: none;
+            cursor: pointer;
+            color: #000000;
+            font-size: 1.2rem;
+            &:hover,
+            &.active {
+                @media screen and (min-width: 721px) {
+                    box-shadow: inset 0px -1px 0px 0px #858585;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+
+    .hamb-icon {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        right: 26px;
+        cursor: pointer;
+        height: 35px;
+        width: 35px;
+        border: 1px solid black;
+        border-radius: 5px;
+        background-color: #f9f6f6;
+        div {
+            width: 25px;
+            height: 8px;
+            border-block-end: 2px solid black;
+            transition: 0.4s;
+            align-self: center;
+        }
+        div:nth-child(1) {
+            border-block-start: 2px solid black;
+            border-block-end: 0;
+        }
+        div:nth-child(2) {
+            height: 2px;
+        }
+        &.active div:nth-child(1) {
+            transform: translateY(7px) translateX(2px) rotate(-45deg);
+        }
+        &.active div:nth-child(2) {
+            opacity: 0;
+        }
+        &.active div:nth-child(3) {
+            transform: translateY(-7px) translateX(2px) rotate(45deg);
+        }
+        @media screen and (max-width: 720px) {
+            display: flex;
+        }
+    }
+
+    .screen {
+        display: none;
+        position: fixed;
+        background: #0000001a;
+        inset: 0;
+        pointer-events: none;
+        &.active {
+            display: block;
+            pointer-events: auto;
+            cursor: pointer;
+        }
+    }
+}
