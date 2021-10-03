@@ -1,9 +1,9 @@
 .section {
-    background-position: center;
     display: flex;
-    padding: 0;
     position: relative;
+    background-position: center;
     background-size: cover;
+    padding: 0;
     padding: 20px 0;
 
     .debug & {
