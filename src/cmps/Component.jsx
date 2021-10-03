@@ -74,7 +74,7 @@ const Component = ({ data, path, updateComponent, select, selected }) => {
   return (
     <div
       ref={ref}
-      style={{ opacity, height: 'fit-content' }}
+      style={{ opacity }}
       className="component draggable"
       onClick={onSelect}
       onMouseEnter={() => setActionsVisible(true)

@@ -53,7 +53,7 @@ export function Column({ data, handleDrop, path, updateComponent, onSelect, sele
   return (
     <div
       ref={ref}
-      style={{ ...style, opacity, width: (data.cmps?.length) ? 'fit-content' : '80px'}}
+      style={{ ...style, opacity }}
       className={`base draggable column flex direction-column ${selected && selected.id === data.id ? 'selected' : ''}`}
       onClick={select}
       onMouseEnter={() => setActionsVisible(true)}

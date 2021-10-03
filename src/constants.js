@@ -84,7 +84,8 @@ export const SIDEBAR_ITEMS_BASIC = [
       style: {
         borderRadius: '5px',
         border: 'none',
-        height: 50,
+        height: 'fit-content',
+        padding: '15px',
         minWidth: '150px',
         fontFamily: 'montserrat',
         backgroundColor: '#afafaf'
@@ -118,6 +119,8 @@ export const SIDEBAR_ITEMS_BASIC = [
     component: {
       type: 'social',
       data: {
+        backgroundColor: '#d3d3d3',
+        color: '#000000',
         socials: {
           facebook: {
             shown: true,
@@ -146,28 +149,28 @@ export const SIDEBAR_ITEMS_BASIC = [
 
         }
       },
+      style: { justifyContent: 'space-between' }
+    }
+  },
+  {
+    id: utilService.makeId(),
+    type: SIDEBAR_ITEM,
+    name: 'Form',
+    icon: 'FromIcon',
+    component: {
+      type: 'form',
+      data:
+      {
+        name: '',
+        email: '',
+        phone: '',
+        subject: '',
+        msg: ''
+      }
+      ,
       style: {}
     }
   },
-  // {
-  //   id: utilService.makeId(),
-  //   type: SIDEBAR_ITEM,
-  //   name: 'Form',
-  //   icon: 'FromIcon',
-  //   component: {
-  //     type: 'form',
-  //     data:
-  //     {
-  //       name: '',
-  //       email: '',
-  //       phone: '',
-  //       subject: '',
-  //       msg: ''
-  //     }
-  //     ,
-  //     style: {}
-  //   }
-  // },
 ]
 
 export const SIDEBAR_ITEMS_NAV = [
@@ -175,26 +178,30 @@ export const SIDEBAR_ITEMS_NAV = [
     id: utilService.makeId(),
     type: SIDEBAR_ITEM,
     component: {
-      style: { gap: 16, display: 'flex', color: '#000000' },
+      style: { gap: 16, display: 'flex', color: '#000000', fontSize: 25 },
       type: 'nav',
       data: {
         hoverColor: '#868686',
         links: [
           {
             id: utilService.makeId(),
-            txt: 'Reservation'
+            txt: 'Reservation',
+            url: ''
           },
           {
             id: utilService.makeId(),
-            txt: 'Menu'
+            txt: 'Menu',
+            url: ''
           },
           {
             id: utilService.makeId(),
-            txt: 'About'
+            txt: 'About',
+            url: ''
           },
           {
             id: utilService.makeId(),
-            txt: 'Contact'
+            txt: 'Contact',
+            url: ''
           },
         ]
       }
@@ -291,7 +298,8 @@ export const SIDEBAT_ITEMS_HEADER = [
                 flexDirection: 'column',
                 display: 'flex',
                 justifyContent: 'center',
-                alignItems: 'center'
+                alignItems: 'center',
+                fontSize: 25
               }
             },
             {
@@ -489,6 +497,7 @@ export const SIDEBAT_ITEMS_HEADER = [
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'flex-end',
+                fontSize: 25
               }
             }
           ]

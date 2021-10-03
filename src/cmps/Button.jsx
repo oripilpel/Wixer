@@ -9,6 +9,7 @@ export function Button({ style, data, update }) {
     return (
         <button
             className="btn"
+
             onMouseEnter={() => { setColor(data.hoverColor) }}
             onMouseLeave={() => { setColor(style.backgroundColor) }}
             style={{ ...style, backgroundColor: color }}

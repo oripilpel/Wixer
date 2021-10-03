@@ -10,7 +10,6 @@ export function ContactForm({ data, style, update }) {
         const { name, value } = target;
         const newForm = { ...form, [name]: value }
         setForm(newForm)
-        update('data', { newForm })
     }
 
     return (
@@ -20,12 +19,6 @@ export function ContactForm({ data, style, update }) {
                 value={form.name}
                 onChange={handleChange}
                 name="name"
-            />
-            <TextField
-                label="Email"
-                value={form.email}
-                onChange={handleChange}
-                name="email"
             />
             <TextField
                 label="Phone Number"
@@ -45,7 +38,10 @@ export function ContactForm({ data, style, update }) {
                 onChange={handleChange}
                 name="msg"
             />
-            <Button>send as email</Button>
+            <a className="flex" href={`mailto:name@email.com?subject=${form.subject}&body=from${form.name} phone number:${form.phone},
+            ${form.msg}`}>
+                <Button style={{ flex: 1 }} >send as email</Button>
+            </a>
         </div>
     )
 }
