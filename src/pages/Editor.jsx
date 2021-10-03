@@ -82,7 +82,7 @@ function _Editor(
     const wapChangeFromSocket = (action) => {
         switch (action.type) {
             case 'UNDO':
-                onUndo(false);
+                onUndo(false, action.lastStep);
                 break;
             case 'REMOVE_ITEM':
                 removeItem(action.item.splitItemPath, action.item.type, false);
@@ -119,13 +119,15 @@ function _Editor(
         updateComponent(comp, field, value)
     }
 
-    const onUndo = useCallback((isEmit = true) => {
+    const onUndo = (isEmit = true, socketLastStep = null) => {
         if (historyUndo.length === 1) return;
-        if (isEmit) socketService.emit('wap change', { type: 'UNDO' });
-        const lastStep = historyUndo[historyUndo.length - 2];
+        const lastStep = socketLastStep || historyUndo[historyUndo.length - 2];
         setWap(_id, [...lastStep]);
-        setHitoryUndo(historyUndo.slice(0, -2));
-    }, [historyUndo])
+        if (isEmit) {
+            socketService.emit('wap change', { type: 'UNDO', lastStep });
+            setHitoryUndo(historyUndo.slice(0, -2));
+        }
+    }
 
     const handleDrop =
         (dropZone, item) => {
