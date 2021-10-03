@@ -730,7 +730,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                   type: COMPONENT,
                   component: {
                     type: 'text',
-                    data: { txt: 'מורשת' },
+                    data: { txt: 'Legacy' },
                     style: {
                       color: '#9f835e',
                       fontSize: 40,
@@ -743,7 +743,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                   type: COMPONENT,
                   component: {
                     type: 'text',
-                    data: { txt: 'המורשת של מרצדס בנץ משתרעת על פני למעלה מ-125 שנים בהם ביססה החברה את מעמדה כאחת מיצרניות הרכב המובילות בעולם. מרצדס בנץ מילאה תפקיד מרכזי בהיסטוריה של תעשיית הרכב והייתה ועודנה חלוצה בתחומי הטכנולוגיה, הבטיחות, העיצוב, הספורט מוטורי והקיימות. ' },
+                    data: { txt: 'The legacy of Mercedes-Benz spans over 125 years in which the company has established its position as one of the leading car manufacturers in the world. Mercedes-Benz has played a key role in the history of the automotive industry and has been and still is a pioneer in the fields of technology, safety, design, motor sports and sustainability.' },
                     style: {
                       color: '#a09d9d',
                       fontSize: 15,
@@ -758,7 +758,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                   type: COMPONENT,
                   component: {
                     type: 'text',
-                    data: { txt: '< עוד על מורשת מרצדס-בנץ' },
+                    data: { txt: 'More about the heritage of Mercedes-Benz >' },
                     style: {
                       color: '#9f835e',
                       fontSize: 15,
@@ -807,7 +807,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                   component: {
                     type: 'button',
                     data: {
-                      txt: 'TV מרצדס',
+                      txt: 'Mercedes TV',
                       hoverColor: '#000000'
                     },
                     style: {
@@ -852,9 +852,9 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                   type: COMPONENT,
                   component: {
                     type: 'text',
-                    data: { txt: 'Stronger than Time- מרצדס G-Class' },
+                    data: { txt: 'Stronger than Time- Mercedes G-Class' },
                     style: {
-                      textAlign: 'right',
+                      textAlign: 'center',
                       fontFamily: 'Arial',
                       color: '#9f835e',
                       marginTop: 15,
@@ -887,7 +887,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     type: 'text',
                     data: { txt: "EQC- It's more than electric. It's a Mercedes" },
                     style: {
-                      textAlign: 'right',
+                      textAlign: 'center',
                       fontFamily: 'Arial',
                       color: '#9f835e',
                       marginTop: 15,
@@ -920,7 +920,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     type: 'text',
                     data: { txt: 'The new EQB' },
                     style: {
-                      textAlign: 'right',
+                      textAlign: 'center',
                       fontFamily: 'Arial',
                       color: '#9f835e',
                       marginTop: 15,
@@ -953,7 +953,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     type: 'text',
                     data: { txt: "The all-new EQA- It's more than electric. It's a Mercedes" },
                     style: {
-                      textAlign: 'right',
+                      textAlign: 'center',
                       fontFamily: 'Arial',
                       color: '#9f835e',
                       marginTop: 15,
@@ -991,9 +991,9 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                   type: COMPONENT,
                   component: {
                     type: 'text',
-                    data: { txt: 'GLE Coupe- חיית כבישים עם כל האבזור והטכנולוגיה שאפשר לבקש' },
+                    data: { txt: 'GLE Coupe - a road animal with all the equipment and technology you could ask for' },
                     style: {
-                      textAlign: 'right',
+                      textAlign: 'center',
                       fontFamily: 'Arial',
                       color: '#9f835e',
                       marginTop: 15,
@@ -1024,9 +1024,9 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                   type: COMPONENT,
                   component: {
                     type: 'text',
-                    data: { txt: "Mercedez AMG- לוקח אותך לקצה" },
+                    data: { txt: 'Mercedes AMG- takes you to the edge' },
                     style: {
-                      textAlign: 'right',
+                      textAlign: 'center',
                       fontFamily: 'Arial',
                       color: '#9f835e',
                       marginTop: 15,
@@ -1059,7 +1059,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     type: 'text',
                     data: { txt: 'GLA- The best Premium compact SUV' },
                     style: {
-                      textAlign: 'right',
+                      textAlign: 'center',
                       fontFamily: 'Arial',
                       color: '#9f835e',
                       marginTop: 15,
@@ -1092,9 +1092,9 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                   type: COMPONENT,
                   component: {
                     type: 'text',
-                    data: { txt: 'מרצדס S Class- רכב הפאר הטוב ביותר בעולם' },
+                    data: { txt: 'Mercedes S Class - the best luxury car in the world' },
                     style: {
-                      textAlign: 'right',
+                      textAlign: 'center',
                       fontFamily: 'Arial',
                       color: '#9f835e',
                       marginTop: 15,
@@ -1137,7 +1137,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     type: 'text',
                     data: { txt: 'The new E-Class Coupe : Made to be dynamic' },
                     style: {
-                      textAlign: 'right',
+                      textAlign: 'center',
                       fontFamily: 'Arial',
                       color: '#9f835e',
                       marginTop: 15,
@@ -1170,7 +1170,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     type: 'text',
                     data: { txt: 'E-Class Cabriolet - More then ever' },
                     style: {
-                      textAlign: 'right',
+                      textAlign: 'center',
                       fontFamily: 'Arial',
                       color: '#9f835e',
                       marginTop: 15,
@@ -1201,9 +1201,9 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                   type: COMPONENT,
                   component: {
                     type: 'text',
-                    data: { txt: 'AMG GT Black Series- ספורטיבית ללא פשרות' },
+                    data: { txt: 'AMG GT Black Series - uncompromisingly sporty' },
                     style: {
-                      textAlign: 'right',
+                      textAlign: 'center',
                       fontFamily: 'Arial',
                       color: '#9f835e',
                       marginTop: 15,
@@ -1236,9 +1236,9 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                   type: COMPONENT,
                   component: {
                     type: 'text',
-                    data: { txt: 'GLB- הצורה היפה ביותר של החופש ברכב הפנאי שייקח אותך לעולם של חוויות חדשות' },
+                    data: { txt: 'GLB- The most beautiful form of freedom in the recreational vehicle that will take you to a world of new experiences' },
                     style: {
-                      textAlign: 'right',
+                      textAlign: 'center',
                       fontFamily: 'Arial',
                       color: '#9f835e',
                       marginTop: 15,
@@ -1464,11 +1464,10 @@ export const SIDEBAR_ITEMS_FOOTER = [
                   component: {
                     type: 'text',
                     data: {
-                      txt: 'הידע והנתונים המופיעים באתר זה מתייחסים למגוון דגמים המשווקים במקומות שונים בעולם ומעודכנים למועד הבאת המקור הלועזי לתרגום. ייתכנו הבדלים בין התיאור המובא באתר זה לבין הדגמים המשווקים על-ידי חברתנו, הן מבחינת המפרט הטכני והן מבחינת האביזרים, הציוד והמערכות הנלוות. כמו כן ייתכנו הבדלים בדגם מסויים, בהתאם לשינויים הנעשים מזמן לזמן. חלק מהאביזרים ו/או המערכות המפורטים באתר זה מצוי רק בחלק מדגמי הרכבים, אין בפרסום המובא באתר זה כדי לחייב את היצרן ו/או את החברה בהספקת דגמים שיכללו את כל או חלק מהאביזרים, הציוד והמערכות המתוארים בו והם שומרים לעצמם את הזכות לבטל, להוסיף, לשנות ולשפר, ללא הודעה מוקדמת וללא עידכון באתר זה. התמונות באתר הינן להמחשה בלבד. האתר כפוף לשינוי ללא הודעה מוקדמת. ט.ל.ח.'
+                      txt: 'The knowledge and data that appear on this site refer to a variety of models that are marketed in different places in the world and are updated to the date of bringing the foreign source for translation. There may be differences between the description provided on this site and the models marketed by our company, both in terms of technical specifications and in terms of accessories, equipment and related systems. There may also be differences in a particular model, depending on the changes made from time to time. Some of the accessories and / or systems listed on this site are found only in some of the vehicle models, the publication presented on this site does not oblige the manufacturer and / or the company to supply models that include all or some of the accessories, equipment and systems described therein and reserve the right to cancel, add , Change and improve, without prior notice and without updating on this site. The photos on the site are for illustration only. The site is subject to change without notice. T.L.H.'
                     },
                     style: {
-                      color: '#A09D9D',
-                      textAlign: 'right'
+                      color: '#A09D9D'
                     }
                   }
                 }
@@ -1481,7 +1480,8 @@ export const SIDEBAR_ITEMS_FOOTER = [
           type: INNERSECTION,
           style: {
             backgroundImage: 'url(https://www.mercedes-benz.co.il/wp-content/uploads/social-bg-1.jpg)',
-            height: 175
+            height: 175,
+            alignItems: 'center'
           },
           cmps: [
             {
@@ -1497,7 +1497,7 @@ export const SIDEBAR_ITEMS_FOOTER = [
                   component: {
                     type: 'text',
                     data: {
-                      txt: '.מרצדס-בנץ באינסטגרם',
+                      txt: 'Mercedes-Benz on Instagram',
                     },
                     style: {
                       color: '#ffffff',
@@ -1511,7 +1511,7 @@ export const SIDEBAR_ITEMS_FOOTER = [
                   component: {
                     type: 'text',
                     data: {
-                      txt: '.כל העדכונים, החידושים, האירועים, הדגמים. ',
+                      txt: 'All updates, innovations, events, models.',
                     },
                     style: {
                       color: '#ffffff',
@@ -1525,7 +1525,7 @@ export const SIDEBAR_ITEMS_FOOTER = [
                   component: {
                     type: 'button',
                     data: {
-                      txt: 'עקבו אחרינו',
+                      txt: 'Follow us',
                       hoverColor: '#00abec'
                     },
                     style: {
@@ -1548,6 +1548,7 @@ export const SIDEBAR_ITEMS_FOOTER = [
           id: utilService.makeId(),
           type: INNERSECTION,
           style: {
+            paddingTop: 20,
             alignSelf: 'center',
             backgroundColor: '#000000'
           },
@@ -1568,12 +1569,11 @@ export const SIDEBAR_ITEMS_FOOTER = [
                     type: 'text',
                     style: {
                       color: '#ffffff',
-                      textAlign: 'right',
                       paddingBottom: 30,
                       fontFamily: 'Arial',
                     },
                     data: {
-                      txt: 'מוקד מכירות מרצדס-בנץ 9996*'
+                      txt: 'Mercedes-Benz *9996'
                     }
                   }
                 },
@@ -1585,12 +1585,11 @@ export const SIDEBAR_ITEMS_FOOTER = [
                     type: 'text',
                     style: {
                       color: '#ffffff',
-                      textAlign: 'right',
                       paddingBottom: 30,
                       fontFamily: 'Arial',
                     },
                     data: {
-                      txt: 'שירות לקוחות: טל. 03-9153030'
+                      txt: 'Customer service: Tel. 03-9153030'
                     }
                   }
                 },
@@ -1602,11 +1601,10 @@ export const SIDEBAR_ITEMS_FOOTER = [
                     type: 'text',
                     style: {
                       color: '#a09d9d',
-                      textAlign: 'right',
                       fontFamily: 'Arial',
                     },
                     data: {
-                      txt: 'מדיניות פרטיות'
+                      txt: 'Privacy Policy'
                     }
                   }
                 },
@@ -1618,11 +1616,10 @@ export const SIDEBAR_ITEMS_FOOTER = [
                     type: 'text',
                     style: {
                       color: '#a09d9d',
-                      textAlign: 'right',
                       fontFamily: 'Arial'
                     },
                     data: {
-                      txt: 'תנאי שימוש'
+                      txt: 'Terms of Use'
                     }
                   }
                 },
@@ -1634,11 +1631,10 @@ export const SIDEBAR_ITEMS_FOOTER = [
                     type: 'text',
                     style: {
                       color: '#a09d9d',
-                      textAlign: 'right',
                       fontFamily: 'Arial'
                     },
                     data: {
-                      txt: 'הצהרת נגישות'
+                      txt: 'Accessibility statement'
                     }
                   }
                 }
@@ -1660,11 +1656,10 @@ export const SIDEBAR_ITEMS_FOOTER = [
                     type: 'text',
                     style: {
                       color: '#a09d9d',
-                      textAlign: 'right',
                       fontFamily: 'Arial'
                     },
                     data: {
-                      txt: 'מדדי זיהום אויר וצריכת דלק'
+                      txt: 'Air pollution and fuel consumption indices'
                     }
                   }
                 },
@@ -1676,11 +1671,10 @@ export const SIDEBAR_ITEMS_FOOTER = [
                     type: 'text',
                     style: {
                       color: '#a09d9d',
-                      textAlign: 'right',
                       fontFamily: 'Arial'
                     },
                     data: {
-                      txt: 'מחירון חלפים מרצדס'
+                      txt: 'Price list for Mercedes spare parts'
                     }
                   }
                 },
@@ -1692,11 +1686,10 @@ export const SIDEBAR_ITEMS_FOOTER = [
                     type: 'text',
                     style: {
                       color: '#a09d9d',
-                      textAlign: 'right',
                       fontFamily: 'Arial'
                     },
                     data: {
-                      txt: 'אודות מרצדס-בנץ'
+                      txt: 'About Mercedes-Benz'
                     }
                   }
                 },
@@ -1708,11 +1701,10 @@ export const SIDEBAR_ITEMS_FOOTER = [
                     type: 'text',
                     style: {
                       color: '#a09d9d',
-                      textAlign: 'right',
                       fontFamily: 'Arial'
                     },
                     data: {
-                      txt: 'שירות לקוחות'
+                      txt: 'Customer Service'
                     }
                   }
                 },
@@ -1724,11 +1716,10 @@ export const SIDEBAR_ITEMS_FOOTER = [
                     type: 'text',
                     style: {
                       color: '#a09d9d',
-                      textAlign: 'right',
                       fontFamily: 'Arial'
                     },
                     data: {
-                      txt: 'צור קשר'
+                      txt: 'Contact Us'
                     }
                   }
                 },
@@ -1740,11 +1731,10 @@ export const SIDEBAR_ITEMS_FOOTER = [
                     type: 'text',
                     style: {
                       color: '#a09d9d',
-                      textAlign: 'right',
                       fontFamily: 'Arial'
                     },
                     data: {
-                      txt: 'מגזין מרצדס Star'
+                      txt: 'Mercedes Star Magazine'
                     }
                   }
                 }
@@ -1756,7 +1746,6 @@ export const SIDEBAR_ITEMS_FOOTER = [
               style: {
                 paddingRight: 25,
                 borderRight: '1px solid #555',
-                textAlign: 'right'
               },
               cmps: [
                 {
@@ -1782,11 +1771,10 @@ export const SIDEBAR_ITEMS_FOOTER = [
                     type: 'text',
                     style: {
                       color: '#ffffff',
-                      textAlign: 'right',
                       fontFamily: 'Arial'
                     },
                     data: {
-                      txt: 'מרצדס בנץ ישראל הוקמה על ידי חברת כלמוביל בשנת 1963, והייתה ליבואנית הראשונה של מכוניות יוקרה בישראל. מרצדס בנץ ישראל היא חלק מחברת כלמוביל שנוסדה בשנת 1936 ונמצאת בבעלות משפחת חרל"פ. קבוצת כלמוביל היא יבואנית הרכב המובילה בישראל הן של כלי רכב פרטיים, והן של כלי רכב מסחריים, משאיות ואוטובוסים לישראל.'
+                      txt: 'Mercedes Benz Israel was founded by Colmobil in 1963, and was the first importer of luxury cars in Israel. Mercedes Benz Israel is part of Colmobil, which was founded in 1936 and is owned by the Harlap family. The Colmobil Group is the leading car importer in Israel of both private vehicles and commercial vehicles, trucks and buses to Israel.'
                     }
                   }
                 }
