@@ -10,6 +10,7 @@ import { Button } from "./Button";
 import { Actions } from "./Actions";
 import { GMap } from "./GMap";
 import { SocialIcons } from "./SocialIcons";
+import { ContactForm } from "./Form";
 
 const Component = ({ data, path, updateComponent, select, selected }) => {
   const ref = useRef(null);
@@ -41,7 +42,8 @@ const Component = ({ data, path, updateComponent, select, selected }) => {
     nav: Nav,
     button: Button,
     GMap: GMap,
-    social: SocialIcons
+    social: SocialIcons,
+    form: ContactForm
   };
 
   const onSelect = (ev) => {

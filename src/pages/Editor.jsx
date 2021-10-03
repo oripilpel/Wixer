@@ -8,6 +8,7 @@ import { SIDEBAR_ITEM, COMPONENT, COLUMN, SECTION, SIDEBAR_COLUMN, SIDEBAR_INNER
 import { DropZone } from "../cmps/DropZone";
 import { Section } from "../cmps/Section";
 import { SideBar } from "../cmps/SideBar";
+
 import {
     insert,
     saveWap,
@@ -113,14 +114,14 @@ function _Editor(
     }
 
     const onUpdateComponent = (comp, field, value) => {
-        updateComponent(comp, field, value);
+        updateComponent(comp, field, value)
     }
 
     const onUndo = (isEmit = true) => {
         if (historyUndo.length === 1) return;
         if (isEmit) socketService.emit('wap change', { type: 'UNDO' });
         const lastStep = historyUndo[historyUndo.length - 2];
-        setWap( _id, [...lastStep] );
+        setWap(_id, [...lastStep]);
         setHitoryUndo(historyUndo.slice(0, -2));
     }
 
