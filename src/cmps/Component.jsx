@@ -10,6 +10,7 @@ import { Button } from "./Button";
 import { Actions } from "./Actions";
 import { GMap } from "./GMap";
 import { SocialIcons } from "./SocialIcons";
+import { Carousel } from "./Carousel";
 import { ContactForm } from "./Form";
 
 const Component = ({ data, path, updateComponent, select, selected }) => {
@@ -43,6 +44,7 @@ const Component = ({ data, path, updateComponent, select, selected }) => {
     button: Button,
     GMap: GMap,
     social: SocialIcons,
+    carousel: Carousel,
     form: ContactForm
   };
 

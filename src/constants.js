@@ -1,4 +1,3 @@
-import { Instagram } from '@mui/icons-material';
 import { utilService } from './services/util.service';
 
 export const SIDEBAR_SECTION = 'sidebarSection'
@@ -147,6 +146,41 @@ export const SIDEBAR_ITEMS_BASIC = [
         }
       },
       style: {}
+    }
+  },
+  {
+    id: utilService.makeId(),
+    type: SIDEBAR_ITEM,
+    name: 'carousel',
+    icon: 'ViewCarouselIcon',
+    component: {
+      type: 'carousel',
+      data: {
+        images: [
+          {
+            id: utilService.makeId(),
+            label: 'San Francisco',
+            imgPath:
+              'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format',
+          },
+          {
+            id: utilService.makeId(),
+            label: 'Bird',
+            imgPath:
+              'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format',
+          },
+          {
+            id: utilService.makeId(),
+            label: 'Bali, Indonesia',
+            imgPath:
+              'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format',
+          }
+        ]
+      },
+      style: {
+        display: 'flex',
+        justifyContent: 'center'
+      }
     }
   },
   // {

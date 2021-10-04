@@ -5,6 +5,7 @@ import { translateStyle } from "../services/util.service";
 import { Image } from "../cmps/Image";
 import { Text } from "../cmps/publish/Text";
 import { Video } from "../cmps/Video";
+import { Carousel } from "../cmps/Carousel";
 import { Nav } from "../cmps/publish/Nav";
 import { Button } from "../cmps/publish/Button";
 import { SocialIcons } from "../cmps/publish/SocialIcons"
@@ -17,7 +18,8 @@ function _Publish({ match, cmps, loadWap }) {
         video: Video,
         nav: Nav,
         button: Button,
-        social: SocialIcons
+        social: SocialIcons,
+        carousel: Carousel
     };
 
     useEffect(() => {
