@@ -1,4 +1,3 @@
-import { Instagram } from '@mui/icons-material';
 import { utilService } from './services/util.service';
 
 export const SIDEBAR_SECTION = 'sidebarSection'
@@ -341,6 +340,7 @@ export const SIDEBAT_ITEMS_HEADER = [
           style: {
             flexGrow: 1,
             padding: '0 25px',
+            alignItems: 'center'
           },
         }
       ],
@@ -539,9 +539,8 @@ export const SIDEBAR_ITEMS_SECTIONS = [
           type: INNERSECTION,
           style: {
             maxWidth: '1060px',
-            padding: '0 25px',
             margin: 'auto',
-            // alignItems: 'center',
+            alignItems: 'center',
           },
           cmps: [
             {

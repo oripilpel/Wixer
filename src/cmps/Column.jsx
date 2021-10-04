@@ -54,7 +54,7 @@ export function Column({ data, handleDrop, path, updateComponent, onSelect, sele
     <div
       ref={ref}
       style={{ ...style, opacity }}
-      className={`base draggable column flex direction-column ${selected && selected.id === data.id ? 'selected' : ''}`}
+      className={`base draggable column flex direction-column ${selected && selected.id === data.id ? 'selected' : ''} ${actionsVisible ? 'element-hover' : ''}`}
       onClick={select}
       onMouseEnter={() => setActionsVisible(true)}
       onMouseLeave={() => setActionsVisible(false)}

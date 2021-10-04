@@ -9,9 +9,7 @@
     .debug & {
         border: 1px solid $sectionBorderColor !important;
     }
-    .editor & {
-        outline: $borderEditMode;
-    }
+ 
     .columns {
         display: flex;
         padding: 20px 0;

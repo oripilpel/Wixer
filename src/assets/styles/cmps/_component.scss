@@ -4,10 +4,6 @@
     position: relative;
     height: 100%;
 
-    .editor & {
-        outline: $borderEditMode;
-    }
-
     .component:focus{ 
         border-color: red;
     }

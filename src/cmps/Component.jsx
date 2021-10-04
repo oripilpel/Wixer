@@ -75,7 +75,7 @@ const Component = ({ data, path, updateComponent, select, selected }) => {
     <div
       ref={ref}
       style={{ opacity }}
-      className="component draggable"
+      className={`component draggable ${actionsVisible ? 'element-hover' : ''}`}
       onClick={onSelect}
       onMouseEnter={() => setActionsVisible(true)
       }

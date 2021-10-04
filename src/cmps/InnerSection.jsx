@@ -58,7 +58,7 @@ export function InnerSection({ data, components, handleDrop, path, updateCompone
             ref={ref}
             style={{ ...style, opacity }}
             onClick={select}
-            className="base draggable innersection flex"
+            className={`base draggable innersection flex ${actionsVisible ? 'element-hover' : ''}` }
             onMouseEnter={() => setActionsVisible(true)}
             onMouseLeave={() => setActionsVisible(false)}>
             {data.cmps.map((column, index) => {
