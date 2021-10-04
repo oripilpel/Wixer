@@ -1,8 +1,27 @@
 .template-list {
     min-height: 500px;
     padding-block-start: 50px;
+    padding-block-end: 50px;
     h2 {
+        font-family: montserrat-medium;
+        font-weight: 400;
         text-align: center;
         font-size: 1.8rem;
+    }
+    .show-all {
+        font-family: montserrat-medium;
+        cursor: pointer;
+        font-size: 1.3rem;
+        a {
+            display: flex;
+            align-items: center;
+            color: #293241;
+            text-decoration: none;
+            text-align: center;
+            svg {
+                font-size: 2.3rem;
+                padding-block-start: 3px;
+            }
+        }
     }
 }

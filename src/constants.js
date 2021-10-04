@@ -155,7 +155,7 @@ export const SIDEBAR_ITEMS_BASIC = [
     id: utilService.makeId(),
     type: SIDEBAR_ITEM,
     name: 'Form',
-    icon: 'FromIcon',
+    icon: 'EmailIcon',
     component: {
       type: 'form',
       data:

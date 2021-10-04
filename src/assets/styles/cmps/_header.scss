@@ -15,7 +15,7 @@
 
     .logo {
         font-size: 40px;
-        font-family: courgette;
+        font-family: orbitron;
         transition: 0.5s;
 
         img {
@@ -69,7 +69,8 @@
             &:hover,
             &.active {
                 @media screen and (min-width: 721px) {
-                    box-shadow: inset 0px -3px 0px 0px #0b6fb7;
+                    box-shadow: inset 0px -2px 0px 0px #0b6fb7;
+                    transition: box-shadow 0.4s, color 0.2s;
                     font-weight: bold;
                 }
             }
@@ -78,12 +79,12 @@
 
     &.min {
         height: 30px;
-        padding-inline-start: 48px;
-        padding-inline-end: 10px;
+        padding: 0 20px;
+        background-color: #293241;
         .logo {
             font-size: 25px;
-            img {
-                height: 25px;
+            a {
+                color: #ffffff;
             }
         }
         .hamb-icon {
@@ -101,6 +102,15 @@
             &.active div:nth-child(3) {
                 position: relative;
                 top: 2px;
+            }
+        }
+        .links {
+            a {
+                color: #ffffff;
+                font-size: 1rem;
+                &.active, &:hover {
+                    box-shadow: inset 0px -2px 0px 0px #ffffff;
+                }
             }
         }
     }
