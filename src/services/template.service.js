@@ -2,7 +2,8 @@ import Plus from '../assets/img/plus.svg';
 import Restaurant from '../assets/img/restaurant.jpeg';
 import mercedes from '../assets/img/mercedes.jpg'
 export const templateService = {
-    getAmountOfTemplates
+    getAmountOfTemplates,
+    gTemplatesIds
 }
 const gTemplates = [
     {
@@ -42,10 +43,16 @@ const gTemplates = [
     },
 ]
 
+const temlatesIds = gTemplates.map(template => template.json)
+
 function getAmountOfTemplates(amount = 0) {
     if (!amount) return gTemplates
     const templates = gTemplates.slice(0, amount)
     return templates;
+}
+
+function gTemplatesIds() {
+    return temlatesIds
 }
 
 
