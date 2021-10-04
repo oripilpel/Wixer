@@ -2,18 +2,22 @@
     position: absolute;
     right: 25px;
     bottom: 25px;
+
     .chat-zone {
         background-color: white;
         width: 330px;
         position: absolute;
         bottom: 0;
-        transform: translateX(-75%);
+        transform: translate(-68%, 1%);
+        border-radius: 15px;
 
         .chat-header {
-            background-color: blue;
+            background-color: #1e8fe0;;
             height: 50px;
             color: white;
             position: relative;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
 
             .chat-close {
                 position: absolute;
@@ -35,5 +39,32 @@
     .chat-open-chat {
         cursor: pointer;
         font-size: 4rem;
+
+        i {
+            background-color: #1e8fe0;
+            padding: 16px;
+            border-radius: 50%;
+            color: white;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0px 0px 5px 3px #bfb5b5;
+        }
+    }
+    
+    button {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+
+        i {
+            background-color: #1e8fe0;;
+            padding: 10px;
+            border-radius: 100%;
+            color: white;
+            font-size: 1.5rem;
+        }
     }
 }
