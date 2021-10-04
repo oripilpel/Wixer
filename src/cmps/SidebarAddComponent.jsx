@@ -72,7 +72,7 @@ export function SidebarAddComponent({ isElementClicked, setHints, setChatIsEnabl
                 </AccordionSummary>
                 <AccordionDetails className='flex direction-column align-center' >
                     <div className="side-bar-item flex justify-center">
-                        <input type="checkbox" name="chat" id="chat" defaultChecked={JSON.stringify(chatIsEnabled)} onChange={onToggleChat} />
+                        <input type="checkbox" name="chat" id="chat" checked={chatIsEnabled} onChange={onToggleChat} />
                         <label htmlFor="chat">Enable chat</label>
                     </div>
                     <div className="row">
