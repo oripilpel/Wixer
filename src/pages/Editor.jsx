@@ -143,7 +143,6 @@ function _Editor(
 
     const handleDrop =
         (dropZone, item) => {
-            debugger
             const splitDropZonePath = dropZone.path.split("-");
             const pathToDropZone = splitDropZonePath.slice(0, -1).join("-");
 
