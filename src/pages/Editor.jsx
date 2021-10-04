@@ -287,6 +287,7 @@ function _Editor(
                     setChatIsEnabled={setChatIsEnabled}
                     chatOpeningText={chat.openingText}
                     chatAnswerText={chat.answerText}
+                    chatIsEnabled={chat.isEnabled}
                     chatChange={chatChange} />
                 <div className="page-container">
                     <div className="page">

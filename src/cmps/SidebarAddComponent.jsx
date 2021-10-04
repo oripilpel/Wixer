@@ -4,7 +4,7 @@ import { SideBarItem } from "./SideBarItem";
 import { Accordion, AccordionSummary, AccordionDetails } from './Accordion';
 import { SIDEBAR_ITEMS_BASIC, SIDEBAR_ITEMS_FOOTER, SIDEBAR_ITEMS_NAV, SIDEBAR_ITEMS_SECTIONS, SIDEBAT_ITEMS_HEADER } from "../constants";
 
-export function SidebarAddComponent({ isElementClicked, setHints, setChatIsEnabled, chatOpeningText, chatAnswerText, chatChange }) {
+export function SidebarAddComponent({ isElementClicked, setHints, setChatIsEnabled,chatIsEnabled, chatOpeningText, chatAnswerText, chatChange }) {
     const [expanded, setExpanded] = React.useState('header')
     const handleChange = (panel) => (event, newExpanded) => {
         setExpanded(newExpanded ? panel : false);
@@ -72,7 +72,7 @@ export function SidebarAddComponent({ isElementClicked, setHints, setChatIsEnabl
                 </AccordionSummary>
                 <AccordionDetails className='flex direction-column align-center' >
                     <div className="side-bar-item flex justify-center">
-                        <input type="checkbox" name="chat" id="chat" onChange={onToggleChat} />
+                        <input type="checkbox" name="chat" id="chat" checked={chatIsEnabled} onChange={onToggleChat} />
                         <label htmlFor="chat">Enable chat</label>
                     </div>
                     <div className="row">

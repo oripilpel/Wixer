@@ -3,7 +3,7 @@ import { TextField } from "@mui/material";
 
 export function ChatApp({ openingText, answerText }) {
     const [isChatVisible, setIsChatVisible] = useState(false)
-    const [chat, setChat] = useState([openingText]);
+    const [chat, setChat] = useState([{ sender: 'site', txt: openingText }]);
     const [currentMessage, setCurrentMessage] = useState('');
 
     let timeout = null;
@@ -18,12 +18,12 @@ export function ChatApp({ openingText, answerText }) {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        const newChat = [...chat, currentMessage];
+        const newChat = [...chat, { sender: 'user', txt: currentMessage }];
         setChat(newChat);
         setCurrentMessage('');
         if (timeout) clearTimeout(timeout);
         timeout = setTimeout(() => {
-            setChat([...newChat, answerText]);
+            setChat([...newChat, { sender: 'site', txt: answerText }]);
         }, 3000, chat);
     }
     const onChange = ({ target }) => {
@@ -38,7 +38,7 @@ export function ChatApp({ openingText, answerText }) {
                 </div>
                 <div className="chat-body">
                     <ul>
-                        {chat.map((message, idx) => <li key={idx}>{message}</li>)}
+                        {chat.map((message, idx) => <li key={idx} className={`flex align-center ${message.sender === 'site' ? 'chat-message-site' : 'chat-message-user justify-end'}`}>{message.txt}</li>)}
                     </ul>
                 </div>
                 <form className="flex" onSubmit={onSubmit}>
