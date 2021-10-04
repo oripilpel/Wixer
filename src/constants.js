@@ -83,9 +83,9 @@ export const SIDEBAR_ITEMS_BASIC = [
       style: {
         borderRadius: '5px',
         border: 'none',
-        height: 'fit-content',
+        height: '50px',
         padding: '15px',
-        minWidth: '150px',
+        width: '150px',
         fontFamily: 'montserrat',
         backgroundColor: '#afafaf'
       }
@@ -168,6 +168,41 @@ export const SIDEBAR_ITEMS_BASIC = [
       }
       ,
       style: {}
+    }
+  },
+  {
+    id: utilService.makeId(),
+    type: SIDEBAR_ITEM,
+    name: 'carousel',
+    icon: 'ViewCarouselIcon',
+    component: {
+      type: 'carousel',
+      data: {
+        images: [
+          {
+            id: utilService.makeId(),
+            label: 'San Francisco',
+            imgPath:
+              'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format',
+          },
+          {
+            id: utilService.makeId(),
+            label: 'Bird',
+            imgPath:
+              'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format',
+          },
+          {
+            id: utilService.makeId(),
+            label: 'Bali, Indonesia',
+            imgPath:
+              'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format',
+          }
+        ]
+      },
+      style: {
+        display: 'flex',
+        justifyContent: 'center'
+      }
     }
   },
 ]
@@ -321,7 +356,7 @@ export const SIDEBAT_ITEMS_HEADER = [
                       backgroundColor: '#7c6c50',
                       border: 0,
                       height: 50,
-                      width: 150,
+                      maxWidth: 150,
                       cursor: 'pointer'
                     }
                   }

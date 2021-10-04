@@ -38,7 +38,7 @@ export function ContactForm({ data, style, update }) {
                 onChange={handleChange}
                 name="msg"
             />
-            <a className="flex" href={`mailto:name@email.com?subject=${form.subject}&body=from${form.name} phone number:${form.phone},
+            <a className="flex link" href={`mailto:name@email.com?subject=${form.subject}&body=from${form.name} phone number:${form.phone},
             ${form.msg}`}>
                 <Button style={{ flex: 1 }} >send as email</Button>
             </a>

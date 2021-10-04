@@ -8,7 +8,7 @@ export function ButtonEdit({ style, onUpdate, data }) {
         setExpanded(newExpanded ? panel : false);
     };
 
-    const { fontSize, color, fontFamily, textAlign, backgroundColor } = style
+    const { fontSize, color, fontFamily, textAlign, backgroundColor, height, width } = style
     function onChange({ target }) {
         const { name, value } = target;
         const newStyle = { ...style, [name]: value };
@@ -40,6 +40,21 @@ export function ButtonEdit({ style, onUpdate, data }) {
                     <div className="flex justify-between">
                         <label htmlFor="hoverColor">Hover</label>
                         <input type="color" name="hoverColor" id="hoverColor" value={data.hoverColor} onChange={updateHoverColor} />
+                    </div>
+                </AccordionDetails>
+            </Accordion>
+            <Accordion expanded={expanded === 'size'} onChange={handleChange('size')}>
+                <AccordionSummary>
+                    Size
+                </AccordionSummary>
+                <AccordionDetails>
+                    <div className="flex justify-between">
+                        <label htmlFor="height">Height</label>
+                        <input type="color" name="height" id="height" value={height} onChange={onChange} />
+                    </div>
+                    <div className="flex justify-between">
+                        <label htmlFor="width">Width</label>
+                        <input type="color" name="width" id="width" value={width} onChange={updateHoverColor} />
                     </div>
                 </AccordionDetails>
             </Accordion>
