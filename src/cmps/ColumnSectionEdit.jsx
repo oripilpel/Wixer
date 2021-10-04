@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { uploadImg } from '../services/cloudinary-service';
 import { MarginEdit } from "./MarginEdit";
 import { PaddingEdit } from "./PaddingEdit";
@@ -62,7 +62,7 @@ export function ColumnSectionEdit({ style, onUpdate }) {
                         </div>
                     </div>
                     <ImageUpload label="Upload image" onUpload={(ev) => uploadImg(ev).then(url => onUploadImage(url))} />
-                    <ImageSearch onSelect={onUploadImage}/>
+                    <ImageSearch onSelect={onUploadImage} />
                 </AccordionDetails>
             </Accordion>
             <Accordion expanded={expanded === 'size'} onChange={handleChange('size')}>

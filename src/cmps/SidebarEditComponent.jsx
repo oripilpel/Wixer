@@ -22,7 +22,7 @@ export function SidebarEditComponent({ type, style, data, onUpdate }) {
         case 'image':
             return <ImageEdit style={style} onUpdate={onUpdate} />
         case 'button':
-            return <ButtonEdit style={style} onUpdate={onUpdate} />
+            return <ButtonEdit style={style} onUpdate={onUpdate} data={data} />
         case 'video':
             return <VideoEdit style={style} onUpdate={onUpdate} data={data} />
         case 'GMap':

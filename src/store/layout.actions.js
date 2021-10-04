@@ -9,7 +9,12 @@ export function saveWap(wap) {
                 type: 'SET_WAP',
                 _id: savedWap._id,
                 cmps: savedWap.cmps,
-                style: savedWap.style
+                style: savedWap.style,
+                chat: wap.chat || {
+                    isEnabled: false,
+                    openingText: "Hey ☺ \n I'm the digital representative, how can I help you?",
+                    answerText: "Thank you for contacting us, we will reach back to you in a short time."
+                }
             });
         }
         catch (err) {
@@ -26,7 +31,12 @@ export function loadWap(wapId) {
                 type: 'SET_WAP',
                 _id: wap._id,
                 cmps: wap.cmps,
-                style: wap.style
+                style: wap.style,
+                chat: wap.chat || {
+                    isEnabled: false,
+                    openingText: "Hey ☺ \n I'm the digital representative, how can I help you?",
+                    answerText: "Thank you for contacting us, we will reach back to you in a short time."
+                }
             });
         }
         catch (err) {
@@ -145,4 +155,31 @@ export function reorderColumns(cmps, itemIdx, hoverIdx, path) {
         type: 'REORDER_COLUMNS',
         props: { cmps, path, itemIdx, hoverIdx }
     })
+}
+
+export function setChatIsEnabled(isChatEnabled, isEmit = true) {
+    const action = {
+        type: 'SET_CHAT_ENABLED',
+        isChatEnabled
+    }
+    if (isEmit) socketService.emit('wap change', action);
+    return dispatch => dispatch(action);
+}
+
+export function chatOpeningTextChange(openingText, isEmit = true) {
+    const action = {
+        type: 'CHAT_OPENING_TEXT_CHANGE',
+        openingText
+    }
+    if (isEmit) socketService.emit('wap change', action);
+    return dispatch => dispatch(action);
+}
+
+export function chatAnswerTextChange(answerText, isEmit = true) {
+    const action = {
+        type: 'CHAT_ANSWER_TEXT_CHANGE',
+        answerText
+    }
+    if (isEmit) socketService.emit('wap change', action);
+    return dispatch => dispatch(action);
 }

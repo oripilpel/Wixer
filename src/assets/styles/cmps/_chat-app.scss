@@ -1,0 +1,96 @@
+.chat-app {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    
+    .chat-zone {
+        background-color: white;
+        width: 330px;
+        position: absolute;
+        bottom: 0;
+        transform: translate(-68%, 1%);
+        border-radius: 15px;
+        box-shadow: 0px 0px 5px 3px #bfb5b5;
+
+        .chat-header {
+            background-color: #1e8fe0;
+            height: 50px;
+            color: white;
+            position: relative;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+
+            .chat-close {
+                position: absolute;
+                left: 15px;
+                cursor: pointer;
+            }
+        }
+
+        .chat-body {
+            height: 330px;
+            overflow-y: scroll;
+
+            ul {
+                padding: 0; 
+
+                li:not(:last-child) {
+                    margin-bottom: 10px;
+                }
+            }
+
+            .chat-message-site::before {
+                content: '';
+                width: 80px;
+                height: 40px;
+                background-image: url(../../img/site-avatar.jpg);
+                background-size: contain;
+            }
+
+            .chat-message-user::after {
+                content: '';
+                width: 40px;
+                height: 38px;
+                background-image: url(../../img/user-avatar.png);
+                background-size: contain;
+                margin: 0 10px;
+            }
+        }
+
+        .chat-input-message {
+            flex-grow: 1;
+        }
+    }
+
+    .chat-open-chat {
+        cursor: pointer;
+        font-size: 4rem;
+
+        i {
+            background-color: #1e8fe0;
+            padding: 16px;
+            border-radius: 50%;
+            color: white;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0px 0px 5px 3px #bfb5b5;
+        }
+    }
+    
+    button {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+
+        i {
+            background-color: #1e8fe0;;
+            padding: 10px;
+            border-radius: 100%;
+            color: white;
+            font-size: 1.5rem;
+        }
+    }
+}

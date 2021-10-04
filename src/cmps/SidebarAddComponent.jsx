@@ -1,13 +1,17 @@
 import React from "react";
+import { TextareaAutosize } from "@material-ui/core";
 import { SideBarItem } from "./SideBarItem";
 import { Accordion, AccordionSummary, AccordionDetails } from './Accordion';
 import { SIDEBAR_ITEMS_BASIC, SIDEBAR_ITEMS_FOOTER, SIDEBAR_ITEMS_NAV, SIDEBAR_ITEMS_SECTIONS, SIDEBAT_ITEMS_HEADER } from "../constants";
 
-export function SidebarAddComponent({ isElementClicked, setHints }) {
+export function SidebarAddComponent({ isElementClicked, setHints, setChatIsEnabled,chatIsEnabled, chatOpeningText, chatAnswerText, chatChange }) {
     const [expanded, setExpanded] = React.useState('header')
     const handleChange = (panel) => (event, newExpanded) => {
         setExpanded(newExpanded ? panel : false);
     };
+    const onToggleChat = ({ target }) => {
+        setChatIsEnabled(target.checked);
+    }
     return (
         <div className="sidebar-add-component">
             <Accordion expanded={expanded === 'header'} onChange={handleChange('header')}>
@@ -17,7 +21,7 @@ export function SidebarAddComponent({ isElementClicked, setHints }) {
                 <AccordionDetails className="header-items">
                     {Object.values(SIDEBAT_ITEMS_HEADER).map((sideBarItem, index) => (
                         <SideBarItem key={sideBarItem.id} data={sideBarItem} type={sideBarItem.type}
-                        isElementClicked={isElementClicked} setHints={setHints} />
+                            isElementClicked={isElementClicked} setHints={setHints} />
                     ))}
                 </AccordionDetails>
             </Accordion>
@@ -60,6 +64,52 @@ export function SidebarAddComponent({ isElementClicked, setHints }) {
                         <SideBarItem key={sideBarItem.id}
                             data={sideBarItem} type={sideBarItem.type} />
                     ))}
+                </AccordionDetails>
+            </Accordion>
+            <Accordion expanded={expanded === 'chat'} onChange={handleChange('chat')}>
+                <AccordionSummary aria-controls="chatd-content" id="chatd-header">
+                    Chat
+                </AccordionSummary>
+                <AccordionDetails className='flex direction-column align-center' >
+                    <div className="side-bar-item flex justify-center">
+                        <input type="checkbox" name="chat" id="chat" checked={chatIsEnabled} onChange={onToggleChat} />
+                        <label htmlFor="chat">Enable chat</label>
+                    </div>
+                    <div className="row">
+                        <div>
+                            <label htmlFor="opening-text">
+                                Opening text:
+                            </label>
+                        </div>
+                        <div>
+                            <TextareaAutosize
+                                aria-label="empty textarea"
+                                minRows={3}
+                                value={chatOpeningText}
+                                id="opening-text"
+                                name="openingText"
+                                onChange={chatChange}
+                            />
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div>
+                            <label htmlFor="answer-text">
+                                Answer text:
+                            </label>
+                        </div>
+                        <div>
+                            <TextareaAutosize
+                                aria-label="empty textarea"
+                                minRows={3}
+                                value={chatAnswerText}
+                                id="answer-text"
+                                name="answerText"
+                                onChange={chatChange}
+                            />
+                        </div>
+                    </div>
+
                 </AccordionDetails>
             </Accordion>
         </div>

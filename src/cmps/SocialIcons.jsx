@@ -9,12 +9,12 @@ import { TwitterIcon } from '../assets/img/social/TwitterIcon'
 export function SocialIcons({ data, style }) {
     return (
         <div className="social-icons flex justify-between" style={style}>
-            {data.socials.facebook.shown && <FacebookIcon fillColor="#000000" />}
-            {data.socials.instagram.shown && <InstagramIcon fillColor="#000000" />}
-            {data.socials.github.shown && <GithubIcon fillColor="#000000" />}
-            {data.socials.dribbble.shown && <DribbbleIcon fillColor="#000000" />}
-            {data.socials.linkedin.shown && <LinkedinIcon fillColor="#000000" />}
-            {data.socials.twitter.shown && <TwitterIcon fillColor="#000000" />}
+            {data.socials.facebook.shown && <div style={{ backgroundColor: data.backgroundColor, height: '60px', width: '60px', padding: '10px', borderRadius: '50%' }}><FacebookIcon fillColor={data.color} /></div>}
+            {data.socials.instagram.shown && <div style={{ backgroundColor: data.backgroundColor, height: '60px', width: '60px', padding: '10px', borderRadius: '50%' }}> <InstagramIcon fillColor={data.color} /></div>}
+            {data.socials.github.shown && <div style={{ backgroundColor: data.backgroundColor, height: '60px', width: '60px', padding: '10px', borderRadius: '50%' }}><GithubIcon fillColor={data.color} /></div>}
+            {data.socials.dribbble.shown && <div style={{ backgroundColor: data.backgroundColor, height: '60px', width: '60px', padding: '10px', borderRadius: '50%' }}> <DribbbleIcon fillColor={data.color} /></div>}
+            {data.socials.linkedin.shown && <div style={{ backgroundColor: data.backgroundColor, height: '60px', width: '60px', padding: '10px', borderRadius: '50%' }}><LinkedinIcon fillColor={data.color} /></div>}
+            {data.socials.twitter.shown && <div style={{ backgroundColor: data.backgroundColor, height: '60px', width: '60px', padding: '10px', borderRadius: '50%' }}><TwitterIcon fillColor={data.color} /></div>}
         </div>
     )
 }

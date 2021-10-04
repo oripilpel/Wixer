@@ -17,7 +17,7 @@ import { saveWap } from '../store/layout.actions'
 import { eventBusService } from "../services/event-bus-service";
 import { hintsService } from "../services/hint.service"
 
-function _SideBar({ selected, update, cmps, style, _id, saveWap, onUndo }) {
+function _SideBar({ selected, update, cmps, style, _id, chat, saveWap, onUndo, setChatIsEnabled, chatIsEnabled, chatOpeningText, chatAnswerText, chatChange }) {
     const [isEdit, setIsEdit] = useState(false)
 
     useEffect(() => {
@@ -84,7 +84,7 @@ function _SideBar({ selected, update, cmps, style, _id, saveWap, onUndo }) {
     }
 
     const onSave = () => {
-        saveWap({ _id, cmps, style })
+        saveWap({ _id, cmps, style, chat })
     }
 
     return (
@@ -112,7 +112,14 @@ function _SideBar({ selected, update, cmps, style, _id, saveWap, onUndo }) {
                 <button className="undo" onClick={onUndo} title="undo"><HistoryIcon /></button>
             </div>
             <div className="items">
-                {!isEdit && <SidebarAddComponent isElementClicked={isElementClicked} setHints={setHints} />}
+                {!isEdit && <SidebarAddComponent
+                    isElementClicked={isElementClicked}
+                    setHints={setHints}
+                    setChatIsEnabled={setChatIsEnabled}
+                    chatChange={chatChange}
+                    chatIsEnabled={chatIsEnabled}
+                    chatOpeningText={chatOpeningText}
+                    chatAnswerText={chatAnswerText} />}
                 {isEdit && selected && (
                     <>
                         <div className="editing">
@@ -148,6 +155,7 @@ function mapStateToProps(state) {
         cmps: state.layoutModule.cmps,
         style: state.layoutModule.style,
         _id: state.layoutModule._id,
+        chat: state.layoutModule.chat
     }
 }
 

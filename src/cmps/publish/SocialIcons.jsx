@@ -8,13 +8,13 @@ import { TwitterIcon } from '../../assets/img/social/TwitterIcon'
 
 export function SocialIcons({ data, style }) {
     return (
-        <div className="social-icons flex" style={style}>
-            {data.socials.facebook.shown && <a href={data.socials.facebook.url}><FacebookIcon fillColor="#000000" /></a>}
-            {data.socials.instagram.shown && <a href={data.socials.instagram.url}><InstagramIcon fillColor="#000000" /></a>}
-            {data.socials.github.shown && <a href={data.socials.github.url}><GithubIcon fillColor="#000000" /></a>}
-            {data.socials.dribbble.shown && <a href={data.socials.dribbble.url}><DribbbleIcon fillColor="#000000" /></a>}
-            {data.socials.linkedin.shown && <a href={data.socials.linkedin.url}><LinkedinIcon fillColor="#000000" /></a>}
-            {data.socials.twitter.shown && <a href={data.socials.twitter.url}><TwitterIcon fillColor="#000000" /></a>}
+        <div className="social-icons flex justify-between" style={style}>
+            {data.socials.facebook.shown && <a style={{ backgroundColor: data.backgroundColor, height: '60px', width: '60px', padding: '10px', borderRadius: '50%' }} href={data.socials.facebook.url}><FacebookIcon fillColor={data.color} /></a>}
+            {data.socials.instagram.shown && <a style={{ backgroundColor: data.backgroundColor, height: '60px', width: '60px', padding: '10px', borderRadius: '50%' }} href={data.socials.instagram.url}><InstagramIcon fillColor={data.color} /></a>}
+            {data.socials.github.shown && <a style={{ backgroundColor: data.backgroundColor, height: '60px', width: '60px', padding: '10px', borderRadius: '50%' }} href={data.socials.github.url}><GithubIcon fillColor={data.color} /></a>}
+            {data.socials.dribbble.shown && <a style={{ backgroundColor: data.backgroundColor, height: '60px', width: '60px', padding: '10px', borderRadius: '50%' }} href={data.socials.dribbble.url}><DribbbleIcon fillColor={data.color} /></a>}
+            {data.socials.linkedin.shown && <a style={{ backgroundColor: data.backgroundColor, height: '60px', width: '60px', padding: '10px', borderRadius: '50%' }} href={data.socials.linkedin.url}><LinkedinIcon fillColor={data.color} /></a>}
+            {data.socials.twitter.shown && <a style={{ backgroundColor: data.backgroundColor, height: '60px', width: '60px', padding: '10px', borderRadius: '50%' }} href={data.socials.twitter.url}><TwitterIcon fillColor={data.color} /></a>}
         </div>
     )
 }

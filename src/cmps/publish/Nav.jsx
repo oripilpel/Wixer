@@ -17,7 +17,7 @@ export function Nav({ style, data }) {
             onMouseLeave={() => {
                 setColor(color ? color : 'black')
             }}
-            href={`#${link.txt}`}
+            href={`#${link.url}`}
             style={{ padding: '5px', color: c }}
             className="link"
 
