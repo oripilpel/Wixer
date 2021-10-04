@@ -9,7 +9,12 @@ export function saveWap(wap) {
                 type: 'SET_WAP',
                 _id: savedWap._id,
                 cmps: savedWap.cmps,
-                style: savedWap.style
+                style: savedWap.style,
+                chat: wap.chat || {
+                    isEnabled: false,
+                    openingText: "Hey ☺ \n I'm the digital representative, how can I help you?",
+                    answerText: "Thank you for contacting us, we will reach back to you in a short time."
+                }
             });
         }
         catch (err) {

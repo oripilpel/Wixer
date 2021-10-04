@@ -20,14 +20,14 @@ function Paragraph({ idx, link, update, path, color, hoverColor }) {
         contentEditable={true}
         suppressContentEditableWarning={true}
         onBlur={(ev) => { update(idx, ev.target.innerText) }}
-        style={{ padding:'3px', position: 'relative', color: c, margin: 0 }}>
+        style={{ padding: '3px', position: 'relative', color: c, margin: 0 }}>
         {link.txt}
         {actionsVisible && <Actions path={path} type={COMPONENT} />}
     </p>
 }
 
 export function Nav({ style, data, update, path }) {
-
+    useEffect(() => { }, [data])
     return (
         <nav style={style} className="nav clear-list">
             {data.links.map((link, idx) => {

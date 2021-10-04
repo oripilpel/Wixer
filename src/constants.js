@@ -84,9 +84,9 @@ export const SIDEBAR_ITEMS_BASIC = [
       style: {
         borderRadius: '5px',
         border: 'none',
-        height: 'fit-content',
+        height: '50px',
         padding: '15px',
-        minWidth: '150px',
+        width: '150px',
         fontFamily: 'montserrat',
         backgroundColor: '#afafaf'
       }
@@ -322,7 +322,7 @@ export const SIDEBAT_ITEMS_HEADER = [
                       backgroundColor: '#7c6c50',
                       border: 0,
                       height: 50,
-                      width: 150,
+                      maxWidth: 150,
                       cursor: 'pointer'
                     }
                   }
