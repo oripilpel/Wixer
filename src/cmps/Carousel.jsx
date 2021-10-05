@@ -46,7 +46,7 @@ export function Carousel({ data, style, }) {
   return (
 
     <div className="carousel" style={style}>
-      <Box sx={{ flexGrow: 1 }}>
+      <Box sx={{ maxWidth: 600, flexGrow: 1 }}>
         <Paper
           square
           elevation={0}
