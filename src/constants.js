@@ -84,9 +84,9 @@ export const SIDEBAR_ITEMS_BASIC = [
       style: {
         borderRadius: '5px',
         border: 'none',
-        height: '50px',
-        padding: '15px',
-        width: '150px',
+        height: 50,
+        padding: 15,
+        width: 150,
         fontFamily: 'montserrat',
         backgroundColor: '#afafaf'
       }
@@ -603,8 +603,8 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                   fontSize: 15,
                   color: '#FFFFFF',
                   textAlign: 'center',
-                  paddingInline:35,
-                  paddingBlock:12
+                  paddingInline: 35,
+                  paddingBlock: 12
                 }
               }
             },
@@ -619,7 +619,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
             component: {
               type: 'image',
               data: { url: 'https://storage.boxmode.com/9626642894/assets/dentio-main.jpg' },
-              style:{}
+              style: {}
             }
 
           }]
@@ -1491,6 +1491,593 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                 }
               }
             }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    id: utilService.makeId(),
+    type: SIDEBAR_SECTION,
+    name: 'Remodeling',
+    component: {
+      id: utilService.makeId(),
+      type: SECTION,
+      style: {
+        backgroundColor: '#262626',
+      },
+      cmps: [
+        {
+          id: utilService.makeId(),
+          type: INNERSECTION,
+          style: {
+            border: '1px solid #9a8a78'
+          },
+          cmps: [
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                borderRight: '1px solid #9a8a78'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'image',
+                    data: { url: 'https://static.wixstatic.com/media/ea26fd_724a836736c64fc38c4fd21fa32ba9a9~mv2_d_4997_4480_s_4_2.jpg/v1/fill/w_661,h_700,al_c,q_85,usm_0.66_1.00_0.01/ea26fd_724a836736c64fc38c4fd21fa32ba9a9~mv2_d_4997_4480_s_4_2.webp' },
+                    style: {
+                      width: 'auto'
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                justifyContent: 'center',
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: 'Our Services' },
+                    style: {
+                      fontSize: 40,
+                      color: 'white',
+                      fontFamily: 'raleway',
+                      marginBottom: 35
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: '• Complete Remodeling' },
+                    style: {
+                      color: 'white',
+                      fontFamily: 'raleway',
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: '• Kitchen Remodeling' },
+                    style: {
+                      color: 'white',
+                      fontFamily: 'raleway',
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: '• Bathroom Remodeling' },
+                    style: {
+                      color: 'white',
+                      fontFamily: 'raleway',
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: '• Home Interior' },
+                    style: {
+                      color: 'white',
+                      fontFamily: 'raleway',
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: '• Flooring' },
+                    style: {
+                      color: 'white',
+                      fontFamily: 'raleway',
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'button',
+                    data: {
+                      txt: 'MORE INFO',
+                      hoverColor: '#00abec'
+                    },
+                    style: {
+                      fontSize: 14,
+                      fontFamily: 'raleway',
+                      color: '#262626',
+                      backgroundColor: '#9a8a78',
+                      border: 0,
+                      height: 50,
+                      width: 150,
+                      cursor: 'pointer'
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: utilService.makeId(),
+          type: INNERSECTION,
+          style: {
+            border: '1px solid #9a8a78'
+          },
+          cmps: [
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                borderRight: '1px solid #9a8a78',
+                justifyContent: 'center',
+                alignItems: 'center'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'image',
+                    data: { url: 'https://res.cloudinary.com/dq6ymh7ev/image/upload/v1633432806/house_kf8eia.svg' },
+                    style: {
+                      marginBottom: 25,
+                      width: 65
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: 'Vast' },
+                    style: {
+                      color: 'white',
+                      fontFamily: 'raleway',
+                      fontSize: 18
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: 'Experience' },
+                    style: {
+                      color: 'white',
+                      fontFamily: 'raleway',
+                      fontSize: 18
+                    }
+                  }
+                },
+              ]
+            },
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                borderRight: '1px solid #9a8a78',
+                justifyContent: 'center',
+                alignItems: 'center'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'image',
+                    data: { url: 'https://res.cloudinary.com/dq6ymh7ev/image/upload/v1633433227/puzzle_lpp992.svg' },
+                    style: {
+                      marginBottom: 25,
+                      width: 65
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: 'Professional' },
+                    style: {
+                      color: 'white',
+                      fontFamily: 'raleway',
+                      fontSize: 18
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: 'Team' },
+                    style: {
+                      color: 'white',
+                      fontFamily: 'raleway',
+                      fontSize: 18
+                    }
+                  }
+                },
+              ]
+            },
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                borderRight: '1px solid #9a8a78',
+                justifyContent: 'center',
+                alignItems: 'center'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'image',
+                    data: { url: 'https://res.cloudinary.com/dq6ymh7ev/image/upload/v1633433337/bloks_nmoork.svg' },
+                    style: {
+                      marginBottom: 25,
+                      width: 65
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: 'High' },
+                    style: {
+                      color: 'white',
+                      fontFamily: 'raleway',
+                      fontSize: 18
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: 'Finish' },
+                    style: {
+                      color: 'white',
+                      fontFamily: 'raleway',
+                      fontSize: 18
+                    }
+                  }
+                },
+              ]
+            },
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                borderRight: '1px solid #9a8a78',
+                justifyContent: 'center',
+                alignItems: 'center'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'image',
+                    data: { url: 'https://res.cloudinary.com/dq6ymh7ev/image/upload/v1633433416/pillar_dl7a2d.svg' },
+                    style: {
+                      marginBottom: 25,
+                      width: 65
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: 'Sustainable' },
+                    style: {
+                      color: 'white',
+                      fontFamily: 'raleway',
+                      fontSize: 18
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: '& Accountable' },
+                    style: {
+                      color: 'white',
+                      fontFamily: 'raleway',
+                      fontSize: 18
+                    }
+                  }
+                },
+              ]
+            }
+          ]
+        },
+        {
+          id: utilService.makeId(),
+          type: INNERSECTION,
+          style: {
+            border: '1px solid #9a8a78'
+          },
+          cmps: [
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {
+                justifyContent: 'center',
+                borderRight: '1px solid #9a8a78'
+              },
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: 'About Us' },
+                    style: {
+                      fontSize: 40,
+                      color: 'white',
+                      fontFamily: 'raleway',
+                      marginBottom: 35
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: 'Newel Residential Remodeling' },
+                    style: {
+                      fontSize: 40,
+                      color: '#9a8a78',
+                      fontFamily: 'raleway',
+                      marginBottom: 35
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: { txt: "I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. I’m a great place for you to tell a story and let your users know a little more about you." },
+                    style: {
+                      color: 'white',
+                      fontFamily: 'raleway',
+                    }
+                  }
+                },
+
+              ]
+            },
+            {
+              id: utilService.makeId(),
+              type: COLUMN,
+              style: {},
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'image',
+                    data: { url: 'https://static.wixstatic.com/media/ea26fd_0e8eb61209a542fda3b36451a15530fc~mv2_d_6720_4480_s_4_2.jpg/v1/fill/w_662,h_651,al_c,q_85,usm_0.66_1.00_0.01/ea26fd_0e8eb61209a542fda3b36451a15530fc~mv2_d_6720_4480_s_4_2.webp' },
+                    style: {
+                      width: 'auto'
+                    }
+                  }
+                }
+              ]
+            }
+
+          ]
+        }
+      ]
+    }
+  },
+  {
+    id: utilService.makeId(),
+    type: SIDEBAR_SECTION,
+    name: 'Remodeling Testimonials',
+    component: {
+      id: utilService.makeId(),
+      type: SECTION,
+      style: {
+        backgroundColor: '#262626',
+        paddingBottom: 85,
+        paddingTop: 85
+      },
+      cmps: [
+        {
+          id: utilService.makeId(),
+          type: COLUMN,
+          style: {
+            backgroundColor: '#9a8a78',
+            border: '1px solid #9a8a78',
+            justifyContent: 'center',
+            paddingTop: 40,
+            paddingBottom: 40
+          },
+          cmps: [
+            {
+              id: utilService.makeId(),
+              type: COMPONENT,
+              component: {
+                type: 'text',
+                data: { txt: 'Testimonials' },
+                style: {
+                  fontSize: 40,
+                  color: 'white',
+                  fontFamily: 'raleway',
+                }
+              }
+            },
+          ]
+        },
+        {
+          id: utilService.makeId(),
+          type: COLUMN,
+          style: {
+            border: '1px solid #9a8a78',
+            justifyContent: 'center',
+            paddingTop: 40,
+            paddingBottom: 40
+          },
+          cmps: [
+            {
+              id: utilService.makeId(),
+              type: COMPONENT,
+              component: {
+                type: 'text',
+                data: { txt: "“I'm a testimonial. Click to edit me and add text that says something nice about you and your services. Let your customers review you and tell their friends how great you are.”" },
+                style: {
+                  color: 'white',
+                  fontFamily: 'raleway',
+                  marginBottom: 25
+                }
+              }
+            },
+            {
+              id: utilService.makeId(),
+              type: COMPONENT,
+              component: {
+                type: 'text',
+                data: { txt: 'The Mathews' },
+                style: {
+                  color: '#9a8a78',
+                  fontFamily: 'raleway',
+                  fontSize: 30
+                }
+              }
+            },
+          ]
+        },
+        {
+          id: utilService.makeId(),
+          type: COLUMN,
+          style: {
+            border: '1px solid #9a8a78',
+            justifyContent: 'center',
+            paddingTop: 40,
+            paddingBottom: 40
+          },
+          cmps: [
+            {
+              id: utilService.makeId(),
+              type: COMPONENT,
+              component: {
+                type: 'text',
+                data: { txt: "“I'm a testimonial. Click to edit me and add text that says something nice about you and your services. Let your customers review you and tell their friends how great you are.”" },
+                style: {
+                  color: 'white',
+                  fontFamily: 'raleway',
+                  marginBottom: 25
+                }
+              }
+            },
+            {
+              id: utilService.makeId(),
+              type: COMPONENT,
+              component: {
+                type: 'text',
+                data: { txt: 'Lars & MaryWilliams' },
+                style: {
+                  color: '#9a8a78',
+                  fontFamily: 'raleway',
+                  fontSize: 30
+                }
+              }
+            },
+          ]
+        },
+        {
+          id: utilService.makeId(),
+          type: COLUMN,
+          style: {
+            border: '1px solid #9a8a78',
+            justifyContent: 'center',
+            paddingTop: 40,
+            paddingBottom: 40
+          },
+          cmps: [
+            {
+              id: utilService.makeId(),
+              type: COMPONENT,
+              component: {
+                type: 'text',
+                data: { txt: "“I'm a testimonial. Click to edit me and add text that says something nice about you and your services. Let your customers review you and tell their friends how great you are.”" },
+                style: {
+                  color: 'white',
+                  fontFamily: 'raleway',
+                  marginBottom: 25
+                }
+              }
+            },
+            {
+              id: utilService.makeId(),
+              type: COMPONENT,
+              component: {
+                type: 'text',
+                data: { txt: 'Chris Parks' },
+                style: {
+                  color: '#9a8a78',
+                  fontFamily: 'raleway',
+                  fontSize: 30
+                }
+              }
+            },
           ]
         }
       ]
@@ -2778,6 +3365,190 @@ export const SIDEBAR_ITEMS_FOOTER = [
                   fontFamily: 'poppins',
                   color: '#989cac',
                   fontSize: 14
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    id: utilService.makeId(),
+    type: SIDEBAR_SECTION,
+    name: 'remodeling',
+    component: {
+      id: utilService.makeId(),
+      type: SECTION,
+      style: {
+        backgroundColor: '#262626'
+      },
+      cmps: [
+        {
+          id: utilService.makeId(),
+          type: COLUMN,
+          style: {},
+          cmps: [
+            {
+              id: utilService.makeId(),
+              type: COMPONENT,
+              component: {
+                type: 'text',
+                data: { txt: 'Contact Us' },
+                style: {
+                  fontSize: 40,
+                  fontFamily: 'raleway',
+                  marginBottom: 30,
+                  color: '#9a8a78'
+                }
+              }
+            },
+            {
+              id: utilService.makeId(),
+              type: COMPONENT,
+              component: {
+                type: 'text',
+                data: { txt: '500 Terry Francois Street' },
+                style: {
+                  fontFamily: 'raleway',
+                  color: '#9a8a78'
+                }
+              }
+            },
+            {
+              id: utilService.makeId(),
+              type: COMPONENT,
+              component: {
+                type: 'text',
+                data: { txt: 'San Francisco, CA 94158' },
+                style: {
+                  fontFamily: 'raleway',
+                  color: '#9a8a78'
+                }
+              }
+            },
+            {
+              id: utilService.makeId(),
+              type: COMPONENT,
+              component: {
+                type: 'text',
+                data: { txt: 'info@mysite.com' },
+                style: {
+                  fontFamily: 'raleway',
+                  color: '#9a8a78'
+                }
+              }
+            },
+            {
+              id: utilService.makeId(),
+              type: COMPONENT,
+              component: {
+                type: 'text',
+                data: { txt: '123-456-7890' },
+                style: {
+                  fontFamily: 'raleway',
+                  color: '#9a8a78'
+                }
+              }
+            }
+          ]
+        },
+        {
+          id: utilService.makeId(),
+          type: COLUMN,
+          style: {},
+          cmps: [
+            {
+              id: utilService.makeId(),
+              type: COMPONENT,
+              component: {
+                type: 'form',
+                data:
+                {
+                  name: '',
+                  email: '',
+                  phone: '',
+                  subject: '',
+                  msg: ''
+                }
+                ,
+                style: {}
+              }
+            }
+          ]
+        },
+        {
+          id: utilService.makeId(),
+          type: COLUMN,
+          style: {},
+          cmps: [
+            {
+              id: utilService.makeId(),
+              type: COMPONENT,
+              component: {
+                type: 'text',
+                data: { txt: 'Home' },
+                style: {
+                  fontSize: 14,
+                  fontFamily: 'raleway',
+                  color: '#9a8a78'
+                }
+              }
+            },
+            {
+              id: utilService.makeId(),
+              type: COMPONENT,
+              component: {
+                type: 'text',
+                data: { txt: 'Services' },
+                style: {
+                  fontSize: 14,
+                  fontFamily: 'raleway',
+                  color: '#9a8a78'
+                }
+              }
+            },
+            {
+              id: utilService.makeId(),
+              type: COMPONENT,
+              component: {
+                type: 'text',
+                data: { txt: 'Projects' },
+                style: {
+                  fontSize: 14,
+                  fontFamily: 'raleway',
+                  color: '#9a8a78'
+                }
+              }
+            },
+            {
+              id: utilService.makeId(),
+              type: COMPONENT,
+              component: {
+                type: 'text',
+                data: { txt: 'Contact' },
+                style: {
+                  fontSize: 14,
+                  fontFamily: 'raleway',
+                  color: '#9a8a78',
+                  marginBottom: 52
+                }
+              }
+            },
+            {
+              id: utilService.makeId(),
+              type: COMPONENT,
+              component: {
+                type: 'button',
+                data: { txt: 'CALL NOW', hoverColor: '#b3a89a' },
+                style: {
+                  border: 'none',
+                  padding: 15,
+                  width: 129,
+                  color: '##262626',
+                  fontFamily: 'raleway',
+                  backgroundColor: '#9a8a78',
+                  textAlign: 'center'
                 }
               }
             }
