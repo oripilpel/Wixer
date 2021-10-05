@@ -7,6 +7,7 @@ import { imageSearchService } from "../services/image-search.service";
 export function ImageSearch({ onSelect }) {
     const [images, setImages] = useState([]);
     const onImageSearch = async ({ target }) => {
+        if(!target.value) return
         const res = await imageSearchService.query(target.value);
         setImages(res.value);
     }

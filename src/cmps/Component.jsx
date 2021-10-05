@@ -33,6 +33,7 @@ const Component = ({ data, path, updateComponent, select, selected }) => {
 
   const opacity = isDragging ? 0 : 1;
   drag(ref);
+  
   const { gap, alignItems, justifyContent } = data.component.style
 
   const component = data.component;
