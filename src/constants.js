@@ -84,9 +84,8 @@ export const SIDEBAR_ITEMS_BASIC = [
       style: {
         borderRadius: '5px',
         border: 'none',
-        height: '50px',
-        padding: '15px',
-        width: '150px',
+        paddingBlock: 15,
+        paddingInline: 25,
         fontFamily: 'montserrat',
         backgroundColor: '#afafaf'
       }
@@ -549,6 +548,164 @@ export const SIDEBAR_ITEMS_SECTIONS = [
   {
     id: utilService.makeId(),
     type: SIDEBAR_SECTION,
+    name: 'Header Construction',
+    component: {
+      type: SECTION,
+      id: utilService.makeId(),
+      style: {
+        height: '100vh',
+        backgroundImage: 'url("https://i.ibb.co/VCp4MjH/image-1.png")'
+      },
+      cmps: [
+        {
+          type: INNERSECTION,
+          id: utilService.makeId(),
+          style: {},
+          cmps: [
+            {
+              type: COLUMN,
+              id: utilService.makeId(),
+              style: {},
+              cmps: [
+                {
+                  type: COMPONENT,
+                  id: utilService.makeId(),
+                  component: {
+                    style: { color: '#ffffff', fontFamily: 'raleway' },
+                    type: 'text',
+                    data: {
+                      txt: 'Newel'
+                    }
+                  }
+                },
+                {
+                  type: COMPONENT,
+                  id: utilService.makeId(),
+                  component: {
+                    style: { color: '#ffffff', fontFamily: 'raleway' },
+                    type: 'text',
+                    data: {
+                      txt: 'Residential'
+                    }
+                  }
+                },
+                {
+                  type: COMPONENT,
+                  id: utilService.makeId(),
+                  component: {
+                    style: { color: '#ffffff', fontFamily: 'raleway' },
+                    type: 'text',
+                    data: {
+                      txt: 'Remodeling'
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              type: COLUMN,
+              id: utilService.makeId(),
+              style: {},
+              cmps: [
+                {
+                  type: COMPONENT,
+                  id: utilService.makeId(),
+                  component: {
+                    type: 'nav',
+                    data: {
+                      hoverColor: '#CFC8c0',
+                      links: [
+                        {
+                          id: utilService.makeId(),
+                          txt: 'HOME',
+                          url: ''
+                        },
+                        {
+                          id: utilService.makeId(),
+                          txt: 'SERVICES',
+                          url: ''
+                        },
+                        {
+                          id: utilService.makeId(),
+                          txt: 'PROJECTS',
+                          url: ''
+                        },
+                        {
+                          id: utilService.makeId(),
+                          txt: 'CONTACT',
+                          url: ''
+                        },
+                      ]
+                    },
+                    style: { color: '#FFFFFF', fontFamily: 'raleway', gap: 40 },
+
+                  }
+                }
+              ]
+            }
+          ]
+        }, {
+          type: INNERSECTION,
+          id: utilService.makeId(),
+          cmps: [
+            {
+              type: COLUMN,
+              id: utilService.makeId(),
+              cmps: [
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: {
+                      txt: 'Newel Residential Remodeling'
+                    },
+                    style: {
+                      fontSize: 50,
+                      color: '#ebebeb',
+                      fontFamily: 'raleway',
+                      textAlign: 'left'
+                    }
+                  }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'text',
+                    data: {
+                      txt: 'Recreating Dream Homes That Last'
+                    },
+                    style: {
+                      fontSize: 30,
+                      color: '#fafafa',
+                      fontFamily: 'raleway'
+                    }
+                  }
+                }
+              ],
+              style: {
+                padding: 10,
+                flexGrow: 1,
+                flexDirection: 'column',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }
+            }
+          ],
+          style: {
+            padding: 10,
+            flexGrow: 1,
+            display: 'flex'
+          }
+        }
+      ]
+    }
+  },
+  {
+    id: utilService.makeId(),
+    type: SIDEBAR_SECTION,
     name: 'dentist',
     component: {
       type: SECTION,
@@ -603,8 +760,8 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                   fontSize: 15,
                   color: '#FFFFFF',
                   textAlign: 'center',
-                  paddingInline:35,
-                  paddingBlock:12
+                  paddingInline: 35,
+                  paddingBlock: 12
                 }
               }
             },
@@ -619,7 +776,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
             component: {
               type: 'image',
               data: { url: 'https://storage.boxmode.com/9626642894/assets/dentio-main.jpg' },
-              style:{}
+              style: {}
             }
 
           }]
