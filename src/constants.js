@@ -213,7 +213,9 @@ export const SIDEBAR_ITEMS_NAV = [
     id: utilService.makeId(),
     type: SIDEBAR_ITEM,
     component: {
-      style: { gap: 16, display: 'flex', color: '#000000', fontSize: 25 },
+      style: {
+        gap: 16, display: 'flex', color: '#000000', fontSize: 25, fontFamily: 'raleway'
+      },
       type: 'nav',
       data: {
         hoverColor: '#868686',
@@ -244,7 +246,7 @@ export const SIDEBAR_ITEMS_NAV = [
   }
 ]
 
-export const SIDEBAT_ITEMS_HEADER = [
+export const SIDEBAR_ITEMS_HEADER = [
   {
     id: utilService.makeId(),
     type: SIDEBAR_SECTION,
@@ -544,6 +546,87 @@ export const SIDEBAT_ITEMS_HEADER = [
 ]
 
 export const SIDEBAR_ITEMS_SECTIONS = [
+  {
+    id: utilService.makeId(),
+    type: SIDEBAR_SECTION,
+    name: 'dentist',
+    component: {
+      type: SECTION,
+      id: utilService.makeId(),
+      style: {},
+      cmps: [
+        {
+          type: COLUMN,
+          id: utilService.makeId(),
+          style: {},
+          cmps: [
+            {
+              id: utilService.makeId(),
+              type: COMPONENT,
+              component: {
+                type: 'text',
+                data: { txt: 'Professional Dental Clinic' },
+                style: {
+                  fontFamily: 'poppins',
+                  fontSize: 30,
+                  color: '#092f57',
+                  textAlign: 'center',
+                }
+              }
+            },
+            {
+              id: utilService.makeId(),
+              type: COMPONENT,
+              component: {
+                type: 'text',
+                data: { txt: 'Qualified dental caring for all your dental needs' },
+                style: {
+                  fontFamily: 'poppins',
+                  fontSize: 18,
+                  color: '#989cac',
+                  textAlign: 'center',
+                }
+              }
+            },
+            {
+              id: utilService.makeId(),
+              type: COMPONENT,
+              component: {
+                type: 'button',
+                data: {
+                  hoverColor: '#092f57',
+                  txt: 'Order a Colnsultion'
+                },
+                style: {
+                  backgroundColor: '#00A0DC',
+                  fontFamily: 'poppins',
+                  fontSize: 15,
+                  color: '#FFFFFF',
+                  textAlign: 'center',
+                  paddingInline:35,
+                  paddingBlock:12
+                }
+              }
+            },
+          ]
+        }, {
+          type: COLUMN,
+          id: utilService.makeId(),
+          style: {},
+          cmps: [{
+            id: utilService.makeId(),
+            type: COMPONENT,
+            component: {
+              type: 'image',
+              data: { url: 'https://storage.boxmode.com/9626642894/assets/dentio-main.jpg' },
+              style:{}
+            }
+
+          }]
+        }
+      ]
+    }
+  },
   {
     id: utilService.makeId(),
     type: SIDEBAR_SECTION,

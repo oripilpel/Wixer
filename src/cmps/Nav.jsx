@@ -27,17 +27,16 @@ function Paragraph({ idx, link, update, path, color, hoverColor }) {
 }
 
 export function Nav({ style, data, update, path }) {
-    useEffect(() => { }, [data])
     return (
         <div className="publish-nav">
             <nav style={style} className={`nav clear-list links flex`}>
-            {data.links.map((link, idx) => {
-                return (
-                    <Paragraph link={link} idx={idx} key={`${path}-${idx}`} update={update} path={`${path}-${idx}`} color={style.color} hoverColor={data.hoverColor} />
-                )
-            }
-            )}
-        </nav>
+                {data.links.map((link, idx) => {
+                    return (
+                        <Paragraph link={link} idx={idx} key={`${path}-${idx}`} update={update} path={`${path}-${idx}`} color={style.color} hoverColor={data.hoverColor} />
+                    )
+                }
+                )}
+            </nav>
         </div>
 
     )

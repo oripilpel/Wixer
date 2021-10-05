@@ -33,6 +33,7 @@ const Component = ({ data, path, updateComponent, select, selected }) => {
 
   const opacity = isDragging ? 0 : 1;
   drag(ref);
+  const { gap, alignItems, justifyContent } = data.component.style
 
   const component = data.component;
 
@@ -76,7 +77,7 @@ const Component = ({ data, path, updateComponent, select, selected }) => {
   return (
     <div
       ref={ref}
-      style={{ opacity }}
+      style={{ opacity, gap: (data.component.type === 'nav') ? '' : gap, alignItems, justifyContent }}
       className={`component draggable ${actionsVisible ? 'element-hover' : ''}`}
       onClick={onSelect}
       onMouseEnter={() => setActionsVisible(true)

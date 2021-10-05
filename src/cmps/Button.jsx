@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 
 export function Button({ style, data, update }) {
     useEffect(() => { setColor(style.backgroundColor) }, [style, data])
-    const [color, setColor] = useState([style.backgroundColor])
+    const [color, setColor] = useState(style.backgroundColor)
     function onBodyChange({ target }) {
         update('data', { ...data, txt: target.innerText });
     }
-    return (
+    return ( 
         <div
             className="btn flex "
             onMouseEnter={() => { setColor(data.hoverColor) }}

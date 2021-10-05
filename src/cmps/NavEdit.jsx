@@ -2,11 +2,12 @@ import { PrettoSlider } from "./PrettoSlider";
 import { MenuItem, Select } from "@mui/material";
 import { Accordion, AccordionSummary, AccordionDetails } from './Accordion';
 import React from "react";
+import { FlexEdit } from "./Edit/FlexEdit";
 
 
 export function NavEdit({ style, onUpdate, data }) {
     const { hoverColor } = data
-    const { fontSize, color, gap, fontFamily } = style
+    const { fontSize, color, gap, fontFamily, alignItems, justifyContent } = style
     function onChange({ target }) {
         const { name, value } = target;
         const newStyle = { ...style, [name]: value };
@@ -122,6 +123,14 @@ export function NavEdit({ style, onUpdate, data }) {
                         <label htmlFor={link.txt + idx}>{link.txt}</label>
                         <input placeholder="Link to page..." id={link.txt + idx} name="url" key={link.txt + idx} value={link.url} onChange={(ev) => { updateData(ev, link.txt) }} />
                     </div>)}
+                </AccordionDetails>
+            </Accordion>
+            <Accordion expanded={expanded === 'flex'} onChange={handleChange('flex')}>
+                <AccordionSummary aria-controls="flexd-content" id="flexd-header">
+                    Flex options
+                </AccordionSummary>
+                <AccordionDetails>
+                    <FlexEdit onChange={onChange} justifyContent={justifyContent} alignItems={alignItems} />
                 </AccordionDetails>
             </Accordion>
         </div>
