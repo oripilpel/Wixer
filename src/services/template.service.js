@@ -1,6 +1,8 @@
 import Plus from '../assets/img/plus.svg';
 import Restaurant from '../assets/img/restaurant.jpeg';
-import mercedes from '../assets/img/mercedes.jpg'
+import Mercedes from '../assets/img/mercedes.jpg';
+import Remodeling from '../assets/img/remodeling.jpg';
+
 export const templateService = {
     getAmountOfTemplates,
     gTemplatesIds
@@ -12,24 +14,24 @@ const gTemplates = [
         title: 'Start from scratch',
     },
     {
+        json: '615c21c9b4e843deb839b126',
+        img: Remodeling,
+        title: 'Remodeling',
+    },
+    {
         json: '615af7437ee46d2a8f34a9ae',
         img: Restaurant,
         title: 'Restaurant',
     },
     {
         json: '615726b67ee46d2a8f34a89d',
-        img: mercedes,
+        img: Mercedes,
         title: 'Mercedes',
     },
     {
         json: '615c0ee0b4e843deb839b11d',
         img: 'https://images.unsplash.com/photo-1522770179533-24471fcdba45',
         title: 'Dental Clinic',
-    },
-    {
-        json: '55555',
-        img: 'https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c',
-        title: 'Coffee',
     },
     {
         json: '45346',

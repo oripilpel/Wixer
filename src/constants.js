@@ -1777,28 +1777,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                   type: COMPONENT,
                   component: {
                     type: 'button',
-                    data: {
-                      txt: 'MORE INFO',
-                      hoverColor: '#00abec'
-                    },
-                    style: {
-                      fontSize: 14,
-                      fontFamily: 'raleway',
-                      color: '#262626',
-                      backgroundColor: '#9a8a78',
-                      border: 0,
-                      height: 50,
-                      width: 150,
-                      cursor: 'pointer'
-                    }
-                  }
-                },
-                {
-                  id: utilService.makeId(),
-                  type: COMPONENT,
-                  component: {
-                    type: 'button',
-                    data: { txt: 'Click to Change', hoverColor: '#b3a89a' },
+                    data: { txt: 'MORE INFO', hoverColor: '#b3a89a' },
                     style: {
                       border: 'none',
                       paddingBlock: 15,
