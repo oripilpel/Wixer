@@ -1,3 +1,4 @@
+import { textAlign } from '@mui/system';
 import { utilService } from './services/util.service';
 
 export const SIDEBAR_SECTION = 'sidebarSection'
@@ -1314,6 +1315,103 @@ export const SIDEBAR_ITEMS_SECTIONS = [
         }
       ]
     }
+  },
+  {
+    id: utilService.makeId(),
+    name: 'dental hero',
+    type: SIDEBAR_SECTION,
+    component: {
+      type: SECTION,
+      style: {},
+      cmps: [
+        {
+          id: utilService.makeId(),
+          type: COLUMN,
+          style: {},
+          cmps: [
+            {
+              id: utilService.makeId(),
+              type: COMPONENT,
+              component: {
+                type: 'text',
+                data: { txt: 'Professional' },
+                style: {
+                  fontSize: 44,
+                  color: '#092f57',
+                  fontFamily: 'poppins',
+                }
+              }
+            },
+            {
+              id: utilService.makeId(),
+              type: COMPONENT,
+              component: {
+                type: 'text',
+                data: { txt: 'Dental Clinic' },
+                style: {
+                  fontSize: 44,
+                  color: '#092f57',
+                  fontFamily: 'poppins',
+                  marginBottom: 30,
+                }
+              }
+            },
+            {
+              id: utilService.makeId(),
+              type: COMPONENT,
+              component: {
+                type: 'text',
+                data: { txt: 'Qualified dental caring for all your dental needs' },
+                style: {
+                  fontSize: 18,
+                  color: '#989cac',
+                  fontFamily: 'poppins',
+                  marginBottom: 45,
+                }
+              }
+            },
+            {
+              id: utilService.makeId(),
+              type: COMPONENT,
+              component: {
+                type: 'button',
+                data: { txt: 'Order a Consultation', hoverColor: '#092f57' },
+                style: {
+                  borderRadius: '5px',
+                  border: 'none',
+                  padding: '15px',
+                  width: 239,
+                  fontFamily: 'poppins',
+                  backgroundColor: '#00a0dc',
+                  color: 'white',
+                  textAlign: 'center'
+                }
+              }
+            }
+          ]
+        },
+        {
+          id: utilService.makeId(),
+          type: COLUMN,
+          style: {},
+          cmps: [
+            {
+              id: utilService.makeId(),
+              type: COMPONENT,
+              component: {
+                type: 'image',
+                data: {
+                  url: 'https://storage.boxmode.com/9626642894/assets/dentio-main.jpg?profile=original'
+                },
+                style: {
+                  width: 'auto'
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
   }
 ];
 
@@ -1851,6 +1949,198 @@ export const SIDEBAR_ITEMS_FOOTER = [
   {
     id: utilService.makeId(),
     type: SIDEBAR_SECTION,
+    name: 'dental footer services',
+    component: {
+      type: SECTION,
+      id: utilService.makeId(),
+      style: {},
+      cmps: [
+        {
+          id: utilService.makeId(),
+          type: COLUMN,
+          style: {
+            alignItems: 'center'
+          },
+          cmps: [
+            {
+              id: utilService.makeId(),
+              type: 'component',
+              component: {
+                type: 'image',
+                data: { url: 'https://storage.boxmode.com/9626647866/assets/service-1-370x232.jpg?profile=original' },
+                style: {
+                  width: 'auto'
+                }
+              }
+            },
+            {
+              id: utilService.makeId(),
+              type: 'component',
+              component: {
+                type: 'text',
+                data: { txt: 'Dental Implants' },
+                style: {
+                  fontFamily: 'poppins',
+                  color: '#092f57',
+                  fontSize: 22,
+                  marginBottom: 15
+                }
+              }
+            },
+            {
+              id: utilService.makeId(),
+              type: 'component',
+              component: {
+                type: 'text',
+                data: { txt: 'Implants provide a foundation for replacement teeth made to match your natural teeth.' },
+                style: {
+                  fontFamily: 'poppins',
+                  color: '#989cac',
+                  marginBottom: 15
+                }
+              }
+            },
+            {
+              id: utilService.makeId(),
+              type: 'component',
+              component: {
+                type: 'text',
+                data: { txt: 'Learn more >' },
+                style: {
+                  fontFamily: 'poppins',
+                  color: '#00a0dc',
+                  marginTop: 30
+                }
+              }
+            },
+          ]
+        },
+        {
+          id: utilService.makeId(),
+          type: COLUMN,
+          style: {
+            alignItems: 'center'
+          },
+          cmps: [
+            {
+              id: utilService.makeId(),
+              type: 'component',
+              component: {
+                type: 'image',
+                data: { url: 'https://storage.boxmode.com/9626646881/assets/service-2-370x232.jpg?profile=original' },
+                style: {
+                  width: 'auto'
+                }
+              }
+            },
+            {
+              id: utilService.makeId(),
+              type: 'component',
+              component: {
+                type: 'text',
+                data: { txt: 'General Dental Care' },
+                style: {
+                  fontFamily: 'poppins',
+                  color: '#092f57',
+                  fontSize: 22,
+                  marginBottom: 15
+                }
+              }
+            },
+            {
+              id: utilService.makeId(),
+              type: 'component',
+              component: {
+                type: 'text',
+                data: { txt: 'This dental service includes routine dental examinations or check-ups & oral health advice.' },
+                style: {
+                  fontFamily: 'poppins',
+                  color: '#989cac',
+                  marginBottom: 15
+                }
+              }
+            },
+            {
+              id: utilService.makeId(),
+              type: 'component',
+              component: {
+                type: 'text',
+                data: { txt: 'Learn more >' },
+                style: {
+                  fontFamily: 'poppins',
+                  color: '#00a0dc',
+                  marginTop: 30
+                }
+              }
+            },
+          ]
+        },
+        {
+          id: utilService.makeId(),
+          type: COLUMN,
+          style: {
+            alignItems: 'center'
+          },
+          cmps: [
+            {
+              id: utilService.makeId(),
+              type: 'component',
+              component: {
+                type: 'image',
+                data: { url: 'https://storage.boxmode.com/9626647856/assets/service-3-370x232.jpg?profile=original' },
+                style: {
+                  width: 'auto'
+                }
+              }
+            },
+            {
+              id: utilService.makeId(),
+              type: 'component',
+              component: {
+                type: 'text',
+                data: { txt: 'Teeth Whitening' },
+                style: {
+                  fontFamily: 'poppins',
+                  color: '#092f57',
+                  fontSize: 22,
+                  marginBottom: 15
+                }
+              }
+            },
+            {
+              id: utilService.makeId(),
+              type: 'component',
+              component: {
+                type: 'text',
+                data: { txt: 'Teeth bleaching & teeth whitening are fast, easy ways to brighten teeth and enhance your smile.' },
+                style: {
+                  fontFamily: 'poppins',
+                  color: '#989cac',
+                  marginBottom: 15
+                }
+              }
+            },
+            {
+              id: utilService.makeId(),
+              type: 'component',
+              component: {
+                type: 'text',
+                data: { txt: 'Learn more >' },
+                style: {
+                  fontFamily: 'poppins',
+                  color: '#00a0dc',
+                  marginTop: 30
+                }
+              }
+            },
+          ]
+        }
+      ]
+    }
+  },
+  {
+    id: utilService.makeId(),
+    type: SIDEBAR_SECTION,
     name: 'dental footer call now',
     component: {
       type: SECTION,
@@ -1931,7 +2221,6 @@ export const SIDEBAR_ITEMS_FOOTER = [
                 style: {
                   borderRadius: '5px',
                   border: 'none',
-                  height: 44,
                   padding: '15px',
                   width: 370,
                   fontSize: 15,
@@ -2037,7 +2326,9 @@ export const SIDEBAR_ITEMS_FOOTER = [
               component: {
                 type: 'image',
                 data: { url: 'https://storage.boxmode.com/9626647491/assets/brand-1.png?profile=original' },
-                style: {}
+                style: {
+                  width: 'auto'
+                }
               }
             }
           ]
@@ -2053,7 +2344,9 @@ export const SIDEBAR_ITEMS_FOOTER = [
               component: {
                 type: 'image',
                 data: { url: 'https://storage.boxmode.com/9626647076/assets/brand-2.png?profile=original' },
-                style: {}
+                style: {
+                  width: 'auto'
+                }
               }
             }
           ]
@@ -2069,7 +2362,9 @@ export const SIDEBAR_ITEMS_FOOTER = [
               component: {
                 type: 'image',
                 data: { url: 'https://storage.boxmode.com/9626647291/assets/brand-3.png?profile=original' },
-                style: {}
+                style: {
+                  width: 'auto'
+                }
               }
             }
           ]
@@ -2085,7 +2380,9 @@ export const SIDEBAR_ITEMS_FOOTER = [
               component: {
                 type: 'image',
                 data: { url: 'https://storage.boxmode.com/9626647663/assets/brand-4.png?profile=original' },
-                style: {}
+                style: {
+                  width: 'auto'
+                }
               }
             }
           ]
@@ -2102,7 +2399,7 @@ export const SIDEBAR_ITEMS_FOOTER = [
                 type: 'image',
                 data: { url: 'https://storage.boxmode.com/9626642461/assets/brand-5.png?profile=original' },
                 style: {
-                  width: 163
+                  width: 'auto'
                 }
               }
             }
@@ -2119,7 +2416,9 @@ export const SIDEBAR_ITEMS_FOOTER = [
               component: {
                 type: 'image',
                 data: { url: 'https://storage.boxmode.com/9626647875/assets/brand-6.png?profile=original' },
-                style: {}
+                style: {
+                  width: 'auto'
+                }
               }
             }
           ]

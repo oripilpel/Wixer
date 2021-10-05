@@ -45,12 +45,13 @@ export function loadWap(wapId) {
     }
 }
 
-export function setWap(_id, cmps, style = {}) {
+export function setWap(_id, cmps, style = {}, chat) {
     return dispatch => dispatch({
         type: 'SET_WAP',
         _id,
         cmps,
-        style
+        style,
+        chat
     });
 }
 
