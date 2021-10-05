@@ -3,9 +3,13 @@ import { Button } from "@mui/material";
 import { CssTextFieldLight } from "../CssTextFieldLight";
 import { CssTextFieldDark } from "../CssTextFieldDark";
 import { useState } from "react";
+import { withRouter } from "react-router";
+import { wapService } from "../../services/waps.service";
 
-export function ContactForm({ data, style, update }) {
-    const [form, setForm] = useState({ ...data });
+
+function _ContactForm({ data, match }) {
+    const [form, setForm] = useState({});
+
 
     function handleChange({ target }) {
         const { name, value } = target;
@@ -15,8 +19,12 @@ export function ContactForm({ data, style, update }) {
 
     const StyledInput = (data.isDark) ? CssTextFieldDark : CssTextFieldLight
 
+    function onSubmit(ev) {
+        ev.preventDefault();
+        wapService.sendLead(match.params.wapId, form);
+    }
     return (
-        <div className="flex direction-column">
+        <form onSubmit={onSubmit} className="flex direction-column">
             <StyledInput
                 label="Name"
                 value={form.name}
@@ -45,10 +53,9 @@ export function ContactForm({ data, style, update }) {
                 name="msg"
                 variant="standard"
             />
-            <a className="flex link" href={`mailto:name@email.com?subject=${form.subject}&body=from${form.name} phone number:${form.phone},
-            ${form.msg}`}>
-                <Button style={{ flex: 1 }} >send as email</Button>
-            </a>
-        </div>
+            <Button type="submit" style={{ flex: 1 }} >send as email</Button>
+        </form>
     )
 }
+
+export const ContactForm = withRouter(_ContactForm)
