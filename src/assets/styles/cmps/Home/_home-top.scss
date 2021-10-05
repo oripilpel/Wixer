@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     height: calc(100vh - 65px);
     text-align: center;
     h1 {
@@ -12,6 +12,7 @@
         color: #064a6b;
         max-width: 20ch;
         padding-top: 2rem;
+        padding-bottom: 1em;
         margin: 0;
         @media screen and (min-width: 470px) {
             font-size: 2.5rem;
