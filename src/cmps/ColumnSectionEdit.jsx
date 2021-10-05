@@ -9,6 +9,7 @@ import { BorderEdit } from './BorderEdit';
 import { HeightEdit } from './HeightEdit';
 import debounce from 'lodash.debounce';
 import { ImageSearch } from './ImageSearch';
+import { FlexEdit } from './Edit/FlexEdit';
 
 export function ColumnSectionEdit({ style, onUpdate }) {
     const [expanded, setExpanded] = React.useState('background')
@@ -79,28 +80,7 @@ export function ColumnSectionEdit({ style, onUpdate }) {
                     Flex options
                 </AccordionSummary>
                 <AccordionDetails>
-                    <div className="flex">
-                        <div className="label">
-                            <label htmlFor="justify-content">Justify content</label>
-                        </div>
-                        <div className="input">
-                            <select name="justifyContent" id="justify-content" value={justifyContent} onChange={onChange}>
-                                <option value="center">Center</option>
-                                <option value="flex-start">Flex start</option>
-                                <option value="flex-end">Flex end</option>
-                                <option value="space-between">Space between</option>
-                                <option value="space-around">Space Around</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div>
-                        <label htmlFor="align-items">Align items</label>
-                        <select name="alignItems" id="align-items" value={alignItems} onChange={onChange}>
-                            <option value="center">Center</option>
-                            <option value="flex-start">Flex start</option>
-                            <option value="flex-end">Flex end</option>
-                        </select>
-                    </div>
+                    <FlexEdit onChange={onChange} justifyContent={justifyContent} alignItems={alignItems} />
                 </AccordionDetails>
             </Accordion>
             <Accordion expanded={expanded === 'spacing'} onChange={handleChange('spacing')}>

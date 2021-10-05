@@ -3,7 +3,7 @@ import { utilService } from "./util.service";
 
 // a little function to help us with reordering the result
 export function reorder(list, startIndex, endIndex) {
-  const result = Array.from(list);
+  const result = [...list];
   const [removed] = result.splice(startIndex, 1);
   result.splice(endIndex, 0, removed); // inserting task in new index
 
@@ -26,6 +26,7 @@ export function insert(arr, index, newItem) {
 };
 
 export function duplicate(layout, item) {
+  debugger
   const { splitItemPath, type } = item
   let idx;
   let newLayout = JSON.parse(JSON.stringify(layout));
@@ -61,11 +62,11 @@ export function duplicate(layout, item) {
     default:
       switch (splitItemPath.length) {
         case 3:
-          item = JSON.parse(JSON.stringify(newLayout[splitItemPath[0]].cmps[splitItemPath[1]]));
+          item = JSON.parse(JSON.stringify(newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]]));
           item.id = utilService.makeId();
           idx = splitItemPath[1];
           idx = idx < 0 ? 0 : idx;
-          newLayout[splitItemPath[0]].cmps = insert(newLayout[splitItemPath[0]].cmps, idx, item);
+          newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps = insert(newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps, idx, item);
           break;
         case 4:
           item = JSON.parse(JSON.stringify(newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]]));
@@ -77,6 +78,7 @@ export function duplicate(layout, item) {
             newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps = insert(newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps, idx, item);
           }
           else {
+            //case nav
             item = JSON.parse(JSON.stringify(item.component.data.links[splitItemPath[3]]))
             item.id = utilService.makeId();
             idx = splitItemPath[3];

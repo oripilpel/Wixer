@@ -2,7 +2,7 @@ import React from "react";
 import { TextareaAutosize } from "@material-ui/core";
 import { SideBarItem } from "./SideBarItem";
 import { Accordion, AccordionSummary, AccordionDetails } from './Accordion';
-import { SIDEBAR_ITEMS_BASIC, SIDEBAR_ITEMS_FOOTER, SIDEBAR_ITEMS_NAV, SIDEBAR_ITEMS_SECTIONS, SIDEBAT_ITEMS_HEADER } from "../constants";
+import { SIDEBAR_ITEMS_BASIC, SIDEBAR_ITEMS_FOOTER, SIDEBAR_ITEMS_NAV, SIDEBAR_ITEMS_SECTIONS, SIDEBAR_ITEMS_HEADER } from "../constants";
 
 export function SidebarAddComponent({ isElementClicked, setHints, setChatIsEnabled,chatIsEnabled, chatOpeningText, chatAnswerText, chatChange }) {
     const [expanded, setExpanded] = React.useState('header')
@@ -19,7 +19,7 @@ export function SidebarAddComponent({ isElementClicked, setHints, setChatIsEnabl
                     Header
                 </AccordionSummary>
                 <AccordionDetails className="header-items">
-                    {Object.values(SIDEBAT_ITEMS_HEADER).map((sideBarItem, index) => (
+                    {Object.values(SIDEBAR_ITEMS_HEADER).map((sideBarItem, index) => (
                         <SideBarItem key={sideBarItem.id} data={sideBarItem} type={sideBarItem.type}
                             isElementClicked={isElementClicked} setHints={setHints} />
                     ))}

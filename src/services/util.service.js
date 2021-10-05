@@ -26,5 +26,8 @@ export const translateStyle = (style) => {
     if (style.width) style.width = `${style.width}px`;
     if (style.height) style.height = `${style.height}px`
     if (style.borderWidth) style.borderWidth = `${style.borderWidth}px`
+    if (style.paddingInline) style.paddingInline = `${style.paddingInline}px`
+    if (style.paddingBlock) style.paddingBlock = `${style.paddingBlock}px`
+    if (style.borderRadius) style.borderRadius = `${style.borderRadius}px`
     return style;
 }
