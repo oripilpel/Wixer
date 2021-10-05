@@ -603,8 +603,8 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                   fontSize: 15,
                   color: '#FFFFFF',
                   textAlign: 'center',
-                  paddingInline:35,
-                  paddingBlock:12
+                  paddingInline: 35,
+                  paddingBlock: 12
                 }
               }
             },
@@ -619,7 +619,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
             component: {
               type: 'image',
               data: { url: 'https://storage.boxmode.com/9626642894/assets/dentio-main.jpg' },
-              style:{}
+              style: {}
             }
 
           }]
@@ -1494,6 +1494,188 @@ export const SIDEBAR_ITEMS_SECTIONS = [
           ]
         }
       ]
+    }
+  },
+  {
+    id: utilService.makeId(),
+    type: SIDEBAR_SECTION,
+    name: 'furniture carousle',
+    image:'furniCarousle',
+    component: {
+
+
+      "id": utilService.makeId(),
+      "type": SECTION,
+      "cmps": [
+        {
+          "type": INNERSECTION,
+          "id": utilService.makeId(),
+          "cmps": [
+            {
+              "type": COLUMN,
+              "id": utilService.makeId(),
+              "cmps": [
+                {
+                  "id": utilService.makeId(),
+                  "type": COMPONENT,
+                  "component": {
+                    "type": "text",
+                    "data": {
+                      "txt": "Recent Projects"
+                    },
+                    "style": {
+                      "fontSize": 40,
+                      "color": "#ffffff",
+                      "fontFamily": "raleway-semi-bold",
+                      "textAlign": "center"
+                    }
+                  }
+                }
+              ],
+              "style": {
+                "padding": 10,
+                "flexGrow": 1,
+                "flexDirection": COLUMN,
+                "display": "flex",
+                "alignItems": "center",
+                "justifyContent": "center"
+              }
+            }
+          ],
+          "style": {
+            "padding": 10,
+            "flexGrow": 1,
+            "display": "flex",
+            "paddingBottom": 0,
+            "paddingTop": 50
+          }
+        },
+        {
+          "type": INNERSECTION,
+          "id": utilService.makeId(),
+          "cmps": [
+            {
+              "type": COLUMN,
+              "id": utilService.makeId(),
+              "cmps": [
+                {
+                  "id": utilService.makeId(),
+                  "type": COMPONENT,
+                  "component": {
+                    "type": "carousel",
+                    "data": {
+                      "images": [
+                        {
+                          "id": utilService.makeId(),
+                          "label": "Dining Table",
+                          "imgPath": "http://res.cloudinary.com/dq6ymh7ev/image/upload/v1633430790/b1wrguzkaf0v15sv0dt6.webp"
+                        },
+                        {
+                          "id": utilService.makeId(),
+                          "label": "View windows",
+                          "imgPath": "http://res.cloudinary.com/dq6ymh7ev/image/upload/v1633430796/bzs1ocvnzlk6ahhtjfo5.webp"
+                        },
+                        {
+                          "id": utilService.makeId(),
+                          "label": "Designed kitchen",
+                          "imgPath": "http://res.cloudinary.com/dq6ymh7ev/image/upload/v1633430802/yajtajgf4vn8bmj3lf0b.webp"
+                        },
+                        {
+                          "id": utilService.makeId(),
+                          "label": "Kitchen cabinets",
+                          "imgPath": "http://res.cloudinary.com/dq6ymh7ev/image/upload/v1633430814/dvj9mtystrgge1lkxy4p.jpg"
+                        },
+                        {
+                          "id": utilService.makeId(),
+                          "label": "Guest lobby",
+                          "imgPath": "http://res.cloudinary.com/dq6ymh7ev/image/upload/v1633430822/vzc9ylutsehxs4ppkynn.webp"
+                        }
+                      ]
+                    },
+                    "style": {
+                      "display": "flex",
+                      "justifyContent": "center"
+                    }
+                  }
+                }
+              ],
+              "style": {
+                "padding": 10,
+                "flexGrow": 1,
+                "flexDirection": COLUMN,
+                "display": "flex",
+                "justifyContent": "center",
+                "alignItems": "center"
+              },
+              "data": {
+                "txt": "Recent Projects"
+              }
+            }
+          ],
+          "style": {
+            "padding": 10,
+            "flexGrow": 0,
+            "display": "flex",
+            "justifyContent": "center",
+            "alignItems": "center"
+          }
+        },
+        {
+          "type": INNERSECTION,
+          "id": utilService.makeId(),
+          "cmps": [
+            {
+              "type": COLUMN,
+              "id": utilService.makeId(),
+              "cmps": [
+                {
+                  "id": utilService.makeId(),
+                  "type": COMPONENT,
+                  "component": {
+                    "type": "button",
+                    "data": {
+                      "txt": "VIEW ALL",
+                      "hoverColor": "#b3a89a"
+                    },
+                    "style": {
+                      "borderRadius": "5px",
+                      "border": "none",
+                      "height": "50px",
+                      "padding": "15px",
+                      "width": "150px",
+                      "fontFamily": "raleway",
+                      "backgroundColor": "#9a8a78",
+                      "alignItems": "center",
+                      "justifyContent": "center",
+                      "color": "#262626",
+                      "paddingInline": 60,
+                      "paddingBlock": 16,
+                      "fontSize": 16
+                    }
+                  }
+                }
+              ],
+              "style": {
+                "padding": 10,
+                "flexGrow": 1,
+                "flexDirection": COLUMN,
+                "display": "flex",
+                "alignItems": "center",
+                "justifyContent": "center"
+              }
+            }
+          ],
+          "style": {
+            "padding": 10,
+            "flexGrow": 1,
+            "display": "flex",
+            "paddingBottom": 50
+          }
+        }
+      ],
+      "style": {
+        "backgroundColor": "#262626"
+      }
     }
   }
 ];

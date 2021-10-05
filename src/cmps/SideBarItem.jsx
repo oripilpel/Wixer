@@ -20,18 +20,20 @@ import hero3 from '../assets/img/elements/hero3.jpg';
 import gallery from '../assets/img/elements/gallery.jpg';
 import footer1 from '../assets/img/elements/footer1.jpg';
 import footer2 from '../assets/img/elements/footer2.jpg';
+import furniCarousle from '../assets/img/elements/furniCarousle.jpg';
 
 
 
 const KeysToComponentMap = {
-  'header1': header1,
-  'header2': header2,
-  'hero1': hero1,
-  'hero2': hero2,
-  'hero3': hero3,
-  'gallery': gallery,
-  'footer1': footer1,
-  'footer2': footer2
+  header1,
+  header2,
+  hero1,
+  hero2,
+  hero3,
+  gallery,
+  footer1,
+  footer2,
+  furniCarousle
 }
 
 const KeysToIconMap = {
