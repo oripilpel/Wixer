@@ -1,6 +1,4 @@
 import React from 'react';
-
-import Logo from '../assets/img/logo.png';
 import { NavLink, withRouter } from 'react-router-dom';
 
 
@@ -23,7 +21,6 @@ class _Header extends React.Component {
                 <div className={`screen ${isMenuOpen ? "active" : ""}`} onClick={() => this.toggleMenu(false)}></div>
                 <div className="logo">
                     <NavLink to="/">
-                        <img src={Logo} height="40px" alt="logo" />
                         Wixer
                     </NavLink>
                 </div>

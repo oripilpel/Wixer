@@ -1,87 +1,55 @@
 .home-top {
-    height: calc(100vh - 65px);
-    text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-
-    @media screen and (min-width: 800px) {
-        align-items: unset;
-        justify-content: end;
-    }
+    justify-content: center;
+    height: calc(100vh - 65px);
+    text-align: center;
     h1 {
+        font-family: montserrat-medium;
+        font-weight: 400;
         font-size: 2rem;
         color: #064a6b;
         max-width: 20ch;
+        padding-top: 2rem;
+        padding-bottom: 1em;
         margin: 0;
+        @media screen and (min-width: 470px) {
+            font-size: 2.5rem;
+        }
         @media screen and (min-width: 800px) {
-            text-align: left;
             font-size: 3rem;
         }
         span {
-            font-family: courgette;
+            font-family: orbitron;
             color: #1e8fe0;
         }
     }
-    .hero {
-        flex-wrap: wrap;
-        align-content: space-evenly;
-        height: 70%;
-        justify-content: center;
-        @media screen and (min-width: 800px) {
-            justify-content: space-between;
-        }
-        p {
-            max-width: 30ch;
-            flex-grow: 1;
-            margin: 0;
-            font-size: 1.5rem;
-            order: 1;
-
-            @media screen and (min-width: 800px) {
-                max-width: 20ch;
-                order: 0;
-            }
-            @media screen and (min-width: 970px) {
-                max-width: 25ch;
-                order: 0;
-            }
-            a {
-                text-decoration: none;
-                align-self: center;
-                padding: 20px 20px;
-                border-radius: 30px;
-                border: 1px solid black;
-                background: #fc7b30;
-                cursor: pointer;
-                font-size: 1.2rem;
-                color: #f5f5f5;
-                font-weight: bold;
-                transition: 0.4s;
-                &:hover {
-                    background-color: #b65821;
-                }
-            }
-            span {
-                margin-block-end: 25px;
+    p {
+        max-width: 30ch;
+        font-size: 1.5rem;
+        a {
+            align-self: center;
+            padding: 0.6em 2.1em;
+            font-family: montserrat-medium;
+            font-size: 1.2rem;
+            color: #f5f5f5;
+            text-decoration: none;
+            border-radius: 10px;
+            background-color: #1e8fe0;
+            cursor: pointer;
+            &:hover {
+                background-color: #d96940;
             }
         }
-        img {
-            width: 100%;
-            height: 50%;
-            object-fit: cover;
-
-            object-position: 0 45%;
-            order: 0;
-            @media screen and (min-width: 570px) {
-                width: 70%;
-            }
-            @media screen and (min-width: 800px) {
-                width: 45%;
-                height: 60%;
-                order: 1;
-            }
+        span {
+            margin-block-end: 25px;
         }
+    }
+    img {
+        width: 300px;
+        height: 145px;
+        object-fit: cover;
+        object-position: 0 45%;
     }
 }

@@ -21,17 +21,17 @@ import {
     moveToDifferentParent,
     updateComponent,
     setSelected,
-    duplicateItem,
-    removeItem,
     setChatIsEnabled,
     chatOpeningTextChange,
-    chatAnswerTextChange
+    chatAnswerTextChange,
+    dispatchAction
 } from '../store/layout.actions'
 import { utilService } from "../services/util.service";
 import { eventBusService } from "../services/event-bus-service";
 import { socketService } from "../services/socket.service";
 import { wapService } from "../services/waps.service";
 import { ChatApp } from "../cmps/ChatApp";
+import { templateService } from "../services/template.service";
 
 function _Editor(
     { match,
@@ -48,15 +48,14 @@ function _Editor(
         updateComponent,
         setSelected,
         insert,
-        removeItem,
-        duplicateItem,
         saveWap,
         loadWap,
         setWap,
         chat,
         setChatIsEnabled,
         chatOpeningTextChange,
-        chatAnswerTextChange
+        chatAnswerTextChange,
+        dispatchAction
     }) {
 
     const [historyUndo, setHitoryUndo] = useState([]);
@@ -77,6 +76,11 @@ function _Editor(
 
     useEffect(() => {
         if (_id) {
+            console.log(templateService.gTemplatesIds());
+            if (templateService.gTemplatesIds().includes(_id)) {
+                saveWap({ cmps, style, chat });
+                return;
+            }
             history.push(`/editor/${_id}`);
             socketService.emit('wap topic', _id);
         }
@@ -96,34 +100,8 @@ function _Editor(
             case 'UNDO':
                 onUndo(false, action.lastStep);
                 break;
-            case 'REMOVE_ITEM':
-                removeItem(action.item.splitItemPath, action.item.type, false);
-                break;
-            case 'DUPLICATE_ITEM':
-                duplicateItem(action.item.splitItemPath, action.item.type, false);
-                break;
-            case 'MOVE_SIDEBAR_COMPONENT_INTO_PARENT':
-                moveSidebarComponentIntoParent(action.splitDropZonePath, action.newItem, false);
-                break;
-            case 'MOVE_SIDEBAR_COLUMN_INTO_PARENT':
-                moveSidebarColumnIntoParent(action.splitDropZonePath, false);
-                break;
-            case 'MOVE_SIDEBAR_INNER_SECTION_INTO_PARENT':
-                moveSidebarInnerSectionIntoParent(action.splitDropZonePath, false);
-                break
-            case 'MOVE_WITHIN_PARENT':
-                moveWithinParent(action.splitDropZonePath, action.splitItemPath, false);
-                break;
-            case 'MOVE_TO_DIFFERENT_PARENT':
-                moveToDifferentParent(action.splitDropZonePath, action.splitItemPath, action.item, false);
-                break;
-            case 'UPDATE_COMPONENT':
-                updateComponent(action.comp, action.field, action.value, false);
-                break;
-            case 'INSERT_ITEM':
-                insert(action.index, action.newItem, false)
-                break;
-
+            default:
+                dispatchAction(action);
         }
     }
 
@@ -134,7 +112,7 @@ function _Editor(
     const onUndo = (isEmit = true, socketLastStep = null) => {
         if (historyUndo.length === 1) return;
         const lastStep = socketLastStep || historyUndo[historyUndo.length - 2];
-        setWap(_id, [...lastStep]);
+        setWap(_id, [...lastStep], style, chat);
         if (isEmit) {
             socketService.emit('wap change', { type: 'UNDO', lastStep });
             setHitoryUndo(historyUndo.slice(0, -2));
@@ -351,11 +329,10 @@ const mapDispatchToProps = {
     updateComponent,
     setSelected,
     insert,
-    duplicateItem,
-    removeItem,
     setChatIsEnabled,
     chatOpeningTextChange,
-    chatAnswerTextChange
+    chatAnswerTextChange,
+    dispatchAction
 }
 
 export const Editor = connect(mapStateToProps, mapDispatchToProps)(_Editor);

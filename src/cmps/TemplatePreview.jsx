@@ -4,7 +4,7 @@ import ImageListItemBar from '@mui/material/ImageListItemBar';
 
 export function TemplatePreview({ template, idx, cols }) {
     return (
-        <ImageListItem className="template-preview">
+        <ImageListItem className={`template-preview ${template.json ? "" : "plus"}`}>
             < img
                 src={`${template.img}${template.json ? "?w=164&h=164&fit=crop&auto=format" : ""}`
                 }
@@ -21,6 +21,7 @@ export function TemplatePreview({ template, idx, cols }) {
                 </div>
             </div>
             <ImageListItemBar
+            className= "title"
                 title={template.title}
             />
         </ImageListItem >

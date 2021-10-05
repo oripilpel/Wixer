@@ -11,6 +11,14 @@
     font-family: montserrat;
     src: url(../../fonts/Montserrat/Montserrat-Regular.ttf);
 }
+@font-face {
+    font-family: montserrat-medium;
+    src: url(../../fonts/Montserrat/Montserrat-Medium.ttf);
+}
+@font-face {
+    font-family: montserrat-bold;
+    src: url(../../fonts/Montserrat/Montserrat-Bold.ttf);
+}
 
 @font-face {
     font-family: lobster;
@@ -31,8 +39,22 @@
     font-family: raleway;
     src: url(../../fonts/Raleway/static/Raleway-Regular.ttf);
 }
+@font-face {
+    font-family: orbitron;
+    src: url(../../fonts/Orbitron/static/Orbitron-Regular.ttf);
+}
 
 @font-face {
     font-family: roboto;
     src: url(../../fonts/Roboto/Roboto-Regular.ttf);
+}
+
+@font-face {
+    font-family: poppins;
+    src: url(../../fonts/Poppins/Poppins-Regular.ttf);
+}
+
+@font-face {
+    font-family: opensans;
+    src: url(../../fonts/OpenSans/OpenSans-Regular.ttf);
 }

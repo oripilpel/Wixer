@@ -45,91 +45,92 @@ export function loadWap(wapId) {
     }
 }
 
-export function setWap(_id, cmps, style = {}) {
+export function setWap(_id, cmps, style = {}, chat) {
     return dispatch => dispatch({
         type: 'SET_WAP',
         _id,
         cmps,
-        style
+        style,
+        chat
     });
 }
 
-export function removeItem(splitItemPath, type, isEmit = true) {
+export function removeItem(splitItemPath, type) {
     const action = {
         type: 'REMOVE_ITEM',
         item: { splitItemPath, type }
     }
-    if (isEmit) socketService.emit('wap change', action);
+    socketService.emit('wap change', action);
     return dispatch => dispatch(action);
 }
 
-export function duplicateItem(splitItemPath, type, isEmit = true) {
+export function duplicateItem(splitItemPath, type) {
     const action = {
         type: 'DUPLICATE_ITEM',
         item: { splitItemPath, type }
     }
-    if (isEmit) socketService.emit('wap change', action);
+    socketService.emit('wap change', action);
     return dispatch => dispatch(action);
 
 }
 
-export function moveSidebarComponentIntoParent(splitDropZonePath, newItem, isEmit = true) {
+export function moveSidebarComponentIntoParent(splitDropZonePath, newItem) {
     const action = {
         type: 'MOVE_SIDEBAR_COMPONENT_INTO_PARENT',
         splitDropZonePath,
         newItem
     }
-    if (isEmit) socketService.emit('wap change', action);
+    socketService.emit('wap change', action);
     return dispatch => dispatch(action);
 }
 
-export function moveSidebarColumnIntoParent(splitDropZonePath, isEmit = true) {
+export function moveSidebarColumnIntoParent(splitDropZonePath) {
     const action = {
         type: 'MOVE_SIDEBAR_COLUMN_INTO_PARENT',
         splitDropZonePath
     }
-    if (isEmit) socketService.emit('wap change', action);
+    socketService.emit('wap change', action);
     return dispatch => dispatch(action);
 }
 
-export function moveSidebarInnerSectionIntoParent(splitDropZonePath, isEmit = true) {
+export function moveSidebarInnerSectionIntoParent(splitDropZonePath) {
     const action = {
         type: 'MOVE_SIDEBAR_INNER_SECTION_INTO_PARENT',
         splitDropZonePath
     }
-    if (isEmit) socketService.emit('wap change', action);
+   socketService.emit('wap change', action);
     return dispatch => dispatch(action);
 }
 
-export function moveWithinParent(splitDropZonePath, splitItemPath, isEmit = true) {
+export function moveWithinParent(splitDropZonePath, splitItemPath) {
     const action = {
         type: 'MOVE_WITHIN_PARENT',
         splitDropZonePath,
         splitItemPath
     }
-    if (isEmit) socketService.emit('wap change', action);
+    socketService.emit('wap change', action);
     return dispatch => dispatch(action);
 }
 
-export function moveToDifferentParent(splitDropZonePath, splitItemPath, item, isEmit = true) {
+export function moveToDifferentParent(splitDropZonePath, splitItemPath, item) {
     const action = {
         type: 'MOVE_TO_DIFFERENT_PARENT',
         splitDropZonePath,
         splitItemPath,
         item
     }
-    if (isEmit) socketService.emit('wap change', action);
+    socketService.emit('wap change', action);
     return dispatch => dispatch(action);
 }
 
-export function updateComponent(comp, field, value, isEmit = true) {
+export function updateComponent(comp, field, value) {
     const action = {
         type: 'UPDATE_COMPONENT',
         comp,
         field,
         value
     }
-    if (isEmit) socketService.emit('wap change', action);
+    socketService.emit('wap change', action);
     return dispatch => dispatch(action);
 }
 
@@ -140,13 +141,13 @@ export function setSelected(selected) {
     });
 }
 
-export function insert(index, newItem, isEmit = true) {
+export function insert(index, newItem) {
     const action = {
         type: 'INSERT_ITEM',
         index,
         newItem
     }
-    if (isEmit) socketService.emit('wap change', action);
+    socketService.emit('wap change', action);
     return dispatch => dispatch(action);
 }
 
@@ -157,29 +158,33 @@ export function reorderColumns(cmps, itemIdx, hoverIdx, path) {
     })
 }
 
-export function setChatIsEnabled(isChatEnabled, isEmit = true) {
+export function setChatIsEnabled(isChatEnabled) {
     const action = {
         type: 'SET_CHAT_ENABLED',
         isChatEnabled
     }
-    if (isEmit) socketService.emit('wap change', action);
+    socketService.emit('wap change', action);
     return dispatch => dispatch(action);
 }
 
-export function chatOpeningTextChange(openingText, isEmit = true) {
+export function chatOpeningTextChange(openingText) {
     const action = {
         type: 'CHAT_OPENING_TEXT_CHANGE',
         openingText
     }
-    if (isEmit) socketService.emit('wap change', action);
+    socketService.emit('wap change', action);
     return dispatch => dispatch(action);
 }
 
-export function chatAnswerTextChange(answerText, isEmit = true) {
+export function chatAnswerTextChange(answerText) {
     const action = {
         type: 'CHAT_ANSWER_TEXT_CHANGE',
         answerText
     }
-    if (isEmit) socketService.emit('wap change', action);
+    socketService.emit('wap change', action);
+    return dispatch => dispatch(action);
+}
+
+export function dispatchAction(action) {
     return dispatch => dispatch(action);
 }

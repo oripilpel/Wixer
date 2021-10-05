@@ -64,6 +64,8 @@ export function FontEdit({ fontSize, color, fontFamily, textAlign, onChange }) {
                                 <MenuItem value="raleway">Raleway</MenuItem>
                                 <MenuItem value="courgette">Courgette</MenuItem>
                                 <MenuItem value="lobster">Lobster</MenuItem>
+                                <MenuItem value="poppins">Poppins</MenuItem>
+                                <MenuItem value="opensans">Open Sans</MenuItem>
                             </Select>
                         </FormControl>
                     </Box>

@@ -10,12 +10,12 @@
     border-bottom: 1px solid hsla(0, 0%, 78.4%, 0.8);
     height: 65px;
     box-shadow: 0 0px 8px 0 #00000036;
-    z-index: 5;
+    z-index: 10;
     transition: 0.5s;
 
     .logo {
         font-size: 40px;
-        font-family: courgette;
+        font-family: orbitron;
         transition: 0.5s;
 
         img {
@@ -43,7 +43,7 @@
             right: -175px;
             top: 0;
             padding-block-start: 100px;
-            background-color: #e9f5ff;
+            background-color: #e9f5ffde;
             box-shadow: 0 0px 20px 0px #0000009e;
             transition: 0.7s;
         }
@@ -69,7 +69,8 @@
             &:hover,
             &.active {
                 @media screen and (min-width: 721px) {
-                    box-shadow: inset 0px -3px 0px 0px #0b6fb7;
+                    box-shadow: inset 0px -2px 0px 0px #0b6fb7;
+                    transition: box-shadow 0.4s, color 0.2s;
                     font-weight: bold;
                 }
             }
@@ -78,12 +79,12 @@
 
     &.min {
         height: 30px;
-        padding-inline-start: 48px;
-        padding-inline-end: 10px;
+        padding: 0 20px;
+        background-color: #293241;
         .logo {
             font-size: 25px;
-            img {
-                height: 25px;
+            a {
+                color: #ffffff;
             }
         }
         .hamb-icon {
@@ -93,6 +94,9 @@
                 width: 25px;
                 height: 8px;
                 border-block-end: 3px solid black;
+                @media screen and (max-width: 720px) {
+                    border-block-end: 3px solid white;
+                }
             }
             &.active div:nth-child(1) {
                 position: relative;
@@ -101,6 +105,23 @@
             &.active div:nth-child(3) {
                 position: relative;
                 top: 2px;
+            }
+        }
+        .links {
+            a {
+                color: #ffffff;
+                font-size: 1rem;
+                &.active,
+                &:hover {
+                    box-shadow: inset 0px -2px 0px 0px #ffffff;
+                }
+                @media screen and (max-width: 720px) {
+                    font-size: 1.2rem;
+                }
+            }
+            @media screen and (max-width: 720px) {
+                background-color: #293241eb;
+                padding-block-start: 50px;
             }
         }
     }

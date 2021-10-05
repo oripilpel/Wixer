@@ -16,7 +16,7 @@
 
         .feature-wrapper {
             flex-direction: column;
-            height: 60vh;
+            min-height: 60vh;
             @media screen and (min-width: 720px) {
                 flex-direction: unset;
             }

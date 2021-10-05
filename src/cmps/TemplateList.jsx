@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import useMediaQuery from '@mui/material/useMediaQuery';
 import ImageList from '@mui/material/ImageList';
-import ImageListItem from '@mui/material/ImageListItem';
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 
 import { TemplatePreview } from './TemplatePreview';
 import { templateService } from '../services/template.service';
-import Empty from '../assets/img/empty.png'
 
 export function TemplateList({ numberOfTemplates, moreTemplates }) {
 
@@ -24,23 +25,16 @@ export function TemplateList({ numberOfTemplates, moreTemplates }) {
                 {templates.map((item, idx) => (
                     <TemplatePreview key={item.json} template={item} idx={idx} cols={cols} />
                 ))}
-                {moreTemplates &&
-                    (
-                        <ImageListItem className="template-preview">
-                            < img
-                                src={Empty}
-                                srcSet={Empty}
-                                alt='explore more templates'
-                                loading="lazy"
-                            />
-                            <div className="show-all">
-                                <a href={`/templates`}>
-                                    {`Explore More Templates`}
-                                </a>
-                            </div>
-                        </ImageListItem >
-                    )}
             </ImageList>
+            {moreTemplates &&
+                (
+                    <div className="show-all">
+                        <Link to="/templates">
+                            Explore more templates <ArrowRightIcon />
+                        </Link>
+
+                    </div>
+                )}
         </div>
     )
 }

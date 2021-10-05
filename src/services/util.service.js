@@ -1,3 +1,5 @@
+import { isSafeInteger } from "lodash";
+
 export const utilService = {
     makeId
 }
@@ -23,7 +25,12 @@ export const translateStyle = (style) => {
     if (style.marginBottom) style.marginBottom = `${style.marginBottom}px`;
     if (style.marginLeft) style.marginLeft = `${style.marginLeft}px`;
     if (style.fontSize) style.fontSize = `${style.fontSize}px`;
-    if (style.width) style.width = `${style.width}px`;
+    if (style.width) {
+        if (style.width) {
+            if (style.width === 'auto') style.width = '100%';
+            else style.width = `${style.width}px`;
+        }
+    }
     if (style.height) style.height = `${style.height}px`
     if (style.borderWidth) style.borderWidth = `${style.borderWidth}px`
     if (style.paddingInline) style.paddingInline = `${style.paddingInline}px`
