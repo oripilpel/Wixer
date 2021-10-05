@@ -3800,13 +3800,15 @@ export const SIDEBAR_ITEMS_FOOTER = [
               type: COMPONENT,
               component: {
                 type: 'form',
-                data:
-                {
-                  name: '',
-                  email: '',
-                  phone: '',
-                  subject: '',
-                  msg: ''
+                data: {
+                  form: {
+                    name: '',
+                    email: '',
+                    phone: '',
+                    subject: '',
+                    msg: ''
+                  },
+                  isDark: true
                 }
                 ,
                 style: {}

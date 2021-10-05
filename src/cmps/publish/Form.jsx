@@ -1,6 +1,7 @@
-import { TextField } from "@material-ui/core";
 import { Button } from "@mui/material";
 
+import { CssTextFieldLight } from "../CssTextFieldLight";
+import { CssTextFieldDark } from "../CssTextFieldDark";
 import { useState } from "react";
 
 export function ContactForm({ data, style, update }) {
@@ -12,31 +13,37 @@ export function ContactForm({ data, style, update }) {
         setForm(newForm)
     }
 
+    const StyledInput = (data.isDark) ? CssTextFieldDark : CssTextFieldLight
+
     return (
         <div className="flex direction-column">
-            <TextField
+            <StyledInput
                 label="Name"
                 value={form.name}
                 onChange={handleChange}
                 name="name"
+                variant="standard"
             />
-            <TextField
+            <StyledInput
                 label="Phone Number"
                 value={form.phone}
                 onChange={handleChange}
                 name="phone"
+                variant="standard"
             />
-            <TextField
+            <StyledInput
                 label="Subject"
                 value={form.subject}
                 onChange={handleChange}
                 name="subject"
+                variant="standard"
             />
-            <TextField
+            <StyledInput
                 label="Your Message"
                 value={form.msg}
                 onChange={handleChange}
                 name="msg"
+                variant="standard"
             />
             <a className="flex link" href={`mailto:name@email.com?subject=${form.subject}&body=from${form.name} phone number:${form.phone},
             ${form.msg}`}>

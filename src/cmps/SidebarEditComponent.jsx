@@ -8,6 +8,7 @@ import { VideoEdit } from "./VideoEdit"
 import { GMapEdit } from "./GMapEdit"
 import { SocialIconsEdit } from "./SocialIconsEdit"
 import { CarouselEdit } from "./CarouselEdit"
+import { FormEdit } from "./FormEdit"
 
 export function SidebarEditComponent({ type, style, data, onUpdate }) {
     switch (type) {
@@ -31,6 +32,8 @@ export function SidebarEditComponent({ type, style, data, onUpdate }) {
             return <SocialIconsEdit style={style} onUpdate={onUpdate} data={data} />
         case 'carousel':
             return <CarouselEdit style={style} onUpdate={onUpdate} data={data} />
+        case 'form':
+            return <FormEdit onUpdate={onUpdate} data={data} />
         default:
             return <></>
     }

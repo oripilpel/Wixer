@@ -1,59 +1,53 @@
-import { Button, TextField } from "@mui/material";
-import classNames from "classnames";
+import { Button } from "@mui/material";
 
 import { useState } from "react";
-import { CssTextField } from "./CssTextField";
+import { CssTextFieldLight } from "./CssTextFieldLight";
+import { CssTextFieldDark } from "./CssTextFieldDark";
 
-export function ContactForm({ data, style, update }) {
-    const [form, setForm] = useState({ ...data });
-    const styles = theme => ({
-        multilineColor: {
-            color:'red'
-        }
-    });
+export function ContactForm({ data, update }) {
+    const [form, setForm] = useState({ ...data.form });
+
+    const StyledInput = (data.isDark) ? CssTextFieldDark : CssTextFieldLight
+
 
     function handleChange({ target }) {
         const { name, value } = target;
         const newForm = { ...form, [name]: value }
         setForm(newForm)
-        update('data', { newForm })
+        update('data', { ...data, form: newForm })
     }
 
     return (
         <div className="flex direction-column">
-            <CssTextField
+            <StyledInput
                 label="Name"
                 value={form.name}
                 onChange={handleChange}
                 name="name"
                 variant="standard"
-                multiline
-                InputProps={{
-                    className: styles.multilineColor
-                }}
             />
-            <TextField
+            <StyledInput
                 label="Email"
                 value={form.email}
                 onChange={handleChange}
                 name="email"
                 variant="standard"
             />
-            <TextField
+            <StyledInput
                 label="Phone Number"
                 value={form.phone}
                 onChange={handleChange}
                 name="phone"
                 variant="standard"
             />
-            <TextField
+            <StyledInput
                 label="Subject"
                 value={form.subject}
                 onChange={handleChange}
                 name="subject"
                 variant="standard"
             />
-            <TextField
+            <StyledInput
                 label="Your Message"
                 value={form.msg}
                 onChange={handleChange}
