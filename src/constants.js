@@ -357,8 +357,8 @@ export const SIDEBAR_ITEMS_HEADER = [
                       color: '#eeece2',
                       backgroundColor: '#7c6c50',
                       border: 0,
-                      height: 50,
-                      maxWidth: 150,
+                      paddingBlock: 10,
+                      paddingInline: 50,
                       cursor: 'pointer'
                     }
                   }
@@ -2240,7 +2240,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
     id: utilService.makeId(),
     type: SIDEBAR_SECTION,
     name: 'furniture carousle',
-    image:'furniCarousle',
+    image: 'furniCarousle',
     component: {
 
 

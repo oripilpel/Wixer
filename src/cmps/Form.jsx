@@ -13,7 +13,7 @@ export function ContactForm({ data, style, update }) {
     }
 
     return (
-        <div className="flex direction-column">
+        <div style={{ color: 'red' }} className="form flex direction-column">
             <TextField
                 label="Name"
                 value={form.name}
