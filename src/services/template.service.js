@@ -1,4 +1,4 @@
-import Plus from '../assets/img/plus.png';
+import Plus from '../assets/img/plus.svg';
 import Restaurant from '../assets/img/restaurant.jpeg';
 import mercedes from '../assets/img/mercedes.jpg'
 export const templateService = {

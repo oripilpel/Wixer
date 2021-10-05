@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { uploadImg } from '../services/cloudinary-service';
 import { MarginEdit } from "./MarginEdit";
 import { PaddingEdit } from "./PaddingEdit";
@@ -7,7 +7,7 @@ import { WidthEdit } from "./WidthEdit";
 import { Accordion, AccordionSummary, AccordionDetails } from './Accordion';
 import { BorderEdit } from './BorderEdit';
 import { HeightEdit } from './HeightEdit';
-import debounce from 'lodash.debounce';
+// import debounce from 'lodash.debounce';
 import { ImageSearch } from './ImageSearch';
 
 export function ColumnSectionEdit({ style, onUpdate }) {
@@ -15,6 +15,16 @@ export function ColumnSectionEdit({ style, onUpdate }) {
     const handleChange = (panel) => (event, newExpanded) => {
         setExpanded(newExpanded ? panel : false);
     };
+
+    let bgTimeout
+    const onBgChange = ({ target }) => {
+        const { value } = target;
+        clearTimeout(bgTimeout)
+        bgTimeout= setTimeout(()=>{
+            onUpdate('style', {...style, backgroundColor: value});
+        },40)
+    }
+
     const onChange = ({ target }) => {
         const { name, value } = target;
         const newStyle = { ...style };
@@ -58,7 +68,7 @@ export function ColumnSectionEdit({ style, onUpdate }) {
                             </label>
                         </div>
                         <div className="item">
-                            <input type="color" name="backgroundColor" id="background-color" value={backgroundColor || '#ffffff'} onChange={onChange} />
+                            <input type="color" name="backgroundColor" id="background-color" value={backgroundColor || '#ffffff'} onChange={onBgChange} />
                         </div>
                     </div>
                     <ImageUpload label="Upload image" onUpload={(ev) => uploadImg(ev).then(url => onUploadImage(url))} />
