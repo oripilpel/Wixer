@@ -5,16 +5,21 @@ const STORAGE_KEY = 'wapDb';
 
 export const wapService = {
     save,
-    getById
+    getById,
+    sendLead
 }
 
 async function save(wap) {
     delete wap.selected;
-    if (wap._id) return await httpService.put(`wap/${wap._id}`, wap)//return storageService.put(STORAGE_KEY, wap)
-    else return await httpService.post('wap', wap)//storageService.post(STORAGE_KEY, wap);
+    if (wap._id) return await httpService.put(`wap/${wap._id}`, wap);//return storageService.put(STORAGE_KEY, wap)
+    else return await httpService.post('wap', wap);//storageService.post(STORAGE_KEY, wap);
 }
 
 async function getById(wapId) {
-    return await httpService.get(`wap?wapId=${wapId}`)//storageService.get(STORAGE_KEY, wapId)
+    return await httpService.get(`wap?wapId=${wapId}`);//storageService.get(STORAGE_KEY, wapId)
+}
+
+async function sendLead(wapId, lead) {
+    return await httpService.post(`wap/${wapId}`, lead);
 }
 

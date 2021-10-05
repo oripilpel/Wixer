@@ -1,19 +1,31 @@
 import { TextField } from "@material-ui/core";
 import { Button } from "@mui/material";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { withRouter } from "react-router";
+import { wapService } from "../../services/waps.service";
 
-export function ContactForm({ data, style, update }) {
-    const [form, setForm] = useState({ ...data });
+function _ContactForm({ data, style, update, match }) {
+    // const  = props
+    const [form, setForm] = useState({});
+
+    useEffect(() => {
+        //componentDidMount
+        console.log(match.params.wapId)
+        
+    }, []);
 
     function handleChange({ target }) {
         const { name, value } = target;
         const newForm = { ...form, [name]: value }
         setForm(newForm)
     }
-
+    function onSubmit(ev) {
+        ev.preventDefault();
+        wapService.sendLead(match.params.wapId, form);
+    }
     return (
-        <div className="flex direction-column">
+        <form onSubmit={onSubmit} className="flex direction-column">
             <TextField
                 label="Name"
                 value={form.name}
@@ -24,7 +36,7 @@ export function ContactForm({ data, style, update }) {
                 label="Phone Number"
                 value={form.phone}
                 onChange={handleChange}
-                name="phone"
+                name="phoneNumber"
             />
             <TextField
                 label="Subject"
@@ -36,12 +48,11 @@ export function ContactForm({ data, style, update }) {
                 label="Your Message"
                 value={form.msg}
                 onChange={handleChange}
-                name="msg"
+                name="messsage"
             />
-            <a className="flex link" href={`mailto:name@email.com?subject=${form.subject}&body=from${form.name} phone number:${form.phone},
-            ${form.msg}`}>
-                <Button style={{ flex: 1 }} >send as email</Button>
-            </a>
-        </div>
+                <Button type="submit" style={{ flex: 1 }} >send as email</Button>
+        </form>
     )
 }
+
+export const ContactForm = withRouter(_ContactForm)
