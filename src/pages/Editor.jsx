@@ -65,7 +65,7 @@ function _Editor(
     useEffect(() => {
         //componentDidMount
         socketService.on('wap change', wapChangeFromSocket);
-        const id = match.params.wapId;
+        const id = match.params.wapId || _id;
         if (id) loadWap(id);
         else { saveWap({ cmps, style }) };
         return () => {

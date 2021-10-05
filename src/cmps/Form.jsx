@@ -1,5 +1,4 @@
-import { TextField } from "@material-ui/core";
-import { Button } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 
 import { useState } from "react";
 
@@ -20,30 +19,35 @@ export function ContactForm({ data, style, update }) {
                 value={form.name}
                 onChange={handleChange}
                 name="name"
+                variant="standard"
             />
             <TextField
                 label="Email"
                 value={form.email}
                 onChange={handleChange}
                 name="email"
+                variant="standard"
             />
             <TextField
                 label="Phone Number"
                 value={form.phone}
                 onChange={handleChange}
                 name="phone"
+                variant="standard"
             />
             <TextField
                 label="Subject"
                 value={form.subject}
                 onChange={handleChange}
                 name="subject"
+                variant="standard"
             />
             <TextField
                 label="Your Message"
                 value={form.msg}
                 onChange={handleChange}
                 name="msg"
+                variant="standard"
             />
             <Button>send as email</Button>
         </div>

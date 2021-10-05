@@ -2,20 +2,20 @@ import { SECTION, COLUMN, COMPONENT, INNERSECTION } from "../constants";
 import { utilService } from "./util.service";
 
 // a little function to help us with reordering the result
-export function reorder(list, startIndex, endIndex) {
+export function reorder(list, idx, targetIdx) {
   const result = Array.from(list);
-  const [removed] = result.splice(startIndex, 1);
-  result.splice(endIndex, 0, removed); // inserting task in new index
+  const [removed] = result.splice(idx, 1);
+  result.splice(targetIdx, 0, removed); // inserting element in new index
 
   return result;
-};
+}
 
 export function remove(arr, index) {
   return [
     ...arr.slice(0, index),
     ...arr.slice(index + 1)
   ]
-};
+}
 
 export function insert(arr, index, newItem) {
   return [
@@ -23,79 +23,79 @@ export function insert(arr, index, newItem) {
     newItem,
     ...arr.slice(index)
   ]
-};
+}
 
-export function duplicate(layout, item) {
+export function duplicate(wap, item) {
   const { splitItemPath, type } = item
   let idx;
-  let newLayout = JSON.parse(JSON.stringify(layout));
+  let newWap = JSON.parse(JSON.stringify(wap));
   switch (type) {
     case SECTION:
-      item = JSON.parse(JSON.stringify(newLayout[splitItemPath[0]]));
+      item = JSON.parse(JSON.stringify(newWap[splitItemPath[0]]));
       item.id = utilService.makeId();
-      newLayout = insert(newLayout, splitItemPath[0] + 1, item);
+      newWap = insert(newWap, splitItemPath[0] + 1, item);
       break;
     case INNERSECTION:
-      item = JSON.parse(JSON.stringify(newLayout[splitItemPath[0]].cmps[splitItemPath[1]]));
+      item = JSON.parse(JSON.stringify(newWap[splitItemPath[0]].cmps[splitItemPath[1]]));
       item.id = utilService.makeId();
       idx = splitItemPath[1];
       idx = idx < 0 ? 0 : idx;
-      newLayout[splitItemPath[0]].cmps = insert(newLayout[splitItemPath[0]].cmps, idx, item);
+      newWap[splitItemPath[0]].cmps = insert(newWap[splitItemPath[0]].cmps, idx, item);
       break;
     case COLUMN:
       if (splitItemPath.length === 3) {
-        item = JSON.parse(JSON.stringify(newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]]));
+        item = JSON.parse(JSON.stringify(newWap[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]]));
         item.id = utilService.makeId();
         idx = splitItemPath[2];
         idx = idx < 0 ? 0 : idx;
-        newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps = insert(newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps, idx, item);
+        newWap[splitItemPath[0]].cmps[splitItemPath[1]].cmps = insert(newWap[splitItemPath[0]].cmps[splitItemPath[1]].cmps, idx, item);
       }
       else {
-        item = JSON.parse(JSON.stringify(newLayout[splitItemPath[0]].cmps[splitItemPath[1]]));
+        item = JSON.parse(JSON.stringify(newWap[splitItemPath[0]].cmps[splitItemPath[1]]));
         item.id = utilService.makeId();
         idx = splitItemPath[1];
         idx = idx < 0 ? 0 : idx;
-        newLayout[splitItemPath[0]].cmps = insert(newLayout[splitItemPath[0]].cmps, idx, item);
+        newWap[splitItemPath[0]].cmps = insert(newWap[splitItemPath[0]].cmps, idx, item);
       }
       break;
     default:
       switch (splitItemPath.length) {
         case 3:
-          item = JSON.parse(JSON.stringify(newLayout[splitItemPath[0]].cmps[splitItemPath[1]]));
+          item = JSON.parse(JSON.stringify(newWap[splitItemPath[0]].cmps[splitItemPath[1]]));
           item.id = utilService.makeId();
           idx = splitItemPath[1];
           idx = idx < 0 ? 0 : idx;
-          newLayout[splitItemPath[0]].cmps = insert(newLayout[splitItemPath[0]].cmps, idx, item);
+          newWap[splitItemPath[0]].cmps = insert(newWap[splitItemPath[0]].cmps, idx, item);
           break;
         case 4:
-          item = JSON.parse(JSON.stringify(newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]]));
+          item = JSON.parse(JSON.stringify(newWap[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]]));
           if (item.cmps) {
             item = { ...item.cmps[splitItemPath[3]] }
             item.id = utilService.makeId();
             idx = splitItemPath[3];
             idx = idx < 0 ? 0 : idx;
-            newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps = insert(newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps, idx, item);
+            newWap[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps = insert(newWap[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps, idx, item);
           }
           else {
             item = JSON.parse(JSON.stringify(item.component.data.links[splitItemPath[3]]))
             item.id = utilService.makeId();
             idx = splitItemPath[3];
             idx = idx < 0 ? 0 : idx;
-            newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].component.data.links = insert(newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].component.data.links, idx, item);
+            newWap[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].component.data.links = insert(newWap[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].component.data.links, idx, item);
           }
           break;
         default:
-          item = JSON.parse(JSON.stringify(newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps[splitItemPath[3]].component.data.links[splitItemPath[4]]));
+          item = JSON.parse(JSON.stringify(newWap[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps[splitItemPath[3]].component.data.links[splitItemPath[4]]));
           item.id = utilService.makeId();
           idx = splitItemPath[4];
           idx = idx < 0 ? 0 : idx;
-          newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps[splitItemPath[3]].component.data.links = insert(newLayout[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps[splitItemPath[3]].component.data.links, idx, item);
+          newWap[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps[splitItemPath[3]].component.data.links = insert(newWap[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]].cmps[splitItemPath[3]].component.data.links, idx, item);
           break;
       }
       break;
   }
 
-  return newLayout;
+  return newWap;
 }
 
 export function reorderChildren(children, splitDropZonePath, splitItemPath) {
@@ -127,7 +127,7 @@ export function reorderChildren(children, splitDropZonePath, splitItemPath) {
   };
 
   return updatedChildren;
-};
+}
 
 export function removeChildFromChildren(layout, item) {
   const { type, splitItemPath } = item
@@ -160,7 +160,7 @@ export function removeChildFromChildren(layout, item) {
       return layout
 
   }
-};
+}
 
 export function addChildToChildren(children, splitDropZonePath, item) {
   if (splitDropZonePath.length === 1) {
@@ -186,7 +186,7 @@ export function addChildToChildren(children, splitDropZonePath, item) {
   };
 
   return updatedChildren;
-};
+}
 
 export function handleAddColumDataToRow(layout) {
   const layoutCopy = [...layout];
@@ -194,7 +194,7 @@ export function handleAddColumDataToRow(layout) {
     return section.cmps.length
   })
 
-};
+}
 
 export function handleMoveToDifferentParent(layout, splitDropZonePath, splitItemPath, item) {
   let newLayoutStructure;
@@ -268,7 +268,7 @@ export function handleMoveToDifferentParent(layout, splitDropZonePath, splitItem
   );
 
   return updatedLayout;
-};
+}
 
 export function handleMoveSidebarInnerSectionIntoParent(layout, splitDropZonePath,) {
   switch (splitDropZonePath.length) {
@@ -324,7 +324,7 @@ export function handleMoveSidebarComponentIntoParent(layout, splitDropZonePath, 
   }
 
   return addChildToChildren(layout, splitDropZonePath, newLayoutStructure);
-};
+}
 
 function _generateColumn(item = null) {
   return {

@@ -36,7 +36,7 @@ const Component = ({ data, path, updateComponent, select, selected }) => {
 
   const component = data.component;
 
-  const KeysToComponentMap = {
+  const typeToCmpMap = {
     text: Text,
     image: Image,
     video: Video,
@@ -58,9 +58,9 @@ const Component = ({ data, path, updateComponent, select, selected }) => {
   }
 
   const renderer = (component) => {
-    if (typeof KeysToComponentMap[component.type] !== "undefined") {
+    if (typeof typeToCmpMap[component.type] !== "undefined") {
       return React.createElement(
-        KeysToComponentMap[component.type],
+        typeToCmpMap[component.type],
         {
           id: component.id,
           key: component.id,
