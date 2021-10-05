@@ -1792,6 +1792,23 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                       cursor: 'pointer'
                     }
                   }
+                },
+                {
+                  id: utilService.makeId(),
+                  type: COMPONENT,
+                  component: {
+                    type: 'button',
+                    data: { txt: 'Click to Change', hoverColor: '#b3a89a' },
+                    style: {
+                      border: 'none',
+                      paddingBlock: 15,
+                      paddingInline: 25,
+                      fontFamily: 'raleway',
+                      fontSize: 14,
+                      backgroundColor: '#9a8a78',
+                      color: '#262626'
+                    }
+                  }
                 }
               ]
             }
