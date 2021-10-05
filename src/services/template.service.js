@@ -22,9 +22,9 @@ const gTemplates = [
         title: 'Mercedes',
     },
     {
-        json: '12345',
+        json: '615c0ee0b4e843deb839b11d',
         img: 'https://images.unsplash.com/photo-1522770179533-24471fcdba45',
-        title: 'Camera',
+        title: 'Dental Clinic',
     },
     {
         json: '55555',
