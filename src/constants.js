@@ -490,7 +490,8 @@ export const SIDEBAR_ITEMS_HEADER = [
                   },
                   component: {
                     type: 'image',
-                    data: { url: 'http://res.cloudinary.com/dq6ymh7ev/image/upload/v1632845750/slyc5yzyraawpadfejws.svg' }
+                    data: { url: 'http://res.cloudinary.com/dq6ymh7ev/image/upload/v1632845750/slyc5yzyraawpadfejws.svg' },
+                    style: {}
                   }
                 }
               ]
@@ -504,7 +505,8 @@ export const SIDEBAR_ITEMS_HEADER = [
                   component: {
                     style: {
                       display: 'flex',
-                      color: '#a19d9d'
+                      color: '#a19d9d',
+                      gap: 0,
                     },
                     type: 'nav',
                     data: {
