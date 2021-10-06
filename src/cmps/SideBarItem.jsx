@@ -21,7 +21,12 @@ import gallery from '../assets/img/elements/gallery.jpg';
 import footer1 from '../assets/img/elements/footer1.jpg';
 import footer2 from '../assets/img/elements/footer2.jpg';
 import furniCarousle from '../assets/img/elements/furniCarousle.jpg';
-
+import dentalHero from '../assets/img/elements/dentalHero.jpg';
+import dentalFooter from '../assets/img/elements/dentalFooter.jpg';
+import dentalReviews from '../assets/img/elements/dentalReviews.jpg';
+import dentalServices from '../assets/img/elements/dentalServices.jpg';
+import testimonials from '../assets/img/elements/testimonials.jpg';
+import remodelingServices from '../assets/img/elements/remodelingServices.jpg';
 
 
 const KeysToComponentMap = {
@@ -30,10 +35,16 @@ const KeysToComponentMap = {
   hero1,
   hero2,
   hero3,
+  dentalHero,
   gallery,
+  furniCarousle,
   footer1,
   footer2,
-  furniCarousle
+  dentalFooter,
+  dentalReviews,
+  dentalServices,
+  testimonials,
+  remodelingServices
 }
 
 const KeysToIconMap = {
