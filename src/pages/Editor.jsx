@@ -8,7 +8,7 @@ import { SIDEBAR_ITEM, COMPONENT, COLUMN, SECTION, SIDEBAR_COLUMN, SIDEBAR_INNER
 import { DropZone } from "../cmps/DropZone";
 import { Section } from "../cmps/Section";
 import { SideBar } from "../cmps/SideBar";
-import Loader from '../assets/img/loader.svg'
+import { Loader } from '../assets/img/Loader'
 
 
 import {
@@ -274,7 +274,7 @@ function _Editor(
                     chatIsEnabled={chat.isEnabled}
                     chatChange={chatChange} />
                 <div className="page-container">
-                    {loader && <img src={Loader} className="loader" /> || <div className="page">
+                    {loader && <Loader /> || <div className="page">
                         {cmps.map((section, index) => {
                             const currentPath = `${index}`;
                             return (
