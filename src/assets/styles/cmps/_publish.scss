@@ -3,6 +3,7 @@
     .section {
         flex-wrap: wrap;
         text-align: center;
+        padding: 0px calc(50% - 550px);
         .innersection {
             width: 100% !important;
             max-width: 1100px !important;

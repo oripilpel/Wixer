@@ -553,6 +553,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
     id: utilService.makeId(),
     type: SIDEBAR_SECTION,
     name: 'Header Construction',
+    image: 'headerConstruction',
     component: {
       type: SECTION,
       id: utilService.makeId(),
@@ -712,6 +713,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
     id: utilService.makeId(),
     type: SIDEBAR_SECTION,
     name: 'dentist',
+    image:'dentist',
     component: {
       type: SECTION,
       id: utilService.makeId(),
@@ -792,6 +794,8 @@ export const SIDEBAR_ITEMS_SECTIONS = [
   {
     id: utilService.makeId(),
     type: SIDEBAR_SECTION,
+    name: 'sectionMeal',
+    image: 'sectionMeal',
     component: {
       type: SECTION,
       style: {
@@ -1662,7 +1666,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
   {
     id: utilService.makeId(),
     type: SIDEBAR_SECTION,
-    name: 'Remodeling',
+    name: 'remodelingServices',
     image: 'remodelingServices',
     component: {
       id: utilService.makeId(),
@@ -3227,6 +3231,7 @@ export const SIDEBAR_ITEMS_FOOTER = [
     id: utilService.makeId(),
     type: SIDEBAR_SECTION,
     name: 'dental footer call now',
+    image: 'dentalFotterCallNow',
     component: {
       type: SECTION,
       id: utilService.makeId(),
@@ -3325,6 +3330,7 @@ export const SIDEBAR_ITEMS_FOOTER = [
     id: utilService.makeId(),
     type: SIDEBAR_SECTION,
     name: 'dental footer upper',
+    image: 'dentalFooterUpper',
     component: {
       type: SECTION,
       id: utilService.makeId(),
@@ -3723,6 +3729,7 @@ export const SIDEBAR_ITEMS_FOOTER = [
     id: utilService.makeId(),
     type: SIDEBAR_SECTION,
     name: 'remodeling',
+    image: 'remodeling',
     component: {
       id: utilService.makeId(),
       type: SECTION,
