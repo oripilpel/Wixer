@@ -63,12 +63,17 @@
                 flex-grow: 1;
                 height: unset;
                 margin-block-end: 41px;
+                direction: rtl;
+                &::-webkit-scrollbar {
+                    width: 30px;
+                }
                 .sidebar-add-component {
+                    direction: ltr;
                     .element-items {
                         grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-                        gap: unset;
+                        gap: 1px;
+                        padding: 5px;
                         margin: 0;
-                        margin-inline-start: 48px;
                         .side-bar-item.anima {
                             animation: unset;
                         }
@@ -77,9 +82,8 @@
                     .nav-items,
                     .section-items,
                     .footer-items {
-                        padding: 0;
+                        padding: 0 5px;
                         margin-block-end: 5px;
-                        margin-inline-start: 48px;
                     }
                 }
             }
@@ -99,9 +103,13 @@
             height: 100%;
             margin-block-end: 190px;
             position: relative;
+            direction: rtl;
+            &::-webkit-scrollbar {
+                width: 30px;
+            }
             .page {
-                margin-inline-start: 48px;
-                margin-inline-end: 10px;
+                margin: 5px;
+                direction: ltr;
                 .empty {
                     position: unset;
                     top: unset;

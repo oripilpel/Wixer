@@ -21,6 +21,7 @@ import gallery from '../assets/img/elements/gallery.jpg';
 import footer1 from '../assets/img/elements/footer1.jpg';
 import footer2 from '../assets/img/elements/footer2.jpg';
 import furniCarousle from '../assets/img/elements/furniCarousle.jpg';
+import nav1 from '../assets/img/elements/nav1.jpg';
 
 
 
@@ -33,7 +34,8 @@ const KeysToComponentMap = {
   gallery,
   footer1,
   footer2,
-  furniCarousle
+  furniCarousle,
+  nav1,
 }
 
 const KeysToIconMap = {

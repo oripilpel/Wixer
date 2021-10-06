@@ -211,6 +211,8 @@ export const SIDEBAR_ITEMS_NAV = [
   {
     id: utilService.makeId(),
     type: SIDEBAR_ITEM,
+    name: 'nav1',
+    image:'nav1',
     component: {
       style: {
         gap: 16, display: 'flex', color: '#000000', fontSize: 25, fontFamily: 'raleway'
@@ -666,7 +668,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                       fontSize: 50,
                       color: '#ebebeb',
                       fontFamily: 'raleway',
-                      textAlign: 'left'
+                      textAlign: 'center'
                     }
                   }
                 },
@@ -681,7 +683,8 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                     style: {
                       fontSize: 30,
                       color: '#fafafa',
-                      fontFamily: 'raleway'
+                      fontFamily: 'raleway',
+                      textAlign: 'center'
                     }
                   }
                 }

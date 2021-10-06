@@ -1,0 +1,27 @@
+.publish {
+    overflow-x: hidden;
+    .section {
+        flex-wrap: wrap;
+        text-align: center;
+        .innersection {
+            width: 100% !important;
+            max-width: 1100px !important;
+            @media screen and (max-width: 600px) {
+                align-items: inherit;
+                height: unset !important;
+            }
+        }
+        @media screen and (max-width: 600px) {
+            height: unset !important;
+        }
+    }
+    @media screen and (max-width: 600px) {
+        img {
+            width: 100% !important;
+        }
+        button {
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+    }
+}
