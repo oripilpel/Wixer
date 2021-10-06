@@ -54,7 +54,7 @@ export function ContactForm({ data, update }) {
                 name="msg"
                 variant="standard"
             />
-            <Button>send as email</Button>
+            <Button>Contact Us</Button>
         </div>
     )
 }

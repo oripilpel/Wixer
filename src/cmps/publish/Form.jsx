@@ -21,7 +21,7 @@ function _ContactForm({ data, match }) {
 
     function onSubmit(ev) {
         ev.preventDefault();
-        wapService.sendLead(match.params.wapId, form);
+        wapService.sendLead(match.params.wapId, { ...form, date: Date.now() });
     }
     return (
         <form onSubmit={onSubmit} className="flex direction-column">
@@ -53,7 +53,7 @@ function _ContactForm({ data, match }) {
                 name="msg"
                 variant="standard"
             />
-            <Button type="submit" style={{ flex: 1 }} >send as email</Button>
+            <Button type="submit" style={{ flex: 1 }} >Contact Us</Button>
         </form>
     )
 }

@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import { Templates } from './pages/Templates';
 import { Publish } from './pages/Publish';
+import { Dashboard } from './pages/Dashboard';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Router>
         <Header />
         <Switch>
+          <Route path="/dashboard" component={Dashboard} />
           <Route path="/templates" component={Templates} />
           <Route path="/editor/:wapId" component={Editor} />
           <Route path="/editor" component={Editor} />
