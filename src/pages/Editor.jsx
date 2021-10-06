@@ -8,6 +8,8 @@ import { SIDEBAR_ITEM, COMPONENT, COLUMN, SECTION, SIDEBAR_COLUMN, SIDEBAR_INNER
 import { DropZone } from "../cmps/DropZone";
 import { Section } from "../cmps/Section";
 import { SideBar } from "../cmps/SideBar";
+import Loader from '../assets/img/loader.svg'
+
 
 import {
     insert,
@@ -24,7 +26,8 @@ import {
     setChatIsEnabled,
     chatOpeningTextChange,
     chatAnswerTextChange,
-    dispatchAction
+    dispatchAction,
+    setLoader
 } from '../store/layout.actions'
 import { utilService } from "../services/util.service";
 import { eventBusService } from "../services/event-bus-service";
@@ -35,6 +38,7 @@ import { templateService } from "../services/template.service";
 
 function _Editor(
     { match,
+        loader,
         history,
         _id,
         cmps,
@@ -55,28 +59,31 @@ function _Editor(
         setChatIsEnabled,
         chatOpeningTextChange,
         chatAnswerTextChange,
-        dispatchAction
+        dispatchAction,
+        setLoader
     }) {
 
     const [historyUndo, setHitoryUndo] = useState([]);
 
     const debugMode = false;
-
-    useEffect(() => {
+    useEffect(async () => {
+        setLoader(true)
         //componentDidMount
         socketService.on('wap change', wapChangeFromSocket);
         const id = match.params.wapId || _id;
-        if (id) loadWap(id);
-        else { saveWap({ cmps, style }) };
+        if (id) await loadWap(id);
+        else { await saveWap({ cmps, style }) };
+        setLoader(false)
+
         return () => {
             // componentWillUnmount
             socketService.off('wap change');
         }
+
     }, []);
 
     useEffect(() => {
         if (_id) {
-            console.log(templateService.gTemplatesIds());
             if (templateService.gTemplatesIds().includes(_id)) {
                 saveWap({ cmps, style, chat });
                 return;
@@ -267,7 +274,7 @@ function _Editor(
                     chatIsEnabled={chat.isEnabled}
                     chatChange={chatChange} />
                 <div className="page-container">
-                    <div className="page">
+                    {loader && <img src={Loader} className="loader" /> || <div className="page">
                         {cmps.map((section, index) => {
                             const currentPath = `${index}`;
                             return (
@@ -291,6 +298,7 @@ function _Editor(
                                 childrenCount: cmps.length
 
                             }}
+                            maximumSize
                             accept={[SIDEBAR_ITEM, SIDEBAR_SECTION, COMPONENT, SECTION, COLUMN, SIDEBAR_COLUMN, SIDEBAR_INNERSECTION]}
                             onDrop={handleDrop}
                             isLast
@@ -301,7 +309,7 @@ function _Editor(
                             </div>
                         )}
                         {chat.isEnabled && <ChatApp openingText={chat.openingText} answerText={chat.answerText} />}
-                    </div>
+                    </div>}
                 </div>
             </div>
         </DndProvider>
@@ -314,7 +322,8 @@ function mapStateToProps(state) {
         cmps: state.layoutModule.cmps,
         selected: state.layoutModule.selected,
         style: state.layoutModule.style,
-        chat: state.layoutModule.chat
+        chat: state.layoutModule.chat,
+        loader: state.layoutModule.loader
     }
 }
 const mapDispatchToProps = {
@@ -332,7 +341,8 @@ const mapDispatchToProps = {
     setChatIsEnabled,
     chatOpeningTextChange,
     chatAnswerTextChange,
-    dispatchAction
+    dispatchAction,
+    setLoader
 }
 
 export const Editor = connect(mapStateToProps, mapDispatchToProps)(_Editor);

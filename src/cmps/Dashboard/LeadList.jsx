@@ -1,7 +1,24 @@
 export function LeadList({ leads }) {
     return (
-        <ul className="lead-list">
-            {leads.map((lead, idx) => <li key={lead.date || idx} className="lead">{`subject : ${lead.subject} name: ${lead.name} phone: ${lead.phone} message: ${lead.msg} {recievedAt : ${new Date(lead.date)}}`}</li>)}
-        </ul>
+        <table className="lead-list">
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th>Name</th>
+                    <th>Phone Number</th>
+                    <th>Message</th>
+                    <th>Recieved At</th>
+                </tr>
+            </thead>
+            <tbody>
+                {leads.map((lead, idx) => <tr key={lead.date || idx} className="lead">
+                    <td>{lead.subject}</td>
+                    <td>{lead.name}</td>
+                    <td>{lead.phone}</td>
+                    <td>{lead.msg} </td>
+                    <td> {new Date(lead.date).toString()}</td>
+                </tr>)}
+            </tbody>
+        </table>
     )
 }

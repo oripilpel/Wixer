@@ -20,11 +20,18 @@ const initialState = {
         isEnabled: false,
         openingText: "Hey ☺ \n I'm the digital representative, how can I help you?",
         answerText: "Thank you for contacting us, we will reach back to you in a short time."
-    }
+    },
+    loader: false
 }
 
 export function layoutReducer(state = initialState, action) {
     switch (action.type) {
+        case 'SET_LOADER':
+            return {
+                ...state,
+                loader: action.loader
+            }
+
         case 'SET_WAP':
             return {
                 ...state,

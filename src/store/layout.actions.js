@@ -55,6 +55,13 @@ export function setWap(_id, cmps, style = {}, chat) {
     });
 }
 
+export function setLoader(value) {
+    return dispatch => dispatch({
+        type: 'SET_LOADER',
+        loader: value
+    });
+}
+
 export function removeItem(splitItemPath, type) {
     const action = {
         type: 'REMOVE_ITEM',
@@ -98,7 +105,7 @@ export function moveSidebarInnerSectionIntoParent(splitDropZonePath) {
         type: 'MOVE_SIDEBAR_INNER_SECTION_INTO_PARENT',
         splitDropZonePath
     }
-   socketService.emit('wap change', action);
+    socketService.emit('wap change', action);
     return dispatch => dispatch(action);
 }
 
