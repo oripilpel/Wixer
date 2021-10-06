@@ -6,7 +6,8 @@ const STORAGE_KEY = 'wapDb';
 export const wapService = {
     save,
     getById,
-    sendLead
+    sendLead,
+    getWaps
 }
 
 async function save(wap) {
@@ -17,6 +18,10 @@ async function save(wap) {
 
 async function getById(wapId) {
     return await httpService.get(`wap?wapId=${wapId}`);//storageService.get(STORAGE_KEY, wapId)
+}
+
+async function getWaps() {
+    return await httpService.get(`wap/waps`);
 }
 
 async function sendLead(wapId, lead) {

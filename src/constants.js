@@ -40,9 +40,9 @@ export const SIDEBAR_ITEMS_BASIC = [
     icon: 'TextFieldsIcon',
     component: {
       type: 'text',
-      data: { txt: 'Some text' },
+      data: { txt: 'Change me' },
       style: {
-        fontSize: 16,
+        fontSize: 25,
         color: '#000000',
         fontFamily: 'Arial'
       }

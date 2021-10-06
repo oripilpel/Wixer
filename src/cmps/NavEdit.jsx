@@ -121,7 +121,7 @@ export function NavEdit({ style, onUpdate, data }) {
                 <AccordionDetails>
                     {data.links.map((link, idx) => <div>
                         <label htmlFor={link.txt + idx}>{link.txt}</label>
-                        <input placeholder="Link to page..." id={link.txt + idx} name="url" key={link.txt + idx} value={link.url} onChange={(ev) => { updateData(ev, link.txt) }} />
+                        <input placeholder="Link to Section number:" id={link.txt + idx} type="number" name="url" key={link.txt + idx} value={link.url} onChange={(ev) => { updateData(ev, link.txt) }} />
                     </div>)}
                 </AccordionDetails>
             </Accordion>
