@@ -1,6 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { NavLink, withRouter } from 'react-router-dom';
-
 
 class _Header extends React.Component {
     state = {
@@ -12,7 +12,8 @@ class _Header extends React.Component {
     }
 
     render() {
-        const { pathname } = this.props.location
+        const { user } = this.props
+        const {pathname} =  this.props.ownProps.location
         const { isMenuOpen } = this.state
         if (pathname.includes('publish')) return <></>
         return (
@@ -30,7 +31,8 @@ class _Header extends React.Component {
                     <NavLink className="link flex align-center" onClick={() => this.toggleMenu(false)} to="/editor">Editor</NavLink>
                     <NavLink className="link flex align-center" onClick={() => this.toggleMenu(false)} to="/templates">Templates</NavLink>
                     <NavLink className="link flex align-center" onClick={() => this.toggleMenu(false)} to="/dashboard">Dashboard</NavLink>
-                    <NavLink className="link flex align-center" onClick={() => this.toggleMenu(false)} to="/about">About</NavLink>
+                    {!user && <NavLink className="link flex align-center" onClick={() => this.toggleMenu(false)} to="/login">Login</NavLink>}
+                    {user && <button className="link flex align-center">Logout</button>}
                 </nav>
                 <div className={`hamb-icon ${isMenuOpen ? "active" : ""}`} onClick={() => this.toggleMenu()}>
                     <div></div>
@@ -43,4 +45,11 @@ class _Header extends React.Component {
     }
 }
 
-export const Header = withRouter(_Header);
+function mapStateToProps(state, ownProps) {
+    return {
+        user: state.userModule.user,
+        ownProps
+    }
+}
+
+export const Header = withRouter(connect(mapStateToProps)(_Header));

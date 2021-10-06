@@ -11,7 +11,7 @@ import {
 import { Templates } from './pages/Templates';
 import { Publish } from './pages/Publish';
 import { Dashboard } from './pages/Dashboard';
-import { Login } from './pages/Login';
+import { LoginSignup } from './pages/LoginSignup';
 
 function App() {
   return (
@@ -28,6 +28,8 @@ function App() {
           <Route path="/about" component={About} />
           <Route path="/publish/:wapId" component={Publish} />
           <Route path="/publish" component={Publish} />
+          <Route path="/login" component={LoginSignup} />
+          <Route path="/signup" component={LoginSignup} />
           <Route path="/" component={Home} />
         </Switch>
       </Router>
