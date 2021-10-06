@@ -29,6 +29,12 @@ import dentalReviews from '../assets/img/elements/dentalReviews.jpg';
 import dentalServices from '../assets/img/elements/dentalServices.jpg';
 import testimonials from '../assets/img/elements/testimonials.jpg';
 import remodelingServices from '../assets/img/elements/remodelingServices.jpg';
+import headerConstruction from '../assets/img/elements/headerConstruction.jpg';
+import dentist from '../assets/img/elements/dentist.jpg';
+import sectionMeal from '../assets/img/elements/sectionMeal.jpg';
+import dentalFotterCallNow from '../assets/img/elements/dentalFotterCallNow.jpg';
+import dentalFooterUpper from '../assets/img/elements/dentalFooterUpper.jpg';
+import remodeling from '../assets/img/elements/remodeling.jpg';
 
 
 const KeysToComponentMap = {
@@ -48,7 +54,13 @@ const KeysToComponentMap = {
   dentalReviews,
   dentalServices,
   testimonials,
-  remodelingServices
+  remodelingServices,
+  headerConstruction,
+  dentist,
+  sectionMeal,
+  dentalFotterCallNow,
+  dentalFooterUpper,
+  remodeling,
 }
 
 const KeysToIconMap = {
