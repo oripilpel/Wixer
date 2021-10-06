@@ -1,9 +1,7 @@
-import { userService } from '../services/user.service.js'
-
+import { userService } from "../services/user.service"; 
 
 const initialState = {
     user: userService.getLoggedinUser(),
-    users: [],
 }
 export function userReducer(state = initialState, action) {
     var newState = state;
@@ -16,12 +14,6 @@ export function userReducer(state = initialState, action) {
                 ...state,
                 users: state.users.filter(user => user._id !== action.userId)
             }
-            break;
-        case 'SET_USERS':
-            newState = { ...state, users: action.users }
-            break;
-        case 'SET_SCORE':
-            newState = { ...state, user: { ...state.user, score: action.score } }
             break;
         default:
     }
