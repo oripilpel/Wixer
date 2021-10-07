@@ -55,7 +55,6 @@ function _LoginSignup(props) {
         password: ''
     }
 
-    console.log(props);
     return (
         <>
             <h1>{path === '/login' ? 'Login' : 'Signup'}</h1>

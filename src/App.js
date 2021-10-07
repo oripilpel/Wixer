@@ -19,8 +19,6 @@ function App() {
       <Router>
         <Header />
         <Switch>
-          <Route path="/signup" component={Login} />
-          <Route path="/login" component={Login} />
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/templates" component={Templates} />
           <Route path="/editor/:wapId" component={Editor} />
