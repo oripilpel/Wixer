@@ -31,7 +31,7 @@ class _Header extends React.Component {
                     <NavLink className="link flex align-center" onClick={() => this.toggleMenu(false)} to="/" exact>Home</NavLink>
                     <NavLink className="link flex align-center" onClick={() => this.toggleMenu(false)} to="/editor">Editor</NavLink>
                     <NavLink className="link flex align-center" onClick={() => this.toggleMenu(false)} to="/templates">Templates</NavLink>
-                    <NavLink className="link flex align-center" onClick={() => this.toggleMenu(false)} to="/dashboard">Dashboard</NavLink>
+                    {user && <NavLink className="link flex align-center" onClick={() => this.toggleMenu(false)} to="/dashboard">Dashboard</NavLink>}
                     {!user && <NavLink className="link flex align-center" onClick={() => this.toggleMenu(false)} to="/login">Login</NavLink>}
                     {user && <button className="link flex align-center" onClick={onLogout}>Logout</button>}
                 </nav>
