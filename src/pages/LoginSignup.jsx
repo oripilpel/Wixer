@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Button } from '@material-ui/core';
+import { Button } from "@mui/material";
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { TextFieldOutlined } from '../cmps/TextFieldOutlined';
 import { onLogin, onSignup } from '../store/user.actions';

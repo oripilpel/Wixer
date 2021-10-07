@@ -15,7 +15,8 @@ function _Dashboard({ user, loader }) {
 
     if (!waps) return <Loader />
     return (
-        <div style={{ paddingTop: "80px" }}>
+        <div className="dashboard" style={{ paddingTop: "80px" }}>
+            {waps.length === 0 && <h1>You dont have any website</h1>}
             {waps.map(wap => wap['leads'] ? < WapPreview wap={wap} /> : <></>)}
         </div >
     )
