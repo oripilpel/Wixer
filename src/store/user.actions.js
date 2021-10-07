@@ -1,6 +1,14 @@
 import { userService } from "../services/user.service.js";
 // import { showErrorMsg } from '../services/event-bus.service.js'
 
+export function setUser(user) {
+    return (dispatch) =>
+        dispatch({
+            type: 'SET_USER',
+            user
+        })
+}
+
 export function onLogin(credentials) {
     return async (dispatch) => {
         try {
@@ -8,29 +16,28 @@ export function onLogin(credentials) {
             dispatch({
                 type: 'SET_USER',
                 user
-            })
+            });
+            return user;
         } catch (err) {
             // showErrorMsg('Cannot login')
-            console.log('Cannot login', err)
+            console.log('Cannot login', err);
         }
     }
 }
 
 
 export function onSignup(credentials) {
-    return (dispatch) => {
-        userService.signup(credentials)
-            .then(user => {
-                dispatch({
-                    type: 'SET_USER',
-                    user
-                })
-            })
-            .catch(err => {
-                // showErrorMsg('Cannot signup')
-                console.log('Cannot signup', err)
-            })
-
+    return async (dispatch) => {
+        try {
+            const user = await userService.signup(credentials);
+            dispatch({
+                type: 'SET_USER',
+                user
+            });
+            return user;
+        } catch(err) {
+            console.log('Cannot signup', err);
+        }
     }
 }
 

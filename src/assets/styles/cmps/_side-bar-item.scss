@@ -1,11 +1,10 @@
 .side-bar-item {
-    border: 1px solid #293241;
     border-radius: 3px;
     padding: 10px;
     margin-top: 10px;
     background-color: white;
     color: #293241;
-    box-shadow: 0 0 3px 0 #00000073;
+    box-shadow: 0 0 3px 0 #00000030;
     cursor: grab;
     &:target{
         cursor: grabbing;
