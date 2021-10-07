@@ -18,7 +18,7 @@ export function ContactForm({ data, update }) {
     }
 
     return (
-        <div className="flex direction-column">
+        <div  className="contact-form flex direction-column">
             <StyledInput
                 label="Name"
                 value={form.name}

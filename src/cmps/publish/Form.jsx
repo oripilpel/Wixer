@@ -24,7 +24,7 @@ function _ContactForm({ data, match }) {
         wapService.sendLead(match.params.wapId, { ...form, date: Date.now() });
     }
     return (
-        <form onSubmit={onSubmit} className="flex direction-column">
+        <form  onSubmit={onSubmit} className="contact-form flex direction-column">
             <StyledInput
                 label="Name"
                 value={form.name}

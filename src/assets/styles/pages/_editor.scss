@@ -23,6 +23,14 @@
                 color: #293241;
                 pointer-events: none;
             }
+            .contact-form {
+                > div {
+                    margin-bottom: 15px;
+                }
+                button {
+                    font-size: 1.5rem;
+                }
+            }
         }
     }
 }

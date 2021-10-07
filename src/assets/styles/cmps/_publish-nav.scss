@@ -23,7 +23,7 @@
                 padding-block-start: 100px;
                 box-shadow: 0 0px 20px 0px #00000042;
                 transition: 0.4s;
-                justify-content: start;
+                justify-content: start !important;
             }
             &.active {
                 right: 0;
