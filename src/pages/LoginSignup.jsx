@@ -57,7 +57,7 @@ function _LoginSignup(props) {
 
     console.log(props);
     return (
-        <>
+        <div className="login-signup flex direction-column align-center">
             <h1>{path === '/login' ? 'Login' : 'Signup'}</h1>
             <Formik
                 initialValues={initialValues}
@@ -67,27 +67,33 @@ function _LoginSignup(props) {
                 {({ isSubmitting }) => (
                     <Form>
                         {path === '/signup' && (
-                            <>
+                            <div className="field">
                                 <Field type="text" name="fullname" label="fullname" as={TextFieldOutlined} />
                                 <ErrorMessage name="fullname" component="div" />
-                            </>
+                            </div>
                         )}
-                        < Field type="text" name="username" label="username" as={TextFieldOutlined} />
-                        <ErrorMessage name="username" component="div" />
-                        <Field type="text" name="password" label="password" as={TextFieldOutlined} />
-                        <ErrorMessage name="password" component="div" />
-                        <Button
-                            variant={'contained'}
-                            color={'primary'}
-                            type="submit"
-                            disabled={isSubmitting}>
-                            {path === '/login' ? 'Login' : 'Signup'}
-                        </Button>
+                        <div className="field">
+                            < Field type="text" name="username" label="username" as={TextFieldOutlined} />
+                            <ErrorMessage name="username" component="div" />
+                        </div>
+                        <div className="field">
+                            <Field type="text" name="password" label="password" as={TextFieldOutlined} />
+                            <ErrorMessage name="password" component="div" />
+                        </div>
+                        <div className="field flex justify-center">
+                            <Button
+                                variant={'contained'}
+                                color={'primary'}
+                                type="submit"
+                                disabled={isSubmitting}>
+                                {path === '/login' ? 'Login' : 'Signup'}
+                            </Button>
+                        </div>
                     </Form>
                 )}
             </Formik>
             <Link to={path === '/login' ? '/signup' : '/login'}>{path === '/login' ? 'Signup' : 'Login'}</Link>
-        </>
+        </div>
     )
 }
 

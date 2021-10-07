@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { NavLink, withRouter } from 'react-router-dom';
+import { onLogout } from '../store/user.actions';
 
 class _Header extends React.Component {
     state = {
@@ -12,8 +13,8 @@ class _Header extends React.Component {
     }
 
     render() {
-        const { user } = this.props
-        const {pathname} =  this.props.ownProps.location
+        const { user, onLogout } = this.props
+        const { pathname } = this.props.ownProps.location
         const { isMenuOpen } = this.state
         if (pathname.includes('publish')) return <></>
         return (
@@ -32,7 +33,7 @@ class _Header extends React.Component {
                     <NavLink className="link flex align-center" onClick={() => this.toggleMenu(false)} to="/templates">Templates</NavLink>
                     <NavLink className="link flex align-center" onClick={() => this.toggleMenu(false)} to="/dashboard">Dashboard</NavLink>
                     {!user && <NavLink className="link flex align-center" onClick={() => this.toggleMenu(false)} to="/login">Login</NavLink>}
-                    {user && <button className="link flex align-center">Logout</button>}
+                    {user && <button className="link flex align-center" onClick={onLogout}>Logout</button>}
                 </nav>
                 <div className={`hamb-icon ${isMenuOpen ? "active" : ""}`} onClick={() => this.toggleMenu()}>
                     <div></div>
@@ -52,4 +53,8 @@ function mapStateToProps(state, ownProps) {
     }
 }
 
-export const Header = withRouter(connect(mapStateToProps)(_Header));
+const mapDispatchToProps = {
+    onLogout
+}
+
+export const Header = withRouter(connect(mapStateToProps, mapDispatchToProps)(_Header));
