@@ -1,4 +1,6 @@
-import React from 'react';
+
+import { useState } from 'react';
+import { Switch } from '@mui/material';
 import { uploadImg } from '../services/cloudinary-service';
 import { ImageUpload } from "./ImageUpload";
 import { MarginEdit } from './MarginEdit';
@@ -8,7 +10,8 @@ import { Accordion, AccordionSummary, AccordionDetails } from './Accordion';
 import { ImageSearch } from './ImageSearch';
 
 export function ImageEdit({ data, style, onUpdate }) {
-    const [expanded, setExpanded] = React.useState('image')
+    const [expanded, setExpanded] = useState('image');
+    const [isWidthAuto, setIsWidthAuto] = useState(false);
     const handleChange = (panel) => (event, newExpanded) => {
         setExpanded(newExpanded ? panel : false);
     };
@@ -22,6 +25,14 @@ export function ImageEdit({ data, style, onUpdate }) {
         newStyle[name] = value;
         onUpdate('style', newStyle);
     }
+    const onAutoWidthChange = ({ target }) => {
+        setIsWidthAuto(target.checked);
+        if (target.checked) {
+            const newStyle = { ...style };
+            newStyle.width = 'auto';
+            onUpdate('style', newStyle);
+        }
+    }
     return (
         <div className="image-edit">
             <Accordion expanded={expanded === 'image'} onChange={handleChange('image')}>
@@ -30,7 +41,7 @@ export function ImageEdit({ data, style, onUpdate }) {
                 </AccordionSummary>
                 <AccordionDetails>
                     <ImageUpload label="Upload image" onUpload={(ev) => uploadImg(ev).then(url => onUploadImage(url))} />
-                    <ImageSearch onSelect={onUploadImage}/>
+                    <ImageSearch onSelect={onUploadImage} />
                 </AccordionDetails>
             </Accordion>
             <Accordion expanded={expanded === 'width'} onChange={handleChange('width')}>
@@ -38,7 +49,8 @@ export function ImageEdit({ data, style, onUpdate }) {
                     Width
                 </AccordionSummary>
                 <AccordionDetails>
-                    <WidthEdit name="width" value={width || 100} onChange={onChange} />
+                    <Switch id="dark-switch" defaultChecked={isWidthAuto} onChange={onAutoWidthChange} />
+                    {!isWidthAuto && <WidthEdit name="width" value={width || 100} onChange={onChange} />}
                 </AccordionDetails>
             </Accordion>
             <Accordion expanded={expanded === 'spacing'} onChange={handleChange('spacing')}>
