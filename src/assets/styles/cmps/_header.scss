@@ -124,6 +124,16 @@
             }
         }
         .links {
+            .header-login-signup {
+                color: #ffffff;
+                a,
+                span {
+                    font-size: 0.9rem;
+                }
+                a:hover {
+                    box-shadow: unset;
+                }
+            }
             a {
                 color: #ffffff;
                 font-size: 1rem;
