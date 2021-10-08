@@ -9,7 +9,6 @@ export function FlexEdit({ isFlex, gap, flexGrow, justifyContent, alignItems, on
     return (
         <div className="flex-edit flex direction-column">
             <div>
-                display:unset
             </div>
             <div className="align-items-edit">
                 <div className="input">

@@ -12,9 +12,9 @@ export function WapPreview({ wap }) {
             <div>
                 <div>
                     <Link to={`/editor/${wap._id}`}>Edit Site</Link>
-                    <Link to={`/publish/${wap._id}`}>Link To Site</Link>
+                    <Link to={`/publish/${wap._id}`}>Preview Site</Link>
                 </div>
-                <LeadList leads={wap['leads']} />
+                {wap['leads'] && <LeadList leads={wap['leads']} />}
             </div>
         </div>
     )

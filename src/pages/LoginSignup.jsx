@@ -76,7 +76,7 @@ function _LoginSignup(props) {
                             <ErrorMessage name="username" component="div" />
                         </div>
                         <div className="field">
-                            <Field type="text" name="password" label="password" as={TextFieldOutlined} />
+                            <Field type="password" name="password" label="password" as={TextFieldOutlined} />
                             <ErrorMessage name="password" component="div" />
                         </div>
                         <div className="field flex justify-center">

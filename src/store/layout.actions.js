@@ -8,6 +8,7 @@ export function saveWap(wap) {
             return dispatch({
                 type: 'SET_WAP',
                 _id: savedWap._id,
+                name: savedWap.name,
                 cmps: savedWap.cmps,
                 style: savedWap.style,
                 chat: wap.chat || {
@@ -31,6 +32,7 @@ export function loadWap(wapId) {
                 type: 'SET_WAP',
                 _id: wap._id,
                 cmps: wap.cmps,
+                name: wap.name,
                 style: wap.style,
                 chat: wap.chat || {
                     isEnabled: false,
@@ -45,13 +47,14 @@ export function loadWap(wapId) {
     }
 }
 
-export function setWap(_id, cmps, style = {}, chat) {
+export function setWap(_id, cmps, style = {}, chat, name) {
     return dispatch => dispatch({
         type: 'SET_WAP',
         _id,
         cmps,
         style,
-        chat
+        chat,
+        name
     });
 }
 

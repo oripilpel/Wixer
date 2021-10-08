@@ -10,6 +10,7 @@ export function ImageUpload({ label, onUpload }) {
                 id="raised-button-file"
                 multiple
                 type="file"
+                onFocus={() => { onUpload('') }}
                 onChange={(ev) => onUpload(ev)}
             />
             <label htmlFor="raised-button-file">

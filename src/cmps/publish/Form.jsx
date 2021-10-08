@@ -5,10 +5,12 @@ import { CssTextFieldDark } from "../CssTextFieldDark";
 import { useState } from "react";
 import { withRouter } from "react-router";
 import { wapService } from "../../services/waps.service";
+import { MsgSent } from "./MsgSent";
 
 
-function _ContactForm({ data, match }) {
+function _ContactForm({ data, match, style }) {
     const [form, setForm] = useState({});
+    const [isOpen, setIsOpen] = useState(false);
 
 
     function handleChange({ target }) {
@@ -22,15 +24,17 @@ function _ContactForm({ data, match }) {
     function onSubmit(ev) {
         ev.preventDefault();
         wapService.sendLead(match.params.wapId, { ...form, date: Date.now() });
+        setIsOpen(true)
     }
     return (
-        <form onSubmit={onSubmit} className="flex direction-column">
+        <form style={style} onSubmit={onSubmit} className="flex direction-column">
             <StyledInput
                 label="Name"
                 value={form.name}
                 onChange={handleChange}
                 name="name"
                 variant="standard"
+                fullWidth={true}
             />
             <StyledInput
                 label="Phone Number"
@@ -38,6 +42,15 @@ function _ContactForm({ data, match }) {
                 onChange={handleChange}
                 name="phone"
                 variant="standard"
+                fullWidth={true}
+            />
+            <StyledInput
+                label="Email"
+                value={form.email}
+                onChange={handleChange}
+                name="email"
+                variant="standard"
+                fullWidth={true}
             />
             <StyledInput
                 label="Subject"
@@ -45,6 +58,7 @@ function _ContactForm({ data, match }) {
                 onChange={handleChange}
                 name="subject"
                 variant="standard"
+                fullWidth={true}
             />
             <StyledInput
                 label="Your Message"
@@ -52,8 +66,10 @@ function _ContactForm({ data, match }) {
                 onChange={handleChange}
                 name="msg"
                 variant="standard"
+                fullWidth={true}
             />
             <Button type="submit" style={{ flex: 1 }} >Contact Us</Button>
+            <MsgSent isOpen={isOpen} setIsOpen={setIsOpen} />
         </form>
     )
 }

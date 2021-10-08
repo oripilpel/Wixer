@@ -4,7 +4,7 @@ import { translateStyle } from "../services/util.service";
 
 import { COLUMN, COMPONENT, SIDEBAR_ITEM } from "../constants";
 import { DropZone } from "./DropZone";
-import Component from "./Component";
+import { Component } from "./Component";
 import { Actions } from "./Actions";
 
 export function Column({ data, handleDrop, path, updateComponent, onSelect, selected }) {
