@@ -2,6 +2,7 @@ import Plus from '../assets/img/plus.svg';
 import Restaurant from '../assets/img/restaurant.jpeg';
 import Mercedes from '../assets/img/mercedes.jpg';
 import Remodeling from '../assets/img/remodeling.jpg';
+import Denatal from '../assets/img/dental.jpg';
 
 export const templateService = {
     getAmountOfTemplates,
@@ -19,7 +20,7 @@ const gTemplates = [
         title: 'Remodeling',
     },
     {
-        json: '615af7437ee46d2a8f34a9ae',
+        json: '616066c63dc4068a630a4269',
         img: Restaurant,
         title: 'Restaurant',
     },
@@ -29,8 +30,8 @@ const gTemplates = [
         title: 'Mercedes',
     },
     {
-        json: '615c0ee0b4e843deb839b11d',
-        img: 'https://images.unsplash.com/photo-1522770179533-24471fcdba45',
+        json: '616067203dc4068a630a426b',
+        img: Denatal,
         title: 'Dental Clinic',
     },
     {
