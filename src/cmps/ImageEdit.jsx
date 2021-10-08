@@ -49,7 +49,8 @@ export function ImageEdit({ data, style, onUpdate }) {
                     Width
                 </AccordionSummary>
                 <AccordionDetails>
-                    <Switch id="dark-switch" defaultChecked={isWidthAuto} onChange={onAutoWidthChange} />
+                    <label htmlFor="auto-width">Auto width:</label>
+                    <Switch id="auto-width" defaultChecked={isWidthAuto} onChange={onAutoWidthChange} />
                     {!isWidthAuto && <WidthEdit name="width" value={width || 100} onChange={onChange} />}
                 </AccordionDetails>
             </Accordion>
