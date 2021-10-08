@@ -10,7 +10,7 @@
         font-weight: 400;
         font-size: 2rem;
         color: #064a6b;
-        max-width: 20ch;
+        max-width: 15ch;
         padding-top: 2rem;
         padding-bottom: 1em;
         margin: 0;
@@ -19,10 +19,6 @@
         }
         @media screen and (min-width: 800px) {
             font-size: 3rem;
-        }
-        span {
-            font-family: orbitron;
-            color: #1e8fe0;
         }
     }
     p {
@@ -42,8 +38,13 @@
                 background-color: #d96940;
             }
         }
-        span {
+        & > span {
             margin-block-end: 25px;
+            .wixer {
+                font-family: orbitron;
+                color: #1e8fe0;
+                letter-spacing: 0.1rem;
+            }
         }
     }
     img {

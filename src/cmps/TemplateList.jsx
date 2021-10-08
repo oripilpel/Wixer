@@ -20,7 +20,7 @@ export function TemplateList({ numberOfTemplates, moreTemplates }) {
 
     return (
         <div id="templates" className="template-list main-layout">
-            <h2>Choose a template and start building now!</h2>
+            <h2>Pick the website template you love and customize it</h2>
             <ImageList gap={24} sx={{}} cols={cols} >
                 {templates.map((item, idx) => (
                     <TemplatePreview key={item.json} template={item} idx={idx} cols={cols} />
@@ -30,7 +30,7 @@ export function TemplateList({ numberOfTemplates, moreTemplates }) {
                 (
                     <div className="show-all">
                         <Link to="/templates">
-                            Explore more templates <ArrowRightIcon />
+                        See all website templates <ArrowRightIcon />
                         </Link>
 
                     </div>

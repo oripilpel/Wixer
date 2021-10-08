@@ -1,5 +1,17 @@
 .dashboard {
+    padding: 0 35px;
+    padding-top: 65px;
+    .loader {
+        padding-top: 65px;
+    }
     h1 {
         text-align: center;
+    }
+    .create-first {
+        text-align: center;
+        a {
+            font-weight: bold;
+            color: #293241;
+        }
     }
 }

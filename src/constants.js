@@ -167,7 +167,7 @@ export const SIDEBAR_ITEMS_BASIC = [
         msg: ''
       }
       ,
-      style: {}
+      style: { gap: '15px' }
     }
   },
   {
@@ -212,7 +212,7 @@ export const SIDEBAR_ITEMS_NAV = [
     id: utilService.makeId(),
     type: SIDEBAR_ITEM,
     name: 'nav1',
-    image:'nav1',
+    image: 'nav1',
     component: {
       style: {
         gap: 16, display: 'flex', color: '#000000', fontSize: 25, fontFamily: 'raleway'
@@ -576,46 +576,6 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                   type: COMPONENT,
                   id: utilService.makeId(),
                   component: {
-                    style: { color: '#ffffff', fontFamily: 'raleway' },
-                    type: 'text',
-                    data: {
-                      txt: 'Newel'
-                    }
-                  }
-                },
-                {
-                  type: COMPONENT,
-                  id: utilService.makeId(),
-                  component: {
-                    style: { color: '#ffffff', fontFamily: 'raleway' },
-                    type: 'text',
-                    data: {
-                      txt: 'Residential'
-                    }
-                  }
-                },
-                {
-                  type: COMPONENT,
-                  id: utilService.makeId(),
-                  component: {
-                    style: { color: '#ffffff', fontFamily: 'raleway' },
-                    type: 'text',
-                    data: {
-                      txt: 'Remodeling'
-                    }
-                  }
-                }
-              ]
-            },
-            {
-              type: COLUMN,
-              id: utilService.makeId(),
-              style: {},
-              cmps: [
-                {
-                  type: COMPONENT,
-                  id: utilService.makeId(),
-                  component: {
                     type: 'nav',
                     data: {
                       hoverColor: '#CFC8c0',
@@ -642,8 +602,14 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                         },
                       ]
                     },
-                    style: { color: '#FFFFFF', fontFamily: 'raleway', gap: 40 },
-
+                    style: {
+                      flexGrow: 1,
+                      justifyContent: 'center',
+                      flexWrap: 'wrap',
+                      color: '#FFFFFF',
+                      fontFamily: 'raleway',
+                      gap: 40
+                    },
                   }
                 }
               ]
@@ -713,7 +679,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
     id: utilService.makeId(),
     type: SIDEBAR_SECTION,
     name: 'dentist',
-    image:'dentist',
+    image: 'dentist',
     component: {
       type: SECTION,
       id: utilService.makeId(),
@@ -1679,14 +1645,13 @@ export const SIDEBAR_ITEMS_SECTIONS = [
           id: utilService.makeId(),
           type: INNERSECTION,
           style: {
-            border: '1px solid #9a8a78'
           },
           cmps: [
             {
               id: utilService.makeId(),
               type: COLUMN,
               style: {
-                borderRight: '1px solid #9a8a78'
+                border: '1px solid #9a8a78'
               },
               cmps: [
                 {
@@ -1707,6 +1672,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
               type: COLUMN,
               style: {
                 justifyContent: 'center',
+                border: '1px solid #9a8a78',
               },
               cmps: [
                 {
@@ -1808,14 +1774,13 @@ export const SIDEBAR_ITEMS_SECTIONS = [
           id: utilService.makeId(),
           type: INNERSECTION,
           style: {
-            border: '1px solid #9a8a78'
           },
           cmps: [
             {
               id: utilService.makeId(),
               type: COLUMN,
               style: {
-                borderRight: '1px solid #9a8a78',
+                border: '1px solid #9a8a78',
                 justifyContent: 'center',
                 alignItems: 'center'
               },
@@ -1864,7 +1829,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
               id: utilService.makeId(),
               type: COLUMN,
               style: {
-                borderRight: '1px solid #9a8a78',
+                border: '1px solid #9a8a78',
                 justifyContent: 'center',
                 alignItems: 'center'
               },
@@ -1913,7 +1878,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
               id: utilService.makeId(),
               type: COLUMN,
               style: {
-                borderRight: '1px solid #9a8a78',
+                border: '1px solid #9a8a78',
                 justifyContent: 'center',
                 alignItems: 'center'
               },
@@ -1962,7 +1927,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
               id: utilService.makeId(),
               type: COLUMN,
               style: {
-                borderRight: '1px solid #9a8a78',
+                border: '1px solid #9a8a78',
                 justifyContent: 'center',
                 alignItems: 'center'
               },
@@ -2013,7 +1978,6 @@ export const SIDEBAR_ITEMS_SECTIONS = [
           id: utilService.makeId(),
           type: INNERSECTION,
           style: {
-            border: '1px solid #9a8a78'
           },
           cmps: [
             {
@@ -2021,7 +1985,7 @@ export const SIDEBAR_ITEMS_SECTIONS = [
               type: COLUMN,
               style: {
                 justifyContent: 'center',
-                borderRight: '1px solid #9a8a78'
+                border: '1px solid #9a8a78'
               },
               cmps: [
                 {
@@ -2070,7 +2034,9 @@ export const SIDEBAR_ITEMS_SECTIONS = [
             {
               id: utilService.makeId(),
               type: COLUMN,
-              style: {},
+              style: {
+                border: '1px solid #9a8a78',
+              },
               cmps: [
                 {
                   id: utilService.makeId(),
