@@ -5,9 +5,6 @@
     background-size: cover;
     padding: 25px calc(50% - 550px);
     flex-wrap: wrap;
-    img {
-        width: 100%;
-    }
     .debug & {
         border: 1px solid $sectionBorderColor !important;
     }
@@ -24,7 +21,7 @@
         flex-grow: 1;
     }
 
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 720px) {
         flex-direction: column;
         img {
             width: 100% !important;

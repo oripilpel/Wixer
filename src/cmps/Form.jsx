@@ -8,7 +8,7 @@ export function ContactForm({ data, update, style }) {
     const StyledInput = (data.isDark) ? CssTextFieldDark : CssTextFieldLight
 
     return (
-        <div style={style} className="flex direction-column">
+        <div  className="contact-form flex direction-column">
             <StyledInput
                 label="Name"
                 name="name"

@@ -81,6 +81,7 @@ function _LoginSignup(props) {
                         </div>
                         <div className="field flex justify-center">
                             <Button
+                                className="action"
                                 variant={'contained'}
                                 color={'primary'}
                                 type="submit"
@@ -91,7 +92,14 @@ function _LoginSignup(props) {
                     </Form>
                 )}
             </Formik>
-            <Link to={path === '/login' ? '/signup' : '/login'}>{path === '/login' ? 'Signup' : 'Login'}</Link>
+            {path === '/login' ?
+                (<div className="signup">
+                    Don't have a Wixer account? <Link to='/signup'>Signup</Link>
+                </div>) :
+
+                (<div className="login">
+                    Already have an account? <Link to='/login'>Login</Link>
+                </div>)}
         </div>
     )
 }

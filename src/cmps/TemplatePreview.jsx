@@ -14,14 +14,19 @@ export function TemplatePreview({ template, idx, cols }) {
             />
             <div className="cover">
                 <div className="actions">
-                    {template.json &&
-                        <a href={`/publish/${template.json}`} target='blank'>Preview</a>
+                    {!template.json &&
+                        <a className="create" href={`/editor/${template.json}`}>Create new</a>
                     }
-                    <a href={`/editor/${template.json}`}>Edit</a>
+                    {template.json &&
+                        (<>
+                            <a href={`/publish/${template.json}`} target='blank'>Preview</a>
+                            <a href={`/editor/${template.json}`}>Edit</a>
+                        </>)
+                    }
                 </div>
             </div>
             <ImageListItemBar
-            className= "title"
+                className="title"
                 title={template.title}
             />
         </ImageListItem >

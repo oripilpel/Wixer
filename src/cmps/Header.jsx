@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { NavLink, withRouter } from 'react-router-dom';
+import { NavLink, Link, withRouter } from 'react-router-dom';
 import { onLogout } from '../store/user.actions';
 
 class _Header extends React.Component {
@@ -32,7 +32,14 @@ class _Header extends React.Component {
                     <NavLink className="link flex align-center" onClick={() => this.toggleMenu(false)} to="/editor">Editor</NavLink>
                     <NavLink className="link flex align-center" onClick={() => this.toggleMenu(false)} to="/templates">Templates</NavLink>
                     {user && <NavLink className="link flex align-center" onClick={() => this.toggleMenu(false)} to="/dashboard">Dashboard</NavLink>}
-                    {!user && <NavLink className="link flex align-center" onClick={() => this.toggleMenu(false)} to="/login">Login</NavLink>}
+
+                    {!user && (
+                        <div className="link flex align-center header-login-signup">
+                            <Link  onClick={() => this.toggleMenu(false)} to="/login">login</Link>
+                            <span>/</span>
+                            <Link onClick={() => this.toggleMenu(false)} to="/signup">signup</Link>
+                        </div>
+                    )}
                     {user && <button className="link flex align-center" onClick={onLogout}>Logout</button>}
                 </nav>
                 <div className={`hamb-icon ${isMenuOpen ? "active" : ""}`} onClick={() => this.toggleMenu()}>

@@ -2,11 +2,12 @@
     padding: 10px;
     padding: 0.5rem 1rem;
     position: relative;
-
-    .component:focus{ 
+    .component:focus {
         border-color: red;
     }
-    &>.text{
+    & > .text {
         cursor: text;
+        line-height: 1.4;
+        letter-spacing: 2px;
     }
 }

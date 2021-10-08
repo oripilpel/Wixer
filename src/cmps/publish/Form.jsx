@@ -27,7 +27,7 @@ function _ContactForm({ data, match, style }) {
         setIsOpen(true)
     }
     return (
-        <form style={style} onSubmit={onSubmit} className="flex direction-column">
+        <form  onSubmit={onSubmit} className="contact-form flex direction-column">
             <StyledInput
                 label="Name"
                 value={form.name}
