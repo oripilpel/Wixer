@@ -34,22 +34,19 @@
 
     .links {
         height: 100%;
-        @media screen and (max-width: 720px) {
-            display: flex;
-            width: 140px;
-            flex-direction: column;
-            align-items: center;
-            gap: 40px;
-            position: fixed;
-            right: -175px;
-            top: 0;
-            padding-block-start: 100px;
-            background-color: #e9f5ffde;
-            box-shadow: 0 0px 20px 0px #0000009e;
-            transition: 0.7s;
-        }
         &.active {
             right: 0;
+        }
+        .header-login-signup {
+            font-size: 0.9rem;
+            span {
+                margin: 0 3px;
+            }
+            a:hover {
+                @media screen and (min-width: 720px) {
+                    box-shadow: unset;
+                }
+            }
         }
         button {
             height: fit-content;
@@ -73,12 +70,26 @@
 
             &:hover,
             &.active {
-                @media screen and (min-width: 721px) {
+                @media screen and (min-width: 720px) {
                     box-shadow: inset 0px -2px 0px 0px #0b6fb7;
                     transition: box-shadow 0.4s, color 0.2s;
                     font-weight: bold;
                 }
             }
+        }
+        @media screen and (max-width: 720px) {
+            display: flex;
+            width: 140px;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            position: fixed;
+            right: -175px;
+            top: 0;
+            padding-block-start: 100px;
+            background-color: #e9f5ffde;
+            box-shadow: 0 0px 20px 0px #0000009e;
+            transition: 0.7s;
         }
     }
 

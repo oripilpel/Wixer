@@ -1,12 +1,19 @@
 .login-signup {
+    padding: 0 35px;
     padding-top: 65px;
     form {
         margin-bottom: 20px;
+        width: 100%;
+        div {
+            width: 100%;
+        }
+        @media screen and (min-width: 720px) {
+            width: 350px;
+        }
     }
     .field:not(:first-child) {
         margin-top: 15px;
     }
-
     .action {
         flex-grow: 1;
     }
