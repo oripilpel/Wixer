@@ -1,7 +1,13 @@
 .login-signup {
     padding-top: 65px;
-    
+    form {
+        margin-bottom: 20px;
+    }
     .field:not(:first-child) {
         margin-top: 15px;
+    }
+
+    .action {
+        flex-grow: 1;
     }
 }

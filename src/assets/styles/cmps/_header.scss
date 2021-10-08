@@ -51,7 +51,11 @@
         &.active {
             right: 0;
         }
-
+        button {
+            height: fit-content;
+            cursor: pointer;
+            align-self: center;
+        }
         .link {
             order: 1;
             &:not(:last-child) {
