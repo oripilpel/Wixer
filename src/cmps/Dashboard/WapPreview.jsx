@@ -165,12 +165,13 @@ export function WapPreview({ wap }) {
                 </CardActions>
                 <Collapse in={expanded} timeout="auto" unmountOnExit>
                     <CardContent>
-                        <Typography paragraph sx={{ marginBottom: 0 }}>New leads:</Typography>
+                        <Typography paragraph sx={{ marginBottom: 0 }}>
+                            New leads:{!getNewLeads().length && ' empty'}</Typography>
                         <Typography paragraph>
                             <LeadList wap={wapToShow} onSetWap={onSetWap} leads={getNewLeads()} />
                         </Typography>
                         <Typography paragraph sx={{ marginBottom: 0 }}>
-                            Marked leads:
+                            Marked leads:{!getMarkedLeads().length && ' empty'}
                         </Typography>
                         <Typography paragraph>
                             <LeadList wap={wapToShow} onSetWap={onSetWap} leads={getMarkedLeads()} />

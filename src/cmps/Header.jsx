@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { NavLink, Link, withRouter } from 'react-router-dom';
 import { onLogout } from '../store/user.actions';
+import { setWap } from '../store/layout.actions'
 
 class _Header extends React.Component {
     state = {
@@ -14,7 +15,12 @@ class _Header extends React.Component {
 
     onLogout = () => {
         this.props.onLogout()
-        this.props.history.push('/login')
+        this.props.setWap(null, [], {}, {
+            isEnabled: false,
+            openingText: "Hey ☺ \n I'm the digital representative, how can I help you?",
+            answerText: "Thank you for contacting us, we will reach back to you in a short time."
+        }, '')
+        this.toggleMenu(false)
     }
 
     render() {
@@ -45,7 +51,13 @@ class _Header extends React.Component {
                             <Link onClick={() => this.toggleMenu(false)} to="/signup">signup</Link>
                         </div>
                     )}
-                    {user && <button className="link flex align-center" onClick={this.onLogout}>Logout</button>}
+
+
+                    {user && (
+                        <div className="link flex align-center header-login-signup">
+                            <Link onClick={this.onLogout} to="/login">logout</Link>
+                        </div>
+                    )}
                 </nav>
                 <div className={`hamb-icon ${isMenuOpen ? "active" : ""}`} onClick={() => this.toggleMenu()}>
                     <div></div>
@@ -66,7 +78,8 @@ function mapStateToProps(state, ownProps) {
 }
 
 const mapDispatchToProps = {
-    onLogout
+    onLogout,
+    setWap
 }
 
 export const Header = withRouter(connect(mapStateToProps, mapDispatchToProps)(_Header));
