@@ -47,7 +47,9 @@ export function WapPreview({ wap }) {
     };
 
     const onSetWap = async (wap) => {
-        await wapService.save(wap, false)
+        let newWap = { ...wap }
+        delete newWap.owner
+        await wapService.save(newWap, false)
         setWap(wap)
     }
 

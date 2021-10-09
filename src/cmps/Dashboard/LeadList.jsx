@@ -1,24 +1,27 @@
-import React, { useState } from 'react';
+import React from 'react';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import Divider from '@mui/material/Divider';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
+import Divider from '@mui/material/Divider';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
-import { blue } from '@mui/material/colors';
 import Checkbox from '@mui/material/Checkbox';
+import { blue } from '@mui/material/colors';
 
 export function LeadList({ wap, onSetWap, leads }) {
-    const handleChange = ({target}) => {
+    console.log(wap);
+
+    const handleChange = ({ target }) => {
         const leadIdx = wap.leads.findIndex(lead => {
             return lead.id === target.name
         })
-        const newLeads = [...leads]
-        newLeads[leadIdx].isDone = target.checked
-        const newWap = ({_id: wap._id, leads: newLeads })
+        const newLeads = [...wap.leads]
+        newLeads[leadIdx] = {...newLeads[leadIdx], isDone: target.checked}
+        const newWap = ({ ...wap, leads: newLeads })
         onSetWap(newWap)
     };
+
     return (
         <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
             {leads.map((lead, idx) => {
