@@ -54,10 +54,10 @@ export function WapPreview({ wap }) {
     }
 
     const BASE_URL = process.env.NODE_ENV === 'production'
-        ? '/websites-screenshots/'
-        : '//localhost:3030/websites-screenshots/'
+        ? '/api/img?imgId='
+        : 'http://localhost:3030/api/img?imgId='
 
-    const imageSrc = `${BASE_URL + wapToShow._id}.jpg`
+    const imageSrc = `${BASE_URL + wapToShow._id}`
     const [previewImage, setImage] = useState(imageSrc)
 
     const handleError = () => {
