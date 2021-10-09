@@ -9,7 +9,7 @@ export function GMapEdit({ style, data, onUpdate }) {
     const [expanded, setExpanded] = React.useState('map')
     const handleChange = (panel) => (event, newExpanded) => {
         setExpanded(newExpanded ? panel : false);
-    };
+    }
     const onChange = ({ target }) => {
         const { name, value } = target;
         onUpdate('data', { ...data, [name]: value });

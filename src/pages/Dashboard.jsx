@@ -9,6 +9,11 @@ export function Dashboard() {
     
     useEffect(async () => {
         setWaps(await wapService.getWaps())
+    
+        // useEffect(() => {
+        // (async function () {
+        //     setWaps(await wapService.getWaps())
+        // })()
     }, [])
     
     if (!waps) return (

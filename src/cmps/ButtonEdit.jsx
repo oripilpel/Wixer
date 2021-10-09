@@ -36,7 +36,10 @@ export function ButtonEdit({ style, onUpdate, data }) {
                     Colors
                 </AccordionSummary>
                 <AccordionDetails>
-                    <BackgroundEdit backgroundColor={backgroundColor} onChange={onChange} />
+                    <div className="flex justify-between">
+                        <label htmlFor="backgroundColor">Background</label>
+                        <input type="color" name="backgroundColor" id="backgroundColor" value={backgroundColor} onChange={onChange} />
+                    </div>
                     <div className="flex justify-between">
                         <label htmlFor="hoverColor">Hover</label>
                         <input type="color" name="hoverColor" id="hoverColor" value={data.hoverColor} onChange={updateHoverColor} />

@@ -67,14 +67,16 @@ function _Editor(
     const [historyUndo, setHitoryUndo] = useState([]);
 
     const debugMode = false;
-    useEffect(async () => {
-        setLoader(true)
-        //componentDidMount
-        socketService.on('wap change', wapChangeFromSocket);
-        const id = match.params.wapId || _id;
-        if (id) await loadWap(id);
-        else { await saveWap({ cmps, style }) };
-        setLoader(false)
+    useEffect(() => {
+        (async function () {
+            setLoader(true)
+            //componentDidMount
+            socketService.on('wap change', wapChangeFromSocket);
+            const id = match.params.wapId || _id;
+            if (id) await loadWap(id);
+            else { await saveWap({ cmps, style }) };
+            setLoader(false)
+        }())
 
         return () => {
             // componentWillUnmount
@@ -277,7 +279,7 @@ function _Editor(
                     chatIsEnabled={chat.isEnabled}
                     chatChange={chatChange} />
                 <div className="page-container">
-                    {loader && <Loader /> || <div className="page">
+                    {(!cmps && <Loader />) || <div className="page flex direction-column">
                         {cmps.map((section, index) => {
                             const currentPath = `${index}`;
                             return (

@@ -1,8 +1,8 @@
 import YouTubeIcon from '@mui/icons-material/YouTube';
 
-export function VideoEdit({ data, style, onUpdate }) {
+export function VideoEdit({ data, onUpdate }) {
     const onChange = ({ target }) => {
-        const { name, value } = target;
+        const { value } = target;
         onUpdate('data', { videoId: value });
     }
     return (

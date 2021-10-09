@@ -14,7 +14,7 @@ export function FontEdit({ fontSize, textAlign, color, fontFamily, onChange }) {
                 <PrettoSlider
                     valueLabelDisplay="auto"
                     aria-label="pretto slider"
-                    value={+fontSize}
+                    value={+fontSize || 16}
                     min={16}
                     max={100}
                     name="fontSize"
@@ -27,7 +27,7 @@ export function FontEdit({ fontSize, textAlign, color, fontFamily, onChange }) {
                     <label htmlFor="textAlign">Align:</label>
                 </div>
                 <div className="input">
-                    <FontEditTextAlign name="textAlign" value={textAlign, 'left'} onChange={onChange} />
+                    <FontEditTextAlign name="textAlign" value={textAlign || 'center'} onChange={onChange} />
                 </div>
             </div>}
             <div className="font-color">

@@ -34,7 +34,7 @@ export function Component({ data, path, updateComponent, select, selected }) {
   const opacity = isDragging ? 0 : 1;
   drag(ref);
 
-  const { gap, alignItems, justifyContent } = data.component.style
+  const { gap, alignItems, justifyContent, display } = data.component.style
 
   const component = data.component;
 
@@ -78,13 +78,15 @@ export function Component({ data, path, updateComponent, select, selected }) {
         return <Carousel {...props} />
       case 'form':
         return <ContactForm {...props} />
+      default:
+        return <></>
     }
   }
 
   return (
     <div
       ref={ref}
-      style={{ opacity, gap: (data.component.type === 'nav') ? '' : gap, alignItems, justifyContent }}
+      style={{ opacity, gap: (data.component.type === 'nav') ? '' : gap, alignItems, justifyContent, display }}
       className={`component draggable ${actionsVisible ? 'element-hover' : ''}`}
       onClick={onSelect}
       onMouseEnter={() => setActionsVisible(true)}

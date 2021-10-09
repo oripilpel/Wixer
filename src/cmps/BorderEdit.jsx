@@ -1,4 +1,3 @@
-import { border } from "@mui/system";
 import { PrettoSlider } from "./PrettoSlider";
 
 export function BorderEdit({ style, onChange }) {

@@ -1,17 +1,17 @@
 import React from "react";
-import classNames from "classnames";
 import { useDrop } from "react-dnd";
-import { COMPONENT, SIDEBAR_ITEM, SECTION, COLUMN, SIDEBAR_COLUMN } from "../constants";
+import { COMPONENT, SIDEBAR_ITEM, SECTION, COLUMN } from "../constants";
 
 const ACCEPTS = [SIDEBAR_ITEM, COMPONENT, SECTION, COLUMN];
 
-export function DropZone({ data, onDrop, isLast, className,maximumSize, accept = ACCEPTS }) {
-  const [{ isOver, canDrop }, drop] = useDrop({
+export function DropZone({ data, onDrop, horizontalDrag, maximumSize, accept = ACCEPTS }) {
+  const [{ canDrop }, drop] = useDrop({
     accept,
-    drop: (item, monitor) => {
+    drop: (item) => {
       onDrop(data, item);
     },
     canDrop: (item) => {
+      // debugger
       const dropZonePath = data.path;
       const splitDropZonePath = dropZonePath.split("-");
       const itemPath = item.path;
@@ -47,27 +47,15 @@ export function DropZone({ data, onDrop, isLast, className,maximumSize, accept =
       return true;
     },
     collect: (monitor) => ({
-      isOver: monitor.isOver(),
       canDrop: monitor.canDrop(),
     })
   });
 
-  const isActive = isOver || canDrop;
 
   return (
     <div
-      style={{
-        position: (isActive) ? 'relative' : 'absolute',
-        top: (isActive) ? 0 : -30,
-        left: 0
-      }}
-      className={classNames(
-        "drop-zone",
-        { active: isActive, isLast },
-        className
-      )}
+      className={`drop-zone ${(canDrop) ? 'active' : ''} ${(maximumSize) ? 'maximum-size' : ''} ${(horizontalDrag) ? 'horizontal-drag' : ''}`}
       ref={drop}
-
     />
   );
 };

@@ -95,7 +95,7 @@ export function Section({ data, cmps, handleDrop, path, updateComponent, onSelec
               }}
               accept={(hasOnlyInnersections) ? [INNERSECTION, SIDEBAR_INNERSECTION] : (data.cmps.length >= 4) ? [COLUMN] : [SIDEBAR_ITEM, COMPONENT, SIDEBAR_COLUMN, COLUMN]}
               onDrop={handleDrop}
-              className={(hasOnlyInnersections) ? '' : 'horizontalDrag'}
+              horizontalDrag={(hasOnlyInnersections) ? false : true}
             />
             {((child.type === COLUMN) && renderColumn(child, currentPath)) || renderInnerSection(child, currentPath)}
           </React.Fragment>
@@ -110,7 +110,7 @@ export function Section({ data, cmps, handleDrop, path, updateComponent, onSelec
         }}
         accept={(hasOnlyInnersections) ? [INNERSECTION, SIDEBAR_INNERSECTION] : (cmps.length >= 4) ? [COLUMN] : [SIDEBAR_ITEM, COMPONENT, SIDEBAR_COLUMN, COLUMN]}
         onDrop={handleDrop}
-        className={(hasOnlyInnersections) ? '' : 'horizontalDrag'}
+        horizontalDrag={(hasOnlyInnersections) ? false : true}
         isLast
       />
       {actionsVisible && <Actions path={path} type={SECTION} />}

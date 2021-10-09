@@ -20,7 +20,7 @@ export function ImageSearch({ onSelect }) {
             <ul>
                 {images.map(image => (
                     <li>
-                        <img src={image.thumbnailUrl} onClick={() => onSelect(image.contentUrl)} />
+                        <img src={image.thumbnailUrl} alt="" onClick={() => onSelect(image.contentUrl)} />
                     </li>
                 ))}
             </ul>

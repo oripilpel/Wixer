@@ -16,36 +16,43 @@ import { loadWap } from '../store/layout.actions'
 import { INNERSECTION } from "../constants";
 
 function _Publish({ match, cmps, chat, loadWap }) {
-    const KeysToComponentMap = {
-        text: Text,
-        image: Image,
-        video: Video,
-        nav: Nav,
-        button: Button,
-        social: SocialIcons,
-        carousel: Carousel,
-        form: ContactForm,
-        GMap
-    };
 
     useEffect(() => {
         const id = match.params.wapId;
         if (id) loadWap(id);
-    }, []);
+    }, [match.params.wapId]);
 
-    const renderer = ({ component }) => {
-        if (!component) return
-        if (typeof KeysToComponentMap[component.type] !== "undefined") {
-            return React.createElement(
-                KeysToComponentMap[component.type],
-                {
-                    id: component.id,
-                    key: component.id,
-                    data: component.data,
-                    style: translateStyle({ ...component.style }),
-                },
-            );
+    function renderer({ component }) {
+        const props = {
+            id: component.id,
+            key: component.id,
+            data: component.data,
+            style: translateStyle({ ...component.style }),
         }
+        switch (component.type) {
+
+            case ('text'):
+                return <Text {...props} />
+            case ('image'):
+                return < Image {...props} />
+            case ('video'):
+                return <Video {...props} />
+            case ('nav'):
+                return <Nav {...props} />
+            case ('button'):
+                return <Button {...props} />
+            case ('social'):
+                return < SocialIcons {...props} />
+            case ('carousel'):
+                return < Carousel {...props} />
+            case ('form'):
+                return <ContactForm {...props} />
+            case ('GMap'):
+                return <GMap {...props} />
+            default:
+                return <></>
+        }
+
     }
 
     return (

@@ -48,7 +48,6 @@ const KeysToComponentMap = {
   furniCarousle,
   footer1,
   footer2,
-  furniCarousle,
   nav1,
   dentalFooter,
   dentalReviews,
@@ -91,7 +90,7 @@ export function SideBarItem({ data, type, isElementClicked, setHints }) {
       ref={drag} style={{ opacity }}>
       {data.icon && KeysToIconMap[data.icon]}
       {!data.image && (data.name || data.component.type)}
-      {data.image && <img src={KeysToComponentMap[data.image]}
+      {data.image && <img alt="cmp preview" src={KeysToComponentMap[data.image]}
         className={`${data.name === 'Header1' && !isElementClicked ? 'anima' : ''}`} />}
     </div >
   );
