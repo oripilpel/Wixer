@@ -36,14 +36,14 @@ function _LoginSignup(props) {
                 user = await props.onLogin(values)
                 if (user) {
                     setSubmitting(false);
-                    props.history.push('/');
+                    props.history.push('/dashboard');
                 }
                 break;
             default:
                 user = await props.onSignup(values)
                 if (user) {
                     setSubmitting(false);
-                    props.history.push('/');
+                    props.history.push('/dashboard');
                 }
 
         }

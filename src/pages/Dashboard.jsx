@@ -13,8 +13,6 @@ export function Dashboard() {
             setWaps(await wapService.getWaps())
         })()
     }, [])
-
-
     if (!waps) return (
         <div className="dashboard">
             <Loader className="loader" />
@@ -31,7 +29,9 @@ export function Dashboard() {
                     </div>
                 </>
             )}
-            {waps.map(wap => wap.name ? < WapPreview wap={wap} /> : <></>)}
-        </div >
+            <div className="my-sites">
+                {waps.map(wap => <WapPreview key={wap._id} wap={wap} />)}
+            </div>
+        </div>
     )
 }
