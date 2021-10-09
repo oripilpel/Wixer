@@ -2,13 +2,22 @@ import Box from '@mui/material/Box';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 
+import { Switch } from '@mui/material';
 import { MenuItem, Select } from "@mui/material";
 import { PrettoSlider } from "../PrettoSlider";
 
+
 export function FlexEdit({ isFlex, gap, flexGrow, justifyContent, alignItems, onChange }) {
+
+    function setFlex({ target }) {
+        onChange({ target: { name: 'display', value: (target.checked) ? 'flex' : 'unset' } })
+    }
+
     return (
         <div className="flex-edit flex direction-column">
-            <div>
+            <div >
+                <label htmlFor="flex-toggle">Flex Enabled</label>
+                <Switch id="flex-toggle" checked={isFlex} onChange={setFlex} />
             </div>
             <div className="align-items-edit">
                 <div className="input">

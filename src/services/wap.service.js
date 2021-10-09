@@ -202,6 +202,7 @@ export function handleMoveToDifferentParent(layout, splitDropZonePath, splitItem
   const COLUMN_STRUCTURE = {
     type: COLUMN,
     id: utilService.makeId(),
+    style: {},
     cmps: [item]
   };
 

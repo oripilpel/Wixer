@@ -12,7 +12,7 @@ import { ImageSearch } from './ImageSearch';
 import { FlexEdit } from './Edit/FlexEdit';
 
 export function ColumnSectionEdit({ style, onUpdate }) {
-    const [expanded, setExpanded] = React.useState('background')
+    const [expanded, setExpanded] = useState('background')
     const handleChange = (panel) => (event, newExpanded) => {
         setExpanded(newExpanded ? panel : false);
     };

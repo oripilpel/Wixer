@@ -8,8 +8,10 @@ import { Loader } from '../assets/img/Loader'
 
 export function Dashboard() {
     const [waps, setWaps] = useState(null)
-    useEffect(async () => {
-        setWaps(await wapService.getWaps())
+    useEffect(() => {
+        (async function () {
+            setWaps(await wapService.getWaps())
+        })()
     }, [])
 
 

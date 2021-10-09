@@ -8,8 +8,8 @@ import { wapService } from "../../services/waps.service";
 import { MsgSent } from "./MsgSent";
 
 
-function _ContactForm({ data, match, style }) {
-    const [form, setForm] = useState({});
+function _ContactForm({ data, match }) {
+    const [form, setForm] = useState({ ...data.form });
     const [isOpen, setIsOpen] = useState(false);
 
 
@@ -25,9 +25,10 @@ function _ContactForm({ data, match, style }) {
         ev.preventDefault();
         wapService.sendLead(match.params.wapId, { ...form, date: Date.now() });
         setIsOpen(true)
+        setForm({ ...data.form })
     }
     return (
-        <form  onSubmit={onSubmit} className="contact-form flex direction-column">
+        <form onSubmit={onSubmit} className="contact-form flex direction-column">
             <StyledInput
                 label="Name"
                 value={form.name}

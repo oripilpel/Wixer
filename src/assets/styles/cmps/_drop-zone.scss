@@ -1,34 +1,33 @@
 .drop-zone {
     flex: 0 0 auto;
     height: 1px;
-    
-    transition: width .3s;
+    position: absolute;
+    top: -30px;
+    transition: height .3s;
+    left:0px;
+    width: 100%;
 
     &:nth-of-type(2n) {
         display: none;
     }
 
-    &:not(.horizontalDrag) {
-        width: 100%;
-        // &.isLast {
-        //     flex: 1 1 auto;
-        // }
-    }
-
     &.active {
-        background: $dropZoneActiveColor;
+        background: #00a2ff;
+        position:relative;
+        top:0px;
         height: 40px;
-        &.horizontalDrag {
+        width: 100%;
+        &.horizontal-drag {
             width: 40px;
             height: auto;
         }
     }
-  }
-  
-  
-  
-  .drop-zone.active,
-  .trash-drop-zone.active {
-    background: #00a2ff;
-    transition:width,height 0.3s ;
+
+    &.maximum-size{
+        height: unset;
+        min-height: 40px;
+        flex-grow: 1;
+        display: block;
+        background-color: transparent;
+    }
   }

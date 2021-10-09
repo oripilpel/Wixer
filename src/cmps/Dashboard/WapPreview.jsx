@@ -8,7 +8,7 @@ export function WapPreview({ wap }) {
     return (
         <div className="wap-preview flex">
             {/* IT WORKS ONLY ON HEROKO!!!! NOT WORKING IN LOCALHOST */}
-            <img src={`${BASE_URL + wap._id}.jpg`} alt="site image" />
+            <img src={`${BASE_URL + wap._id}.jpg`} alt="site screenshot" />
             <div>
                 <div>
                     <Link to={`/editor/${wap._id}`}>Edit Site</Link>

@@ -58,7 +58,7 @@ export function InnerSection({ data, components, handleDrop, path, updateCompone
             ref={ref}
             style={{ ...style, opacity }}
             onClick={select}
-            className={`base draggable innersection flex ${actionsVisible ? 'element-hover' : ''}` }
+            className={`base draggable innersection flex ${actionsVisible ? 'element-hover' : ''}`}
             onMouseEnter={() => setActionsVisible(true)}
             onMouseLeave={() => setActionsVisible(false)}>
             {data.cmps.map((column, index) => {
@@ -73,7 +73,7 @@ export function InnerSection({ data, components, handleDrop, path, updateCompone
                             }}
                             accept={[COMPONENT, SIDEBAR_ITEM, COLUMN, SIDEBAR_COLUMN]}
                             onDrop={handleDrop}
-                            className="horizontalDrag"
+                            horizontalDrag={true}
                         />
                         {renderColumn(column, currentPath)}
                     </React.Fragment>
@@ -86,8 +86,8 @@ export function InnerSection({ data, components, handleDrop, path, updateCompone
                 }}
                 accept={[COLUMN, SIDEBAR_COLUMN]}
                 onDrop={handleDrop}
-                className="horizontalDrag"
-                isLast
+                horizontalDrag={true}
+                // isLast
             />
             {actionsVisible && <Actions path={path} type={INNERSECTION} />}
         </div>

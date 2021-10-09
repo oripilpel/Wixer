@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { useDrag, useDrop } from "react-dnd";
+import { useDrag } from "react-dnd";
 import { translateStyle } from "../services/util.service";
 
 import { COLUMN, COMPONENT, SIDEBAR_ITEM } from "../constants";

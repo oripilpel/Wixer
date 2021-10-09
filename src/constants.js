@@ -1,4 +1,3 @@
-import { textAlign } from '@mui/system';
 import { utilService } from './services/util.service';
 
 export const SIDEBAR_SECTION = 'sidebarSection'
@@ -158,15 +157,17 @@ export const SIDEBAR_ITEMS_BASIC = [
     icon: 'EmailIcon',
     component: {
       type: 'form',
-      data:
-      {
-        name: '',
-        email: '',
-        phone: '',
-        subject: '',
-        msg: ''
-      }
-      ,
+      data: {
+        form:
+        {
+          name: '',
+          email: '',
+          phone: '',
+          subject: '',
+          msg: ''
+        },
+        isDark: true
+      },
       style: { gap: '15px' }
     }
   },
@@ -378,8 +379,6 @@ export const SIDEBAR_ITEMS_HEADER = [
           ],
           style: {
             flexGrow: 1,
-            padding: '0 25px',
-            alignItems: 'center'
           },
         }
       ],
@@ -3790,7 +3789,7 @@ export const SIDEBAR_ITEMS_FOOTER = [
                     subject: '',
                     msg: ''
                   },
-                  isDark: true
+                  isDark: false
                 }
                 ,
                 style: {}
