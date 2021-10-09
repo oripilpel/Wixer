@@ -60,7 +60,8 @@ function _Editor(
         chatOpeningTextChange,
         chatAnswerTextChange,
         dispatchAction,
-        setLoader
+        setLoader,
+        name
     }) {
 
     const [historyUndo, setHitoryUndo] = useState([]);
@@ -85,7 +86,7 @@ function _Editor(
     useEffect(() => {
         if (_id) {
             if (templateService.gTemplatesIds().includes(_id)) {
-                saveWap({ cmps, style, chat });
+                saveWap({ cmps, style, chat, name });
                 return;
             }
             history.push(`/editor/${_id}`);
@@ -95,13 +96,13 @@ function _Editor(
 
     useEffect(() => {
         if (!_id) return
-        wapService.save({ _id, cmps, style, chat });
+        wapService.save({ _id, cmps, style, chat, name });
     }, [chat])
 
     useEffect(() => {
         if (!_id) return
         setHitoryUndo([...historyUndo, JSON.parse(JSON.stringify(cmps))]);
-        wapService.save({ _id, cmps, style });
+        wapService.save({ _id, cmps, style, name });
     }, [cmps])
 
     const wapChangeFromSocket = (action) => {
@@ -121,7 +122,7 @@ function _Editor(
     const onUndo = (isEmit = true, socketLastStep = null) => {
         if (historyUndo.length === 1) return;
         const lastStep = socketLastStep || historyUndo[historyUndo.length - 2];
-        setWap(_id, [...lastStep], style, chat);
+        setWap(_id, [...lastStep], style, chat, name);
         if (isEmit) {
             socketService.emit('wap change', { type: 'UNDO', lastStep });
             setHitoryUndo(historyUndo.slice(0, -2));
@@ -325,7 +326,8 @@ function mapStateToProps(state) {
         selected: state.layoutModule.selected,
         style: state.layoutModule.style,
         chat: state.layoutModule.chat,
-        loader: state.layoutModule.loader
+        loader: state.layoutModule.loader,
+        name: state.layoutModule.name
     }
 }
 const mapDispatchToProps = {

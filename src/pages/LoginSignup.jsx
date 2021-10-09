@@ -55,7 +55,6 @@ function _LoginSignup(props) {
         password: ''
     }
 
-    // console.log(props);
     return (
         <div className="login-signup flex direction-column align-center">
             <h1>{path === '/login' ? 'Login' : 'Signup'}</h1>
@@ -77,7 +76,7 @@ function _LoginSignup(props) {
                             <ErrorMessage name="username" component="div" />
                         </div>
                         <div className="field">
-                            <Field type="text" name="password" label="password" as={TextFieldOutlined} />
+                            <Field type="password" name="password" label="password" as={TextFieldOutlined} />
                             <ErrorMessage name="password" component="div" />
                         </div>
                         <div className="field flex justify-center">

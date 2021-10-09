@@ -13,7 +13,7 @@ import { SocialIcons } from "./SocialIcons";
 import { Carousel } from "./Carousel";
 import { ContactForm } from "./Form";
 
-const Component = ({ data, path, updateComponent, select, selected }) => {
+export function Component({ data, path, updateComponent, select, selected }) {
   const ref = useRef(null);
 
   const [actionsVisible, setActionsVisible] = useState(false);
@@ -33,22 +33,10 @@ const Component = ({ data, path, updateComponent, select, selected }) => {
 
   const opacity = isDragging ? 0 : 1;
   drag(ref);
-  
+
   const { gap, alignItems, justifyContent } = data.component.style
 
   const component = data.component;
-
-  const typeToCmpMap = {
-    text: Text,
-    image: Image,
-    video: Video,
-    nav: Nav,
-    button: Button,
-    GMap: GMap,
-    social: SocialIcons,
-    carousel: Carousel,
-    form: ContactForm
-  };
 
   const onSelect = (ev) => {
     ev.stopPropagation();
@@ -60,18 +48,36 @@ const Component = ({ data, path, updateComponent, select, selected }) => {
   }
 
   const renderer = (component) => {
-    if (typeof typeToCmpMap[component.type] !== "undefined") {
-      return React.createElement(
-        typeToCmpMap[component.type],
-        {
-          id: component.id,
-          key: component.id,
-          data: component.data,
-          style: translateStyle({ ...component.style }),
-          path,
-          update
-        },
-      );
+    const { id, data, style, type } = component
+
+    const props = {
+      id,
+      key: id,
+      data,
+      style: translateStyle({ ...style }),
+      path,
+      update
+    }
+
+    switch (type) {
+      case 'text':
+        return <Text {...props} />
+      case 'image':
+        return <Image {...props} />
+      case 'video':
+        return <Video {...props} />
+      case 'nav':
+        return <Nav {...props} />
+      case 'button':
+        return <Button {...props} />
+      case 'GMap':
+        return <GMap {...props} />
+      case 'social':
+        return <SocialIcons {...props} />
+      case 'carousel':
+        return <Carousel {...props} />
+      case 'form':
+        return <ContactForm {...props} />
     }
   }
 
@@ -81,14 +87,11 @@ const Component = ({ data, path, updateComponent, select, selected }) => {
       style={{ opacity, gap: (data.component.type === 'nav') ? '' : gap, alignItems, justifyContent }}
       className={`component draggable ${actionsVisible ? 'element-hover' : ''}`}
       onClick={onSelect}
-      onMouseEnter={() => setActionsVisible(true)
-      }
-      onMouseLeave={() => setActionsVisible(false)
-      }
+      onMouseEnter={() => setActionsVisible(true)}
+      onMouseLeave={() => setActionsVisible(false)}
     >
       {renderer(component)}
       {actionsVisible && <Actions path={path} type={COMPONENT} />}
     </div>
-  );
-};
-export default Component;
+  )
+}

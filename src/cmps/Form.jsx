@@ -1,58 +1,52 @@
 import { Button } from "@mui/material";
 
-import { useState } from "react";
 import { CssTextFieldLight } from "./CssTextFieldLight";
 import { CssTextFieldDark } from "./CssTextFieldDark";
 
-export function ContactForm({ data, update }) {
-    const [form, setForm] = useState({ ...data.form });
+export function ContactForm({ data, update, style }) {
 
     const StyledInput = (data.isDark) ? CssTextFieldDark : CssTextFieldLight
-
-
-    function handleChange({ target }) {
-        const { name, value } = target;
-        const newForm = { ...form, [name]: value }
-        setForm(newForm)
-        update('data', { ...data, form: newForm })
-    }
 
     return (
         <div  className="contact-form flex direction-column">
             <StyledInput
                 label="Name"
-                value={form.name}
-                onChange={handleChange}
                 name="name"
                 variant="standard"
+                fullWidth={true}
+
             />
             <StyledInput
                 label="Email"
-                value={form.email}
-                onChange={handleChange}
                 name="email"
                 variant="standard"
+                fullWidth={true}
+
+
             />
             <StyledInput
                 label="Phone Number"
-                value={form.phone}
-                onChange={handleChange}
                 name="phone"
                 variant="standard"
+                fullWidth={true}
+
+
             />
             <StyledInput
                 label="Subject"
-                value={form.subject}
-                onChange={handleChange}
                 name="subject"
                 variant="standard"
+                fullWidth={true}
+
+
             />
             <StyledInput
                 label="Your Message"
-                value={form.msg}
-                onChange={handleChange}
                 name="msg"
                 variant="standard"
+                fullWidth={true}
+
+
             />
             <Button>Contact Us</Button>
         </div>

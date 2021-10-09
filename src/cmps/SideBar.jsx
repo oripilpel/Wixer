@@ -16,8 +16,25 @@ import { SidebarAddComponent } from "./SidebarAddComponent";
 import { saveWap } from '../store/layout.actions'
 import { eventBusService } from "../services/event-bus-service";
 import { hintsService } from "../services/hint.service"
+import { SaveModal } from "./SaveModal";
 
-function _SideBar({ selected, update, cmps, style, _id, chat, saveWap, onUndo, setChatIsEnabled, chatIsEnabled, chatOpeningText, chatAnswerText, chatChange }) {
+
+function _SideBar({
+    name,
+    selected,
+    update,
+    cmps,
+    style,
+    _id,
+    chat,
+    saveWap,
+    onUndo,
+    setChatIsEnabled,
+    chatIsEnabled,
+    chatOpeningText,
+    chatAnswerText,
+    chatChange
+}) {
     const [isEdit, setIsEdit] = useState(false)
 
     useEffect(() => {
@@ -34,6 +51,8 @@ function _SideBar({ selected, update, cmps, style, _id, chat, saveWap, onUndo, s
     const [isAddClicked, setIsAddClicked] = useState(hints ? false : true);
     const [isElementClicked, setIsElementClicked] = useState(true);
     const [isPublishBlink, setIsPublishBlink] = useState(true);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
 
     const setHints = (stage) => {
         switch (stage) {
@@ -83,12 +102,14 @@ function _SideBar({ selected, update, cmps, style, _id, chat, saveWap, onUndo, s
         update(selected, field, data);
     }
 
-    const onSave = () => {
-        saveWap({ _id, cmps, style, chat })
+    const onSave = (name) => {
+        setIsModalOpen(false)
+        saveWap({ _id, cmps, style, chat, name })
     }
 
     return (
         <div className="side-bar">
+            <SaveModal name={name} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} onSave={onSave} />
             <Tabs className='tabs' value={isEdit ? 'edit' : 'add'} onChange={handleChange} aria-label="disabled tabs example">
                 <Tab icon={<AddBoxIcon />}
                     className={`tab add ${!isAddClicked ? 'anima' : ''}`}
@@ -139,11 +160,11 @@ function _SideBar({ selected, update, cmps, style, _id, chat, saveWap, onUndo, s
                 {isEdit && !selected && <div className="empty">Nothing is selected</div>}
             </div>
             <div className="save-pub">
-                <div className="save" onClick={onSave}>
+                <div className="save" onClick={() => { setIsModalOpen(true) }}>
                     Save
                 </div>
                 <div className={`pub ${!isPublishBlink ? 'anima' : ''}`} onMouseDown={() => { setHints(isPublishBlink) }}>
-                    <Link to={`/publish/${_id}`}>Publish</Link>
+                    <Link to={`/publish/${_id}`}>Preview</Link>
                 </div>
             </div>
         </div>
@@ -155,7 +176,8 @@ function mapStateToProps(state) {
         cmps: state.layoutModule.cmps,
         style: state.layoutModule.style,
         _id: state.layoutModule._id,
-        chat: state.layoutModule.chat
+        chat: state.layoutModule.chat,
+        name: state.layoutModule.name
     }
 }
 

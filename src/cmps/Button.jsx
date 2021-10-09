@@ -6,7 +6,7 @@ export function Button({ style, data, update }) {
     function onBodyChange({ target }) {
         update('data', { ...data, txt: target.innerText });
     }
-    return ( 
+    return (
         <div
             className="btn flex "
             onMouseEnter={() => { setColor(data.hoverColor) }}

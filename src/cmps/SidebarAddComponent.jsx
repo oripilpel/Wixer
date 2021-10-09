@@ -1,5 +1,5 @@
 import React from "react";
-import { TextareaAutosize } from "@material-ui/core";
+import { TextareaAutosize } from "@mui/material";
 import { SideBarItem } from "./SideBarItem";
 import { Accordion, AccordionSummary, AccordionDetails } from './Accordion';
 import { SIDEBAR_ITEMS_BASIC, SIDEBAR_ITEMS_FOOTER, SIDEBAR_ITEMS_NAV, SIDEBAR_ITEMS_SECTIONS, SIDEBAR_ITEMS_HEADER } from "../constants";
