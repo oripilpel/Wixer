@@ -13,8 +13,6 @@ function _Dashboard({ user, loader }) {
     useEffect(async () => {
         setWaps(await wapService.getWaps())
     }, [])
-
-
     if (!waps) return (
         <div className="dashboard">
             <Loader className="loader" />
@@ -31,7 +29,11 @@ function _Dashboard({ user, loader }) {
                     </div>
                 </>
             )}
-            {waps.map(wap => wap['leads'] ? < WapPreview wap={wap} /> : <></>)}
+            <div className="my-sites">
+                {/* {waps.map(wap => JSON.stringify(wap))} */}
+                {waps.map(wap => <WapPreview key={wap._id} wap={wap} />)}
+                {/* {waps.map(wap => wap['leads'] ? <WapPreview wap={wap} /> : <></>)} */}
+            </div>
         </div >
     )
 }
@@ -46,7 +48,6 @@ function mapStateToProps(state) {
 const mapDispatchToProps = {
     setLoader
 }
-
 
 export const Dashboard = connect(mapStateToProps, mapDispatchToProps)(_Dashboard);
 
