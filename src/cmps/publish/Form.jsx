@@ -5,6 +5,7 @@ import { CssTextFieldDark } from "../CssTextFieldDark";
 import { useState } from "react";
 import { withRouter } from "react-router";
 import { wapService } from "../../services/waps.service";
+import { utilService } from "../../services/util.service";
 import { MsgSent } from "./MsgSent";
 
 
@@ -23,11 +24,11 @@ function _ContactForm({ data, match, style }) {
 
     function onSubmit(ev) {
         ev.preventDefault();
-        wapService.sendLead(match.params.wapId, { ...form, date: Date.now() });
+        wapService.sendLead(match.params.wapId, { ...form, id: utilService.makeId(), date: Date.now() });
         setIsOpen(true)
     }
     return (
-        <form  onSubmit={onSubmit} className="contact-form flex direction-column">
+        <form onSubmit={onSubmit} className="contact-form flex direction-column">
             <StyledInput
                 label="Name"
                 value={form.name}

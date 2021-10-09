@@ -1,6 +1,5 @@
-import * as React from 'react';
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import { wapService } from '../../services/waps.service';
 import { LeadList } from "./LeadList";
 import NoAvailableImg from '../../assets/img/no-available-img.jpg'
 
@@ -12,15 +11,15 @@ import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Collapse from '@mui/material/Collapse';
 import Avatar from '@mui/material/Avatar';
-import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { red, green } from '@mui/material/colors';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Badge from '@mui/material/Badge';
-import MailIcon from '@mui/icons-material/Mail';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import IconButton from '@mui/material/IconButton';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import MailIcon from '@mui/icons-material/Mail';
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -40,24 +39,30 @@ const options = [
 
 const ITEM_HEIGHT = 48;
 
-export function WapPreview({ wap, match }) {
-    const [expanded, setExpanded] = React.useState(false);
-
+export function WapPreview({ wap }) {
+    const [expanded, setExpanded] = useState(false);
+    const [wapToShow, setWap] = useState(wap)
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
+
+    const onSetWap = async (wap) => {
+        await wapService.save(wap, false)
+        setWap(wap)
+    }
 
     const BASE_URL = process.env.NODE_ENV === 'production'
         ? '/websites-screenshots/'
         : '//localhost:3030/websites-screenshots/'
 
-    const imageSrc = `${BASE_URL + wap._id}.jpg`
+    const imageSrc = `${BASE_URL + wapToShow._id}.jpg`
     const [previewImage, setImage] = useState(imageSrc)
+
     const handleError = () => {
         setImage(NoAvailableImg)
     }
 
-    const [anchorEl, setAnchorEl] = React.useState(null);
+    const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -66,22 +71,35 @@ export function WapPreview({ wap, match }) {
         setAnchorEl(null);
         switch (option) {
             case 'Edit':
-                window.location.replace(`/editor/${wap._id}`);
+                window.location.replace(`/editor/${wapToShow._id}`);
                 break;
             case 'Preview':
-                window.open(`/publish/${wap._id}`, '_blank');
+                window.open(`/publish/${wapToShow._id}`, '_blank');
                 break;
             default:
                 break;
         }
     };
-
+    const getNewLeads = () => {
+        if (!wapToShow.leads) return []
+        const newLeads = wapToShow.leads.filter(lead => {
+            return !lead.isDone
+        })
+        return newLeads
+    }
+    const getMarkedLeads = () => {
+        if (!wapToShow.leads) return []
+        const markedLeads = wapToShow.leads.filter(lead => {
+            return lead.isDone
+        })
+        return markedLeads
+    }
     return (
         <div className="wap-preview">
             <Card sx={{ maxWidth: 345 }}>
                 <CardHeader
                     avatar={
-                        <Avatar sx={{ bgcolor: wap.name ? green[500] : red[500] }} aria-label="recipe">
+                        <Avatar sx={{ bgcolor: wapToShow.name ? green[500] : red[500] }} aria-label="recipe">
                             W
                         </Avatar>
                     }
@@ -120,18 +138,18 @@ export function WapPreview({ wap, match }) {
                             </Menu>
                         </>
                     }
-                    title={wap.name ? wap.name : 'Not published'}
-                    subheader="September 14, 2016 (demo)"
+                    title={wapToShow.name ? wapToShow.name : 'Not published'}
+                    subheader={new Date(wap.createdAt).toLocaleDateString()}
                 />
                 <CardMedia
                     component="img"
                     height="194"
                     image={previewImage}
                     onError={handleError}
-                    alt={wap.name ? wap.name : wap._id}
+                    alt={wapToShow.name ? wapToShow.name : wapToShow._id}
                 />
                 <CardActions disableSpacing>
-                    <Badge badgeContent={wap.leads ? wap.leads.length : 0} color="primary">
+                    <Badge badgeContent={wapToShow.leads ? getNewLeads().length : 0} color="primary">
                         <MailIcon color="action" />
                     </Badge>
                     <ExpandMore
@@ -145,15 +163,15 @@ export function WapPreview({ wap, match }) {
                 </CardActions>
                 <Collapse in={expanded} timeout="auto" unmountOnExit>
                     <CardContent>
-                        <Typography paragraph>New leads:</Typography>
+                        <Typography paragraph sx={{ marginBottom: 0 }}>New leads:</Typography>
                         <Typography paragraph>
-                            <LeadList leads={wap['leads'] ? wap['leads'] : []} />
+                            <LeadList wap={wapToShow} onSetWap={onSetWap} leads={getNewLeads()} />
+                        </Typography>
+                        <Typography paragraph sx={{ marginBottom: 0 }}>
+                            Marked leads:
                         </Typography>
                         <Typography paragraph>
-                            Answered leads:
-                        </Typography>
-                        <Typography paragraph>
-                            LEADS HERE
+                            <LeadList wap={wapToShow} onSetWap={onSetWap} leads={getMarkedLeads()} />
                         </Typography>
                     </CardContent>
                 </Collapse>
