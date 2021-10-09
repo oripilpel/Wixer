@@ -4,6 +4,8 @@ import { WapPreview } from "../cmps/Dashboard/WapPreview";
 import { wapService } from "../services/waps.service";
 import { Loader } from '../assets/img/Loader'
 
+
+
 export function Dashboard() {
     const [waps, setWaps] = useState(null)
     useEffect(async () => {
@@ -25,7 +27,9 @@ export function Dashboard() {
                     </div>
                 </>
             )}
-            {waps.map(wap => wap.name ? < WapPreview wap={wap} /> : <></>)}
-        </div >
+            <div className="my-sites">
+                {waps.map(wap => <WapPreview key={wap._id} wap={wap} />)}
+            </div>
+        </div>
     )
 }
