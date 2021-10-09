@@ -15,7 +15,7 @@ export function SidebarAddComponent({ isElementClicked, setHints, setChatIsEnabl
     return (
         <div className="sidebar-add-component">
             <Accordion expanded={expanded === 'header'} onChange={handleChange('header')}>
-                <AccordionSummary aria-controls="headerd-content" id="headerd-header">
+                <AccordionSummary sx={{paddingBlock: 10}} aria-controls="headerd-content" id="headerd-header">
                     Header
                 </AccordionSummary>
                 <AccordionDetails className="header-items">
@@ -26,7 +26,7 @@ export function SidebarAddComponent({ isElementClicked, setHints, setChatIsEnabl
                 </AccordionDetails>
             </Accordion>
             <Accordion expanded={expanded === 'nav'} onChange={handleChange('nav')}>
-                <AccordionSummary aria-controls="navd-content" id="navd-header">
+                <AccordionSummary sx={{paddingBlock: 10}} aria-controls="navd-content" id="navd-header">
                     Nav
                 </AccordionSummary >
                 <AccordionDetails className="nav-items">
@@ -36,7 +36,7 @@ export function SidebarAddComponent({ isElementClicked, setHints, setChatIsEnabl
                 </AccordionDetails>
             </Accordion>
             <Accordion expanded={expanded === 'section'} onChange={handleChange('section')}>
-                <AccordionSummary aria-controls="sectiond-content" id="sectiond-header">
+                <AccordionSummary sx={{paddingBlock: 10}} aria-controls="sectiond-content" id="sectiond-header">
                     Section
                 </AccordionSummary>
                 <AccordionDetails className="section-items">
@@ -46,7 +46,7 @@ export function SidebarAddComponent({ isElementClicked, setHints, setChatIsEnabl
                 </AccordionDetails>
             </Accordion>
             <Accordion expanded={expanded === 'footer'} onChange={handleChange('footer')}>
-                <AccordionSummary aria-controls="footerd-content" id="footerd-header">
+                <AccordionSummary sx={{paddingBlock: 10}} aria-controls="footerd-content" id="footerd-header">
                     Footer
                 </AccordionSummary>
                 <AccordionDetails className="footer-items">
@@ -56,7 +56,7 @@ export function SidebarAddComponent({ isElementClicked, setHints, setChatIsEnabl
                 </AccordionDetails>
             </Accordion>
             <Accordion expanded={expanded === 'basics'} onChange={handleChange('basics')}>
-                <AccordionSummary aria-controls="basicsd-content" id="basicsd-header">
+                <AccordionSummary sx={{paddingBlock: 10}} aria-controls="basicsd-content" id="basicsd-header">
                     Element
                 </AccordionSummary>
                 <AccordionDetails className='element-items' >
@@ -67,7 +67,7 @@ export function SidebarAddComponent({ isElementClicked, setHints, setChatIsEnabl
                 </AccordionDetails>
             </Accordion>
             <Accordion expanded={expanded === 'chat'} onChange={handleChange('chat')}>
-                <AccordionSummary aria-controls="chatd-content" id="chatd-header">
+                <AccordionSummary sx={{paddingBlock: 10}} aria-controls="chatd-content" id="chatd-header">
                     Chat
                 </AccordionSummary>
                 <AccordionDetails className='flex direction-column align-center' >

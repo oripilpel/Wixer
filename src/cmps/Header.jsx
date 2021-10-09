@@ -12,8 +12,13 @@ class _Header extends React.Component {
         this.setState({ isMenuOpen })
     }
 
+    onLogout = () => {
+        this.props.onLogout()
+        this.props.history.push('/login')
+    }
+
     render() {
-        const { user, onLogout } = this.props
+        const { user } = this.props
         const { pathname } = this.props.ownProps.location
         const { isMenuOpen } = this.state
         if (pathname.includes('publish')) return <></>
@@ -35,12 +40,12 @@ class _Header extends React.Component {
 
                     {!user && (
                         <div className="link flex align-center header-login-signup">
-                            <Link  onClick={() => this.toggleMenu(false)} to="/login">login</Link>
+                            <Link onClick={() => this.toggleMenu(false)} to="/login">login</Link>
                             <span>/</span>
                             <Link onClick={() => this.toggleMenu(false)} to="/signup">signup</Link>
                         </div>
                     )}
-                    {user && <button className="link flex align-center" onClick={onLogout}>Logout</button>}
+                    {user && <button className="link flex align-center" onClick={this.onLogout}>Logout</button>}
                 </nav>
                 <div className={`hamb-icon ${isMenuOpen ? "active" : ""}`} onClick={() => this.toggleMenu()}>
                     <div></div>
