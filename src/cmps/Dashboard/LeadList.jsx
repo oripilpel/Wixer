@@ -16,18 +16,25 @@ export function LeadList({ wap, onSetWap, leads }) {
             return lead.id === target.name
         })
         const newLeads = [...wap.leads]
-        newLeads[leadIdx] = {...newLeads[leadIdx], isDone: target.checked}
+        newLeads[leadIdx] = { ...newLeads[leadIdx], isDone: target.checked }
         const newWap = ({ ...wap, leads: newLeads })
         onSetWap(newWap)
     };
 
     return (
-        <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+        <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
+            {/* <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}> */}
             {leads.map((lead, idx) => {
                 return (
                     <React.Fragment key={lead.id || idx}>
                         <ListItem sx={{ paddingInline: 0 }} alignItems="flex-start">
-                            <ListItemAvatar>
+                            <ListItemAvatar
+                                sx={{
+                                    display: 'flex',
+                                    flexDirection: 'row-reverse',
+                                    justifyContent: 'flex-end',
+                                    minWidth: 100
+                                }}>
                                 <Avatar sx={{ bgcolor: blue[500] }} aria-label="recipe">
                                     {lead.name.charAt(0).toUpperCase()}
                                 </Avatar>
@@ -55,14 +62,14 @@ export function LeadList({ wap, onSetWap, leads }) {
                                         {lead.phone && lead.phone + ' — '}
                                         {lead.email && (lead.email + ' — ')}
                                         {lead.msg && lead.msg}
+                                        <Divider variant="inset" component="li" />
                                     </React.Fragment>
                                 }
                             />
                         </ListItem>
-                        <Divider variant="inset" component="li" />
                     </React.Fragment>
                 )
             })}
-        </List>
+        </List >
     )
 }

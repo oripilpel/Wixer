@@ -2,18 +2,18 @@ import { styled } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
 
 
-export const StyledTextField = styled(TextField)({
+export const StyledTextFieldDark = styled(TextField)({
     '& label.Mui-focused': {
-      color: '#F7F6F2',
+      color: '#4d4d4d',
     },
     '& .MuiInput-underline': {
-      color: '#F7F6F2'
+      color: '#4d4d4d'
     },
     '& .MuiInput-underline:before': {
-      borderBottomColor: '#F7F6F2',
+      borderBottomColor: '#4d4d4d',
     },
     '& label': {
-      color: '#F7F6F2',
+      color: '#4d4d4d',
     }
   })
 

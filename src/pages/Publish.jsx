@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from 'react-redux';
 import { translateStyle } from "../services/util.service";
 
@@ -16,6 +16,12 @@ import { loadWap } from '../store/layout.actions'
 import { INNERSECTION } from "../constants";
 
 function _Publish({ match, cmps, chat, loadWap }) {
+    const [loadHamb, setLoadHamb] = useState(false)
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+    const toggleMenu = (menuMode = !isMenuOpen) => {
+        setIsMenuOpen(menuMode)
+    }
 
     useEffect(() => {
         const id = match.params.wapId;
@@ -38,7 +44,7 @@ function _Publish({ match, cmps, chat, loadWap }) {
             case ('video'):
                 return <Video {...props} />
             case ('nav'):
-                return <Nav {...props} />
+                return <Nav {...props} setLoadHamb={setLoadHamb} isMenuOpen={isMenuOpen}/>
             case ('button'):
                 return <Button {...props} />
             case ('social'):
@@ -57,6 +63,17 @@ function _Publish({ match, cmps, chat, loadWap }) {
 
     return (
         <div className="publish">
+            {loadHamb && (
+                <>
+                    <div className={`screen ${isMenuOpen ? "active" : ""}`} onClick={() => toggleMenu(false)}></div>
+                    <div className={`hamb-icon ${isMenuOpen ? "active" : ""}`} onClick={() => toggleMenu()}>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </>
+            )}
+
             {cmps.map((sec, secIdx) => {
                 const containsInnerSection = sec.cmps.some(child => child.type === INNERSECTION)
                 return <div id={secIdx + 1} key={secIdx} className={`section flex ${containsInnerSection ? 'direction-column' : ''}`} style={{ ...sec.style }}>

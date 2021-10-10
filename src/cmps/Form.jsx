@@ -1,10 +1,11 @@
 import { Button } from "@mui/material";
 
 import { StyledTextField } from "./StyledTextField";
+import { StyledTextFieldDark } from "./StyledTextFieldDark";
 
 export function ContactForm({ data }) {
 
-    const StyledInput = StyledTextField
+    const StyledInput = data.isDark ? StyledTextFieldDark : StyledTextField;
 
     return (
         <div className="contact-form">

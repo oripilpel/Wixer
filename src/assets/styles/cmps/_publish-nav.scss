@@ -41,59 +41,63 @@
                 }
             }
         }
-
-        .hamb-icon {
-            display: none;
-            flex-direction: column;
-            justify-content: center;
-            position: fixed;
-            right: 50px;
-            top: 15px;
-            cursor: pointer;
-            height: 35px;
-            width: 35px;
-            border: 1px solid black;
-            border-radius: 5px;
-            background-color: #ffffffd1;
-            div {
-                width: 25px;
-                height: 8px;
-                border-block-end: 2px solid black;
-                transition: 0.4s;
-                align-self: center;
-            }
-            div:nth-child(1) {
-                border-block-start: 2px solid black;
-                border-block-end: 0;
-            }
-            div:nth-child(2) {
-                height: 2px;
-            }
-            &.active div:nth-child(1) {
-                transform: translateY(7px) translateX(2px) rotate(-45deg);
-            }
-            &.active div:nth-child(2) {
-                opacity: 0;
-            }
-            &.active div:nth-child(3) {
-                transform: translateY(-7px) translateX(2px) rotate(45deg);
-            }
-            @media screen and (max-width: 720px) {
-                display: flex;
-            }
+    }
+    .hamb-icon {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        position: absolute;
+        right: 50px;
+        top: 15px;
+        cursor: pointer;
+        height: 35px;
+        width: 35px;
+        border: 1px solid black;
+        border-radius: 5px;
+        background-color: #ffffffd1;
+        z-index: 10;
+        div {
+            width: 25px;
+            height: 8px;
+            border-block-end: 2px solid black;
+            transition: 0.4s;
+            align-self: center;
         }
-
-        .screen {
-            display: none;
+        div:nth-child(1) {
+            border-block-start: 2px solid black;
+            border-block-end: 0;
+        }
+        div:nth-child(2) {
+            height: 2px;
+        }
+        &.active {
             position: fixed;
-            background: #0000001a;
-            inset: 0;
-            pointer-events: none;
-            &.active {
-                display: block;
-                pointer-events: auto;
-                cursor: pointer;
-            }
+        }
+        &.active div:nth-child(1) {
+            transform: translateY(7px) translateX(2px) rotate(-45deg);
+        }
+        &.active div:nth-child(2) {
+            opacity: 0;
+        }
+        &.active div:nth-child(3) {
+            transform: translateY(-7px) translateX(2px) rotate(45deg);
+        }
+        @media screen and (max-width: 720px) {
+            display: flex;
+        }
+    }
+
+    .screen {
+        display: none;
+        position: fixed;
+        background: #0000001a;
+        inset: 0;
+        pointer-events: none;
+        z-index: 4;
+        &.active {
+            display: block;
+            pointer-events: auto;
+            cursor: pointer;
         }
     }
 }

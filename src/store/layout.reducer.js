@@ -14,6 +14,7 @@ import {
 const initialState = {
     _id: null,
     selected: null,
+    name: '',
     cmps: [],
     style: {},
     chat: {
