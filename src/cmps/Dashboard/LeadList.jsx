@@ -10,7 +10,6 @@ import Checkbox from '@mui/material/Checkbox';
 import { blue } from '@mui/material/colors';
 
 export function LeadList({ wap, onSetWap, leads }) {
-    console.log(wap);
 
     const handleChange = ({ target }) => {
         const leadIdx = wap.leads.findIndex(lead => {
