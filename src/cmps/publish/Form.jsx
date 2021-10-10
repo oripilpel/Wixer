@@ -2,9 +2,10 @@ import { Button } from "@mui/material";
 import { useState } from "react";
 import { withRouter } from "react-router";
 import { wapService } from "../../services/waps.service";
-import { StyledTextField } from "../StyledTextField";
 import { utilService } from "../../services/util.service";
 import { MsgSent } from "./MsgSent";
+import { StyledTextField } from "../StyledTextField";
+import { StyledTextFieldDark } from "../StyledTextFieldDark";
 
 
 function _ContactForm({ data, match }) {
@@ -18,7 +19,7 @@ function _ContactForm({ data, match }) {
         setForm(newForm)
     }
 
-    const StyledInput = StyledTextField(data.isDark)
+    const StyledInput = data.isDark ? StyledTextFieldDark : StyledTextField;
 
     function onSubmit(ev) {
         ev.preventDefault();
@@ -60,7 +61,7 @@ function _ContactForm({ data, match }) {
                 variant="standard"
                 fullWidth={true}
             />
-            <StyledInput
+            <StyledTextField
                 label="Your Message"
                 value={form.msg}
                 onChange={handleChange}
