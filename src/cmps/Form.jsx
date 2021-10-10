@@ -1,11 +1,10 @@
 import { Button } from "@mui/material";
 
-import { CssTextFieldLight } from "./CssTextFieldLight";
-import { CssTextFieldDark } from "./CssTextFieldDark";
+import { StyledTextField } from "./StyledTextField";
 
 export function ContactForm({ data }) {
 
-    const StyledInput = (data.isDark) ? CssTextFieldDark : CssTextFieldLight
+    const StyledInput = StyledTextField(data.isDark)
 
     return (
         <div className="contact-form flex direction-column">

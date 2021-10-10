@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { LeadList } from "./LeadList";
 import NoAvailableImg from '../../assets/img/no-available-img.jpg'
 
@@ -23,15 +22,15 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 
 const ExpandMore = styled((props) => {
-    const { expand, ...other } = props;
-    return <IconButton {...other} />;
+    const { expand, ...other } = props
+    return <IconButton {...other} />
 })(({ theme, expand }) => ({
     transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
     marginLeft: 'auto',
     transition: theme.transitions.create('transform', {
         duration: theme.transitions.duration.shortest,
     }),
-}));
+}))
 
 const options = [
     'Edit',
@@ -41,7 +40,7 @@ const options = [
 const ITEM_HEIGHT = 48;
 
 export function WapPreview({ wap, match }) {
-    const [expanded, setExpanded] = React.useState(false);
+    const [expanded, setExpanded] = useState(false);
 
     const handleExpandClick = () => {
         setExpanded(!expanded);
@@ -53,11 +52,11 @@ export function WapPreview({ wap, match }) {
 
     const imageSrc = `${BASE_URL + wap._id}.jpg`
     const [previewImage, setImage] = useState(imageSrc)
-    const handleError = () => {
-        setImage(NoAvailableImg)
-    }
+    // const handleError = () => {
+    //     setImage(NoAvailableImg)
+    // }
 
-    const [anchorEl, setAnchorEl] = React.useState(null);
+    const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -126,8 +125,8 @@ export function WapPreview({ wap, match }) {
                 <CardMedia
                     component="img"
                     height="194"
-                    image={previewImage}
-                    onError={handleError}
+                    image={imageSrc}
+                    // onError={handleError}
                     alt={wap.name ? wap.name : wap._id}
                 />
                 <CardActions disableSpacing>

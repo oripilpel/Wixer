@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { connect } from 'react-redux';
-import { Link } from "react-router-dom";
 
 import { StyledEngineProvider } from "@mui/styled-engine";
 import { Tab, Tabs } from "@mui/material";
@@ -160,11 +159,11 @@ function _SideBar({
                 {isEdit && !selected && <div className="empty">Nothing is selected</div>}
             </div>
             <div className="save-pub">
-                <div className="save" onClick={() => { setIsModalOpen(true) }}>
+                <div className="save" onClick={() => { onSave() }} >
                     Save
                 </div>
-                <div className={`pub ${!isPublishBlink ? 'anima' : ''}`} onMouseDown={() => { setHints(isPublishBlink) }}>
-                    <Link to={`/publish/${_id}`}>Preview</Link>
+                <div onClick={() => { setIsModalOpen(true) }} className={`pub ${!isPublishBlink ? 'anima' : ''}`} onMouseDown={() => { setHints(isPublishBlink) }}>
+                    Publish
                 </div>
             </div>
         </div>

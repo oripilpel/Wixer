@@ -1,10 +1,8 @@
 import { Button } from "@mui/material";
-
-import { CssTextFieldLight } from "../CssTextFieldLight";
-import { CssTextFieldDark } from "../CssTextFieldDark";
 import { useState } from "react";
 import { withRouter } from "react-router";
 import { wapService } from "../../services/waps.service";
+import { StyledTextField } from "../StyledTextField";
 import { MsgSent } from "./MsgSent";
 
 
@@ -19,7 +17,7 @@ function _ContactForm({ data, match }) {
         setForm(newForm)
     }
 
-    const StyledInput = (data.isDark) ? CssTextFieldDark : CssTextFieldLight
+    const StyledInput = StyledTextField(data.isDark)
 
     function onSubmit(ev) {
         ev.preventDefault();

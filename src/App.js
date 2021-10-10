@@ -12,7 +12,7 @@ import { LoginSignup } from './pages/LoginSignup';
 import { userService } from './services/user.service';
 import { setUser } from './store/user.actions';
 
-function _App({setUser}) {
+function _App({ setUser }) {
   useEffect(() => {
     const user = userService.getLoggedinUser();
     if (user) setUser(user);
@@ -29,6 +29,7 @@ function _App({setUser}) {
           <Route path="/editor" component={Editor} />
           <Route path="/about" component={About} />
           <Route path="/publish/:wapId" component={Publish} />
+          <Route path="/preview" component={Publish} />
           <Route path="/publish" component={Publish} />
           <Route path="/login" component={LoginSignup} />
           <Route path="/signup" component={LoginSignup} />
@@ -45,4 +46,4 @@ const mapDispatchToProps = {
 }
 
 
-export const App = connect(null , mapDispatchToProps)(_App);
+export const App = connect(null, mapDispatchToProps)(_App);

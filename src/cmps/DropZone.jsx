@@ -11,7 +11,6 @@ export function DropZone({ data, onDrop, horizontalDrag, maximumSize, accept = A
       onDrop(data, item);
     },
     canDrop: (item) => {
-      // debugger
       const dropZonePath = data.path;
       const splitDropZonePath = dropZonePath.split("-");
       const itemPath = item.path;
