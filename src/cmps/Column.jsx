@@ -27,20 +27,6 @@ export function Column({ data, handleDrop, path, updateComponent, onSelect, sele
     })
   });
 
-
-  const renderComponent = (component, currentPath) => {
-    return (
-      <Component
-        key={component.id}
-        data={component}
-        path={currentPath}
-        updateComponent={updateComponent}
-        select={onSelect}
-        selected={selected}
-      />
-    );
-  };
-
   const opacity = isDragging ? 0 : 1;
   drag(ref);
 
@@ -72,7 +58,14 @@ export function Column({ data, handleDrop, path, updateComponent, onSelect, sele
               onDrop={handleDrop}
               accept={[COMPONENT, SIDEBAR_ITEM]}
             />
-            {renderComponent(component, currentPath)}
+            <Component
+              key={component.id}
+              data={component}
+              path={currentPath}
+              updateComponent={updateComponent}
+              select={onSelect}
+              selected={selected}
+            />
           </React.Fragment>
         );
       })}

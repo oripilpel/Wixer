@@ -1,15 +1,16 @@
 import { Button } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { withRouter } from "react-router";
 import { wapService } from "../../services/waps.service";
-import { StyledTextField } from "../StyledTextField";
 import { utilService } from "../../services/util.service";
 import { MsgSent } from "./MsgSent";
+import { StyledTextField } from "../StyledTextField";
+import { StyledTextFieldDark } from "../StyledTextFieldDark";
 
 
 function _ContactForm({ data, match }) {
-    const [form, setForm] = useState({ ...data.form });
-    const [isOpen, setIsOpen] = useState(false);
+    const [form, setForm] = useState({ ...data.form })
+    const [isOpen, setIsOpen] = useState(false)
 
 
     function handleChange({ target }) {
@@ -18,14 +19,15 @@ function _ContactForm({ data, match }) {
         setForm(newForm)
     }
 
-    const StyledInput = StyledTextField(data.isDark)
+    const StyledInput = data.isDark ? StyledTextFieldDark : StyledTextField;
 
     function onSubmit(ev) {
-        ev.preventDefault();
-        wapService.sendLead(match.params.wapId, { ...form, id: utilService.makeId(), date: Date.now() });
+        ev.preventDefault()
+        wapService.sendLead(match.params.wapId, { ...form, id: utilService.makeId(), date: Date.now() })
         setIsOpen(true)
         setForm({ ...data.form })
     }
+
     return (
         <form onSubmit={onSubmit} className="contact-form flex direction-column">
             <StyledInput
@@ -60,7 +62,7 @@ function _ContactForm({ data, match }) {
                 variant="standard"
                 fullWidth={true}
             />
-            <StyledInput
+            <StyledTextField
                 label="Your Message"
                 value={form.msg}
                 onChange={handleChange}
