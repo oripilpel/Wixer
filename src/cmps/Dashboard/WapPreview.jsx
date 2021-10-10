@@ -54,7 +54,7 @@ export function WapPreview({ wap }) {
     }
 
     const BASE_URL = process.env.NODE_ENV === 'production'
-        ? '/api/img?imgId='
+        ? '/public/websites-screenshots?imgId='
         : 'http://localhost:3030/public/websites-screenshots?imgId='
 
     const imageSrc = `${BASE_URL + wapToShow._id}`
