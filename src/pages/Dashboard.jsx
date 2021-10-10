@@ -4,20 +4,24 @@ import { WapPreview } from "../cmps/Dashboard/WapPreview";
 import { wapService } from "../services/waps.service";
 import { Loader } from '../assets/img/Loader'
 
-
-
 export function Dashboard() {
     const [waps, setWaps] = useState(null)
-    useEffect(() => {
-        (async function () {
-            setWaps(await wapService.getWaps())
-        })()
+    
+    useEffect(async () => {
+        setWaps(await wapService.getWaps())
+    
+        // useEffect(() => {
+        // (async function () {
+        //     setWaps(await wapService.getWaps())
+        // })()
     }, [])
+    
     if (!waps) return (
         <div className="dashboard">
             <Loader className="loader" />
         </div>
     )
+    
     return (
         <div className="dashboard">
             {waps.length === 0 && (

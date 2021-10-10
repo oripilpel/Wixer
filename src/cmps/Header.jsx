@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { NavLink, Link, withRouter } from 'react-router-dom';
 import { onLogout } from '../store/user.actions';
+import { setWap } from '../store/layout.actions'
 
 class _Header extends React.Component {
     state = {
@@ -12,8 +13,18 @@ class _Header extends React.Component {
         this.setState({ isMenuOpen })
     }
 
+    onLogout = () => {
+        this.props.onLogout()
+        this.props.setWap(null, [], {}, {
+            isEnabled: false,
+            openingText: "Hey ☺ \n I'm the digital representative, how can I help you?",
+            answerText: "Thank you for contacting us, we will reach back to you in a short time."
+        }, '')
+        this.toggleMenu(false)
+    }
+
     render() {
-        const { user, onLogout } = this.props
+        const { user } = this.props
         const { pathname } = this.props.ownProps.location
         const { isMenuOpen } = this.state
         if (pathname.includes('publish')) return <></>
@@ -35,12 +46,18 @@ class _Header extends React.Component {
 
                     {!user && (
                         <div className="link flex align-center header-login-signup">
-                            <Link  onClick={() => this.toggleMenu(false)} to="/login">login</Link>
+                            <Link onClick={() => this.toggleMenu(false)} to="/login">login</Link>
                             <span>/</span>
                             <Link onClick={() => this.toggleMenu(false)} to="/signup">signup</Link>
                         </div>
                     )}
-                    {user && <button className="link flex align-center" onClick={onLogout}>Logout</button>}
+
+
+                    {user && (
+                        <div className="link flex align-center header-login-signup">
+                            <Link onClick={this.onLogout} to="/login">logout</Link>
+                        </div>
+                    )}
                 </nav>
                 <div className={`hamb-icon ${isMenuOpen ? "active" : ""}`} onClick={() => this.toggleMenu()}>
                     <div></div>
@@ -61,7 +78,8 @@ function mapStateToProps(state, ownProps) {
 }
 
 const mapDispatchToProps = {
-    onLogout
+    onLogout,
+    setWap
 }
 
 export const Header = withRouter(connect(mapStateToProps, mapDispatchToProps)(_Header));

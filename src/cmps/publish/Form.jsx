@@ -3,6 +3,7 @@ import { useState } from "react";
 import { withRouter } from "react-router";
 import { wapService } from "../../services/waps.service";
 import { StyledTextField } from "../StyledTextField";
+import { utilService } from "../../services/util.service";
 import { MsgSent } from "./MsgSent";
 
 
@@ -21,7 +22,7 @@ function _ContactForm({ data, match }) {
 
     function onSubmit(ev) {
         ev.preventDefault();
-        wapService.sendLead(match.params.wapId, { ...form, date: Date.now() });
+        wapService.sendLead(match.params.wapId, { ...form, id: utilService.makeId(), date: Date.now() });
         setIsOpen(true)
         setForm({ ...data.form })
     }
