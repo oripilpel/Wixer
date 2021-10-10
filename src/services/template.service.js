@@ -3,6 +3,8 @@ import Restaurant from '../assets/img/restaurant.jpeg';
 import Mercedes from '../assets/img/mercedes.jpg';
 import Remodeling from '../assets/img/remodeling.jpg';
 import Denatal from '../assets/img/dental.jpg';
+import Beautycare from '../assets/img/beautycare.jpg';
+import Jewelry from '../assets/img/jewelry.jpg';
 
 export const templateService = {
     getAmountOfTemplates,
@@ -15,12 +17,12 @@ const gTemplates = [
         title: 'Start from scratch',
     },
     {
-        json: '615d688b306793fbf629e6b4',
+        json: '61628879223761233d27e194',
         img: Remodeling,
         title: 'Remodeling',
     },
     {
-        json: '6160b64cc66029789cd7e9c4',
+        json: '6162a4af223761233d27e199',
         img: Restaurant,
         title: 'Restaurant',
     },
@@ -35,14 +37,14 @@ const gTemplates = [
         title: 'Dental Clinic',
     },
     {
-        json: '45346',
-        img: 'https://images.unsplash.com/photo-1533827432537-70133748f5c8',
-        title: 'Hats',
+        json: '00000',
+        img: Beautycare,
+        title: 'Beauty Care',
     },
     {
-        json: '678765',
-        img: 'https://images.unsplash.com/photo-1558642452-9d2a7deb7f62',
-        title: 'Honey',
+        json: '00000',
+        img: Jewelry,
+        title: 'jewelry',
     },
 ]
 
