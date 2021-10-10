@@ -1,31 +1,40 @@
 import { Button } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { withRouter } from "react-router";
 import { wapService } from "../../services/waps.service";
-import { StyledTextField } from "../StyledTextField";
+import { StyledTextField, TextF } from "../StyledTextField";
 import { utilService } from "../../services/util.service";
 import { MsgSent } from "./MsgSent";
+import TextField from '@mui/material/TextField';
+import { styled } from '@mui/material/styles';
+
 
 
 function _ContactForm({ data, match }) {
-    const [form, setForm] = useState({ ...data.form });
-    const [isOpen, setIsOpen] = useState(false);
+    const [form, setForm] = useState({ ...data.form })
+    const [isOpen, setIsOpen] = useState(false)
+    // let StyledInput = StyledTextField(data.isDark);
 
+    // const styled =
+    // useEffect(() => {
+    //     StyledInput = StyledTextField(data.isDark)
+    // }, [])
 
     function handleChange({ target }) {
         const { name, value } = target;
         const newForm = { ...form, [name]: value }
         setForm(newForm)
     }
+    let StyledInput = TextField;
 
-    const StyledInput = StyledTextField(data.isDark)
 
     function onSubmit(ev) {
-        ev.preventDefault();
-        wapService.sendLead(match.params.wapId, { ...form, id: utilService.makeId(), date: Date.now() });
+        ev.preventDefault()
+        wapService.sendLead(match.params.wapId, { ...form, id: utilService.makeId(), date: Date.now() })
         setIsOpen(true)
         setForm({ ...data.form })
     }
+
     return (
         <form onSubmit={onSubmit} className="contact-form flex direction-column">
             <StyledInput
