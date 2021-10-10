@@ -44,7 +44,7 @@ function _Publish({ match, cmps, chat, loadWap }) {
             case ('video'):
                 return <Video {...props} />
             case ('nav'):
-                return <Nav {...props} setLoadHamb={setLoadHamb} isMenuOpen={isMenuOpen}/>
+                return <Nav {...props} setLoadHamb={setLoadHamb} isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
             case ('button'):
                 return <Button {...props} />
             case ('social'):
@@ -78,8 +78,8 @@ function _Publish({ match, cmps, chat, loadWap }) {
                 const containsInnerSection = sec.cmps.some(child => child.type === INNERSECTION)
                 return <div id={secIdx + 1} key={secIdx} className={`section flex ${containsInnerSection ? 'direction-column' : ''}`} style={{ ...sec.style }}>
                     {sec.cmps.map(colOrIS => <div key={colOrIS.id} className={colOrIS.cmps[0].cmps ? 'innersection flex' : 'column flex direction-column'} style={colOrIS.style}>
-                        {colOrIS.cmps.map(colOrCmp => <div key={colOrCmp.id} className={colOrCmp.cmps ? 'column flex direction-column' : 'component'} style={colOrCmp.style}>
-                            {colOrCmp.cmps && colOrCmp.cmps.map(cmp => <div key={cmp.id} className="component">{renderer(cmp)}</div>)}
+                        {colOrIS.cmps.map(colOrCmp => <div key={colOrCmp.id} className={colOrCmp.cmps ? 'column flex direction-column' : `component ${colOrCmp.component.type}`} style={colOrCmp.style}>
+                            {colOrCmp.cmps && colOrCmp.cmps.map(cmp => <div key={cmp.id} className={`component ${cmp.component.type}`}>{renderer(cmp)}</div>)}
                             {!colOrCmp.cmps && renderer(colOrCmp)}
                         </div>)
                         }

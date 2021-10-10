@@ -1,11 +1,12 @@
 import { useState } from "react"
 
-export function Nav({ style, data, setLoadHamb, isMenuOpen }) {
+export function Nav({ style, data, setLoadHamb, isMenuOpen, toggleMenu }) {
     setLoadHamb(true)
 
-    function Link({ link, hoverColor, color }) {
+    function Link({ link, hoverColor, color, onClick }) {
         const [c, setColor] = useState(color);
         return <a
+            onClick={onClick}
             onMouseEnter={() => {
                 setColor(hoverColor ? hoverColor : 'black')
             }}
@@ -18,6 +19,7 @@ export function Nav({ style, data, setLoadHamb, isMenuOpen }) {
 
         >{link.txt}</a>
     }
+
     return (
         <div className="publish-nav">
             <nav style={style} className={`nav clear-list links flex ${isMenuOpen ? "active" : ""}`}>

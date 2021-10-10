@@ -87,7 +87,7 @@ export function Component({ data, path, updateComponent, select, selected }) {
     <div
       ref={ref}
       style={{ opacity, gap: (data.component.type === 'nav') ? '' : gap, alignItems, justifyContent, display }}
-      className={`component draggable ${actionsVisible ? 'element-hover' : ''}`}
+      className={`component draggable ${actionsVisible ? 'element-hover' : ''} ${component.type}`}
       onClick={onSelect}
       onMouseEnter={() => setActionsVisible(true)}
       onMouseLeave={() => setActionsVisible(false)}

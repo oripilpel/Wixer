@@ -26,6 +26,7 @@ export function insert(arr, index, newItem) {
 }
 
 export function duplicate(wap, item) {
+  debugger
   const { splitItemPath, type } = item
   let idx;
   let newWap = JSON.parse(JSON.stringify(wap));

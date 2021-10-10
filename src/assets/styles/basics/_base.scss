@@ -12,6 +12,9 @@ body {
 body {
     font-family: montserrat;
     color: #293241;
+    img{
+      object-fit: cover;
+    }
 }
 
 .main-layout {

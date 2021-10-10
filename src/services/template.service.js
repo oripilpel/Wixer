@@ -5,6 +5,8 @@ import Remodeling from '../assets/img/remodeling.jpg';
 import Denatal from '../assets/img/dental.jpg';
 import Beautycare from '../assets/img/beautycare.jpg';
 import Jewelry from '../assets/img/jewelry.jpg';
+import Construction from '../assets/img/Construction.PNG';
+import Fylo from '../assets/img/Fylo.PNG';
 
 export const templateService = {
     getAmountOfTemplates,
@@ -35,6 +37,16 @@ const gTemplates = [
         json: '616067203dc4068a630a426b',
         img: Denatal,
         title: 'Dental Clinic',
+    },
+    {
+        json: '6162eb42c326b1a2474e552b',
+        img: Construction,
+        title: 'Construction',
+    },
+    {
+        json: '6162fdf3d98455014b006966',
+        img: Fylo,
+        title: 'Fylo',
     },
     {
         json: '00000',
