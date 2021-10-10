@@ -30,7 +30,12 @@ export const translateStyle = (style) => {
             else style.width = `${style.width}px`;
         }
     }
-    if (style.height) style.height = `${style.height}px`
+    if (style.height) {
+        if (style.height) {
+            if (style.height === 'auto') style.height = '100%';
+            else style.height = `${style.height}px`;
+        }
+    }
     if (style.borderWidth) style.borderWidth = `${style.borderWidth}px`
     if (style.paddingInline) style.paddingInline = `${style.paddingInline}px`
     if (style.paddingBlock) style.paddingBlock = `${style.paddingBlock}px`

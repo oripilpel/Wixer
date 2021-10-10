@@ -82,8 +82,11 @@ export function NavEdit({ style, onUpdate, data }) {
                                 <MenuItem value="forum">Forum</MenuItem>
                                 <MenuItem value="roboto">Roboto</MenuItem>
                                 <MenuItem value="raleway">Raleway</MenuItem>
+                                <MenuItem value="raleway-semi-bold">Raleway Semi Bold</MenuItem>
                                 <MenuItem value="courgette">Courgette</MenuItem>
                                 <MenuItem value="lobster">Lobster</MenuItem>
+                                <MenuItem value="poppins">Poppins</MenuItem>
+                                <MenuItem value="opensans">Open Sans</MenuItem>
                             </Select>
                         </div>
                     </div>

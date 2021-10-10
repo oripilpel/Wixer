@@ -21,9 +21,9 @@ export function ColumnSectionEdit({ style, onUpdate }) {
     const onBgChange = ({ target }) => {
         const { value } = target;
         clearTimeout(bgTimeout)
-        bgTimeout= setTimeout(()=>{
-            onUpdate('style', {...style, backgroundColor: value});
-        },40)
+        bgTimeout = setTimeout(() => {
+            onUpdate('style', { ...style, backgroundColor: value });
+        }, 40)
     }
 
     const onChange = ({ target }) => {
@@ -53,7 +53,8 @@ export function ColumnSectionEdit({ style, onUpdate }) {
         backgroundColor,
         justifyContent,
         alignItems,
-        height
+        height,
+        gap
     } = style;
     return (
         <div className="column-section-edit">
@@ -90,7 +91,7 @@ export function ColumnSectionEdit({ style, onUpdate }) {
                     Flex options
                 </AccordionSummary>
                 <AccordionDetails>
-                    <FlexEdit onChange={onChange} justifyContent={justifyContent} alignItems={alignItems} />
+                    <FlexEdit onChange={onChange} gap={gap || 1} justifyContent={justifyContent} alignItems={alignItems} />
                 </AccordionDetails>
             </Accordion>
             <Accordion expanded={expanded === 'spacing'} onChange={handleChange('spacing')}>

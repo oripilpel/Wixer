@@ -13,7 +13,7 @@ import { styled } from '@mui/material/styles';
 function _ContactForm({ data, match }) {
     const [form, setForm] = useState({ ...data.form })
     const [isOpen, setIsOpen] = useState(false)
-    // let StyledInput = StyledTextField(data.isDark);
+    const StyledInput = StyledTextField;
 
     // const styled =
     // useEffect(() => {
@@ -25,7 +25,7 @@ function _ContactForm({ data, match }) {
         const newForm = { ...form, [name]: value }
         setForm(newForm)
     }
-    let StyledInput = TextField;
+    // let StyledInput = TextField;
 
 
     function onSubmit(ev) {
@@ -77,7 +77,7 @@ function _ContactForm({ data, match }) {
                 variant="standard"
                 fullWidth={true}
             />
-            <Button type="submit" style={{ flex: 1 }} >Contact Us</Button>
+            <Button sx={{ '&:hover': { backgroundColor: (data.isDark) ? '#2b2b2b' : '#ababab' }, backgroundColor: (data.isDark) ? '#3E3E3E' : '#F5F5F5', color: (data.isDark) ? '#F5F5F5' : '#3E3E3E' }}>Contact Us</Button>
             <MsgSent isOpen={isOpen} setIsOpen={setIsOpen} />
         </form>
     )

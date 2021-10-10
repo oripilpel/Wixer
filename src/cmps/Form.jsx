@@ -4,10 +4,10 @@ import { StyledTextField } from "./StyledTextField";
 
 export function ContactForm({ data }) {
 
-    const StyledInput = StyledTextField(data.isDark)
+    const StyledInput = StyledTextField
 
     return (
-        <div className="contact-form flex direction-column">
+        <div className="contact-form">
             <StyledInput
                 label="Name"
                 name="name"
@@ -38,7 +38,7 @@ export function ContactForm({ data }) {
                 variant="standard"
                 fullWidth={true}
             />
-            <Button>Contact Us</Button>
+            <Button sx={{ backgroundColor: (data.isDark) ? '#3E3E3E' : '#F5F5F5', color: (data.isDark) ? '#F5F5F5' : '#3E3E3E' }}>Contact Us</Button>
         </div>
     )
 }

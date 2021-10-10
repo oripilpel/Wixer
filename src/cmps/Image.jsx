@@ -2,7 +2,6 @@ import { useEffect, useState } from "react"
 import { Loader } from "../assets/img/Loader"
 
 export function Image({ data, style }) {
-
     const [isLoading, setIsLoading] = useState(true)
     useEffect(() => { setIsLoading(true) }, [data.url])
 

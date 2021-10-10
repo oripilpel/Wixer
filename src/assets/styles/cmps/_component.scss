@@ -10,4 +10,22 @@
         line-height: 1.4;
         letter-spacing: 2px;
     }
+    &.image{
+        flex:1;
+    }
+    &.GMap{
+        width:100%;
+    }
+    &.form{
+        display:flex;
+        flex-direction: column;
+        flex-grow: 1;
+        min-width: 300px;
+        & .contact-form{
+            display:flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+    }
 }
