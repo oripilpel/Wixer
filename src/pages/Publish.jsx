@@ -44,7 +44,7 @@ function _Publish({ match, cmps, chat, loadWap }) {
             case ('video'):
                 return <Video {...props} />
             case ('nav'):
-                return <Nav {...props} setLoadHamb={setLoadHamb} isMenuOpen={isMenuOpen}/>
+                return <Nav {...props} setLoadHamb={setLoadHamb} isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
             case ('button'):
                 return <Button {...props} />
             case ('social'):
