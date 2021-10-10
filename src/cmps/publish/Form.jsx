@@ -18,7 +18,6 @@ function _ContactForm({ data, match }) {
         const newForm = { ...form, [name]: value }
         setForm(newForm)
     }
-    let StyledInput = TextField;
 
     const StyledInput = data.isDark ? StyledTextFieldDark : StyledTextField;
 

@@ -17,7 +17,6 @@ import { eventBusService } from "../services/event-bus-service";
 import { hintsService } from "../services/hint.service"
 import { SaveModal } from "./SaveModal";
 
-
 function _SideBar({
     name,
     selected,
@@ -101,9 +100,10 @@ function _SideBar({
         update(selected, field, data);
     }
 
-    const onSave = (name) => {
+    const onSave = (newName) => {
+        const n = newName || name;
         setIsModalOpen(false)
-        saveWap({ _id, cmps, style, chat, name })
+        saveWap({ _id, cmps, style, chat, name: n })
     }
 
     return (
