@@ -8,6 +8,8 @@ import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import Checkbox from '@mui/material/Checkbox';
 import { blue } from '@mui/material/colors';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+
 
 export function LeadList({ wap, onSetWap, leads }) {
 
@@ -36,7 +38,7 @@ export function LeadList({ wap, onSetWap, leads }) {
                                     minWidth: 100
                                 }}>
                                 <Avatar sx={{ bgcolor: blue[500] }} aria-label="recipe">
-                                    {lead.name.charAt(0).toUpperCase()}
+                                    {lead.name && lead.name.charAt(0).toUpperCase()}
                                 </Avatar>
                                 {lead.id && (
                                     <Checkbox
@@ -44,10 +46,16 @@ export function LeadList({ wap, onSetWap, leads }) {
                                         checked={!lead.isDone ? false : true}
                                         onChange={handleChange}
                                         inputProps={{ 'aria-label': 'controlled' }}
-                                    />)}
+                                    />
+                                )}
                             </ListItemAvatar>
                             <ListItemText
-                                primary={lead.subject}
+                                primary={
+                                    <React.Fragment>
+                                        {`${new Date(lead.date).toLocaleDateString()} — `}
+                                        {lead.subject}
+                                    </React.Fragment>
+                                }
                                 secondary={
                                     <React.Fragment>
                                         <Typography
@@ -56,17 +64,16 @@ export function LeadList({ wap, onSetWap, leads }) {
                                             variant="body2"
                                             color="text.primary"
                                         >
-                                            {lead.name}
+                                            {lead.name && lead.name + ' — '}
                                         </Typography>
-                                        {` — ${new Date(lead.date).toLocaleDateString()} —`}
                                         {lead.phone && lead.phone + ' — '}
                                         {lead.email && (lead.email + ' — ')}
                                         {lead.msg && lead.msg}
-                                        <Divider variant="inset" component="li" />
                                     </React.Fragment>
                                 }
                             />
                         </ListItem>
+                        <Divider variant="inset" component="li" sx={{ marginLeft: "100px" }} />
                     </React.Fragment>
                 )
             })}
