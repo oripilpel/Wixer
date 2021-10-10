@@ -102,7 +102,8 @@ export function WapPreview({ wap }) {
 
     return (
         <div className="wap-preview">
-            <Card sx={{ maxWidth: 345 }}>
+            <Card>
+                {/* <Card sx={{ maxWidth: 345 }}> */}
                 <CardHeader
                     avatar={
                         <Avatar sx={{ bgcolor: wapToShow.name ? green[500] : red[500] }} aria-label="recipe">
@@ -153,6 +154,7 @@ export function WapPreview({ wap }) {
                     image={previewImage}
                     onError={handleError}
                     alt={wapToShow.name ? wapToShow.name : wapToShow._id}
+                    sx={{ objectPosition: "top" }}
                 />
                 <CardActions disableSpacing>
                     <Badge badgeContent={wapToShow.leads ? getNewLeads().length : 0} color="primary">
@@ -169,17 +171,26 @@ export function WapPreview({ wap }) {
                 </CardActions>
                 <Collapse in={expanded} timeout="auto" unmountOnExit>
                     <CardContent>
-                        <Typography paragraph sx={{ marginBottom: 0 }}>
-                            New leads:{!getNewLeads().length && ' empty'}</Typography>
-                        <Typography paragraph>
-                            <LeadList wap={wapToShow} onSetWap={onSetWap} leads={getNewLeads()} />
-                        </Typography>
-                        <Typography paragraph sx={{ marginBottom: 0 }}>
-                            Marked leads:{!getMarkedLeads().length && ' empty'}
-                        </Typography>
-                        <Typography paragraph>
-                            <LeadList wap={wapToShow} onSetWap={onSetWap} leads={getMarkedLeads()} />
-                        </Typography>
+                        {getNewLeads().length > 0 && (
+                            <>
+                                <Typography paragraph sx={{ fontWeight: 'bold', marginBottom: 0 }}>
+                                    New leads:
+                                </Typography>
+                                <Typography paragraph>
+                                    <LeadList wap={wapToShow} onSetWap={onSetWap} leads={getNewLeads()} />
+                                </Typography>
+                            </>
+                        )}
+                        {getMarkedLeads().length > 0 && (
+                            <>
+                                <Typography paragraph sx={{ fontWeight: 'bold', marginBottom: 0 }}>
+                                    Marked leads:
+                                </Typography>
+                                <Typography paragraph>
+                                    <LeadList wap={wapToShow} onSetWap={onSetWap} leads={getMarkedLeads()} />
+                                </Typography>
+                            </>
+                        )}
                     </CardContent>
                 </Collapse>
             </Card>
