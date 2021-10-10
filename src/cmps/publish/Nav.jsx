@@ -1,12 +1,7 @@
 import { useState } from "react"
 
-export function Nav({ style, data }) {
-
-    const [isMenuOpen, setIsMenuOpen] = useState(false)
-
-    const toggleMenu = (menuMode = !isMenuOpen) => {
-        setIsMenuOpen(menuMode)
-    }
+export function Nav({ style, data, setLoadHamb, isMenuOpen }) {
+    setLoadHamb(true)
 
     function Link({ link, hoverColor, color }) {
         const [c, setColor] = useState(color);
@@ -25,7 +20,6 @@ export function Nav({ style, data }) {
     }
     return (
         <div className="publish-nav">
-            <div className={`screen ${isMenuOpen ? "active" : ""}`} onClick={() => toggleMenu(false)}></div>
             <nav style={style} className={`nav clear-list links flex ${isMenuOpen ? "active" : ""}`}>
                 {data.links.map((link, idx) => {
                     return (
@@ -40,12 +34,6 @@ export function Nav({ style, data }) {
                     )
                 })}
             </nav>
-            <div className={`hamb-icon ${isMenuOpen ? "active" : ""}`} onClick={() => toggleMenu()}>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-
         </div>
     )
 }
