@@ -46,16 +46,16 @@ class _Header extends React.Component {
 
                     {!user && (
                         <div className="link flex align-center header-login-signup">
-                            <Link onClick={() => this.toggleMenu(false)} to="/login">login</Link>
+                            <Link onClick={() => this.toggleMenu(false)} to="/login">Login</Link>
                             <span>/</span>
-                            <Link onClick={() => this.toggleMenu(false)} to="/signup">signup</Link>
+                            <Link onClick={() => this.toggleMenu(false)} to="/signup">Signup</Link>
                         </div>
                     )}
 
 
                     {user && (
                         <div className="link flex align-center header-login-signup">
-                            <Link onClick={this.onLogout} to="/login">logout</Link>
+                            <Link onClick={this.onLogout} to="/login">Logout</Link>
                         </div>
                     )}
                 </nav>

@@ -14,17 +14,17 @@ function _LoginSignup(props) {
         switch (path) {
             case '/login':
                 if (!values.username)
-                    errors.username = 'Required';
+                    errors.username = '*required';
                 if (!values.password)
-                    errors.password = 'Required';
+                    errors.password = '*required';
                 break;
             default:
                 if (!values.username)
-                    errors.username = 'Required';
+                    errors.username = '*required';
                 if (!values.password)
-                    errors.password = 'Required';
+                    errors.password = '*required';
                 if (!values.fullname)
-                    errors.fullname = 'Required';
+                    errors.fullname = '*required';
         }
         return errors;
     }
@@ -67,17 +67,17 @@ function _LoginSignup(props) {
                     <Form>
                         {path === '/signup' && (
                             <div className="field">
-                                <Field type="text" name="fullname" label="fullname" as={TextFieldOutlined} />
-                                <ErrorMessage name="fullname" component="div" />
+                                <Field type="text" name="fullname" label="Fullname" as={TextFieldOutlined} />
+                                <ErrorMessage className="error" name="fullname" component="div" />
                             </div>
                         )}
                         <div className="field">
-                            < Field type="text" name="username" label="username" as={TextFieldOutlined} />
-                            <ErrorMessage name="username" component="div" />
+                            < Field type="text" name="username" label="Username" as={TextFieldOutlined} />
+                            <ErrorMessage className="error" name="username" component="div" />
                         </div>
                         <div className="field">
-                            <Field type="password" name="password" label="password" as={TextFieldOutlined} />
-                            <ErrorMessage name="password" component="div" />
+                            <Field type="password" name="password" label="Password" as={TextFieldOutlined} />
+                            <ErrorMessage className="error" name="password" component="div" />
                         </div>
 
                         <div className="field flex justify-center">

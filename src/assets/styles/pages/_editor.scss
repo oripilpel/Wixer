@@ -1,13 +1,13 @@
 .editor {
     display: flex;
     flex-direction: row;
-    margin-block-start: 30px;
+    margin-block-start: 40px;
     .page-container {
         display: flex;
         flex: 1;
         flex-direction: column;
         overflow: auto;
-        height: calc(100vh - 30px);
+        height: calc(100vh - 40px);
         .page {
             position: relative;
             flex: 1 1 auto;

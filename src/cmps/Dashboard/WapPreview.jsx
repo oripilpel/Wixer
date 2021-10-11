@@ -103,7 +103,6 @@ export function WapPreview({ wap }) {
     return (
         <div className="wap-preview">
             <Card>
-                {/* <Card sx={{ maxWidth: 345 }}> */}
                 <CardHeader
                     avatar={
                         <Avatar sx={{ bgcolor: wapToShow.name ? green[500] : red[500] }} aria-label="recipe">
@@ -120,7 +119,7 @@ export function WapPreview({ wap }) {
                                 aria-haspopup="true"
                                 onClick={handleClick}
                             >
-                                <MoreVertIcon />
+                                <MoreVertIcon fontSize="large" />
                             </IconButton>
                             <Menu
                                 id="long-menu"
@@ -158,7 +157,7 @@ export function WapPreview({ wap }) {
                 />
                 <CardActions disableSpacing>
                     <Badge badgeContent={wapToShow.leads ? getNewLeads().length : 0} color="primary">
-                        <MailIcon color="action" />
+                        <MailIcon fontSize="large" color="action" />
                     </Badge>
                     <ExpandMore
                         expand={expanded}
@@ -166,7 +165,7 @@ export function WapPreview({ wap }) {
                         aria-expanded={expanded}
                         aria-label="show more"
                     >
-                        <ExpandMoreIcon />
+                        <ExpandMoreIcon fontSize="large" />
                     </ExpandMore>
                 </CardActions>
                 <Collapse in={expanded} timeout="auto" unmountOnExit>
