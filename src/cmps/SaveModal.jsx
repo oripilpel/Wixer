@@ -8,7 +8,6 @@ import { wapService } from '../services/waps.service';
 
 
 export function SaveModal({ name, isModalOpen, setIsModalOpen, onSave, user, isPublish }) {
-    debugger
     const [siteName, setSiteName] = useState('')
     const [isNameAvailable, setIsNameAvailable] = useState(true)
     const [isLoggedIn, setIsLoggedIn] = useState(!!user)
