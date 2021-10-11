@@ -12,13 +12,14 @@ import Switch from '@mui/material/Switch';
 import { COMPONENT } from "../constants";
 import { SidebarEditComponent } from "./SidebarEditComponent";
 import { SidebarAddComponent } from "./SidebarAddComponent";
-import { saveWap } from '../store/layout.actions'
+import { saveWap, loadWap } from '../store/layout.actions'
 import { eventBusService } from "../services/event-bus-service";
 import { hintsService } from "../services/hint.service"
 import { SaveModal } from "./SaveModal";
 
 function _SideBar({
     name,
+    user,
     selected,
     update,
     cmps,
@@ -26,6 +27,7 @@ function _SideBar({
     _id,
     chat,
     saveWap,
+    loadWap,
     onUndo,
     setChatIsEnabled,
     chatIsEnabled,
@@ -50,6 +52,7 @@ function _SideBar({
     const [isElementClicked, setIsElementClicked] = useState(true);
     const [isPublishBlink, setIsPublishBlink] = useState(true);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isPublishModal, setIsPublishModal] = useState(false);
 
 
     const setHints = (stage) => {
@@ -108,7 +111,7 @@ function _SideBar({
 
     return (
         <div className="side-bar">
-            <SaveModal name={name} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} onSave={onSave} />
+            <SaveModal cmps={cmps} loadWap={loadWap} user={user} name={name} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} onSave={onSave} isPublish={isPublishModal} />
             <Tabs className='tabs' value={isEdit ? 'edit' : 'add'} onChange={handleChange} aria-label="disabled tabs example">
                 <Tab icon={<AddBoxIcon />}
                     className={`tab add ${!isAddClicked ? 'anima' : ''}`}
@@ -162,7 +165,10 @@ function _SideBar({
                 <div className="save" onClick={() => { onSave() }} >
                     Save
                 </div>
-                <div onClick={() => { setIsModalOpen(true) }} className={`pub ${!isPublishBlink ? 'anima' : ''}`} onMouseDown={() => { setHints(isPublishBlink) }}>
+                <div onClick={() => {
+                    setIsPublishModal(true)
+                    setIsModalOpen(true)
+                }} className={`pub ${!isPublishBlink ? 'anima' : ''}`} onMouseDown={() => { setHints(isPublishBlink) }}>
                     Publish
                 </div>
             </div>
@@ -176,12 +182,14 @@ function mapStateToProps(state) {
         style: state.layoutModule.style,
         _id: state.layoutModule._id,
         chat: state.layoutModule.chat,
-        name: state.layoutModule.name
+        name: state.layoutModule.name,
+        user: state.userModule.user
     }
 }
 
 const mapDispatchToProps = {
-    saveWap
+    saveWap,
+    loadWap
 }
 
 export const SideBar = connect(mapStateToProps, mapDispatchToProps)(_SideBar);
