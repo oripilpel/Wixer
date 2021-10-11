@@ -4,12 +4,13 @@ import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import { LoginSignup } from '../pages/LoginSignup';
 import { Link } from 'react-router-dom';
+import { wapService } from '../services/waps.service';
 
 
-export function SaveModal({ cmps, name, isModalOpen, setIsModalOpen, onSave, user, isPublish, loadWap }) {
-
+export function SaveModal({ name, isModalOpen, setIsModalOpen, onSave, user, isPublish }) {
+    debugger
     const [siteName, setSiteName] = useState('')
-    const [isNameAvailable, setIsNameAvailable] = useState(false)
+    const [isNameAvailable, setIsNameAvailable] = useState(true)
     const [isLoggedIn, setIsLoggedIn] = useState(!!user)
     const [loading, setLoading] = useState(false)
 
@@ -21,13 +22,17 @@ export function SaveModal({ cmps, name, isModalOpen, setIsModalOpen, onSave, use
                     <form className=" flex direction-column" onSubmit={async (ev) => {
                         ev.preventDefault()
                         setLoading(true)
-                        await loadWap(null, siteName)
-                        setLoading(false)
-                        setIsNameAvailable(!cmps)
-                        if (isNameAvailable) {
-                            onSave(siteName)
-                            setIsModalOpen(false)
+                        try {
+                            const wap = await wapService.getByName(siteName)
+                            setLoading(false)
+                            setIsNameAvailable(false)
                         }
+                        catch (err) {
+                            setLoading(false)
+                            onSave(siteName)
+                            setIsNameAvailable(true)
+                        }
+
                     }}>
                         <TextField
                             autoFocus
@@ -51,6 +56,7 @@ export function SaveModal({ cmps, name, isModalOpen, setIsModalOpen, onSave, use
                             </Button>
                         </div>
                         {loading && <div>Loading...</div>}
+                        {!isNameAvailable && <div>Name is taken</div>}
                     </form>
 
                 }

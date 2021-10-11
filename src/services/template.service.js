@@ -19,7 +19,7 @@ const gTemplates = [
         title: 'Start from scratch',
     },
     {
-        json: '6163d909d72f4399222f1739',
+        json: '6164652f381d1f42015a3aaf',
         img: Construction,
         title: 'Construction',
     },

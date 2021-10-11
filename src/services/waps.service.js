@@ -28,7 +28,7 @@ async function getWaps() {
     return await httpService.get(`wap/waps`)
 }
 
-async function sendLead(wapId, lead) {
-    return await httpService.post(`wap/${wapId}`, lead)
+async function sendLead(wapName, lead) {
+    return await httpService.post(`wap/${wapName}`, lead)
 }
 
