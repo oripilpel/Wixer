@@ -15,7 +15,7 @@ import { ChatApp } from "../cmps/ChatApp";
 import { loadWap } from '../store/layout.actions'
 import { INNERSECTION } from "../constants";
 
-function _Publish({ match, cmps, chat, loadWap }) {
+function _Publish({ history, match, cmps, chat, loadWap }) {
     const [loadHamb, setLoadHamb] = useState(false)
     const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -24,8 +24,28 @@ function _Publish({ match, cmps, chat, loadWap }) {
     }
 
     useEffect(() => {
-        const id = match.params.wapId;
-        if (id) loadWap(id);
+
+        let id
+        if (match.params.wapId) { // if preview page
+            id = match.params.wapId
+                ; (async () => {
+                    try {
+                        await loadWap(id)
+                    } catch (err) {
+                        history.push('/');
+                    }
+                })()
+        } else if (match.params.wapName) { // if publish page
+            const name = match.params.wapName
+            id = match.params.wapId
+                ; (async () => {
+                    try {
+                        await loadWap(id)
+                    } catch {
+                        history.push('/');
+                    }
+                })()
+        }
     }, [match.params.wapId]);
 
     function renderer({ component }) {

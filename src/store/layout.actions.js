@@ -43,6 +43,7 @@ export function loadWap(wapId) {
         }
         catch (err) {
             console.log(err);
+            throw err
         }
     }
 }
