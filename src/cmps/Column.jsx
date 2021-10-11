@@ -4,7 +4,7 @@ import { translateStyle } from "../services/util.service";
 
 import { COLUMN, COMPONENT, SIDEBAR_ITEM } from "../constants";
 import { DropZone } from "./DropZone";
-import { Component } from "./Component";
+import { DynamicCmp } from "./DynamicCmp";
 import { Actions } from "./Actions";
 
 export function Column({ data, handleDrop, path, updateComponent, onSelect, selected }) {
@@ -58,7 +58,7 @@ export function Column({ data, handleDrop, path, updateComponent, onSelect, sele
               onDrop={handleDrop}
               accept={[COMPONENT, SIDEBAR_ITEM]}
             />
-            <Component
+            <DynamicCmp
               key={component.id}
               data={component}
               path={currentPath}

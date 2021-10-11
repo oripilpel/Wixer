@@ -86,6 +86,7 @@ function _LoginSignup(props) {
 
                         <div className="field flex justify-center">
                             <Button
+                                sx={{ paddingBlock: '11.5px', fontSize:' 1.2rem' }}
                                 className="action"
                                 variant={'contained'}
                                 color={'primary'}
@@ -94,27 +95,29 @@ function _LoginSignup(props) {
                                 {(isLogin) ? 'Login' : 'Signup'}
                             </Button>
                         </div>
+                        {(isLogin) ?
+                            (<div className="signup" onClick={() => { setIsLogin(false) }}>
+                                Don't have a Wixer account? {(!path.includes('editor')) ? <Link to='/signup'>Signup</Link> : <a onClick={() => { setIsLogin(false) }}>Signup</a>}
+                            </div>) :
+
+                            (<div className="login" onClick={() => { setIsLogin(true) }}>
+                                Already have an account? {(!path.includes('editor')) ? <Link to='/login'>Login</Link> : <a onClick={() => { setIsLogin(true) }}>Login</a>}
+                            </div>)}
+                        <Button
+                            sx={{ '&:hover': { backgroundColor: '#A45C14' }, backgroundColor: '#D27519', color: '#ffffff', paddingInline: '14px' }}
+                            onClick={async () => {
+                                const user = await props.onLogin({
+                                    username: 'demo',
+                                    password: 'demo'
+                                })
+                                if (!path.includes('editor')) props.history.push('/dashboard');
+                                if (props.setIsLoggedIn) props.setIsLoggedIn()
+                            }}>
+                            Login as demo user
+                        </Button>
                     </Form>
                 )}
             </Formik>
-            {(isLogin) ?
-                (<div className="signup" onClick={() => { setIsLogin(false) }}>
-                    Don't have a Wixer account? {(!path.includes('editor')) ? <Link to='/signup'>Signup</Link> : <a onClick={() => { setIsLogin(false) }}>Signup</a>}
-                </div>) :
-
-                (<div className="login" onClick={() => { setIsLogin(true) }}>
-                    Already have an account? {(!path.includes('editor')) ? <Link to='/login'>Login</Link> : <a onClick={() => { setIsLogin(true) }}>Login</a>}
-                </div>)}
-            <div style={{ cursor: 'pointer' }} onClick={async () => {
-                const user = await props.onLogin({
-                    username: 'demo',
-                    password: 'demo'
-                })
-                if (!path.includes('editor')) props.history.push('/dashboard');
-                if (props.setIsLoggedIn) props.setIsLoggedIn()
-            }}>
-                Login As Demo
-            </div>
         </div >
     )
 }

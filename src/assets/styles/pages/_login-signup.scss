@@ -2,6 +2,10 @@
     padding: 0 35px;
     padding-top: 65px;
     form {
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+        align-items: flex-start;
         margin-bottom: 20px;
         width: 100%;
         div {
@@ -19,6 +23,9 @@
     }
     .action {
         flex-grow: 1;
+    }
+    .signup{
+        padding: 14px 0;
     }
 }
 

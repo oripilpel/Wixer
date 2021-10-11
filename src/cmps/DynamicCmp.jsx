@@ -13,7 +13,7 @@ import { SocialIcons } from "./SocialIcons";
 import { Carousel } from "./Carousel";
 import { ContactForm } from "./Form";
 
-export function Component({ data, path, updateComponent, select, selected }) {
+export function DynamicCmp({ data, path, updateComponent, select, selected }) {
   const ref = useRef(null);
 
   const [actionsVisible, setActionsVisible] = useState(false);

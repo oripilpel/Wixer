@@ -5,7 +5,7 @@ import { COMPONENT, SIDEBAR_ITEM, SECTION, COLUMN } from "../constants";
 const ACCEPTS = [SIDEBAR_ITEM, COMPONENT, SECTION, COLUMN];
 
 export function DropZone({ data, onDrop, horizontalDrag, maximumSize, accept = ACCEPTS }) {
-  const [{ isOver, canDrop }, drop] = useDrop({
+  const [{ canDrop }, drop] = useDrop({
     accept,
     drop: (item) => {
       onDrop(data, item);
@@ -54,7 +54,7 @@ export function DropZone({ data, onDrop, horizontalDrag, maximumSize, accept = A
 
   return (
     <div
-      className={`drop-zone ${(canDrop ) ? 'active' : ''} ${(maximumSize) ? 'maximum-size' : ''} ${(horizontalDrag) ? 'horizontal-drag' : ''}`}
+      className={`drop-zone ${(canDrop) ? 'active' : ''} ${(maximumSize) ? 'maximum-size' : ''} ${(horizontalDrag) ? 'horizontal-drag' : ''}`}
       ref={drop}
     />
   );
