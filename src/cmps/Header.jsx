@@ -27,7 +27,12 @@ class _Header extends React.Component {
         const { user } = this.props
         const { pathname } = this.props.ownProps.location
         const { isMenuOpen } = this.state
-        if (pathname.includes('publish')) return <></>
+        const routes = ['dashboard', 'templates', 'editor', 'about', 'preview', 'login', 'signup']
+
+        if (!routes.map(route => {
+            return pathname.includes(route)
+        }).some(val => val) && pathname.length > 1) return <> </>
+
         return (
             <header className={`header flex align-center justify-between ${pathname.includes("editor") ? "min" : ""}`}>
 

@@ -28,10 +28,10 @@ function _App({ setUser }) {
           <Route path="/editor/:wapId" component={Editor} />
           <Route path="/editor" component={Editor} />
           <Route path="/about" component={About} />
-          <Route path="/publish/:wapName" component={Publish} />
           <Route path="/preview/:wapId" component={Publish} />
           <Route path="/login" component={LoginSignup} />
           <Route path="/signup" component={LoginSignup} />
+          <Route path="/:wapName" exact component={Publish} />
           <Route path="/" component={Home} />
         </Switch>
       </Router>

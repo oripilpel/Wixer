@@ -24,10 +24,12 @@ export function saveWap(wap) {
     }
 }
 
-export function loadWap(wapId) {
+export function loadWap(wapId, wapName) {
     return async dispatch => {
         try {
-            const wap = await wapService.getById(wapId);
+            let wap
+            if (wapId) wap = await wapService.getById(wapId);
+            else wap = await wapService.getByName(wapName);
             return dispatch({
                 type: 'SET_WAP',
                 _id: wap._id,

@@ -4,6 +4,7 @@ import { httpService } from '../services/http.service';
 export const wapService = {
     save,
     getById,
+    getByName,
     sendLead,
     getWaps
 }
@@ -17,6 +18,10 @@ async function save(wap) {
 
 async function getById(wapId) {
     return await httpService.get(`wap?wapId=${wapId}`)
+}
+
+async function getByName(wapName) {
+    return await httpService.get(`wap?wapName=${wapName}`)
 }
 
 async function getWaps() {

@@ -24,29 +24,26 @@ function _Publish({ history, match, cmps, chat, loadWap }) {
     }
 
     useEffect(() => {
-
-        let id
         if (match.params.wapId) { // if preview page
-            id = match.params.wapId
+            const id = match.params.wapId
                 ; (async () => {
                     try {
                         await loadWap(id)
                     } catch (err) {
-                        history.push('/');
+                        return history.push('/')
                     }
                 })()
         } else if (match.params.wapName) { // if publish page
             const name = match.params.wapName
-            id = match.params.wapId
                 ; (async () => {
                     try {
-                        await loadWap(id)
-                    } catch {
-                        history.push('/');
+                        await loadWap(null, name)
+                    } catch (err) {
+                        return history.push('/')
                     }
                 })()
         }
-    }, [match.params.wapId]);
+    }, [match.params.wapId, match.params.wapName])
 
     function renderer({ component }) {
         const props = {
@@ -80,9 +77,9 @@ function _Publish({ history, match, cmps, chat, loadWap }) {
         }
 
     }
-
     return (
         <div className="publish">
+            {match.params.wapId && <div className="margin-top-65"></div> }
             {loadHamb && (
                 <>
                     <div className={`screen ${isMenuOpen ? "active" : ""}`} onClick={() => toggleMenu(false)}></div>
