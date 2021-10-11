@@ -77,7 +77,9 @@ export function WapPreview({ wap }) {
                 window.location.replace(`/editor/${wapToShow._id}`);
                 break;
             case 'Preview':
-                window.open(`/publish/${wapToShow._id}`, '_blank');
+                if (wapToShow.name) window.open(`/${wapToShow.name}`, '_blank');
+                else window.open(`/preview/${wapToShow._id}`, '_blank');
+
                 break;
             default:
                 break;
