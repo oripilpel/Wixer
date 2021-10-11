@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Button } from "@mui/material";
@@ -8,6 +8,10 @@ import { onLogin, onSignup } from '../store/user.actions';
 
 function _LoginSignup(props) {
     const { path } = props.match;
+
+    useEffect(() => {
+        setIsLogin(!!props.login || props.match.path === '/login')
+    }, [props.match.path])
 
     const [isLogin, setIsLogin] = useState(!!props.login || path === '/login')
 
