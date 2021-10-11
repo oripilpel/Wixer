@@ -62,7 +62,7 @@ function _ContactForm({ data, match }) {
                 variant="standard"
                 fullWidth={true}
             />
-            <StyledTextField
+            <StyledInput
                 label="Your Message"
                 value={form.msg}
                 onChange={handleChange}

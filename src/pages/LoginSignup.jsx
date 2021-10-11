@@ -79,6 +79,7 @@ function _LoginSignup(props) {
                             <Field type="password" name="password" label="password" as={TextFieldOutlined} />
                             <ErrorMessage name="password" component="div" />
                         </div>
+
                         <div className="field flex justify-center">
                             <Button
                                 className="action"
@@ -100,7 +101,18 @@ function _LoginSignup(props) {
                 (<div className="login">
                     Already have an account? <Link to='/login'>Login</Link>
                 </div>)}
-        </div>
+            <div style={{ cursor: 'pointer' }} onClick={async () => {
+                const user = await props.onLogin({
+                    username: 'demo',
+                    password: 'demo'
+                })
+                if (user) {
+                    props.history.push('/dashboard');
+                }
+            }}>
+                Login As Demo
+            </div>
+        </div >
     )
 }
 

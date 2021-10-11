@@ -44,7 +44,7 @@ const gTemplates = [
         title: 'Construction',
     },
     {
-        json: '6162fdf3d98455014b006966',
+        json: '61636ddbd72f4399222f1735',
         img: Fylo,
         title: 'Fylo',
     },

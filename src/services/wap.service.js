@@ -26,7 +26,6 @@ export function insert(arr, index, newItem) {
 }
 
 export function duplicate(wap, item) {
-  debugger
   const { splitItemPath, type } = item
   let idx;
   let newWap = JSON.parse(JSON.stringify(wap));
@@ -64,7 +63,7 @@ export function duplicate(wap, item) {
         case 3:
           item = JSON.parse(JSON.stringify(newWap[splitItemPath[0]].cmps[splitItemPath[1]].cmps[splitItemPath[2]]));
           item.id = utilService.makeId();
-          idx = splitItemPath[1];
+          idx = splitItemPath[2];
           idx = idx < 0 ? 0 : idx;
           newWap[splitItemPath[0]].cmps[splitItemPath[1]].cmps = insert(newWap[splitItemPath[0]].cmps[splitItemPath[1]].cmps, idx, item);
           break;

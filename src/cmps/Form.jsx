@@ -39,7 +39,7 @@ export function ContactForm({ data }) {
                 variant="standard"
                 fullWidth={true}
             />
-            <Button sx={{ backgroundColor: (data.isDark) ? '#3E3E3E' : '#F5F5F5', color: (data.isDark) ? '#F5F5F5' : '#3E3E3E' }}>Contact Us</Button>
+            <Button sx={{ '&:hover': { backgroundColor: (data.isDark) ? '#2b2b2b' : '#ababab' }, backgroundColor: (data.isDark) ? '#3E3E3E' : '#F5F5F5', color: (data.isDark) ? '#F5F5F5' : '#3E3E3E' }}>Contact Us</Button>
         </div>
     )
 }

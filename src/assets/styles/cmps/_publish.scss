@@ -26,6 +26,11 @@
         .component {
             & > .text {
                 cursor: default;
+                @media screen and (max-width: 720px) {
+                    &.big{
+                        font-size: 45px !important;
+                    }
+                }
             }
         }
     }

@@ -4,16 +4,16 @@ import TextField from '@mui/material/TextField';
 
 export const StyledTextField = styled(TextField)({
     '& label.Mui-focused': {
-      color: '#F7F6F2',
+      color: '#F5F5F5',
     },
     '& .MuiInput-underline': {
-      color: '#F7F6F2'
+      color: '#F5F5F5'
     },
     '& .MuiInput-underline:before': {
-      borderBottomColor: '#F7F6F2',
+      borderBottomColor: '#F5F5F5',
     },
     '& label': {
-      color: '#F7F6F2',
+      color: '#F5F5F5',
     }
   })
 
