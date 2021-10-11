@@ -19,9 +19,9 @@ const gTemplates = [
         title: 'Start from scratch',
     },
     {
-        json: '61628879223761233d27e194',
-        img: Remodeling,
-        title: 'Remodeling',
+        json: '6162eb42c326b1a2474e552b',
+        img: Construction,
+        title: 'Construction',
     },
     {
         json: '6162a4af223761233d27e199',
@@ -39,14 +39,14 @@ const gTemplates = [
         title: 'Dental Clinic',
     },
     {
-        json: '6162eb42c326b1a2474e552b',
-        img: Construction,
-        title: 'Construction',
-    },
-    {
         json: '6162fdf3d98455014b006966',
         img: Fylo,
         title: 'Fylo',
+    },
+    {
+        json: '61628879223761233d27e194',
+        img: Remodeling,
+        title: 'Remodeling',
     },
     {
         json: '00000',
