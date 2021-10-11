@@ -19,7 +19,7 @@ export function TemplatePreview({ template, idx, cols }) {
                     }
                     {template.json &&
                         (<>
-                            <a href={`/publish/${template.json}`} target='blank'>Preview</a>
+                            <a href={`/preview/${template.json}`} target='blank'>Preview</a>
                             <a href={`/editor/${template.json}`}>Edit</a>
                         </>)
                     }

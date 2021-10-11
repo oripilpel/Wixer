@@ -78,8 +78,7 @@ export function WapPreview({ wap }) {
                 break;
             case 'Preview':
                 if (wapToShow.name) window.open(`/${wapToShow.name}`, '_blank');
-                else window.open(`/preview/${wapToShow._id}`, '_blank');
-
+                else  window.location.replace(`/preview/${wapToShow._id}`);
                 break;
             default:
                 break;
