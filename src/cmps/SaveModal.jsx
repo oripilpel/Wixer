@@ -68,7 +68,7 @@ export function SaveModal({ name, isModalOpen, setIsModalOpen, onSave, user, isP
                 {isLoggedIn && (name || !isPublish) && <div className="site-saved-modal flex direction-column justify-center">
                     <div className="flex justify-between">
                         <h2>Site Saved</h2>
-                        <CloseIcon onClick={() => setIsModalOpen(false)} />
+                        <CloseIcon className="close-btn" onClick={() => setIsModalOpen(false)} />
                     </div>
                     <p>your work has been saved, you can see it on the dashboard page</p>
                     <div className="flex justify-between">
