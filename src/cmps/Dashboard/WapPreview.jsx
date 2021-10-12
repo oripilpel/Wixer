@@ -149,13 +149,16 @@ export function WapPreview({ wap }) {
                     subheader={new Date(wap.createdAt).toLocaleDateString()}
                 />
                 <CardMedia
-                    component="img"
+                    component="div"
                     height="194"
-                    image={previewImage}
-                    onError={handleError}
+                    // image={previewImage}
+                    // onError={handleError}
                     alt={wapToShow.name ? wapToShow.name : wapToShow._id}
-                    sx={{ objectPosition: "top" }}
-                />
+                    sx={{ objectPosition: "top", textAlign:'center' }}
+                >
+                    
+                    <h2>{wap.name || wap._id}</h2>
+                </CardMedia>
                 <CardActions disableSpacing>
                     <Badge badgeContent={wapToShow.leads ? getNewLeads().length : 0} color="primary">
                         <MailIcon fontSize="large" color="action" />
