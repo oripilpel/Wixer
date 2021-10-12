@@ -9,10 +9,10 @@ export const wapService = {
     getWaps
 }
 
-async function save(wap) {
+async function save(wap, takeScreenshot) {
     delete wap.selected;
     delete wap.loader;
-    if (wap._id) return await httpService.put(`wap/${wap._id}`, wap);
+    if (wap._id) return await httpService.put(`wap/${wap._id}`, { wap, takeScreenshot });
     else return await httpService.post('wap', wap)
 }
 

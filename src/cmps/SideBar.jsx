@@ -105,7 +105,8 @@ function _SideBar({
     const onSave = (newName) => {
         const n = newName || name;
         setIsModalOpen(false)
-        saveWap({ _id, cmps, style, chat, name: n })
+        const wap = { _id, cmps, style, chat, name: n }
+        saveWap(wap, true)
     }
 
     return (
@@ -163,6 +164,7 @@ function _SideBar({
 
             <div className="save-pub">
                 <div className="save" onClick={() => {
+                    onSave()
                     setIsPublishModal(false)
                     setIsModalOpen(true)
                 }} >

@@ -58,7 +58,7 @@ export function WapPreview({ wap }) {
         : 'http://localhost:3030/public/websites-screenshots?imgId='
 
     const imageSrc = `${BASE_URL + wapToShow._id}`
-    const [previewImage, setImage] = useState(imageSrc)
+    const [previewImage, setImage] = useState(wap.screenshot?.url)
 
     const handleError = () => {
         setImage(NoAvailableImg)

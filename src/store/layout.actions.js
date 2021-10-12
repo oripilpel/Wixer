@@ -1,10 +1,10 @@
 import { socketService } from "../services/socket.service";
 import { wapService } from "../services/waps.service";
 
-export function saveWap(wap) {
+export function saveWap(wap, takeScreenshot) {
     return async dispatch => {
         try {
-            const savedWap = await wapService.save(wap)
+            const savedWap = await wapService.save(wap, takeScreenshot)
             return dispatch({
                 type: 'SET_WAP',
                 _id: savedWap._id,
