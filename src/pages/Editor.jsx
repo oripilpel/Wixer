@@ -10,7 +10,6 @@ import { Section } from "../cmps/Section";
 import { SideBar } from "../cmps/SideBar";
 import { Loader } from '../assets/img/Loader'
 
-
 import {
     insert,
     saveWap,
@@ -29,6 +28,7 @@ import {
     dispatchAction,
     setLoader
 } from '../store/layout.actions'
+
 import { utilService } from "../services/util.service";
 import { eventBusService } from "../services/event-bus-service";
 import { socketService } from "../services/socket.service";

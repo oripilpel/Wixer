@@ -15,6 +15,7 @@
 
 //Dashboard
 @import "cmps/Dashboard/wap-preview";
+@import "cmps/Dashboard/lead-list";
 
 // COMPONENTS
 @import "cmps/drop-zone";
@@ -65,4 +66,6 @@
 @import "cmps/publish-nav";
 
 @import "cmps/chat-app";
+@import "cmps/chat-app-edit";
+
 @import "cmps/loader";

@@ -8,10 +8,8 @@ import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import Checkbox from '@mui/material/Checkbox';
 import { blue } from '@mui/material/colors';
-import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
-
-export function LeadList({ wap, onSetWap, leads }) {
+export function LeadList({ wap, onSetWap, leads, isMarkedLeads }) {
 
     const handleChange = ({ target }) => {
         const leadIdx = wap.leads.findIndex(lead => {
@@ -24,12 +22,18 @@ export function LeadList({ wap, onSetWap, leads }) {
     };
 
     return (
-        <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
+        <List className="lead-list"
+            sx={{ opacity: (isMarkedLeads) ? 0.6 : 1, width: '100%', bgcolor: 'background.paper' }}>
             {/* <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}> */}
             {leads.map((lead, idx) => {
                 return (
                     <React.Fragment key={lead.id || idx}>
-                        <ListItem sx={{ paddingInline: 0 }} alignItems="flex-start">
+                        <ListItem
+                            className="item"
+                            sx={{ paddingInline: 0 }}
+                            alignItems="flex-start"
+                            backgroundColor="&hover:red"
+                        >
                             <ListItemAvatar
                                 sx={{
                                     display: 'flex',
@@ -37,7 +41,8 @@ export function LeadList({ wap, onSetWap, leads }) {
                                     justifyContent: 'flex-end',
                                     minWidth: 100
                                 }}>
-                                <Avatar sx={{ bgcolor: blue[500] }} aria-label="recipe">
+                                <Avatar sx={{ bgcolor: isMarkedLeads ? blue[300] : blue[500] }}
+                                    aria-label="recipe">
                                     {lead.name && lead.name.charAt(0).toUpperCase()}
                                 </Avatar>
                                 {lead.id && (

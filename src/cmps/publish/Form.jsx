@@ -23,6 +23,7 @@ function _ContactForm({ data, match }) {
 
     function onSubmit(ev) {
         ev.preventDefault()
+        if (!form.msg || !form.subject || !form.name || !form.phone || !form.email) return
         wapService.sendLead(match.params.wapName, { ...form, id: utilService.makeId(), date: Date.now() })
         setIsOpen(true)
         setForm({ ...data.form })
@@ -57,10 +58,10 @@ function _ContactForm({ data, match }) {
             <StyledInput
                 label="Subject"
                 value={form.subject}
-                onChange={handleChange}
-                name="subject"
-                variant="standard"
-                fullWidth={true}
+            onChange={handleChange}
+            name="subject"
+            variant="standard"
+            fullWidth={true}
             />
             <StyledInput
                 label="Your Message"

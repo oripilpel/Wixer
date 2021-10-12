@@ -187,7 +187,7 @@ export function WapPreview({ wap }) {
                                     Marked leads:
                                 </Typography>
                                 <Typography paragraph>
-                                    <LeadList wap={wapToShow} onSetWap={onSetWap} leads={getMarkedLeads()} />
+                                    <LeadList isMarkedLeads={true} wap={wapToShow} onSetWap={onSetWap} leads={getMarkedLeads()} />
                                 </Typography>
                             </>
                         )}
