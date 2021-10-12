@@ -54,7 +54,6 @@ function _SideBar({
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isPublishModal, setIsPublishModal] = useState(false);
 
-
     const setHints = (stage) => {
         switch (stage) {
             case isAddClicked:

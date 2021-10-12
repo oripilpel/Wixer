@@ -14,7 +14,13 @@ export function ImageUpload({ label, onUpload }) {
                 onChange={(ev) => onUpload(ev)}
             />
             <label htmlFor="raised-button-file">
-                <Button className="button" variant="outlined" size="small" startIcon={<PhotoCameraIcon />} component="span" color="primary">
+                <Button
+                    className="button"
+                    variant="outlined"
+                    size="small"
+                    startIcon={<PhotoCameraIcon />}
+                    component="span"
+                    color="primary">
                     {label}
                 </Button>
             </label>

@@ -19,8 +19,8 @@ const initialState = {
     style: {},
     chat: {
         isEnabled: false,
-        openingText: "Hey ☺ \n I'm the digital representative, how can I help you?",
-        answerText: "Thank you for contacting us, we will reach back to you in a short time."
+        openingText: "Hello, how can I help you?",
+        answerText: "Thank you, we will get back to you soon."
     },
     loader: false
 }

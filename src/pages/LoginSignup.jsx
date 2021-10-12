@@ -105,7 +105,7 @@ function _LoginSignup(props) {
                 (<div className="login" onClick={() => { setIsLogin(true) }}>
                     Already have an account? {(!path.includes('editor')) ? <Link to='/login'>Login</Link> : <a onClick={() => { setIsLogin(true) }}>Login</a>}
                 </div>)}
-            <div style={{ cursor: 'pointer' }} onClick={async () => {
+            <div className="demo-user" onClick={async () => {
                 const user = await props.onLogin({
                     username: 'demo',
                     password: 'demo'

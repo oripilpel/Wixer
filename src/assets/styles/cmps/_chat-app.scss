@@ -1,11 +1,11 @@
 .chat-app {
     font-size: 1.3rem;
     .chat-open-chat {
-        font-size: 3rem;
+        font-size: 2.5rem;
         bottom: 5px;
         right: 5px;
         position: fixed;
-        background-color: #1e8fe0;
+        background-color: #005496ed;
         border-radius: 50%;
         padding: 15px;
         color: white;
@@ -20,7 +20,7 @@
         display: flex;
         flex-direction: column;
         .chat-header {
-            background-color: #1e8fe0;
+            background-color: #005496ed;
             color: white;
             .chat-title {
                 flex-grow: 1;
@@ -69,7 +69,7 @@
                 }
             }
             button {
-                background-color: #1e8fe0;
+                background-color: #005496ed;
                 color: white;
                 font-size: 2rem;
                 width: 100px !important;
@@ -152,16 +152,14 @@
             bottom: 15px;
             right: 15px;
             i {
-                background-color: #1e8fe0;
                 padding: 16px;
                 border-radius: 50%;
                 color: white;
-                width: 80px;
-                height: 80px;
+                width: 70px;
+                height: 70px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                box-shadow: 0px 0px 5px 3px #bfb5b5;
             }
         }
         button {
@@ -169,7 +167,7 @@
             background-color: transparent;
             cursor: pointer;
             i {
-                background-color: #1e8fe0;
+                background-color: #005496ed;
                 color: white;
                 padding: 10px;
                 border-radius: 100%;
