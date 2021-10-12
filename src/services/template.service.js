@@ -24,7 +24,7 @@ const gTemplates = [
         title: 'Construction',
     },
     {
-        json: '6162a4af223761233d27e199',
+        json: '6164819e8947b38deef91914',
         img: Restaurant,
         title: 'Restaurant',
     },
@@ -34,7 +34,7 @@ const gTemplates = [
         title: 'Mercedes',
     },
     {
-        json: '616067203dc4068a630a426b',
+        json: '6164c2478947b38deef91936',
         img: Denatal,
         title: 'Dental Clinic',
     },
@@ -54,7 +54,7 @@ const gTemplates = [
         title: 'Beauty Care',
     },
     {
-        json: '00000',
+        json: '000010',
         img: Jewelry,
         title: 'jewelry',
     },

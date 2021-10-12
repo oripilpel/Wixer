@@ -160,8 +160,12 @@ function _SideBar({
                 )}
                 {isEdit && !selected && <div className="empty">Nothing is selected</div>}
             </div>
+
             <div className="save-pub">
-                <div className="save" onClick={() => { onSave() }} >
+                <div className="save" onClick={() => {
+                    setIsPublishModal(false)
+                    setIsModalOpen(true)
+                }} >
                     Save
                 </div>
                 <div onClick={() => {
