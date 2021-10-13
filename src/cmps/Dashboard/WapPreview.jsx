@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { wapService } from '../../services/waps.service';
 import { LeadList } from "./LeadList";
 import NoAvailableImg from '../../assets/img/no-available-img.jpg'
-
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -46,6 +45,10 @@ export function WapPreview({ wap }) {
         setExpanded(!expanded);
     }
 
+    useEffect(() => {
+        setWap(wap)
+    }, [wap.leads?.length])
+
     const onSetWap = async (wap) => {
         let newWap = { ...wap }
         delete newWap.owner
@@ -57,7 +60,6 @@ export function WapPreview({ wap }) {
         ? '/public/websites-screenshots?imgId='
         : 'http://localhost:3030/public/websites-screenshots?imgId='
 
-    const imageSrc = `${BASE_URL + wapToShow._id}`
     const [previewImage, setImage] = useState(wap.screenshot?.url)
 
     const handleError = () => {

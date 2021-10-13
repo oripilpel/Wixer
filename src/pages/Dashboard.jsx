@@ -3,15 +3,23 @@ import { Link } from "react-router-dom";
 import { WapPreview } from "../cmps/Dashboard/WapPreview";
 import { wapService } from "../services/waps.service";
 import { Loader } from '../assets/img/Loader'
+import { socketService } from "../services/socket.service";
 
 export function Dashboard() {
     const [waps, setWaps] = useState(null)
 
     useEffect(() => {
         (async function () {
+            socketService.on('updated leads', onUpdateLeads)
             setWaps(await wapService.getWaps())
-        }())
+        })()
     }, [])
+
+    async function onUpdateLeads() {
+        debugger
+        setWaps(await wapService.getWaps())
+    }
+
 
     if (!waps) return (
         <div className="dashboard">
