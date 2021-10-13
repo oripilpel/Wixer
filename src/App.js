@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
-import { connect } from "react-redux";
 import { Editor } from './pages/Editor';
 import { Home } from './pages/Home.jsx';
 import { About } from './pages/About';
@@ -9,14 +8,8 @@ import { Templates } from './pages/Templates';
 import { Publish } from './pages/Publish';
 import { Dashboard } from './pages/Dashboard';
 import { LoginSignup } from './pages/LoginSignup';
-import { userService } from './services/user.service';
-import { setUser } from './store/user.actions';
 
-function _App({ setUser }) {
-  useEffect(() => {
-    const user = userService.getLoggedinUser();
-    if (user) setUser(user);
-  }, []);
+export function App() {
 
   return (
     <div className="App">
@@ -38,11 +31,3 @@ function _App({ setUser }) {
     </div>
   );
 }
-
-
-const mapDispatchToProps = {
-  setUser
-}
-
-
-export const App = connect(null, mapDispatchToProps)(_App);

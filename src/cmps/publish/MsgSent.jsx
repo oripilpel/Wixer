@@ -36,11 +36,3 @@ export function MsgSent({ isOpen, setIsOpen, backgroundColor }) {
         </Dialog>
     );
 }
-
-// className = "action"
-// variant = { 'contained'}
-// color = { 'primary'}
-// type = "submit"
-// disabled = { isSubmitting } >
-//     {(isLogin) ? 'Login' : 'Signup'}
-// </Button >

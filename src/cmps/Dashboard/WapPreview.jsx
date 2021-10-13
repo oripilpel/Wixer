@@ -154,9 +154,9 @@ export function WapPreview({ wap }) {
                     // image={previewImage}
                     // onError={handleError}
                     alt={wapToShow.name ? wapToShow.name : wapToShow._id}
-                    sx={{ objectPosition: "top", textAlign:'center' }}
+                    sx={{ objectPosition: "top", textAlign: 'center' }}
                 >
-                    
+
                     <h2>{wap.name || wap._id}</h2>
                 </CardMedia>
                 <CardActions disableSpacing>
@@ -179,9 +179,7 @@ export function WapPreview({ wap }) {
                                 <Typography paragraph sx={{ fontWeight: 'bold', marginBottom: 0 }}>
                                     New leads:
                                 </Typography>
-                                <Typography paragraph>
-                                    <LeadList wap={wapToShow} onSetWap={onSetWap} leads={getNewLeads()} />
-                                </Typography>
+                                <LeadList wap={wapToShow} onSetWap={onSetWap} leads={getNewLeads()} />
                             </>
                         )}
                         {getMarkedLeads().length > 0 && (
@@ -189,9 +187,7 @@ export function WapPreview({ wap }) {
                                 <Typography paragraph sx={{ fontWeight: 'bold', marginBottom: 0 }}>
                                     Marked leads:
                                 </Typography>
-                                <Typography paragraph>
-                                    <LeadList isMarkedLeads={true} wap={wapToShow} onSetWap={onSetWap} leads={getMarkedLeads()} />
-                                </Typography>
+                                <LeadList isMarkedLeads={true} wap={wapToShow} onSetWap={onSetWap} leads={getMarkedLeads()} />
                             </>
                         )}
                     </CardContent>
