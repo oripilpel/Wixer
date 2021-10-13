@@ -3,6 +3,7 @@ import { httpService } from '../services/http.service';
 
 export const wapService = {
     save,
+    remove,
     getById,
     getByName,
     sendLead,
@@ -14,6 +15,10 @@ async function save(wap, takeScreenshot) {
     delete wap.loader;
     if (wap._id) return await httpService.put(`wap/${wap._id}`, { wap, takeScreenshot });
     else return await httpService.post('wap', wap)
+}
+
+async function remove(wapId) {
+    return await httpService.delete(`wap/${wapId}`);
 }
 
 async function getById(wapId) {

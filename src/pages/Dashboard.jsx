@@ -16,10 +16,12 @@ export function Dashboard() {
     }, [])
 
     async function onUpdateLeads() {
-        debugger
         setWaps(await wapService.getWaps())
     }
 
+    const onRemove = (wapId) => {
+        setWaps(waps.filter(wap => wap._id !== wapId));
+    }
 
     if (!waps) return (
         <div className="dashboard">
@@ -39,7 +41,7 @@ export function Dashboard() {
                 </>
             )}
             <div className="my-sites">
-                {waps.map(wap => <WapPreview key={wap._id} wap={wap} />)}
+                {waps.map(wap => <WapPreview key={wap._id} wap={wap} onRemove={onRemove} />)}
             </div>
         </div>
     )

@@ -34,11 +34,12 @@ const ExpandMore = styled((props) => {
 const options = [
     'Edit',
     'Preview',
+    'Delete'
 ];
 
 const ITEM_HEIGHT = 48;
 
-export function WapPreview({ wap }) {
+export function WapPreview({ wap, onRemove }) {
     const [expanded, setExpanded] = useState(false)
     const [wapToShow, setWap] = useState(wap)
     const handleExpandClick = () => {
@@ -72,7 +73,7 @@ export function WapPreview({ wap }) {
         setAnchorEl(event.currentTarget);
     }
 
-    const handleClose = (option) => {
+    const handleClose = async (option) => {
         setAnchorEl(null);
         switch (option) {
             case 'Edit':
@@ -81,6 +82,14 @@ export function WapPreview({ wap }) {
             case 'Preview':
                 if (wapToShow.name) window.open(`/${wapToShow.name}`, '_blank');
                 else window.location.replace(`/preview/${wapToShow._id}`);
+                break;
+            case 'Delete':
+                try{
+                    await wapService.remove(wap._id);
+                    onRemove(wap._id);
+                } catch(err) {
+                    console.log(err)
+                }
                 break;
             default:
                 break;
@@ -151,13 +160,16 @@ export function WapPreview({ wap }) {
                     subheader={new Date(wap.createdAt).toLocaleDateString()}
                 />
                 <CardMedia
-                    component="img"
+                    component="div"
                     height="194"
-                    image={previewImage}
-                    onError={handleError}
+                    // image={previewImage}
+                    // onError={handleError}
                     alt={wapToShow.name ? wapToShow.name : wapToShow._id}
-                    sx={{ objectPosition: "top" }}
-                />
+                    sx={{ objectPosition: "top", textAlign:'center' }}
+                >
+                    
+                    <h2>{wap.name || wap._id}</h2>
+                </CardMedia>
                 <CardActions disableSpacing>
                     <Badge badgeContent={wapToShow.leads ? getNewLeads().length : 0} color="primary">
                         <MailIcon fontSize="large" color="action" />
