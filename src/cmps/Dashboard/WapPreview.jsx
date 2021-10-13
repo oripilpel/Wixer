@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { wapService } from '../../services/waps.service';
 import { LeadList } from "./LeadList";
+import { ItemRemoveMsg } from './ItemRemoveMsg';
 import NoAvailableImg from '../../assets/img/no-available-img.jpg'
+
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -42,6 +44,8 @@ const ITEM_HEIGHT = 48;
 export function WapPreview({ wap, onRemove }) {
     const [expanded, setExpanded] = useState(false)
     const [wapToShow, setWap] = useState(wap)
+    const [removeModal, setRemoveModal] = useState(false);
+
     const handleExpandClick = () => {
         setExpanded(!expanded);
     }
@@ -49,6 +53,22 @@ export function WapPreview({ wap, onRemove }) {
     useEffect(() => {
         setWap(wap)
     }, [wap.leads?.length])
+
+    const openRemoveModal = () => {
+        setRemoveModal(true)
+    }
+
+    const closeRemoveModal = async (wapId) => {
+        setRemoveModal(false)
+        if (wapId) {
+            try {
+                await wapService.remove(wapId);
+                onRemove(wapId);
+            } catch (err) {
+                console.log(err)
+            }
+        }
+    }
 
     const onSetWap = async (wap) => {
         let newWap = { ...wap }
@@ -84,12 +104,7 @@ export function WapPreview({ wap, onRemove }) {
                 else window.location.replace(`/preview/${wapToShow._id}`);
                 break;
             case 'Delete':
-                try{
-                    await wapService.remove(wap._id);
-                    onRemove(wap._id);
-                } catch(err) {
-                    console.log(err)
-                }
+                openRemoveModal()
                 break;
             default:
                 break;
@@ -114,6 +129,12 @@ export function WapPreview({ wap, onRemove }) {
 
     return (
         <div className="wap-preview">
+            <ItemRemoveMsg
+                itemName={'website'}
+                itemId={wapToShow._id}
+                removeModal={removeModal}
+                closeRemoveModal={closeRemoveModal}
+            />
             <Card>
                 <CardHeader
                     avatar={
@@ -149,61 +170,66 @@ export function WapPreview({ wap, onRemove }) {
                                 }}
                             >
                                 {options.map((option) => (
-                                    <MenuItem key={option} selected={option === 'Pyxis'} onClick={() => handleClose(option)}>
-                                        {option}
-                                    </MenuItem>
+                                    <MenuItem
+                                        key={option}
+                                        selected={option === 'Pyxis'}
+                                        onClick={() => handleClose(option)}
+                                        className={ option === 'Delete' ? 'red-color' : ''}
+                                    >
+                                {option}
+                            </MenuItem>
                                 ))}
-                            </Menu>
+                        </Menu>
                         </>
                     }
-                    title={wapToShow.name ? wapToShow.name : 'Not published'}
-                    subheader={new Date(wap.createdAt).toLocaleDateString()}
+            title={wapToShow.name ? wapToShow.name : 'Not published'}
+            subheader={new Date(wap.createdAt).toLocaleDateString()}
                 />
-                <CardMedia
-                    component="div"
-                    height="194"
-                    // image={previewImage}
-                    // onError={handleError}
-                    alt={wapToShow.name ? wapToShow.name : wapToShow._id}
-                    sx={{ objectPosition: "top", textAlign: 'center' }}
-                >
+            <CardMedia
+                component="div"
+                height="194"
+                // image={previewImage}
+                // onError={handleError}
+                alt={wapToShow.name ? wapToShow.name : wapToShow._id}
+                sx={{ objectPosition: "top", textAlign: 'center' }}
+            >
 
-                    <h2>{wap.name || wap._id}</h2>
-                </CardMedia>
-                <CardActions disableSpacing>
-                    <Badge badgeContent={wapToShow.leads ? getNewLeads().length : 0} color="primary">
-                        <MailIcon fontSize="large" color="action" />
-                    </Badge>
-                    <ExpandMore
-                        expand={expanded}
-                        onClick={handleExpandClick}
-                        aria-expanded={expanded}
-                        aria-label="show more"
-                    >
-                        <ExpandMoreIcon fontSize="large" />
-                    </ExpandMore>
-                </CardActions>
-                <Collapse in={expanded} timeout="auto" unmountOnExit>
-                    <CardContent>
-                        {getNewLeads().length > 0 && (
-                            <>
-                                <Typography paragraph sx={{ fontWeight: 'bold', marginBottom: 0 }}>
-                                    New leads:
-                                </Typography>
-                                <LeadList wap={wapToShow} onSetWap={onSetWap} leads={getNewLeads()} />
-                            </>
-                        )}
-                        {getMarkedLeads().length > 0 && (
-                            <>
-                                <Typography paragraph sx={{ fontWeight: 'bold', marginBottom: 0 }}>
-                                    Marked leads:
-                                </Typography>
-                                <LeadList isMarkedLeads={true} wap={wapToShow} onSetWap={onSetWap} leads={getMarkedLeads()} />
-                            </>
-                        )}
-                    </CardContent>
-                </Collapse>
-            </Card>
-        </div>
+                <h2>{wap.name || wap._id}</h2>
+            </CardMedia>
+            <CardActions disableSpacing>
+                <Badge badgeContent={wapToShow.leads ? getNewLeads().length : 0} color="primary">
+                    <MailIcon fontSize="large" color="action" />
+                </Badge>
+                <ExpandMore
+                    expand={expanded}
+                    onClick={handleExpandClick}
+                    aria-expanded={expanded}
+                    aria-label="show more"
+                >
+                    <ExpandMoreIcon fontSize="large" />
+                </ExpandMore>
+            </CardActions>
+            <Collapse in={expanded} timeout="auto" unmountOnExit>
+                <CardContent>
+                    {getNewLeads().length > 0 && (
+                        <>
+                            <Typography paragraph sx={{ fontWeight: 'bold', marginBottom: 0 }}>
+                                New leads:
+                            </Typography>
+                            <LeadList wap={wapToShow} onSetWap={onSetWap} leads={getNewLeads()} />
+                        </>
+                    )}
+                    {getMarkedLeads().length > 0 && (
+                        <>
+                            <Typography paragraph sx={{ fontWeight: 'bold', marginBottom: 0 }}>
+                                Marked leads:
+                            </Typography>
+                            <LeadList isMarkedLeads={true} wap={wapToShow} onSetWap={onSetWap} leads={getMarkedLeads()} />
+                        </>
+                    )}
+                </CardContent>
+            </Collapse>
+        </Card>
+        </div >
     )
 }

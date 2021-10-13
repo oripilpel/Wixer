@@ -30,15 +30,19 @@
     padding: 0;
 }
 
-.clean-href{
+.clean-href {
     text-decoration: none;
 }
 
-.draggable{
+.draggable {
     cursor: move;
 }
 
-.link{
-    transition: color .3s;
+.link {
+    transition: color 0.3s;
     text-decoration: none;
+}
+
+.red-color {
+    color: red !important;
 }
