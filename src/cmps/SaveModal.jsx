@@ -32,10 +32,13 @@ export function SaveModal({ name, isModalOpen, setIsModalOpen, onSave, user, isP
                                 setIsNameAvailable(false)
                             }
                             catch (err) {
-                                setLoading(false)
-                                onSave(siteName)
-                                setIsNameAvailable(true)
-                                setIsModalOpen(true)
+                                (async function () {
+                                    setLoading(true)
+                                    await onSave(siteName)
+                                    setLoading(false)
+                                    setIsNameAvailable(true)
+                                    setIsModalOpen(true)
+                                })()
                             }
                         }}>
                         <h2>Site name:</h2>

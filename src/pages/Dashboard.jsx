@@ -3,15 +3,21 @@ import { Link } from "react-router-dom";
 import { WapPreview } from "../cmps/Dashboard/WapPreview";
 import { wapService } from "../services/waps.service";
 import { Loader } from '../assets/img/Loader'
+import { socketService } from "../services/socket.service";
 
 export function Dashboard() {
     const [waps, setWaps] = useState(null)
 
     useEffect(() => {
         (async function () {
+            socketService.on('updated leads', onUpdateLeads)
             setWaps(await wapService.getWaps())
-        }())
+        })()
     }, [])
+
+    async function onUpdateLeads() {
+        setWaps(await wapService.getWaps())
+    }
 
     const onRemove = (wapId) => {
         setWaps(waps.filter(wap => wap._id !== wapId));
@@ -35,7 +41,7 @@ export function Dashboard() {
                 </>
             )}
             <div className="my-sites">
-                {waps.map(wap => <WapPreview key={wap._id} wap={wap} onRemove={onRemove}/>)}
+                {waps.map(wap => <WapPreview key={wap._id} wap={wap} onRemove={onRemove} />)}
             </div>
         </div>
     )
