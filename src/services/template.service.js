@@ -29,7 +29,7 @@ const gTemplates = [
         title: 'Restaurant',
     },
     {
-        json: '6166cb8cfc3a6af25e470a29',
+        json: '6166e7bbfc3a6af25e470a2d',
         img: Mercedes,
         title: 'Mercedes',
     },
