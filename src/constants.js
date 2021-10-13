@@ -400,6 +400,7 @@ export const SIDEBAR_ITEMS_HEADER = [
         flexGrow: 0,
         padding: 10,
         display: 'flex',
+        alignItems: 'center'
       },
       cmps: [
         {
@@ -515,15 +516,15 @@ export const SIDEBAR_ITEMS_HEADER = [
                       links: [
                         {
                           id: utilService.makeId(),
-                          txt: 'מרצדס ישראל'
+                          txt: 'Israel'
                         },
                         {
                           id: utilService.makeId(),
-                          txt: 'מרצדס לשירותך'
+                          txt: 'Services'
                         },
                         {
                           id: utilService.makeId(),
-                          txt: 'דגמים'
+                          txt: 'Models'
                         }
                       ]
                     }
