@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { wapService } from '../../services/waps.service';
 import { LeadList } from "./LeadList";
 import NoAvailableImg from '../../assets/img/no-available-img.jpg'
-
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -35,16 +34,21 @@ const ExpandMore = styled((props) => {
 const options = [
     'Edit',
     'Preview',
+    'Delete'
 ];
 
 const ITEM_HEIGHT = 48;
 
-export function WapPreview({ wap }) {
+export function WapPreview({ wap, onRemove }) {
     const [expanded, setExpanded] = useState(false)
     const [wapToShow, setWap] = useState(wap)
     const handleExpandClick = () => {
         setExpanded(!expanded);
     }
+
+    useEffect(() => {
+        setWap(wap)
+    }, [wap.leads?.length])
 
     const onSetWap = async (wap) => {
         let newWap = { ...wap }
@@ -57,7 +61,6 @@ export function WapPreview({ wap }) {
         ? '/public/websites-screenshots?imgId='
         : 'http://localhost:3030/public/websites-screenshots?imgId='
 
-    const imageSrc = `${BASE_URL + wapToShow._id}`
     const [previewImage, setImage] = useState(wap.screenshot?.url)
 
     const handleError = () => {
@@ -70,7 +73,7 @@ export function WapPreview({ wap }) {
         setAnchorEl(event.currentTarget);
     }
 
-    const handleClose = (option) => {
+    const handleClose = async (option) => {
         setAnchorEl(null);
         switch (option) {
             case 'Edit':
@@ -79,6 +82,14 @@ export function WapPreview({ wap }) {
             case 'Preview':
                 if (wapToShow.name) window.open(`/${wapToShow.name}`, '_blank');
                 else window.location.replace(`/preview/${wapToShow._id}`);
+                break;
+            case 'Delete':
+                try{
+                    await wapService.remove(wap._id);
+                    onRemove(wap._id);
+                } catch(err) {
+                    console.log(err)
+                }
                 break;
             default:
                 break;

@@ -1,17 +1,23 @@
 import { Button } from "@mui/material";
 import { useEffect, useState } from "react";
 import { withRouter } from "react-router";
-import { wapService } from "../../services/waps.service";
 import { utilService } from "../../services/util.service";
 import { MsgSent } from "./MsgSent";
 import { StyledTextField } from "../StyledTextField";
 import { StyledTextFieldDark } from "../StyledTextFieldDark";
+import { socketService } from "../../services/socket.service";
 
 
 function _ContactForm({ data, match }) {
     const [form, setForm] = useState({ ...data.form })
     const [isOpen, setIsOpen] = useState(false)
 
+    useEffect(() => {
+        if (match.params.wapName) socketService.emit('wap name', match.params.wapName)
+        return () => {
+            socketService.off('wap name')
+        }
+    }, [data])
 
     function handleChange({ target }) {
         const { name, value } = target;
@@ -23,10 +29,11 @@ function _ContactForm({ data, match }) {
 
     function onSubmit(ev) {
         ev.preventDefault()
-        if (!form.msg || !form.subject || !form.name || !form.phone || !form.email) return
-        wapService.sendLead(match.params.wapName, { ...form, id: utilService.makeId(), date: Date.now() })
+        if (!form.msg || !form.subject || !form.name || !form.phone || !form.email || !match.params.wapName) return
+        socketService.emit('leads update', { ...form, id: utilService.makeId(), date: Date.now() })
         setIsOpen(true)
         setForm({ ...data.form })
+
     }
 
     return (
@@ -58,10 +65,10 @@ function _ContactForm({ data, match }) {
             <StyledInput
                 label="Subject"
                 value={form.subject}
-            onChange={handleChange}
-            name="subject"
-            variant="standard"
-            fullWidth={true}
+                onChange={handleChange}
+                name="subject"
+                variant="standard"
+                fullWidth={true}
             />
             <StyledInput
                 label="Your Message"

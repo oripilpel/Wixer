@@ -102,11 +102,11 @@ function _SideBar({
         update(selected, field, data);
     }
 
-    const onSave = (newName) => {
+    const onSave = async (newName) => {
         const n = newName || name;
-        setIsModalOpen(false)
+        // setIsModalOpen(false)
         const wap = { _id, cmps, style, chat, name: n }
-        saveWap(wap, true)
+        await saveWap(wap, true)
     }
 
     return (

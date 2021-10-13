@@ -29,12 +29,12 @@ const gTemplates = [
         title: 'Restaurant',
     },
     {
-        json: '615726b67ee46d2a8f34a89d',
+        json: '6166e7bbfc3a6af25e470a2d',
         img: Mercedes,
         title: 'Mercedes',
     },
     {
-        json: '6164c2478947b38deef91936',
+        json: '6166c9c9fc3a6af25e470a25',
         img: Denatal,
         title: 'Dental Clinic',
     },

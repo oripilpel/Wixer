@@ -1,118 +1,17 @@
-const wap = {
-    "_id" : ObjectId("616067203dc4068a630a426b"),
-    "createdBy" : ObjectId("615db5e45e7cd586573730db"),
+const dental = {
+    "_id" : ObjectId("6166c19ffc3a6af25e470a1f"),
     "cmps" : [ 
-        {
-            "type" : "section",
-            "id" : "eNGsknlkHZ",
-            "cmps" : [ 
-                {
-                    "type" : "innersection",
-                    "id" : "y6M6XhajyL",
-                    "cmps" : [ 
-                        {
-                            "type" : "column",
-                            "id" : "2P64QSWIEO",
-                            "cmps" : [ 
-                                {
-                                    "id" : "sbDGIGbhg6",
-                                    "type" : "component",
-                                    "component" : {
-                                        "type" : "image",
-                                        "data" : {
-                                            "url" : "http://res.cloudinary.com/dq6ymh7ev/image/upload/v1633707937/u4k0wzcjnxj3njhkvseo.jpg"
-                                        },
-                                        "style" : {}
-                                    }
-                                }
-                            ],
-                            "style" : {
-                                "padding" : 10,
-                                "flexGrow" : 0,
-                                "flexDirection" : "column",
-                                "display" : "flex",
-                                "justifyContent" : "center",
-                                "alignItems" : "flex-start"
-                            }
-                        }, 
-                        {
-                            "type" : "column",
-                            "id" : "9iXwyY0yfP",
-                            "cmps" : [ 
-                                {
-                                    "id" : "x8mIMtbiaR",
-                                    "type" : "component",
-                                    "component" : {
-                                        "style" : {
-                                            "display" : "flex",
-                                            "fontFamily" : "raleway",
-                                            "fontSize" : 16,
-                                            "color" : "#000000",
-                                            "gap" : 33,
-                                            "alignItems" : "flex-end",
-                                            "justifyContent" : "flex-end"
-                                        },
-                                        "type" : "nav",
-                                        "data" : {
-                                            "hoverColor" : "#868686",
-                                            "links" : [ 
-                                                {
-                                                    "id" : "tnR0JQjN5B",
-                                                    "txt" : "Home"
-                                                }, 
-                                                {
-                                                    "id" : "aj4EW8LtZR",
-                                                    "txt" : "Services"
-                                                }, 
-                                                {
-                                                    "id" : "heaBXN6aou",
-                                                    "txt" : "About"
-                                                }, 
-                                                {
-                                                    "id" : "VPRNMcdth1",
-                                                    "txt" : "Contact"
-                                                }
-                                            ]
-                                        }
-                                    }
-                                }
-                            ],
-                            "style" : {
-                                "padding" : 10,
-                                "flexGrow" : 1,
-                                "flexDirection" : "column",
-                                "display" : "flex",
-                                "justifyContent" : "center",
-                                "alignItems" : "center",
-                                "fontSize" : 25
-                            }
-                        }
-                    ],
-                    "style" : {
-                        "flexGrow" : 1,
-                        "padding" : "0 25px",
-                        "alignItems" : "center",
-                        "justifyContent" : "space-between",
-                        "paddingRight" : 3,
-                        "paddingLeft" : 0
-                    }
-                }
-            ],
-            "style" : {
-                "backgroundColor" : "#ffffff"
-            }
-        }, 
         {
             "type" : "section",
             "style" : {},
             "cmps" : [ 
                 {
-                    "id" : "XKr3laoQTn",
+                    "id" : "A6TxMsgAJI",
                     "type" : "column",
                     "style" : {},
                     "cmps" : [ 
                         {
-                            "id" : "yz5hV5b9gH",
+                            "id" : "4MLAtIguaZ",
                             "type" : "component",
                             "component" : {
                                 "type" : "text",
@@ -127,7 +26,7 @@ const wap = {
                             }
                         }, 
                         {
-                            "id" : "iaSZywJWUK",
+                            "id" : "QeHQpHV86B",
                             "type" : "component",
                             "component" : {
                                 "type" : "text",
@@ -143,7 +42,7 @@ const wap = {
                             }
                         }, 
                         {
-                            "id" : "2WwnBYduGJ",
+                            "id" : "89QYqtiUrp",
                             "type" : "component",
                             "component" : {
                                 "type" : "text",
@@ -159,7 +58,7 @@ const wap = {
                             }
                         }, 
                         {
-                            "id" : "26zYusskux",
+                            "id" : "Vq3AcKgqA2",
                             "type" : "component",
                             "component" : {
                                 "type" : "button",
@@ -182,12 +81,12 @@ const wap = {
                     ]
                 }, 
                 {
-                    "id" : "q4wOheAO1D",
+                    "id" : "GzHRWUn00L",
                     "type" : "column",
                     "style" : {},
                     "cmps" : [ 
                         {
-                            "id" : "tMWui7jsdH",
+                            "id" : "IGYBRfaAdu",
                             "type" : "component",
                             "component" : {
                                 "type" : "image",
@@ -202,22 +101,22 @@ const wap = {
                     ]
                 }
             ],
-            "id" : "wHOkDuLAv0"
+            "id" : "iIJ5vrtTtt"
         }, 
         {
             "type" : "section",
-            "id" : "xyO63PEhEt",
+            "id" : "fne3Uqy8WT",
             "style" : {},
             "cmps" : [ 
                 {
-                    "id" : "VZWtjP5LGA",
+                    "id" : "eW6giSbjNe",
                     "type" : "column",
                     "style" : {
                         "alignItems" : "center"
                     },
                     "cmps" : [ 
                         {
-                            "id" : "YQszuBvMUQ",
+                            "id" : "gtRO6g1nPO",
                             "type" : "component",
                             "component" : {
                                 "type" : "image",
@@ -230,7 +129,7 @@ const wap = {
                             }
                         }, 
                         {
-                            "id" : "U4YHQQudn5",
+                            "id" : "18PRUR7DUW",
                             "type" : "component",
                             "component" : {
                                 "type" : "text",
@@ -246,7 +145,7 @@ const wap = {
                             }
                         }, 
                         {
-                            "id" : "OH980Pkjxx",
+                            "id" : "MLcTtdT1Hy",
                             "type" : "component",
                             "component" : {
                                 "type" : "text",
@@ -261,7 +160,7 @@ const wap = {
                             }
                         }, 
                         {
-                            "id" : "HZusjHRonf",
+                            "id" : "EkfHwAK1Bs",
                             "type" : "component",
                             "component" : {
                                 "type" : "text",
@@ -278,14 +177,14 @@ const wap = {
                     ]
                 }, 
                 {
-                    "id" : "svLD5kFEeH",
+                    "id" : "bnbsi17xqj",
                     "type" : "column",
                     "style" : {
                         "alignItems" : "center"
                     },
                     "cmps" : [ 
                         {
-                            "id" : "W0AANYKRDw",
+                            "id" : "O0fMQERfiy",
                             "type" : "component",
                             "component" : {
                                 "type" : "image",
@@ -298,7 +197,7 @@ const wap = {
                             }
                         }, 
                         {
-                            "id" : "AtrYBWMlhZ",
+                            "id" : "M7uEhImmMN",
                             "type" : "component",
                             "component" : {
                                 "type" : "text",
@@ -314,7 +213,7 @@ const wap = {
                             }
                         }, 
                         {
-                            "id" : "JYPuh14Qp2",
+                            "id" : "mU45taRzV3",
                             "type" : "component",
                             "component" : {
                                 "type" : "text",
@@ -329,7 +228,7 @@ const wap = {
                             }
                         }, 
                         {
-                            "id" : "xLE9C4ro0E",
+                            "id" : "KGOtahaixD",
                             "type" : "component",
                             "component" : {
                                 "type" : "text",
@@ -346,14 +245,14 @@ const wap = {
                     ]
                 }, 
                 {
-                    "id" : "J8C2vLMHJM",
+                    "id" : "oMeIlHA5XM",
                     "type" : "column",
                     "style" : {
                         "alignItems" : "center"
                     },
                     "cmps" : [ 
                         {
-                            "id" : "WtrEDAYCXo",
+                            "id" : "Pb6p7XvNJw",
                             "type" : "component",
                             "component" : {
                                 "type" : "image",
@@ -366,7 +265,7 @@ const wap = {
                             }
                         }, 
                         {
-                            "id" : "EuHo1L2x1r",
+                            "id" : "2PK29X5cZ4",
                             "type" : "component",
                             "component" : {
                                 "type" : "text",
@@ -382,7 +281,7 @@ const wap = {
                             }
                         }, 
                         {
-                            "id" : "KRU2ZKRttR",
+                            "id" : "gFVhHdtCyQ",
                             "type" : "component",
                             "component" : {
                                 "type" : "text",
@@ -397,7 +296,7 @@ const wap = {
                             }
                         }, 
                         {
-                            "id" : "GIdgceyVy7",
+                            "id" : "H5iHz2dpu7",
                             "type" : "component",
                             "component" : {
                                 "type" : "text",
@@ -417,18 +316,18 @@ const wap = {
         }, 
         {
             "type" : "section",
-            "id" : "x1Ld9KOWfN",
+            "id" : "dNMlJH63RV",
             "style" : {},
             "cmps" : [ 
                 {
-                    "id" : "Kjwof8fn2o",
+                    "id" : "gNdoIcWEc2",
                     "type" : "column",
                     "style" : {
                         "alignItems" : "center"
                     },
                     "cmps" : [ 
                         {
-                            "id" : "SFKb6srUsD",
+                            "id" : "mir6363bhq",
                             "type" : "component",
                             "component" : {
                                 "type" : "text",
@@ -445,7 +344,7 @@ const wap = {
                             }
                         }, 
                         {
-                            "id" : "JGp95I6zyO",
+                            "id" : "opd5wV2oJp",
                             "type" : "component",
                             "component" : {
                                 "type" : "text",
@@ -461,7 +360,7 @@ const wap = {
                             }
                         }, 
                         {
-                            "id" : "05rWDztE7m",
+                            "id" : "1BBsJ3T57b",
                             "type" : "component",
                             "component" : {
                                 "type" : "text",
@@ -477,7 +376,7 @@ const wap = {
                             }
                         }, 
                         {
-                            "id" : "YNG96xZo7a",
+                            "id" : "63VX8P4KNZ",
                             "type" : "component",
                             "component" : {
                                 "type" : "text",
@@ -494,7 +393,7 @@ const wap = {
                             }
                         }, 
                         {
-                            "id" : "v7b7dxIWYq",
+                            "id" : "1I8QnXVBZE",
                             "type" : "component",
                             "component" : {
                                 "type" : "button",
@@ -521,18 +420,18 @@ const wap = {
         }, 
         {
             "type" : "section",
-            "id" : "pl2nKc6XRE",
+            "id" : "l3qT8jvS8U",
             "style" : {
                 "gap" : "20px"
             },
             "cmps" : [ 
                 {
-                    "id" : "mu37Ks43u3",
+                    "id" : "POGYmqRaYb",
                     "type" : "column",
                     "style" : {},
                     "cmps" : [ 
                         {
-                            "id" : "TOyXGxE3Hc",
+                            "id" : "beJj3AR56L",
                             "type" : "component",
                             "component" : {
                                 "type" : "image",
@@ -543,7 +442,7 @@ const wap = {
                             }
                         }, 
                         {
-                            "id" : "26FiSPxbd5",
+                            "id" : "WrnxxSgJTw",
                             "type" : "component",
                             "component" : {
                                 "type" : "text",
@@ -559,12 +458,12 @@ const wap = {
                     ]
                 }, 
                 {
-                    "id" : "QaPcmWb1VX",
+                    "id" : "aT3BfRwbaF",
                     "type" : "column",
                     "style" : {},
                     "cmps" : [ 
                         {
-                            "id" : "ObYhhUFlft",
+                            "id" : "TmpjIXj7H4",
                             "type" : "component",
                             "component" : {
                                 "type" : "image",
@@ -575,7 +474,7 @@ const wap = {
                             }
                         }, 
                         {
-                            "id" : "s3uZL7Z1lw",
+                            "id" : "zxpsrXGcWU",
                             "type" : "component",
                             "component" : {
                                 "type" : "text",
@@ -594,87 +493,16 @@ const wap = {
         }, 
         {
             "type" : "section",
-            "id" : "G9Z8FVE2YU",
-            "style" : {},
-            "cmps" : []
-        }, 
-        {
-            "type" : "section",
-            "id" : "ntUgBtzdkb",
-            "cmps" : [ 
-                {
-                    "type" : "column",
-                    "id" : "rMFIp7tZT0",
-                    "cmps" : [ 
-                        {
-                            "id" : "p4VmJiQGYR",
-                            "type" : "component",
-                            "component" : {
-                                "type" : "form",
-                                "data" : {
-                                    "name" : "",
-                                    "email" : "",
-                                    "phone" : "",
-                                    "subject" : "",
-                                    "msg" : "",
-                                    "isDark" : true
-                                },
-                                "style" : {}
-                            }
-                        }
-                    ],
-                    "style" : {
-                        "padding" : 10,
-                        "flexGrow" : 1,
-                        "flexDirection" : "column",
-                        "display" : "flex"
-                    }
-                }, 
-                {
-                    "type" : "column",
-                    "id" : "JPoGBkWQnt",
-                    "cmps" : [ 
-                        {
-                            "id" : "qGn0DLzEJM",
-                            "type" : "component",
-                            "component" : {
-                                "type" : "GMap",
-                                "data" : {
-                                    "lat" : 35.6761919,
-                                    "lng" : 139.6503106,
-                                    "zoom" : 15,
-                                    "markerName" : "Ginaton",
-                                    "location" : "tokyo"
-                                },
-                                "style" : {
-                                    "height" : 364
-                                }
-                            }
-                        }
-                    ],
-                    "style" : {
-                        "padding" : 10,
-                        "flexGrow" : 1,
-                        "flexDirection" : "column",
-                        "display" : "flex",
-                        "alignItems" : "unset"
-                    }
-                }
-            ],
-            "style" : {}
-        }, 
-        {
-            "type" : "section",
-            "id" : "96YNPjo5TH",
+            "id" : "8vrRacHcn2",
             "style" : {},
             "cmps" : [ 
                 {
-                    "id" : "0Xwt89SSq7",
+                    "id" : "oHzZm0ZHkc",
                     "type" : "column",
                     "style" : {},
                     "cmps" : [ 
                         {
-                            "id" : "MBEGyHsSEk",
+                            "id" : "hEXXO6i5oz",
                             "type" : "component",
                             "component" : {
                                 "type" : "image",
@@ -689,12 +517,12 @@ const wap = {
                     ]
                 }, 
                 {
-                    "id" : "mdZEoY8ELZ",
+                    "id" : "ZWuQdGiKTp",
                     "type" : "column",
                     "style" : {},
                     "cmps" : [ 
                         {
-                            "id" : "PztV7crDTt",
+                            "id" : "sxZWayNCS9",
                             "type" : "component",
                             "component" : {
                                 "type" : "image",
@@ -709,12 +537,12 @@ const wap = {
                     ]
                 }, 
                 {
-                    "id" : "y9iLKqArTD",
+                    "id" : "hAlRk66YEw",
                     "type" : "column",
                     "style" : {},
                     "cmps" : [ 
                         {
-                            "id" : "rqwDSQwQE4",
+                            "id" : "Yyx8N26MfC",
                             "type" : "component",
                             "component" : {
                                 "type" : "image",
@@ -729,12 +557,12 @@ const wap = {
                     ]
                 }, 
                 {
-                    "id" : "kh57GszKwX",
+                    "id" : "1yQP6NoTMe",
                     "type" : "column",
                     "style" : {},
                     "cmps" : [ 
                         {
-                            "id" : "0vlBz4XHT9",
+                            "id" : "OHdVc3LaYo",
                             "type" : "component",
                             "component" : {
                                 "type" : "image",
@@ -749,12 +577,12 @@ const wap = {
                     ]
                 }, 
                 {
-                    "id" : "dUG4IBAZEA",
+                    "id" : "nPbDvTtpnG",
                     "type" : "column",
                     "style" : {},
                     "cmps" : [ 
                         {
-                            "id" : "qOjPU9H1Zo",
+                            "id" : "fWUHttHLhT",
                             "type" : "component",
                             "component" : {
                                 "type" : "image",
@@ -769,12 +597,12 @@ const wap = {
                     ]
                 }, 
                 {
-                    "id" : "NC0kpByXpg",
+                    "id" : "imGHRKhcmc",
                     "type" : "column",
                     "style" : {},
                     "cmps" : [ 
                         {
-                            "id" : "zs4WlTS57o",
+                            "id" : "wSH8jl4FC7",
                             "type" : "component",
                             "component" : {
                                 "type" : "image",
@@ -792,16 +620,16 @@ const wap = {
         }, 
         {
             "type" : "section",
-            "id" : "Y3nww8TNgX",
+            "id" : "BcsYrJvNmG",
             "style" : {},
             "cmps" : [ 
                 {
-                    "id" : "Y9XhRAf9Gw",
+                    "id" : "8VHdrixNna",
                     "type" : "column",
                     "style" : {},
                     "cmps" : [ 
                         {
-                            "id" : "YicXvJFtmi",
+                            "id" : "g6OSUpXzPc",
                             "type" : "component",
                             "component" : {
                                 "type" : "image",
@@ -809,20 +637,19 @@ const wap = {
                                     "url" : "https://res.cloudinary.com/dq6ymh7ev/image/upload/v1633356123/dentiologo_lx7ydj.jpg"
                                 },
                                 "style" : {
-                                    "width" : 110,
-                                    "height" : 44
+                                    "width" : 110
                                 }
                             }
                         }
                     ]
                 }, 
                 {
-                    "id" : "5KmAHPMGJU",
+                    "id" : "3c4tzFkH79",
                     "type" : "column",
                     "style" : {},
                     "cmps" : [ 
                         {
-                            "id" : "y7hOHlTZeT",
+                            "id" : "5Zy3vfgB9o",
                             "type" : "component",
                             "component" : {
                                 "type" : "text",
@@ -837,7 +664,7 @@ const wap = {
                             }
                         }, 
                         {
-                            "id" : "pxrBxvzvxe",
+                            "id" : "GDlo37Yw7M",
                             "type" : "component",
                             "component" : {
                                 "type" : "text",
@@ -851,7 +678,7 @@ const wap = {
                             }
                         }, 
                         {
-                            "id" : "IoMcELiVUi",
+                            "id" : "3MnoQH3hD0",
                             "type" : "component",
                             "component" : {
                                 "type" : "text",
@@ -865,7 +692,7 @@ const wap = {
                             }
                         }, 
                         {
-                            "id" : "baXUXwuCWh",
+                            "id" : "dsT11HCux4",
                             "type" : "component",
                             "component" : {
                                 "type" : "text",
@@ -879,7 +706,7 @@ const wap = {
                             }
                         }, 
                         {
-                            "id" : "yujHNGOMqb",
+                            "id" : "byiYvvohd6",
                             "type" : "component",
                             "component" : {
                                 "type" : "text",
@@ -893,7 +720,7 @@ const wap = {
                             }
                         }, 
                         {
-                            "id" : "HWa5A93toX",
+                            "id" : "6Zc3K7RJLD",
                             "type" : "component",
                             "component" : {
                                 "type" : "text",
@@ -909,12 +736,12 @@ const wap = {
                     ]
                 }, 
                 {
-                    "id" : "SKAlor2MIt",
+                    "id" : "4vmaJ35ik4",
                     "type" : "column",
                     "style" : {},
                     "cmps" : [ 
                         {
-                            "id" : "f2Cv486UwG",
+                            "id" : "fMDYa4wGbm",
                             "type" : "component",
                             "component" : {
                                 "type" : "text",
@@ -929,7 +756,7 @@ const wap = {
                             }
                         }, 
                         {
-                            "id" : "RN5Z8EiJ6V",
+                            "id" : "ZmIFeMrH2m",
                             "type" : "component",
                             "component" : {
                                 "type" : "text",
@@ -943,7 +770,7 @@ const wap = {
                             }
                         }, 
                         {
-                            "id" : "iJJanO5CUA",
+                            "id" : "JMCYNBVqoT",
                             "type" : "component",
                             "component" : {
                                 "type" : "text",
@@ -957,7 +784,7 @@ const wap = {
                             }
                         }, 
                         {
-                            "id" : "l3G9YsDrAU",
+                            "id" : "hIf1C5aQwX",
                             "type" : "component",
                             "component" : {
                                 "type" : "text",
@@ -971,7 +798,7 @@ const wap = {
                             }
                         }, 
                         {
-                            "id" : "XzH28STaxY",
+                            "id" : "BMPZBEaqgV",
                             "type" : "component",
                             "component" : {
                                 "type" : "text",
@@ -985,7 +812,7 @@ const wap = {
                             }
                         }, 
                         {
-                            "id" : "hZmz4J9sha",
+                            "id" : "bvXD4mhedB",
                             "type" : "component",
                             "component" : {
                                 "type" : "text",
@@ -1001,12 +828,12 @@ const wap = {
                     ]
                 }, 
                 {
-                    "id" : "wgTOkdAwoR",
+                    "id" : "mzC144E3fw",
                     "type" : "column",
                     "style" : {},
                     "cmps" : [ 
                         {
-                            "id" : "s9e1e9PfRW",
+                            "id" : "RSuU623XKn",
                             "type" : "component",
                             "component" : {
                                 "type" : "text",
@@ -1021,7 +848,7 @@ const wap = {
                             }
                         }, 
                         {
-                            "id" : "OrWNj863JY",
+                            "id" : "hn5doMdFAt",
                             "type" : "component",
                             "component" : {
                                 "type" : "text",
@@ -1036,7 +863,7 @@ const wap = {
                             }
                         }, 
                         {
-                            "id" : "Oco6AUGhRi",
+                            "id" : "EaiyLsmzRs",
                             "type" : "component",
                             "component" : {
                                 "type" : "text",
@@ -1052,7 +879,7 @@ const wap = {
                             }
                         }, 
                         {
-                            "id" : "TF0wwcqifR",
+                            "id" : "tb5FfWl5kV",
                             "type" : "component",
                             "component" : {
                                 "type" : "text",
@@ -1068,7 +895,7 @@ const wap = {
                             }
                         }, 
                         {
-                            "id" : "8hApoImLdE",
+                            "id" : "WdgYLVRFOQ",
                             "type" : "component",
                             "component" : {
                                 "type" : "text",
@@ -1083,7 +910,7 @@ const wap = {
                             }
                         }, 
                         {
-                            "id" : "XOLNjtfDWP",
+                            "id" : "eGDRfsLvD7",
                             "type" : "component",
                             "component" : {
                                 "type" : "text",
@@ -1104,7 +931,7 @@ const wap = {
     ],
     "style" : {},
     "chat" : {
-        "isEnabled" : true,
+        "isEnabled" : false,
         "openingText" : "Hey ☺ \n I'm the digital representative, how can I help you?",
         "answerText" : "Thank you for contacting us, we will reach back to you in a short time."
     }

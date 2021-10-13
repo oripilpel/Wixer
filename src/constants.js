@@ -400,6 +400,7 @@ export const SIDEBAR_ITEMS_HEADER = [
         flexGrow: 0,
         padding: 10,
         display: 'flex',
+        alignItems: 'center'
       },
       cmps: [
         {
@@ -515,15 +516,15 @@ export const SIDEBAR_ITEMS_HEADER = [
                       links: [
                         {
                           id: utilService.makeId(),
-                          txt: 'מרצדס ישראל'
+                          txt: 'Israel'
                         },
                         {
                           id: utilService.makeId(),
-                          txt: 'מרצדס לשירותך'
+                          txt: 'Services'
                         },
                         {
                           id: utilService.makeId(),
-                          txt: 'דגמים'
+                          txt: 'Models'
                         }
                       ]
                     }
@@ -1006,14 +1007,13 @@ export const SIDEBAR_ITEMS_SECTIONS = [
                       hoverColor: '#000000'
                     },
                     style: {
-                      fontSize: '16',
+                      borderRadius: '0px',
+                      border: '1px solid #9f835e',
+                      paddingBlock: 15,
+                      paddingInline: 100,
                       fontFamily: 'Arial',
                       color: '#9f835e',
-                      backgroundColor: '#000000',
-                      height: 60,
-                      width: 350,
-                      cursor: 'pointer',
-                      border: '1px solid #9f835e'
+                      backgroundColor: '#000000'
                     }
                   }
                 }
@@ -2849,18 +2849,17 @@ export const SIDEBAR_ITEMS_FOOTER = [
                   component: {
                     type: 'button',
                     data: {
-                      txt: 'Follow us',
+                      txt: 'Follow Us',
                       hoverColor: '#00abec'
                     },
                     style: {
-                      fontSize: '16',
+                      borderRadius: '5px',
+                      border: 'none',
+                      paddingBlock: 15,
+                      paddingInline: 25,
                       fontFamily: 'Arial',
-                      color: '#ffffff',
-                      backgroundColor: '#00abec',
-                      border: 0,
-                      height: 50,
-                      width: 150,
-                      cursor: 'pointer'
+                      color: 'white',
+                      backgroundColor: '#00abec'
                     }
                   }
                 }
