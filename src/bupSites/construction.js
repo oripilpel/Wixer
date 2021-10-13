@@ -162,8 +162,8 @@ const construction = {
                                         "style" : {
                                             "width" : "auto",
                                             "height" : "auto",
-                                            "object-fit" : "cover",
-                                            "max-width" : "550px"
+                                            "objectFit" : "cover",
+                                            "maxWidth" : "550px"
                                         }
                                     }
                                 }

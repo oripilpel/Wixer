@@ -14,7 +14,6 @@ import { SidebarEditComponent } from "./SidebarEditComponent";
 import { SidebarAddComponent } from "./SidebarAddComponent";
 import { saveWap, loadWap } from '../store/layout.actions'
 import { eventBusService } from "../services/event-bus-service";
-import { hintsService } from "../services/hint.service"
 import { SaveModal } from "./SaveModal";
 
 function _SideBar({
@@ -46,98 +45,52 @@ function _SideBar({
         }
     }, [])
 
-    const hints = hintsService.get()
-    const [hintsChecked, setHintsChecked] = useState(hints ? true : false);
-    const [isAddClicked, setIsAddClicked] = useState(hints ? false : true);
-    const [isElementClicked, setIsElementClicked] = useState(true);
-    const [isPublishBlink, setIsPublishBlink] = useState(true);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [isPublishModal, setIsPublishModal] = useState(false);
+    const [isPublishModal, setIsPublishModal] = useState(false)
 
-    const setHints = (stage) => {
-        switch (stage) {
-            case isAddClicked:
-                if (isAddClicked) return
-                setIsAddClicked(true)
-                setIsElementClicked(false)
-                break;
-            case isElementClicked:
-                if (isElementClicked) return
-                setIsElementClicked(true)
-                setIsPublishBlink(false)
-                setTimeout(() => {
-                    setIsPublishBlink(true)
-                    setHintsChecked(false);
-                    hintsService.save(false)
-                }, 5000)
-                break;
-            case isPublishBlink:
-                setIsPublishBlink(true)
-                setHintsChecked(false);
-                hintsService.save(false)
-                break;
-            default:
-                break;
-        }
-    }
-    const hintsHandleChange = (event) => {
-        setHintsChecked(event.target.checked);
-        if (event.target.checked) {
-            setIsAddClicked(false)
-            setIsElementClicked(true)
-            setIsPublishBlink(true)
-            hintsService.save(true)
-        } else {
-            setIsAddClicked(true)
-            setIsElementClicked(true)
-            setIsPublishBlink(true)
-            hintsService.save(false)
-        }
-    };
     const handleChange = (ev, value) => {
-        setIsEdit(value === 'add' ? false : true);
-    };
+        setIsEdit(value === 'add' ? false : true)
+    }
 
     const onUpdate = (field, data) => {
         update(selected, field, data);
     }
 
     const onSave = async (newName) => {
-        const n = newName || name;
-        // setIsModalOpen(false)
+        const n = newName || name
         const wap = { _id, cmps, style, chat, name: n }
         await saveWap(wap, true)
     }
 
     return (
         <div className="side-bar">
-            <SaveModal cmps={cmps} loadWap={loadWap} user={user} name={name} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} onSave={onSave} isPublish={isPublishModal} />
-            <Tabs className='tabs' value={isEdit ? 'edit' : 'add'} onChange={handleChange} aria-label="disabled tabs example">
-                <Tab icon={<AddBoxIcon />}
-                    className={`tab add ${!isAddClicked ? 'anima' : ''}`}
-                    label="Add" value="add"
-                    onClick={() => { setHints(isAddClicked) }} />
+            <SaveModal
+                cmps={cmps}
+                loadWap={loadWap}
+                user={user}
+                name={name}
+                isModalOpen={isModalOpen}
+                setIsModalOpen={setIsModalOpen}
+                onSave={onSave}
+                isPublish={isPublishModal}
+            />
+            <Tabs
+                className='tabs'
+                value={isEdit ? 'edit' : 'add'}
+                onChange={handleChange}
+                aria-label="disabled tabs example"
+            >
+                <Tab icon={<AddBoxIcon />} className="tab add" label="Add" value="add" />
                 <Tab icon={<EditIcon />} className="tab edit" label="Edit" value="edit" />
             </Tabs>
-            <div className="hints">
-                <FormControlLabel
-                    className="hints"
-                    value="end"
-                    control={<Switch
-                        checked={hintsChecked}
-                        onChange={hintsHandleChange}
-                        inputProps={{ 'aria-label': 'controlled' }}
-                        size='small'
-                    />}
-                    label="Hints"
-                    labelPlacement="start"
-                />
-                <button className="undo" onClick={onUndo} title="undo"><HistoryIcon /></button>
+            <div className="undo-wrapper">
+                <div>Undo</div>
+                <button className="undo" onClick={onUndo} title="undo">
+                    <HistoryIcon />
+                </button>
             </div>
             <div className="items">
                 {!isEdit && <SidebarAddComponent
-                    isElementClicked={isElementClicked}
-                    setHints={setHints}
                     setChatIsEnabled={setChatIsEnabled}
                     chatChange={chatChange}
                     chatIsEnabled={chatIsEnabled}
@@ -170,10 +123,12 @@ function _SideBar({
                 }} >
                     Save
                 </div>
-                <div onClick={() => {
-                    setIsPublishModal(true)
-                    setIsModalOpen(true)
-                }} className={`pub ${!isPublishBlink ? 'anima' : ''}`} onMouseDown={() => { setHints(isPublishBlink) }}>
+                <div
+                    onClick={() => {
+                        setIsPublishModal(true)
+                        setIsModalOpen(true)
+                    }}
+                    className="pub">
                     Publish
                 </div>
             </div>

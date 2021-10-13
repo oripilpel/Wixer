@@ -74,8 +74,7 @@ export function SaveModal({ name, isModalOpen, setIsModalOpen, onSave, user, isP
                         <CloseIcon className="close-btn" onClick={() => setIsModalOpen(false)} />
                     </div>
                     <p>your work has been saved, you can see it on the dashboard page</p>
-                    <div className="flex justify-between">
-
+                    <div className="actions flex justify-between">
                         <Link className="modal-link dashboard" onClick={() => setIsModalOpen(false)} to="/dashboard">Dashboard</Link>
                         {isPublish && name && <div className="modal-link" onClick={() => {
                             navigator.clipboard.writeText(`https://wixer-app.herokuapp.com/${name}`)

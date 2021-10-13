@@ -75,7 +75,7 @@ const KeysToIconMap = {
   'EmailIcon': <div className="icon"><EmailIcon /></div>,
 }
 
-export function SideBarItem({ data, type, isElementClicked, setHints }) {
+export function SideBarItem({ data, type }) {
   const [{ opacity }, drag] = useDrag({
     type,
     item: data,
@@ -85,13 +85,15 @@ export function SideBarItem({ data, type, isElementClicked, setHints }) {
   });
   return (
     <div
-      className={`side-bar-item flex direction-column justify-center ${data.name === 'Header1' && !isElementClicked ? 'anima-bg' : ''}`}
-      onMouseDown={() => data.name === 'Header1' && !isElementClicked ? setHints(isElementClicked) : ''}
-      ref={drag} style={{ opacity }}>
+      className="side-bar-item flex direction-column justify-center"
+      ref={drag}
+      style={{ opacity }}
+    >
       {data.icon && KeysToIconMap[data.icon]}
       {!data.image && (data.name || data.component.type)}
-      {data.image && <img alt="cmp preview" src={KeysToComponentMap[data.image]}
-        className={`${data.name === 'Header1' && !isElementClicked ? 'anima' : ''}`} />}
+      {data.image && (
+        <img alt="cmp preview" src={KeysToComponentMap[data.image]}
+        />)}
     </div >
   );
 };

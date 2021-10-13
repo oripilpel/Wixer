@@ -78,8 +78,8 @@ function _Publish({ history, match, cmps, chat, loadWap }) {
 
     }
     return (
-        <div className="publish">
-            {match.params.wapId && <div className="margin-top-65"></div> }
+        <div className={`publish ${match.params.wapId && "preview"}`}>
+            {match.params.wapId && <div className="margin-top-65"></div>}
             {loadHamb && (
                 <>
                     <div className={`screen ${isMenuOpen ? "active" : ""}`} onClick={() => toggleMenu(false)}></div>

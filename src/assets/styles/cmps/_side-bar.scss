@@ -4,24 +4,6 @@
     width: 220px;
     border-right: 1px solid #293241;
     background: #e6e9ec;
-    .tabs {
-        .add {
-            &.anima {
-                animation: add-blink 2s infinite;
-            }
-        }
-        @keyframes add-blink {
-            0% {
-                background-color: #e6e9ec;
-            }
-            50% {
-                background-color: #c2ce1e;
-            }
-            100% {
-                background-color: #e6e9ec;
-            }
-        }
-    }
     .tab {
         background-color: #293241;
         color: whitesmoke;
@@ -86,23 +68,9 @@
             &:hover {
                 background-color: #3e85cc;
             }
-            &.anima {
-                animation: pub-blink 2s infinite;
-            }
-        }
-        @keyframes pub-blink {
-            0% {
-                background-color: #e6e9ec;
-            }
-            50% {
-                background-color: #c2ce1e;
-            }
-            100% {
-                background-color: #e6e9ec;
-            }
         }
     }
-    .hints {
+    .undo-wrapper {
         display: flex;
         justify-content: space-between;
         margin: 5px 0;

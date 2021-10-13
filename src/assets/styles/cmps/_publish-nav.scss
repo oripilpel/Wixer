@@ -3,7 +3,7 @@
         width: 100%;
         transition: 0.5s;
         position: relative;
-        justify-content: end;
+        justify-content: flex-end;
         display: flex;
         z-index: 5;
         .links {
@@ -23,7 +23,7 @@
                 padding-block-start: 100px;
                 box-shadow: 0 0px 20px 0px #00000042;
                 transition: 0.4s;
-                justify-content: start !important;
+                justify-content: flex-start !important;
             }
             &.active {
                 right: 0;
@@ -55,7 +55,7 @@
         border: 1px solid black;
         border-radius: 5px;
         background-color: #ffffffd1;
-        z-index: 10;
+        z-index: 9;
         div {
             width: 25px;
             height: 8px;
@@ -86,7 +86,6 @@
             display: flex;
         }
     }
-
     .screen {
         display: none;
         position: fixed;
@@ -98,6 +97,18 @@
             display: block;
             pointer-events: auto;
             cursor: pointer;
+        }
+    }
+    &.preview {
+        .publish-nav {
+            .links {
+                @media screen and (max-width: 720px) {
+                    padding-block-start: 160px;
+                }
+            }
+        }
+        .hamb-icon {
+            top: 75px;
         }
     }
 }

@@ -10,7 +10,7 @@ import { TextareaAutosize } from "@mui/material";
 import Checkbox from '@mui/material/Checkbox';
 import TextField from '@mui/material/TextField';
 
-export function SidebarAddComponent({ isElementClicked, setHints, setChatIsEnabled, chatIsEnabled, chatOpeningText, chatAnswerText, chatChange }) {
+export function SidebarAddComponent({ setChatIsEnabled, chatIsEnabled, chatOpeningText, chatAnswerText, chatChange }) {
     const [expanded, setExpanded] = React.useState('header')
     const handleChange = (panel) => (event, newExpanded) => {
         setExpanded(newExpanded ? panel : false);
@@ -26,8 +26,7 @@ export function SidebarAddComponent({ isElementClicked, setHints, setChatIsEnabl
                 </AccordionSummary>
                 <AccordionDetails className="header-items">
                     {Object.values(SIDEBAR_ITEMS_HEADER).map((sideBarItem, index) => (
-                        <SideBarItem key={sideBarItem.id} data={sideBarItem} type={sideBarItem.type}
-                            isElementClicked={isElementClicked} setHints={setHints} />
+                        <SideBarItem key={sideBarItem.id} data={sideBarItem} type={sideBarItem.type}/>
                     ))}
                 </AccordionDetails>
             </Accordion>
