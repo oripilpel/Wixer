@@ -13,6 +13,10 @@ export function Dashboard() {
         }())
     }, [])
 
+    const onRemove = (wapId) => {
+        setWaps(waps.filter(wap => wap._id !== wapId));
+    }
+
     if (!waps) return (
         <div className="dashboard">
             <Loader className="loader" />
@@ -31,7 +35,7 @@ export function Dashboard() {
                 </>
             )}
             <div className="my-sites">
-                {waps.map(wap => <WapPreview key={wap._id} wap={wap} />)}
+                {waps.map(wap => <WapPreview key={wap._id} wap={wap} onRemove={onRemove}/>)}
             </div>
         </div>
     )

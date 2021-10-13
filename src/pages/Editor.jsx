@@ -97,12 +97,12 @@ function _Editor(
     }, [_id])
 
     useEffect(() => {
-        if (!_id) return
+        if (!_id || templateService.gTemplatesIds().includes(_id)) return
         wapService.save({ _id, cmps, style, chat, name });
     }, [chat])
 
     useEffect(() => {
-        if (!_id) return
+        if (!_id || templateService.gTemplatesIds().includes(_id)) return
         setHitoryUndo([...historyUndo, JSON.parse(JSON.stringify(cmps))]);
         wapService.save({ _id, cmps, style, name });
     }, [cmps])
