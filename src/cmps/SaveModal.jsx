@@ -33,7 +33,6 @@ export function SaveModal({ name, isModalOpen, setIsModalOpen, onSave, user, isP
                             }
                             catch (err) {
                                 (async function () {
-                                    debugger
                                     setLoading(true)
                                     await onSave(siteName)
                                     setLoading(false)
